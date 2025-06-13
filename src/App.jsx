@@ -118,6 +118,7 @@ const celularValido = celularSoloNumeros.length === 10;
       name: datos.nombre,
       phone: "+57" + datos.celular,
       email: datos.correo
+      detalle: camisas.map((c, i) => `Camisa ${i + 1}: ${c.color} - ${c.talla}`).join("\n")
     })
   }).then(() => {
     if (window.fbq) {
