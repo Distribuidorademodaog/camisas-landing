@@ -117,8 +117,8 @@ const celularValido = celularSoloNumeros.length === 10;
     body: JSON.stringify({
       name: datos.nombre,
       phone: "+57" + datos.celular,
-      email: datos.correo
-      detalle: camisas.map((c, i) => `Camisa ${i + 1}: ${c.color} - ${c.talla}`).join("\n")
+      email: datos.correo,
+      detalle: camisas.map((c, i) => `Camisa ${i + 1}: ${c.color} - ${c.talla}`).join("\n")npm
     })
   }).then(() => {
     if (window.fbq) {
