@@ -116,7 +116,7 @@ const celularValido = celularSoloNumeros.length === 10;
     },
     body: JSON.stringify({
       name: datos.nombre,
-      phone: datos.celular,
+      phone: "+57" + datos.celular,
       email: datos.correo
     })
   }).then(() => {
