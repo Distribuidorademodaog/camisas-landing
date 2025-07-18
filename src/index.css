@@ -1,1 +1,30 @@
-body { font-family: sans-serif; margin: 0; padding: 0; }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Puedes agregar aquí estilos adicionales en CSS puro si quieres */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #f8f8f8;
+}
+
+button {
+  background-color: black;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+select, input {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}

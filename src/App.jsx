@@ -8,37 +8,65 @@ import uno from './assets/1camisa.png';
 import tres from './assets/3camisas.png';
 import seis from './assets/6camisas.png';
 import oferta from './assets/oferta.png';
+import camisas2 from "./assets/camisas2.jpg";
+import Testimonios from "./components/Testimonios";
+import SeleccionaPack from "./components/SeleccionaPack";
+import './index.css';
+
+
 
 
 // Colores
 import amarillo from './assets/camisas/camisa-amarillo.jpg';
-import azulclaro from './assets/camisas/camisa-azulclaro.jpg';
-import verdemilitar from './assets/camisas/camisa-verdemilitar.jpg';
 import rojo from './assets/camisas/camisa-rojo.jpg';
 import azulmedio from './assets/camisas/camisa-azulmedio.jpg';
 import blanco from './assets/camisas/camisa-blanco.jpg';
+import verdeoscuro from './assets/camisas/camisa-verdeoscuro.jpg';
+import verdeclaro from './assets/camisas/camisa-verdeclaro.jpg';
 import negro from './assets/camisas/camisa-negro.jpg';
-import verde from './assets/camisas/camisa-verde.jpg';
 import rosada from './assets/camisas/camisa-rosada.jpg';
 import bossazul from './assets/camisas/boss-azul.jpg';
-import cuadrosamarillo from './assets/camisas/cuadros-amarillo.jpg'; // Nueva imagen
+import rayasamarillo from './assets/camisas/rayas-amarilla.jpg';
+
+import linoazulclaro from './assets/camisas/tipolino-azulclaro.jpg';
+import linoazuloscuro from './assets/camisas/tipolino-azuloscuro.jpg';
+import linoverdeclaro from './assets/camisas/tipolino-verdeclaro.jpg';
+import linoverdemilitar from './assets/camisas/tipolino-verdemilitar.jpg';
+import linoblanco from './assets/camisas/tipolino-blanco.jpg';
+import linoterracota from './assets/camisas/tipolino-terracota.jpg';
+import linonegro from './assets/camisas/tipolino-negro.jpg';
+import linobeige from './assets/camisas/tipolino-beige.jpg';
+import CHazul from './assets/camisas/cuadrosch-azul.jpg';
+import CHnegro from './assets/camisas/cuadrosch-negro.jpg';
+import CHrojo from './assets/camisas/cuadrosch-rojo.jpg';
+import CHverde from './assets/camisas/cuadrosch-verde.jpg';
 import videoCamisas from './assets/video-camisas.mp4';
+import videoCamisas1 from './assets/videocamisas1.mp4';
+import { preloadModule } from 'react-dom';
+
 
 
 const tallas = ["S", "M", "L", "XL", "XXL", "3XL"];
 
 const colores = [
-  { nombre: "Negro", img: negro },
-  { nombre: "Blanco", img: blanco },
-  { nombre: "rojo", img: rojo },
-  { nombre: "Azul claro", img: azulclaro },
-  { nombre: "Azul medio", img: azulmedio },
-  { nombre: "Verde militar", img: verdemilitar },
-  { nombre: "Verde", img: verde },
-  { nombre: "rosada", img: rosada },
-  { nombre: "Amarillo", img: amarillo },
-  { nombre: "Boss azul", img: bossazul },
-  { nombre: "cuadros Amarillo", img: cuadrosamarillo },
+  { nombre: "Negro", img: negro, tallas: ["S", "M", "L", "XL", "XXL", "3XL"] },
+  { nombre: "Blanco", img: blanco, tallas: ["S", "M", "L", "XL", "XXL", "3XL"] },
+  { nombre: "rojo", img: rojo, tallas: ["S", "M", "L", "XL", "XXL", "3XL"] },
+  { nombre: "rosada", img: rosada, tallas: ["S", "M", "L", "XL", "XXL"] },
+  { nombre: "Amarillo", img: amarillo, tallas: ["S", "M", "L", "XL", "XXL", "3XL"] },
+  { nombre: "verde oscuro", img: verdeoscuro, tallas: [ "M", "L", "3XL"] },
+  { nombre: "verde claro", img: verdeclaro, tallas: ["S", "M", "L", "XL", "XXL", "3XL"] },
+  { nombre: "Boss azul", img: bossazul, tallas: ["S", "M", "L", "XL"] },
+  { nombre: "rayas amarillo", img: rayasamarillo, tallas: ["S", "M", "L", "XL", "3XL"] },
+
+  { nombre: "Tipo lino 100% alg azul claro", img: linoazulclaro, tallas: ["M", "L", "XL", "XXL", "3XL"] },
+  { nombre: "Tipo lino 100% alg azul oscuro", img: linoazuloscuro, tallas: ["S", "M", "L", "XL", "XXL", "3XL"] },
+  { nombre: "Tipo lino 100% alg verde claro", img: linoverdeclaro, tallas: ["S", "M", "L", "XL", "XXL", "3XL"] },
+  { nombre: "Tipo lino 100% alg verde militar", img: linoverdemilitar, tallas: ["S", "M", "L", "XXL", "3XL"] },
+  { nombre: "Tipo lino 100% alg terracota", img: linoterracota, tallas: [ "M", "L", "XL", "XXL", "3XL"] },
+  { nombre: "Tipo lino 100% alg negro", img: linonegro, tallas: ["S", "M", "L", "XL", "XXL", "3XL"] },
+  { nombre: "Tipo lino 100% alg beige", img: linobeige, tallas: ["S", "M", "L", "XXL", "3XL"] },
+  
   
 ];
 
@@ -61,7 +89,8 @@ export default function App() {
     const h = Math.floor(segundos / 3600);
     const m = Math.floor((segundos % 3600) / 60);
     const s = segundos % 60;
-    return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+ return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+
   };
 
   const handlePackSelect = (n) => {
@@ -103,13 +132,14 @@ const celularValido = celularSoloNumeros.length === 10;
       celular: datos.celular,
       correo: datos.correo,
       cantidad,
-      detalle: camisas.map((c, i) => `Camisa ${i + 1}: ${c.color} - ${c.talla}`).join("\n"),
+     detalle: camisas.map((c, i) => `Camisa ${i + 1}: ${c.color} - ${c.talla}`).join("\n"),
+
     };
   
     emailjs.send('service_6ky78ug', 'template_gjb5ogc', templateParams, 'U0jIWruEWKvne7-ss')
     .then(() => {
   // Enviar a EmailJS fue exitoso, ahora enviamos al webhook
-  fetch("https://contactos.xn--cuellosypuos-jhb.com/webhook-pedido", {
+  fetch("https://n8n.paquetecompleto.com.co/webhook/nuevo-pedido", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -118,7 +148,8 @@ const celularValido = celularSoloNumeros.length === 10;
       name: datos.nombre,
       phone: "+57" + datos.celular,
       email: datos.correo,
-      detalle: camisas.map((c, i) => `Camisa ${i + 1}: ${c.color} - ${c.talla}`).join("\n")npm
+  detalle: camisas.map((c, i) => `Camisa ${i + 1}: ${c.color} - ${c.talla}`).join("\n")
+
     })
   }).then(() => {
     if (window.fbq) {
@@ -139,6 +170,10 @@ const celularValido = celularSoloNumeros.length === 10;
 
   return (
     <div className="container" style={{ padding: 20, fontFamily: 'sans-serif', maxWidth: 900, margin: "0 auto" }}>
+      <div className="bg-green-500 text-white p-4 rounded-lg text-center mb-4">
+
+</div>
+
       {step === 1 && (
         <>
           <h1 style={{ fontSize: "2rem", fontWeight: "bold" }}>Haz tu pedido fácil y rápido</h1>
@@ -195,32 +230,71 @@ const celularValido = celularSoloNumeros.length === 10;
             ))}
           </div>
 
-          {/* Video demostrativo */}
-<div style={{ margin: "30px 0", textAlign: "center" }}>
+          {/* ─── Dos videos lado a lado ─────────────────────────────── */}
+<div
+  style={{
+    display: "flex",
+    flexWrap: "wrap",     // se apilan en móvil
+    gap: 20,
+    justifyContent: "center",
+    margin: "30px 0",
+  }}
+>
+  {/* Video original */}
   <video
     src={videoCamisas}
     controls
     autoPlay
     muted
     loop
-    style={{ width: "100%", maxWidth: "400px", borderRadius: 10 }}
+    playsInline
+    style={{
+      width: "100%",
+      maxWidth: 400,
+      borderRadius: 10,
+      objectFit: "cover",
+    }}
+  />
+
+  {/* Segundo video, mismo tamaño */}
+  <video
+    src={videoCamisas1}
+    controls
+    autoPlay
+    muted
+    loop
+    playsInline
+    style={{
+      width: "100%",
+      maxWidth: 400,
+      borderRadius: 10,
+      objectFit: "cover",
+    }}
   />
 </div>
+
 
           <div style={{ backgroundColor: "#001f3f", padding: 12, borderRadius: 6, margin: "20px 0", color: "#fff", textAlign: "center" }}>
             <h2 style={{ margin: 0 }}>Selecciona un pack</h2>
           </div>
 
-          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 15 }}>
-            {[{ img: uno, cant: 1 }, { img: tres, cant: 3 }, { img: seis, cant: 6 }].map((pack, index) => (
-              <div key={index} onClick={() => handlePackSelect(pack.cant)} style={{ maxWidth: 200, cursor: "pointer", textAlign: "center" }}>
-                <img src={pack.img} alt={`${pack.cant} camisas`} style={{ width: "100%", borderRadius: 10 }} />
-                <button style={{ marginTop: 8, backgroundColor: "#001f3f", color: "#fff", padding: "6px 12px", border: "none", borderRadius: 6 }}>
-                  Seleccionar
-                </button>
-              </div>
-            ))}
-          </div>
+          {/* Selección de packs con Tailwind */}
+<div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6">
+  {[{ cant: 1, precio: 115000, anterior: 115000 }, { cant: 3, precio: 295000, anterior: 345000 }, { cant: 6, precio: 495000, anterior: 690000 }].map((pack, index) => (
+    <div key={index} className="bg-white rounded-lg shadow-md p-4 text-center border hover:border-gray-800 transition-all">
+      <h3 className="text-xl font-semibold mb-2">{pack.cant} Camisa{pack.cant > 1 && 's'}</h3>
+      <p className="line-through text-gray-500 text-sm">${pack.anterior.toLocaleString()}</p>
+      <p className="text-2xl font-bold text-green-600 mb-2">${pack.precio.toLocaleString()}</p>
+      <p className="text-sm mb-2">{pack.cant > 1 ? '🚚 ¡Envío gratis!' : '🚚 Envío gratis'}</p>
+      <button
+        className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800"
+        onClick={() => handlePackSelect(pack.cant)}
+      >
+        ¡Lo quiero ahora!
+      </button>
+    </div>
+  ))}
+</div>
 
 
 
@@ -241,32 +315,48 @@ const celularValido = celularSoloNumeros.length === 10;
               <p><strong>• Garantía de 30 días por imperfectos</strong></p>
             </div>
           </div>
+      <Testimonios />
+<SeleccionaPack onPackSelect={handlePackSelect} />
+
+
         </>
       )}
 
+
+
+
+{/* ---------------- PASO 2 ---------------- */}
 {step === 2 && (
-  <div>
-  
-    {/* Miniaturas de referencia de todos los colores */}
+    <section id="paso2" className="py-20">
+    {/* Miniaturas de referencia */}
     <div style={{ marginTop: 30 }}>
       <h3 style={{ marginBottom: 10 }}>Colores disponibles:</h3>
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(90px, 1fr))",
-        gap: 15,
-        justifyItems: "center"
-      }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(90px, 1fr))",
+          gap: 15,
+          justifyItems: "center",
+        }}
+      >
         {colores.map((c, idx) => (
           <div key={idx} style={{ textAlign: "center" }}>
             <img
               src={c.img}
               alt={c.nombre}
-              style={{ width: 60, height: 60, objectFit: "cover", borderRadius: 6, border: "1px solid #ccc", cursor: "pointer" }}
+              style={{
+                width: 60,
+                height: 60,
+                objectFit: "cover",
+                borderRadius: 6,
+                border: "1px solid #ccc",
+                cursor: "pointer",
+              }}
               onClick={() => setImagenAmpliada(c.img)}
             />
             <div style={{ fontSize: 12, marginTop: 5 }}>
-  <strong>{idx + 1}.</strong> {c.nombre}
-</div>
+              <strong>{idx + 1}.</strong> {c.nombre}
+            </div>
           </div>
         ))}
       </div>
@@ -274,70 +364,129 @@ const celularValido = celularSoloNumeros.length === 10;
 
     <h2>Selecciona color y talla</h2>
 
-{camisas.map((camisa, i) => {
-  const imagenColor = obtenerImagenColor(camisa.color);
-  return (
-    <div key={i} style={{ marginBottom: 30 }}>
-      <p>Camisa {i + 1}</p>
-      <select onChange={(e) => handleCamisaChange(i, 'color', e.target.value)}>
-  <option value="">Selecciona color</option>
-  {colores.map((c, index) => (
-    <option key={c.nombre} value={c.nombre}>
-      {index + 1}. {c.nombre}
-    </option>
-  ))}
-</select>
-      <select onChange={(e) => handleCamisaChange(i, 'talla', e.target.value)} style={{ marginLeft: 10 }}>
-        <option value="">Selecciona talla</option>
-        {tallas.map((t) => <option key={t}>{t}</option>)}
-      </select>
+    {camisas.map((camisa, i) => {
+      const imgColor = obtenerImagenColor(camisa.color);
+      return (
+        <div key={i} style={{ marginBottom: 30 }}>
+          <p>Camisa {i + 1}</p>
 
-      {/* Vista previa del color seleccionado */}
-      {camisa.color && imagenColor && (
-  <div style={{ marginTop: 10 }}>
-    <img
-      src={imagenColor}
-      alt={camisa.color}
-      style={{ width: 80, height: 80, objectFit: "cover", borderRadius: 6, cursor: "pointer" }}
-      onClick={() => setImagenAmpliada(imagenColor)}
-    />
-    <p style={{ fontSize: 14 }}>{camisa.color}</p>
-  </div>
+          <select onChange={e => handleCamisaChange(i, "color", e.target.value)}>
+            <option value="">Selecciona color</option>
+            {colores.map((c, idx) => (
+              <option key={c.nombre} value={c.nombre}>
+                {idx + 1}. {c.nombre}
+              </option>
+            ))}
+          </select>
+  
+{camisa.color && (
+  <select
+    onChange={e => handleCamisaChange(i, "talla", e.target.value)}
+    style={{ marginLeft: 10 }}
+    value={camisa.talla}
+  >
+    <option value="">Selecciona talla</option>
+    {tallas.map(t => {
+      const tallasDisponibles = colores.find(c => c.nombre === camisa.color)?.tallas || [];
+      const disponible = tallasDisponibles.includes(t);
+      return (
+        <option
+          key={t}
+          value={t}
+          disabled={!disponible}
+          style={{ color: disponible ? "#000" : "#999", textDecoration: disponible ? "none" : "line-through" }}
+        >
+          {t}
+        </option>
+      );
+    })}
+  </select>
 )}
-    </div>
-  );
-})}
 
-    {/* Imagen ampliada (lightbox) */}
-    {imagenAmpliada && (
-      <div
-        onClick={() => setImagenAmpliada(null)}
-        style={{
-          position: "fixed",
-          top: 0, left: 0, right: 0, bottom: 0,
-          backgroundColor: "rgba(0,0,0,0.7)",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          zIndex: 9999
-        }}
-      >
-        <img
-          src={imagenAmpliada}
-          alt="Vista ampliada"
-          style={{ maxWidth: "90%", maxHeight: "90%", borderRadius: 10 }}
-        />
-      </div>
-    )}
-<div style={{ display: "flex", justifyContent: "space-between", marginTop: 20 }}>
+
+
+          {/* Vista previa */}
+          {camisa.color && imgColor && (
+            <div style={{ marginTop: 10 }}>
+              <img
+                src={imgColor}
+                alt={camisa.color}
+                style={{
+                  width: 80,
+                  height: 80,
+                  objectFit: "cover",
+                  borderRadius: 6,
+                  cursor: "pointer",
+                }}
+                onClick={() => setImagenAmpliada(imgColor)}
+              />
+              <p style={{ fontSize: 14 }}>{camisa.color}</p>
+            </div>
+          )}
+        </div>
+      );
+    })}
+
+    {/* Navegación */}
+    <div style={{ display: "flex", justifyContent: "space-between", marginTop: 20 }}>
       <button onClick={() => setStep(1)}>Atrás</button>
       <button onClick={() => setStep(3)}>Siguiente</button>
     </div>
-    <img src={tabla} alt="Tabla de medidas" style={{ width: "100%", marginTop: 20 }} />
 
-    
+    <img src={tabla} alt="Tabla de medidas" style={{ width: "100%", marginTop: 20 }} />
+   </section>
+
+)} {/* ← cierre correcto del paso 2 */}
+
+{/* ---------- Modal global con ❌ ---------- */}
+{imagenAmpliada && (
+  <div
+    onClick={() => setImagenAmpliada(null)}
+    style={{
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      backgroundColor: "rgba(0,0,0,0.8)",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      zIndex: 9999,
+      cursor: "pointer",
+    }}
+  >
+    <button
+      onClick={() => setImagenAmpliada(null)}
+      style={{
+        position: "absolute",
+        top: 20,
+        right: 20,
+        background: "#fff",
+        border: "none",
+        fontSize: 24,
+        fontWeight: "bold",
+        borderRadius: "50%",
+        width: 40,
+        height: 40,
+        lineHeight: "40px",
+        textAlign: "center",
+        cursor: "pointer",
+        boxShadow: "0 0 10px rgba(0,0,0,0.4)",
+      }}
+    >
+      ×
+    </button>
+
+    <img
+      src={imagenAmpliada}
+      alt="Camisa ampliada"
+      style={{ maxWidth: "90%", maxHeight: "90%", borderRadius: 10 }}
+      onClick={e => e.stopPropagation()}
+    />
   </div>
 )}
+
 
       {/* Paso 3 */}
       {step === 3 && (
@@ -366,6 +515,27 @@ const celularValido = celularSoloNumeros.length === 10;
         <div style={{ textAlign: "center", marginTop: 60 }}>
           <h2>¡Gracias por tu pedido!</h2>
           <p>Te contactaremos pronto por WhatsApp.</p>
+          <div className="mt-10 text-center">
+  <h3 className="text-2xl font-bold mb-4">Visita nuestra página de Polos</h3>
+
+  <a href="https://camisas-polos.vercel.app/" target="_blank" rel="noopener noreferrer">
+    <img
+      src={camisas2} // Asegúrate de importar esta imagen arriba como: import camisas2 from './assets/camisas2.jpg';
+      alt="Polos"
+      className="mx-auto rounded-xl shadow-xl w-full max-w-xl hover:scale-105 transition-transform duration-300 cursor-pointer"
+    />
+  </a>
+
+  <a
+    href="https://camisas-polos.vercel.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block mt-6 px-6 py-3 text-white bg-blue-700 rounded-lg font-semibold hover:bg-blue-800 transition"
+  >
+    Visita página de Polos
+  </a>
+</div>
+
         </div>
       )}
 
