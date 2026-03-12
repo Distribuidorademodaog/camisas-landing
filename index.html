@@ -1782,88 +1782,121 @@ function toggleFaq(el) {
 }
 
 /* ORDER BUMPS */
-.ob-section {
-  margin:24px 20px 0;
-}
+.ob-section { margin:24px 20px 0; }
 .ob-urgency {
   background:linear-gradient(135deg,#8B1A1A,#C0392B);
-  border-radius:10px; padding:12px 16px; margin-bottom:14px;
+  border-radius:10px; padding:12px 16px; margin:0 0 16px;
   display:flex; align-items:center; gap:10px;
 }
-.ob-urgency-icon { font-size:20px; flex-shrink:0; animation:pulse 1.5s infinite; }
-@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.65;} }
-.ob-urgency-text {
-  font-family:'Outfit',sans-serif; font-size:12px; font-weight:600;
-  color:white; line-height:1.4;
-}
-.ob-urgency-text span { color:#FFD700; font-size:11px; font-weight:500; display:block; margin-top:2px; }
+.ob-urgency-icon { font-size:20px; }
+.ob-urgency-text { font-family:'Outfit',sans-serif; font-size:12px; font-weight:600; color:white; line-height:1.4; }
 
 .ob-card {
-  background:white; border-radius:12px; margin-bottom:12px;
-  border:1.5px solid rgba(0,0,0,0.06); overflow:hidden;
-  box-shadow:0 2px 12px rgba(0,0,0,0.05);
+  background:white; border-radius:14px; overflow:hidden;
+  box-shadow:0 2px 12px rgba(0,0,0,0.1); margin-bottom:16px; border:1px solid #e8e2d8;
 }
-.ob-card-head {
-  display:flex; gap:12px; padding:14px 14px 0;
+.ob-card-header {
+  padding:14px 16px 10px;
+  display:flex; align-items:center; gap:12px;
+  border-bottom:1px solid #f0ece4;
 }
-.ob-card-img {
-  width:72px; height:72px; border-radius:8px; flex-shrink:0;
-  object-fit:cover; display:flex; align-items:center; justify-content:center; font-size:28px;
+.ob-admin-name {
+  font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:700; color:#0e1828; flex:1;
 }
-.ob-card-info { flex:1; }
-.ob-card-kicker {
-  font-family:'Outfit',sans-serif; font-size:8.5px; font-weight:700;
-  text-transform:uppercase; letter-spacing:0.12em; color:#9A7B3C; margin-bottom:3px;
+.ob-admin-name[contenteditable="true"] {
+  outline:none; border-bottom:1px dashed #C4A35A; cursor:text;
 }
-.ob-card-name {
-  font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:700;
-  color:#121C2E; line-height:1.1; margin-bottom:4px;
+.ob-price-row { display:flex; align-items:center; gap:8px; margin-top:3px; }
+.ob-price-now { font-family:'Outfit',sans-serif; font-size:18px; font-weight:800; color:#9A7B3C; }
+.ob-price-was { font-family:'Outfit',sans-serif; font-size:12px; color:#aaa; text-decoration:line-through; }
+.ob-price-save { background:#C0392B; color:white; font-family:'Outfit',sans-serif; font-size:10px; font-weight:700; border-radius:4px; padding:2px 6px; }
+
+/* Main image + thumbs */
+.ob-img-area { padding:0 16px 10px; }
+.ob-main-img {
+  width:100%; height:200px; object-fit:cover; border-radius:10px;
+  display:block; background:#f0ece4; cursor:pointer;
 }
-.ob-card-price-row { display:flex; align-items:center; gap:7px; }
-.ob-card-price {
-  font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; color:#121C2E;
+.ob-main-img-wrap { position:relative; }
+.ob-main-label {
+  position:absolute; bottom:8px; left:8px;
+  background:rgba(14,24,40,0.75); color:white;
+  font-family:'Outfit',sans-serif; font-size:11px; font-weight:600;
+  padding:3px 8px; border-radius:5px;
 }
-.ob-card-old {
-  font-family:'Outfit',sans-serif; font-size:11px; text-decoration:line-through; color:rgba(0,0,0,0.22);
+.ob-thumbs {
+  display:flex; gap:7px; margin-top:8px; flex-wrap:wrap;
 }
-.ob-card-save {
-  font-family:'Outfit',sans-serif; font-size:9.5px; font-weight:700;
-  background:#E8F5EE; color:#2A6B46; padding:2px 7px; border-radius:4px;
+.ob-thumb {
+  width:52px; height:52px; border-radius:7px; overflow:hidden;
+  border:2px solid transparent; cursor:pointer; flex-shrink:0;
+  transition:border-color .15s;
+}
+.ob-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+.ob-thumb.sel { border-color:#C4A35A; }
+.ob-thumb-add {
+  width:52px; height:52px; border-radius:7px;
+  border:2px dashed #C4A35A; display:flex; align-items:center;
+  justify-content:center; cursor:pointer; color:#C4A35A; font-size:22px;
+  flex-shrink:0; background:#fdf9f2;
 }
 
-/* Dropdown toggle */
-.ob-toggle {
-  width:100%; background:none; border:none; border-top:1px solid rgba(0,0,0,0.06);
-  margin-top:12px; padding:10px 14px;
-  display:flex; align-items:center; justify-content:space-between; cursor:pointer;
-  font-family:'Outfit',sans-serif; font-size:11.5px; font-weight:500; color:#7a7060;
+/* Selection row */
+.ob-select-area { padding:0 16px 12px; }
+.ob-select-label {
+  font-family:'Outfit',sans-serif; font-size:11px; font-weight:600;
+  color:#7a7060; text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px;
 }
-.ob-toggle-arrow { font-size:14px; color:#9A7B3C; transition:transform 0.2s; }
-.ob-toggle.open .ob-toggle-arrow { transform:rotate(180deg); }
-.ob-colors { display:none; padding:0 14px 14px; }
-.ob-colors.show { display:block; }
-.ob-color-group { margin-bottom:10px; }
-.ob-color-name {
-  font-family:'Outfit',sans-serif; font-size:10.5px; font-weight:600;
-  color:#121C2E; margin-bottom:5px; text-transform:capitalize;
+.ob-tallas-row { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px; }
+.ob-talla-btn {
+  padding:5px 13px; border-radius:7px; border:1.5px solid #e0d8cc;
+  font-family:'Outfit',sans-serif; font-size:12px; font-weight:600; color:#4a4030;
+  background:white; cursor:pointer; transition:all .15s;
 }
-.ob-tallas-row { display:flex; flex-wrap:wrap; gap:5px; }
-.ob-talla {
-  border:1.5px solid rgba(0,0,0,0.12); border-radius:6px; padding:4px 10px;
-  font-family:'Outfit',sans-serif; font-size:11px; font-weight:500; color:#121C2E;
-  cursor:pointer; transition:all 0.12s;
+.ob-talla-btn.sel { background:#0e1828; color:#C4A35A; border-color:#C4A35A; }
+.ob-talla-btn.agotado { opacity:.4; cursor:not-allowed; text-decoration:line-through; }
+
+/* Quantity */
+.ob-qty-row { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+.ob-qty-label { font-family:'Outfit',sans-serif; font-size:12px; color:#7a7060; font-weight:600; }
+.ob-qty-ctrl { display:flex; align-items:center; gap:0; border:1.5px solid #e0d8cc; border-radius:8px; overflow:hidden; }
+.ob-qty-btn {
+  width:32px; height:32px; background:#f7f3ed; border:none; cursor:pointer;
+  font-size:16px; font-weight:700; color:#0e1828; display:flex; align-items:center; justify-content:center;
 }
-.ob-talla.sel-t {
-  background:#0e1828; border-color:#C4A35A; color:#C4A35A; font-weight:600;
+.ob-qty-btn:active { background:#e8e2d8; }
+.ob-qty-num {
+  width:32px; height:32px; text-align:center; border:none; outline:none;
+  font-family:'Outfit',sans-serif; font-size:14px; font-weight:700; color:#0e1828;
+  background:white;
 }
-.ob-card-cta {
-  width:calc(100% - 28px); margin:0 14px 14px;
+
+/* Add more line */
+.ob-add-more {
+  display:flex; align-items:center; gap:6px; cursor:pointer;
+  font-family:'Outfit',sans-serif; font-size:12px; font-weight:700;
+  color:#C4A35A; margin-bottom:12px; padding:0 16px;
+}
+.ob-extra-selections { padding:0 16px; }
+.ob-extra-item {
+  background:#fdf9f2; border-radius:10px; padding:10px 12px;
+  border:1px solid #e8e2d8; margin-bottom:8px; position:relative;
+}
+.ob-extra-remove {
+  position:absolute; top:6px; right:8px; background:none; border:none;
+  color:#aaa; font-size:16px; cursor:pointer; padding:0;
+}
+
+/* CTA */
+.ob-cta-btn {
+  display:block; width:calc(100% - 32px); margin:0 16px 16px;
   background:linear-gradient(135deg,#9A7B3C,#C4A35A);
-  border:none; border-radius:8px; padding:12px;
-  font-family:'Outfit',sans-serif; font-size:12.5px; font-weight:700;
-  color:#121C2E; cursor:pointer; letter-spacing:0.04em; text-transform:uppercase;
-  display:none;
+  color:white; font-family:'Outfit',sans-serif; font-size:14px; font-weight:700;
+  border:none; border-radius:10px; padding:14px; text-align:center; cursor:pointer;
+  transition:opacity .2s; letter-spacing:.03em;
 }
+.ob-cta-btn:disabled { opacity:.45; cursor:not-allowed; }
+.ob-cta-btn.added { background:linear-gradient(135deg,#2A6B46,#3A8B56); }
 .ob-card-cta.show { display:block; }
 .ob-card-cta:disabled { opacity:0.4; cursor:not-allowed; }
 
@@ -2139,125 +2172,7 @@ function toggleFaq(el) {
         </div>
       </div>
 
-      <!-- BUMP 1: Camiseta cuello redondo -->
-      <div class="ob-card" id="bump1">
-        <div class="ob-card-head">
-          <img src="data:image/jpeg;base64,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" alt="Camiseta cuello redondo" style="width:72px;height:72px;object-fit:cover;border-radius:8px;flex-shrink:0;" />
-          <div class="ob-card-info">
-            <div class="ob-card-kicker">Agrega a tu pedido</div>
-            <div class="ob-card-name">Camiseta cuello redondo</div>
-            <div class="ob-card-price-row">
-              <div class="ob-card-price">$60.000</div>
-              <div class="ob-card-old">$90.000</div>
-              <div class="ob-card-save">−$30.000</div>
-            </div>
-          </div>
-        </div>
-        <button class="ob-toggle" onclick="toggleBump('bump1')">
-          Ver colores y tallas disponibles <span class="ob-toggle-arrow">▼</span>
-        </button>
-        <div class="ob-colors" id="bump1-colors">
-          <div class="ob-color-group">
-            <div class="ob-color-name">Todos los colores disponibles</div>
-            <div class="ob-tallas-row">
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump1','color')">S</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump1','color')">M</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump1','color')">L</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump1','color')">XL</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump1','color')">XXL</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump1','color')">XXXL</div>
-            </div>
-          </div>
-        </div>
-        <button class="ob-card-cta" id="bump1-cta" onclick="addBump('bump1','Camiseta cuello redondo','$60.000')" disabled>
-          + Agregar a mi pedido
-        </button>
-      </div>
-
-      <!-- BUMP 2: Tipo polo -->
-      <div class="ob-card" id="bump2">
-        <div class="ob-card-head">
-          <div class="ob-card-img" style="background:#2A5040;">🎽</div>
-          <div class="ob-card-info">
-            <div class="ob-card-kicker">Agrega a tu pedido</div>
-            <div class="ob-card-name">Tipo polo</div>
-            <div class="ob-card-price-row">
-              <div class="ob-card-price">$70.000</div>
-              <div class="ob-card-old">$98.000</div>
-              <div class="ob-card-save">−$28.000</div>
-            </div>
-          </div>
-        </div>
-        <button class="ob-toggle" onclick="toggleBump('bump2')">
-          Ver colores y tallas disponibles <span class="ob-toggle-arrow">▼</span>
-        </button>
-        <div class="ob-colors" id="bump2-colors">
-          <div class="ob-color-group">
-            <div class="ob-color-name">Todos los colores disponibles</div>
-            <div class="ob-tallas-row">
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump2','color')">S</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump2','color')">M</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump2','color')">L</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump2','color')">XL</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump2','color')">XXL</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump2','color')">XXXL</div>
-            </div>
-          </div>
-        </div>
-        <button class="ob-card-cta" id="bump2-cta" onclick="addBump('bump2','Tipo polo','$70.000')" disabled>
-          + Agregar a mi pedido
-        </button>
-      </div>
-
-      <!-- BUMP 3: Psycho Bunny -->
-      <div class="ob-card" id="bump3">
-        <div class="ob-card-head">
-          <div class="ob-card-img" style="background:#6A2040;">🐰</div>
-          <div class="ob-card-info">
-            <div class="ob-card-kicker">Agrega a tu pedido</div>
-            <div class="ob-card-name">Camiseta Psycho Bunny</div>
-            <div class="ob-card-price-row">
-              <div class="ob-card-price">$70.000</div>
-              <div class="ob-card-old">$105.000</div>
-              <div class="ob-card-save">−$35.000</div>
-            </div>
-          </div>
-        </div>
-        <button class="ob-toggle" onclick="toggleBump('bump3')">
-          Ver colores y tallas disponibles <span class="ob-toggle-arrow">▼</span>
-        </button>
-        <div class="ob-colors" id="bump3-colors">
-          <div class="ob-color-group">
-            <div class="ob-color-name">Todos los colores disponibles</div>
-            <div class="ob-tallas-row">
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump3','color')">S</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump3','color')">M</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump3','color')">L</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump3','color')">XL</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump3','color')">XXL</div>
-            </div>
-          </div>
-        </div>
-        <button class="ob-card-cta" id="bump3-cta" onclick="addBump('bump3','Camiseta Psycho Bunny','$70.000')" disabled>
-          + Agregar a mi pedido
-        </button>
-      </div>
-
-      <!-- BUMP 4: Selección Colombia -->
-      <div class="ob-card" id="bump4">
-        <div class="ob-card-head">
-          <div class="ob-card-img" style="background:#C4940A;">🇨🇴</div>
-          <div class="ob-card-info">
-            <div class="ob-card-kicker">Agrega a tu pedido</div>
-            <div class="ob-card-name">Camiseta Selección Colombia</div>
-            <div class="ob-card-price-row">
-              <div class="ob-card-price">$70.000</div>
-              <div class="ob-card-old">$105.000</div>
-              <div class="ob-card-save">−$35.000</div>
-            </div>
-          </div>
-        </div>
-        <button class="ob-toggle" onclick="toggleBump('bump4')">
-          Ver colores y tallas disponibles <span class="ob-toggle-arrow">▼</span>
-        </button>
-        <div class="ob-colors" id="bump4-colors">
-          <div class="ob-color-group">
-            <div class="ob-color-name">Todos los colores disponibles</div>
-            <div class="ob-tallas-row">
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump4','color')">S</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump4','color')">M</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump4','color')">L</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump4','color')">XL</div>
-            </div>
-          </div>
-        </div>
-        <button class="ob-card-cta" id="bump4-cta" onclick="addBump('bump4','Camiseta Selección Colombia','$70.000')" disabled>
-          + Agregar a mi pedido
-        </button>
-      </div>
+      <div id="ob-container"></div>
     </div>
 
     <button class="ty-close-btn" onclick="closeCheckout()">Cerrar y volver al inicio</button>
@@ -2789,84 +2704,367 @@ function showThankyou(nombre, ciudad, cel, sel) {
   document.getElementById('ty_sel').textContent = sel;
   document.getElementById('ty_total').textContent = '$' + S.packPrice.toLocaleString('es-CO');
   document.getElementById('tyScreen').classList.add('act');
+  renderOrderBumps();
   document.getElementById('coWrap').scrollTop = 0;
 }
 
 // ─── ORDER BUMPS ───
-function toggleBump(id) {
-  const colors = document.getElementById(id+'-colors');
-  const btn    = document.querySelector('#'+id+' .ob-toggle');
-  const show   = !colors.classList.contains('show');
-  colors.classList.toggle('show', show);
-  btn.classList.toggle('open', show);
+
+// ═══════════════════════════════════════════
+//  ORDER BUMPS — configuración editable
+// ═══════════════════════════════════════════
+// Para cambiar fotos: sube las imágenes a media.paquetecompleto.com.co/order-bumps/
+// y actualiza las URLs en variants[].img
+// Para cambiar nombre: edita el campo "name"
+
+const ORDER_BUMPS_CONFIG = [
+  {
+    id: 'bump1',
+    name: 'Camiseta cuello redondo',
+    precioAntes: 90000,
+    precioAhora: 60000,
+    variants: [
+      { id: 'blanco',  name: 'Blanco',  img: 'https://media.paquetecompleto.com.co/order-bumps/cuello-blanco.jpg',  tallas: ['S','M','L','XL','XXL','XXXL'] },
+      { id: 'negro',   name: 'Negro',   img: 'https://media.paquetecompleto.com.co/order-bumps/cuello-negro.jpg',   tallas: ['S','M','L','XL','XXL','XXXL'] },
+      { id: 'gris',    name: 'Gris',    img: 'https://media.paquetecompleto.com.co/order-bumps/cuello-gris.jpg',    tallas: ['S','M','L','XL','XXL','XXXL'] },
+      { id: 'azul',    name: 'Azul',    img: 'https://media.paquetecompleto.com.co/order-bumps/cuello-azul.jpg',    tallas: ['S','M','L','XL','XXL','XXXL'] },
+    ]
+  },
+  {
+    id: 'bump2',
+    name: 'Tipo polo',
+    precioAntes: 98000,
+    precioAhora: 70000,
+    variants: [
+      { id: 'blanco',  name: 'Blanco',  img: 'https://media.paquetecompleto.com.co/order-bumps/polo-blanco.jpg',    tallas: ['S','M','L','XL','XXL','XXXL'] },
+      { id: 'negro',   name: 'Negro',   img: 'https://media.paquetecompleto.com.co/order-bumps/polo-negro.jpg',     tallas: ['S','M','L','XL','XXL','XXXL'] },
+      { id: 'azul',    name: 'Azul',    img: 'https://media.paquetecompleto.com.co/order-bumps/polo-azul.jpg',      tallas: ['S','M','L','XL','XXL','XXXL'] },
+      { id: 'rojo',    name: 'Rojo',    img: 'https://media.paquetecompleto.com.co/order-bumps/polo-rojo.jpg',      tallas: ['S','M','L','XL','XXL','XXXL'] },
+    ]
+  },
+  {
+    id: 'bump3',
+    name: 'Camiseta Psycho Bunny',
+    precioAntes: 105000,
+    precioAhora: 70000,
+    variants: [
+      { id: 'blanco',  name: 'Blanco',  img: 'https://media.paquetecompleto.com.co/order-bumps/psycho-blanco.jpg',  tallas: ['S','M','L','XL','XXL'] },
+      { id: 'negro',   name: 'Negro',   img: 'https://media.paquetecompleto.com.co/order-bumps/psycho-negro.jpg',   tallas: ['S','M','L','XL','XXL'] },
+      { id: 'rojo',    name: 'Rojo',    img: 'https://media.paquetecompleto.com.co/order-bumps/psycho-rojo.jpg',    tallas: ['S','M','L','XL','XXL'] },
+    ]
+  },
+  {
+    id: 'bump4',
+    name: 'Camiseta Selección Colombia',
+    precioAntes: 105000,
+    precioAhora: 70000,
+    variants: [
+      { id: 'local',   name: 'Local',   img: 'https://media.paquetecompleto.com.co/order-bumps/colombia-local.jpg', tallas: ['S','M','L','XL'] },
+      { id: 'visita',  name: 'Visita',  img: 'https://media.paquetecompleto.com.co/order-bumps/colombia-visita.jpg',tallas: ['S','M','L','XL'] },
+    ]
+  }
+];
+
+// Bump state: { bumpId: [ {variantId, talla, qty}, ... ] }
+const bumpState = {};
+
+function fmt(n) { return '$' + n.toLocaleString('es-CO'); }
+
+function renderOrderBumps() {
+  const container = document.getElementById('ob-container');
+  if (!container) return;
+  container.innerHTML = '';
+
+  ORDER_BUMPS_CONFIG.forEach(bump => {
+    bumpState[bump.id] = [];
+    const card = document.createElement('div');
+    card.className = 'ob-card';
+    card.id = bump.id;
+    card.innerHTML = buildBumpCard(bump);
+    container.appendChild(card);
+    // Init: select first variant
+    setTimeout(() => selectVariant(bump.id, bump.variants[0].id), 0);
+  });
 }
 
-function pickBumpTalla(el, bumpId, color) {
-  // Only one selection per card
+function buildBumpCard(bump) {
+  const v0 = bump.variants[0];
+  const thumbsHTML = bump.variants.map((v,i) =>
+    `<div class="ob-thumb${i===0?' sel':''}" id="${bump.id}-thumb-${v.id}"
+      onclick="selectVariant('${bump.id}','${v.id}')">
+      <img src="${v.img}" alt="${v.name}"
+        onerror="this.parentNode.style.background='#e8e2d8';this.style.display='none';" />
+    </div>`
+  ).join('');
+
+  const tallasHTML = v0.tallas.map(t =>
+    `<button class="ob-talla-btn" onclick="selectTallaMain('${bump.id}','${t}')">${t}</button>`
+  ).join('');
+
+  return `
+    <div class="ob-card-header">
+      <div>
+        <div class="ob-admin-name" id="${bump.id}-name"
+          contenteditable="false"
+          ondblclick="this.contentEditable='true';this.focus();"
+          onblur="this.contentEditable='false';">${bump.name}</div>
+        <div class="ob-price-row">
+          <div class="ob-price-now">${fmt(bump.precioAhora)}</div>
+          <div class="ob-price-was">${fmt(bump.precioAntes)}</div>
+          <div class="ob-price-save">−${fmt(bump.precioAntes-bump.precioAhora)}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ob-img-area">
+      <div class="ob-main-img-wrap">
+        <img class="ob-main-img" id="${bump.id}-main-img" src="${v0.img}"
+          alt="${v0.name}"
+          onerror="this.style.objectFit='contain';this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22><rect fill=%22%23e8e2d8%22 width=%22200%22 height=%22200%22/><text x=%22100%22 y=%22110%22 text-anchor=%22middle%22 font-size=%2240%22>👕</text></svg>';" />
+        <div class="ob-main-label" id="${bump.id}-main-label">${v0.name}</div>
+      </div>
+      <div class="ob-thumbs" id="${bump.id}-thumbs">
+        ${thumbsHTML}
+      </div>
+    </div>
+
+    <div class="ob-select-area">
+      <div class="ob-select-label">Selecciona talla</div>
+      <div class="ob-tallas-row" id="${bump.id}-tallas">${tallasHTML}</div>
+      <div class="ob-qty-row">
+        <div class="ob-qty-label">Cantidad:</div>
+        <div class="ob-qty-ctrl">
+          <button class="ob-qty-btn" onclick="changeQtyMain('${bump.id}',-1)">−</button>
+          <input class="ob-qty-num" id="${bump.id}-qty" type="number" value="1" min="1" max="10" readonly />
+          <button class="ob-qty-btn" onclick="changeQtyMain('${bump.id}',+1)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="ob-extra-selections" id="${bump.id}-extras"></div>
+
+    <div class="ob-add-more" onclick="addExtraLine('${bump.id}')">
+      <span style="font-size:18px;">＋</span> Agregar otro color / talla del mismo producto
+    </div>
+
+    <button class="ob-cta-btn" id="${bump.id}-cta"
+      onclick="submitBump('${bump.id}')" disabled>
+      + Agregar a mi pedido
+    </button>`;
+}
+
+function selectVariant(bumpId, variantId) {
+  const bump = ORDER_BUMPS_CONFIG.find(b => b.id === bumpId);
+  if (!bump) return;
+  const variant = bump.variants.find(v => v.id === variantId);
+  if (!variant) return;
+
+  // Update main image
+  const mainImg = document.getElementById(bumpId+'-main-img');
+  const mainLabel = document.getElementById(bumpId+'-main-label');
+  if (mainImg) { mainImg.src = variant.img; mainImg.alt = variant.name; }
+  if (mainLabel) mainLabel.textContent = variant.name;
+
+  // Update thumbs
+  document.querySelectorAll('#'+bumpId+'-thumbs .ob-thumb').forEach(t => t.classList.remove('sel'));
+  const selThumb = document.getElementById(bumpId+'-thumb-'+variantId);
+  if (selThumb) selThumb.classList.add('sel');
+
+  // Update tallas
+  const tallasDiv = document.getElementById(bumpId+'-tallas');
+  if (tallasDiv) {
+    tallasDiv.innerHTML = variant.tallas.map(t =>
+      `<button class="ob-talla-btn" onclick="selectTallaMain('${bumpId}','${t}')" data-talla="${t}">${t}</button>`
+    ).join('');
+  }
+
+  // Store selected variant (reset talla)
+  document.getElementById(bumpId+'-qty').value = 1;
+  // Save current variant selection
   const card = document.getElementById(bumpId);
-  card.querySelectorAll('.ob-talla').forEach(t => t.classList.remove('sel-t'));
-  el.classList.add('sel-t');
-  if (!S.bumpSelections[bumpId]) S.bumpSelections[bumpId] = {};
-  S.bumpSelections[bumpId] = { color, talla: el.textContent };
+  card.dataset.selectedVariant = variantId;
+  card.dataset.selectedTalla = '';
+  checkBumpReady(bumpId);
+}
+
+function selectTallaMain(bumpId, talla) {
+  document.querySelectorAll('#'+bumpId+'-tallas .ob-talla-btn').forEach(b => b.classList.remove('sel'));
+  const btn = document.querySelector(`#${bumpId}-tallas [data-talla="${talla}"]`);
+  if (btn) btn.classList.add('sel');
+  document.getElementById(bumpId).dataset.selectedTalla = talla;
+  checkBumpReady(bumpId);
+}
+
+function changeQtyMain(bumpId, delta) {
+  const input = document.getElementById(bumpId+'-qty');
+  let v = parseInt(input.value) + delta;
+  if (v < 1) v = 1;
+  if (v > 10) v = 10;
+  input.value = v;
+}
+
+let extraLineCounter = 0;
+function addExtraLine(bumpId) {
+  const bump = ORDER_BUMPS_CONFIG.find(b => b.id === bumpId);
+  if (!bump) return;
+  const lineId = bumpId + '-extra-' + (++extraLineCounter);
+  const extrasDiv = document.getElementById(bumpId+'-extras');
+
+  const optionsHTML = bump.variants.map(v =>
+    `<option value="${v.id}">${v.name}</option>`
+  ).join('');
+
+  const firstTallas = bump.variants[0].tallas.map(t =>
+    `<button class="ob-talla-btn" onclick="selectExtraTalla('${lineId}','${t}')" data-talla="${t}">${t}</button>`
+  ).join('');
+
+  const div = document.createElement('div');
+  div.className = 'ob-extra-item';
+  div.id = lineId;
+  div.dataset.selectedVariant = bump.variants[0].id;
+  div.dataset.selectedTalla = '';
+  div.innerHTML = `
+    <button class="ob-extra-remove" onclick="removeExtraLine('${lineId}','${bumpId}')">✕</button>
+    <div class="ob-select-label" style="margin-bottom:6px;">Color</div>
+    <select onchange="changeExtraVariant('${bumpId}','${lineId}',this.value)"
+      style="width:100%;padding:7px 10px;border-radius:7px;border:1.5px solid #e0d8cc;font-family:Outfit,sans-serif;font-size:13px;margin-bottom:10px;background:white;">
+      ${optionsHTML}
+    </select>
+    <div class="ob-select-label">Talla</div>
+    <div class="ob-tallas-row" id="${lineId}-tallas" style="margin-bottom:10px;">${firstTallas}</div>
+    <div class="ob-qty-row">
+      <div class="ob-qty-label">Cantidad:</div>
+      <div class="ob-qty-ctrl">
+        <button class="ob-qty-btn" onclick="changeExtraQty('${lineId}',-1)">−</button>
+        <input class="ob-qty-num" id="${lineId}-qty" type="number" value="1" min="1" max="10" readonly />
+        <button class="ob-qty-btn" onclick="changeExtraQty('${lineId}',+1)">+</button>
+      </div>
+    </div>`;
+  extrasDiv.appendChild(div);
+  checkBumpReady(bumpId);
+}
+
+function removeExtraLine(lineId, bumpId) {
+  const el = document.getElementById(lineId);
+  if (el) el.remove();
+  checkBumpReady(bumpId);
+}
+
+function changeExtraVariant(bumpId, lineId, variantId) {
+  const bump = ORDER_BUMPS_CONFIG.find(b => b.id === bumpId);
+  const variant = bump.variants.find(v => v.id === variantId);
+  if (!variant) return;
+  const tallasDiv = document.getElementById(lineId+'-tallas');
+  if (tallasDiv) {
+    tallasDiv.innerHTML = variant.tallas.map(t =>
+      `<button class="ob-talla-btn" onclick="selectExtraTalla('${lineId}','${t}')" data-talla="${t}">${t}</button>`
+    ).join('');
+  }
+  document.getElementById(lineId).dataset.selectedVariant = variantId;
+  document.getElementById(lineId).dataset.selectedTalla = '';
+  checkBumpReady(bumpId);
+}
+
+function selectExtraTalla(lineId, talla) {
+  const div = document.getElementById(lineId);
+  div.querySelectorAll('.ob-talla-btn').forEach(b => b.classList.remove('sel'));
+  const btn = div.querySelector(`[data-talla="${talla}"]`);
+  if (btn) btn.classList.add('sel');
+  div.dataset.selectedTalla = talla;
+  // find bumpId from lineId
+  const bumpId = lineId.split('-extra-')[0];
+  checkBumpReady(bumpId);
+}
+
+function changeExtraQty(lineId, delta) {
+  const input = document.getElementById(lineId+'-qty');
+  let v = parseInt(input.value) + delta;
+  if (v < 1) v = 1;
+  if (v > 10) v = 10;
+  input.value = v;
+}
+
+function checkBumpReady(bumpId) {
+  const card = document.getElementById(bumpId);
+  const talla = card.dataset.selectedTalla;
   const cta = document.getElementById(bumpId+'-cta');
-  cta.classList.add('show');
-  cta.disabled = false;
-}
-
-function addBump(bumpId, name, price) {
-  const sel = S.bumpSelections[bumpId];
-  if (!sel) return;
-  const card = document.getElementById(bumpId);
-  card.style.opacity = '0.6';
-  card.style.pointerEvents = 'none';
-  const btn = document.getElementById(bumpId+'-cta');
-  btn.textContent = '✓ Agregado al pedido';
-  btn.style.background = '#2A6B46';
-  btn.disabled = true;
-
-  const nombreCliente = document.getElementById('f_nombre').value.trim();
-  const celCliente    = document.getElementById('f_celular').value.trim();
-  const correoCliente = document.getElementById('f_correo').value.trim();
-  const bumpId2 = `ORD-BUMP-${Date.now()}`;
-  const detalleExtra = `${name} — ${sel.color}, Talla ${sel.talla}`;
-
-  // EmailJS
-  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-    pedido_id: bumpId2,
-    nombre:    nombreCliente,
-    cedula:    '',
-    ciudad:    '',
-    direccion: 'AGREGADO AL PEDIDO ANTERIOR',
-    barrio:    '',
-    celular:   celCliente,
-    Correo:    correoCliente,
-    cantidad:  1,
-    total:     price,
-    detalle:   detalleExtra,
-  }).catch(() => {});
-
-  // n8n
-  fetch(N8N_WEBHOOK_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      order_id: bumpId2,
-      name:     nombreCliente,
-      email:    correoCliente,
-      phone:    celCliente,
-      total:    105000,
-      detalle:  detalleExtra + ' (Order Bump)',
-    }),
-  }).catch(e => console.log('Error n8n bump:', e));
-
-  // Pixel
-  if (typeof fbq !== 'undefined') {
-    fbq('track', 'Purchase', {
-      value: 105000, currency: 'COP',
-      content_name: name, num_items: 1,
-    }, { eventID: bumpId2 });
+  if (cta && !cta.classList.contains('added')) {
+    cta.disabled = !talla;
   }
 }
+
+function submitBump(bumpId) {
+  const bump = ORDER_BUMPS_CONFIG.find(b => b.id === bumpId);
+  const card = document.getElementById(bumpId);
+  const cta = document.getElementById(bumpId+'-cta');
+  if (cta.classList.contains('added')) return;
+
+  // Collect main selection
+  const lines = [];
+  const mainVariantId = card.dataset.selectedVariant;
+  const mainTalla = card.dataset.selectedTalla;
+  const mainQty = parseInt(document.getElementById(bumpId+'-qty').value) || 1;
+  const mainVariant = bump.variants.find(v => v.id === mainVariantId);
+  if (mainTalla && mainVariant) {
+    lines.push({ nombre: bump.name, color: mainVariant.name, talla: mainTalla, qty: mainQty });
+  }
+
+  // Collect extra lines
+  card.querySelectorAll('.ob-extra-item').forEach(item => {
+    const variantId = item.dataset.selectedVariant;
+    const talla = item.dataset.selectedTalla;
+    const qty = parseInt(item.querySelector('.ob-qty-num').value) || 1;
+    const variant = bump.variants.find(v => v.id === variantId);
+    if (talla && variant) {
+      lines.push({ nombre: bump.name, color: variant.name, talla, qty });
+    }
+  });
+
+  if (!lines.length) return;
+
+  // Mark as added
+  cta.classList.add('added');
+  cta.textContent = '✓ Agregado al pedido';
+  cta.disabled = true;
+
+  // Build detail string
+  const detalle = lines.map(l => `${l.nombre} – ${l.color} – Talla ${l.talla} x${l.qty}`).join(' | ');
+  const totalUnits = lines.reduce((a,l) => a+l.qty, 0);
+  const totalPrice = totalUnits * bump.precioAhora;
+
+  // Send via EmailJS + n8n
+  const nombreCliente = document.getElementById('f_nombre') ? document.getElementById('f_nombre').value.trim() : '';
+  const celCliente    = document.getElementById('f_celular') ? document.getElementById('f_celular').value.trim() : '';
+  const correoCliente = document.getElementById('f_correo')  ? document.getElementById('f_correo').value.trim()  : '';
+
+  const bumpOrderId = 'BUMP-' + Date.now();
+
+  if (typeof emailjs !== 'undefined') {
+    emailjs.send('service_6ky78ug','template_gjb5ogc',{
+      pedido_id: bumpOrderId,
+      nombre: nombreCliente,
+      cedula: '', ciudad: '', barrio: '', direccion: '',
+      celular: celCliente,
+      Correo: correoCliente,
+      cantidad: totalUnits,
+      total: '$' + totalPrice.toLocaleString('es-CO'),
+      detalle: detalle
+    }).catch(()=>{});
+  }
+
+  fetch('https://n8n.paquetecompleto.com.co/webhook/nuevo-pedido',{
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({
+      order_id: bumpOrderId, name: nombreCliente,
+      email: correoCliente, phone: celCliente,
+      total: totalPrice, detalle
+    })
+  }).catch(()=>{});
+}
+
+// Init bumps when thank-you screen shows
+// (called from showThankyou)
+
 
 // ─── CONNECT CTAs ───
 // Generic CTAs: full flow
