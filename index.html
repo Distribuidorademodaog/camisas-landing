@@ -62,39 +62,19 @@ body {
   body {
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     background: #D8D2C8;
-    padding: 0;
+    min-height: 100vh;
   }
   .phone {
-    max-width: 100%;
-    width: 100%;
+    max-width: 480px;
+    width: 480px;
     border-radius: 0;
-    box-shadow: none;
+    box-shadow: 0 0 60px rgba(0,0,0,0.25);
+    min-height: 100vh;
   }
-  /* Wider layout for desktop */
-  .hero { min-height: 100vh; }
-  .hero-title { font-size: 64px; }
-  .hero-content { padding: 48px 48px 48px; max-width: 520px; }
-  .hero-img { width: 55%; }
-  .talla-grid { grid-template-columns: repeat(6,1fr) !important; }
-  .var-grid { grid-template-columns: repeat(4,1fr) !important; }
-  .sec-head { padding: 48px 48px 0; }
-  .benefit-cards { padding: 20px 48px 0; }
-  .stats-row { margin: 20px 48px 0; }
-  .desac-pains { padding: 20px 48px 0; }
-  .comp-table { margin: 18px 48px 0; }
-  .reframe { margin: 14px 48px 0; }
-  .variedad-hero { margin: 24px 48px 0; }
-  .var-grid { padding: 12px 48px 0 !important; }
-  .colors-block { margin: 14px 48px 0; }
-  .vid-grid { padding: 10px 48px 0; }
-  .rating-header { padding: 28px 48px 0; }
-  .tcard { margin: 0 48px 12px; }
-  .pack-container { padding: 20px 48px 0; }
-  .faq-list { padding: 20px 48px 0; }
-  .faq-whatsapp { margin: 16px 48px 0; }
-  .catalog-scroll { padding: 16px 48px 0; grid-template-columns: repeat(5,1fr) !important; }
-  .catalog-note { margin: 10px 48px 0; }
+  .notch { display: none; }
+  .status { display: none; }
 }
 
 /* ─── NOTCH ─── */
@@ -2387,9 +2367,8 @@ function totalSteps() {
   return 4 + (S.packQty || 1);
 }
 
-function openCheckout() {
+function openCheckout(packPreset) {
   S = { talla:null, pack:null, packQty:0, packPrice:0, shirtIdx:0, shirts:[], curShirtTalla:null, curShirtCamisa:null, bumpSelections:{} };
-  // ── PIXEL: ViewContent ──
   if (typeof fbq !== 'undefined') fbq('track', 'ViewContent', { content_name: 'Checkout abierto', currency: 'COP' });
   currentStep = STEP_TALLA;
   document.getElementById('coOverlay').classList.add('active');
@@ -2400,6 +2379,27 @@ function openCheckout() {
   document.getElementById('coBackBtn').style.display = 'none';
   document.getElementById('tyScreen').classList.remove('act');
   document.getElementById('coBar').style.display = 'flex';
+}
+
+function openCheckoutWithPack(qty, price) {
+  // Pre-select pack and jump straight to per-shirt flow
+  S = { talla:null, pack:qty+' camisa'+(qty>1?'s':''), packQty:qty, packPrice:price,
+        shirtIdx:0, shirts:[], curShirtTalla:null, curShirtCamisa:null, bumpSelections:{} };
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'AddToCart', { value: price, currency: 'COP', num_items: qty });
+  }
+  document.getElementById('coOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('tyScreen').classList.remove('act');
+  document.getElementById('coBar').style.display = 'flex';
+  // Jump to first shirt step
+  currentStep = STEP_SHIRT;
+  buildShirtStep(0);
+  showPanel('pnlShirt');
+  document.getElementById('coNextBtn').disabled = true;
+  document.getElementById('coNextBtn').textContent = qty > 1 ? 'Siguiente camisa →' : 'Continuar →';
+  document.getElementById('coBackBtn').style.display = 'none';
+  updateProg();
 }
 
 function closeCheckout() {
@@ -2865,8 +2865,31 @@ function addBump(bumpId, name, price) {
 }
 
 // ─── CONNECT CTAs ───
-document.querySelectorAll('.hero-cta, .cta-gold, .pack-btn').forEach(btn => {
-  btn.addEventListener('click', openCheckout);
+// Generic CTAs: full flow
+document.querySelectorAll('.hero-cta').forEach(btn => {
+  btn.addEventListener('click', () => openCheckout(null));
+});
+// Section CTAs (cta-gold): full flow
+document.querySelectorAll('.cta-gold').forEach(btn => {
+  btn.addEventListener('click', () => openCheckout(null));
+});
+// Pack buttons: pre-select pack and go straight to shirts
+document.querySelectorAll('.pack-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    const card = e.target.closest('.pack-card');
+    if (!card) { openCheckout(null); return; }
+    const text = card.querySelector('.pack-name') ? card.querySelector('.pack-name').textContent : '';
+    if (text.includes('1') || card.querySelector('.pb-outline:first-of-type')) {
+      // detect by savings or name
+    }
+    // Detect qty by price shown
+    const priceEl = card.querySelector('.pack-price');
+    const price = priceEl ? priceEl.textContent : '';
+    if (price.includes('115')) openCheckoutWithPack(1, 115000);
+    else if (price.includes('295')) openCheckoutWithPack(3, 295000);
+    else if (price.includes('495')) openCheckoutWithPack(6, 495000);
+    else openCheckout(null);
+  });
 });
 </script>
 </body>
