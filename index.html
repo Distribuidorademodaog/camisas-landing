@@ -45,18 +45,56 @@ src="https://www.facebook.com/tr?id=773251872839863&ev=PageView&noscript=1"
 body {
   background: #E8E2D8;
   font-family: 'Outfit', sans-serif;
-  display: flex;
-  justify-content: center;
-  padding: 24px 16px 60px;
+  margin: 0; padding: 0;
 }
 
+/* Mobile: full width. Desktop: centered max-width */
 .phone {
-  width: 390px;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
   background: var(--ivory);
-  border-radius: 48px;
-  overflow: hidden;
-  box-shadow: 0 0 0 10px #111, 0 50px 100px rgba(0,0,0,0.5);
   position: relative;
+  min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+  body {
+    display: flex;
+    justify-content: center;
+    background: #D8D2C8;
+    padding: 0;
+  }
+  .phone {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  /* Wider layout for desktop */
+  .hero { min-height: 100vh; }
+  .hero-title { font-size: 64px; }
+  .hero-content { padding: 48px 48px 48px; max-width: 520px; }
+  .hero-img { width: 55%; }
+  .talla-grid { grid-template-columns: repeat(6,1fr) !important; }
+  .var-grid { grid-template-columns: repeat(4,1fr) !important; }
+  .sec-head { padding: 48px 48px 0; }
+  .benefit-cards { padding: 20px 48px 0; }
+  .stats-row { margin: 20px 48px 0; }
+  .desac-pains { padding: 20px 48px 0; }
+  .comp-table { margin: 18px 48px 0; }
+  .reframe { margin: 14px 48px 0; }
+  .variedad-hero { margin: 24px 48px 0; }
+  .var-grid { padding: 12px 48px 0 !important; }
+  .colors-block { margin: 14px 48px 0; }
+  .vid-grid { padding: 10px 48px 0; }
+  .rating-header { padding: 28px 48px 0; }
+  .tcard { margin: 0 48px 12px; }
+  .pack-container { padding: 20px 48px 0; }
+  .faq-list { padding: 20px 48px 0; }
+  .faq-whatsapp { margin: 16px 48px 0; }
+  .catalog-scroll { padding: 16px 48px 0; grid-template-columns: repeat(5,1fr) !important; }
+  .catalog-note { margin: 10px 48px 0; }
 }
 
 /* ─── NOTCH ─── */
@@ -64,6 +102,7 @@ body {
   position: absolute; top:0; left:50%; transform:translateX(-50%);
   width:110px; height:30px; background:#111; border-radius:0 0 18px 18px; z-index:100;
 }
+@media (min-width: 768px) { .notch { display:none; } }
 
 /* ─── STATUS BAR ─── */
 .status {
@@ -72,6 +111,7 @@ body {
   font-family: 'Outfit', sans-serif; font-size:12px; font-weight:600;
   color: var(--navy); background: var(--ivory);
 }
+@media (min-width: 768px) { .status { display:none; } }
 
 /* ─── TRUST RIBBON ─── */
 .trust-ribbon {
@@ -2111,22 +2151,21 @@ function toggleFaq(el) {
       <div class="ob-urgency">
         <div class="ob-urgency-icon">⚡</div>
         <div class="ob-urgency-text">
-          ¡Agrega más camisas a tu pedido!
-          <span>⏰ Oferta por tiempo limitado — solo mientras está activo tu pedido</span>
+          ⏰ Ofertas por tiempo limitado — solo mientras está activo tu pedido
         </div>
       </div>
 
-      <!-- BUMP 1: Oxford Pack -->
+      <!-- BUMP 1: Camiseta cuello redondo -->
       <div class="ob-card" id="bump1">
         <div class="ob-card-head">
-          <div class="ob-card-img" style="background:#2A4060;">👔</div>
+          <div class="ob-card-img" style="background:#3A5A8A;">👕</div>
           <div class="ob-card-info">
             <div class="ob-card-kicker">Agrega a tu pedido</div>
-            <div class="ob-card-name">Oxford Extra</div>
+            <div class="ob-card-name">Camiseta cuello redondo</div>
             <div class="ob-card-price-row">
-              <div class="ob-card-price">$105.000</div>
-              <div class="ob-card-old">$115.000</div>
-              <div class="ob-card-save">−$10.000</div>
+              <div class="ob-card-price">$60.000</div>
+              <div class="ob-card-old">$90.000</div>
+              <div class="ob-card-save">−$30.000</div>
             </div>
           </div>
         </div>
@@ -2135,52 +2174,28 @@ function toggleFaq(el) {
         </button>
         <div class="ob-colors" id="bump1-colors">
           <div class="ob-color-group">
-            <div class="ob-color-name">🔵 Azul claro</div>
+            <div class="ob-color-name">Todos los colores disponibles</div>
             <div class="ob-tallas-row">
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump1','azul-claro')">S</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump1','azul-claro')">M</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump1','azul-claro')">L</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump1','azul-claro')">XL</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump1','azul-claro')">XXL</div>
-            </div>
-          </div>
-          <div class="ob-color-group">
-            <div class="ob-color-name">⚫ Negro</div>
-            <div class="ob-tallas-row">
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump1','negro')">S</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump1','negro')">M</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump1','negro')">L</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump1','negro')">XL</div>
-            </div>
-          </div>
-          <div class="ob-color-group">
-            <div class="ob-color-name">⚪ Blanco</div>
-            <div class="ob-tallas-row">
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump1','blanco')">S</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump1','blanco')">M</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump1','blanco')">L</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump1','blanco')">XL</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump1','blanco')">XXL</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump1','blanco')">XXXL</div>
+              <div class="ob-talla" onclick="pickBumpTalla(this,'bump1','color')">S</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump1','color')">M</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump1','color')">L</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump1','color')">XL</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump1','color')">XXL</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump1','color')">XXXL</div>
             </div>
           </div>
         </div>
-        <button class="ob-card-cta" id="bump1-cta" onclick="addBump('bump1','Oxford Extra','$105.000')" disabled>
+        <button class="ob-card-cta" id="bump1-cta" onclick="addBump('bump1','Camiseta cuello redondo','$60.000')" disabled>
           + Agregar a mi pedido
         </button>
       </div>
 
-      <!-- BUMP 2: Tipo Lino -->
+      <!-- BUMP 2: Tipo polo -->
       <div class="ob-card" id="bump2">
         <div class="ob-card-head">
-          <div class="ob-card-img" style="background:#4A7060;">🌿</div>
+          <div class="ob-card-img" style="background:#2A5040;">🎽</div>
           <div class="ob-card-info">
             <div class="ob-card-kicker">Agrega a tu pedido</div>
-            <div class="ob-card-name">Tipo Lino Extra</div>
+            <div class="ob-card-name">Tipo polo</div>
             <div class="ob-card-price-row">
-              <div class="ob-card-price">$105.000</div>
-              <div class="ob-card-old">$115.000</div>
-              <div class="ob-card-save">−$10.000</div>
+              <div class="ob-card-price">$70.000</div>
+              <div class="ob-card-old">$98.000</div>
+              <div class="ob-card-save">−$28.000</div>
             </div>
           </div>
         </div>
@@ -2189,140 +2204,73 @@ function toggleFaq(el) {
         </button>
         <div class="ob-colors" id="bump2-colors">
           <div class="ob-color-group">
-            <div class="ob-color-name">🔵 Azul lino</div>
+            <div class="ob-color-name">Todos los colores disponibles</div>
             <div class="ob-tallas-row">
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump2','azul-lino')">S</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump2','azul-lino')">M</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump2','azul-lino')">L</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump2','azul-lino')">XL</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump2','azul-lino')">XXL</div>
-            </div>
-          </div>
-          <div class="ob-color-group">
-            <div class="ob-color-name">⚪ Blanco lino</div>
-            <div class="ob-tallas-row">
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump2','blanco-lino')">S</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump2','blanco-lino')">M</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump2','blanco-lino')">L</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump2','blanco-lino')">XL</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump2','blanco-lino')">XXL</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump2','blanco-lino')">XXXL</div>
-            </div>
-          </div>
-          <div class="ob-color-group">
-            <div class="ob-color-name">🟢 Verde oliva lino</div>
-            <div class="ob-tallas-row">
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump2','verde-lino')">S</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump2','verde-lino')">M</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump2','verde-lino')">L</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump2','verde-lino')">XL</div>
+              <div class="ob-talla" onclick="pickBumpTalla(this,'bump2','color')">S</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump2','color')">M</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump2','color')">L</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump2','color')">XL</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump2','color')">XXL</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump2','color')">XXXL</div>
             </div>
           </div>
         </div>
-        <button class="ob-card-cta" id="bump2-cta" onclick="addBump('bump2','Tipo Lino Extra','$105.000')" disabled>
+        <button class="ob-card-cta" id="bump2-cta" onclick="addBump('bump2','Tipo polo','$70.000')" disabled>
           + Agregar a mi pedido
         </button>
       </div>
 
-      <!-- BUMP 3: Cuadros -->
+      <!-- BUMP 3: Psycho Bunny -->
       <div class="ob-card" id="bump3">
         <div class="ob-card-head">
-          <div class="ob-card-img" style="background:#4A3060;">🟫</div>
+          <div class="ob-card-img" style="background:#6A2040;">🐰</div>
           <div class="ob-card-info">
             <div class="ob-card-kicker">Agrega a tu pedido</div>
-            <div class="ob-card-name">Cuadros Extra</div>
+            <div class="ob-card-name">Camiseta Psycho Bunny</div>
             <div class="ob-card-price-row">
-              <div class="ob-card-price">$105.000</div>
-              <div class="ob-card-old">$115.000</div>
-              <div class="ob-card-save">−$10.000</div>
+              <div class="ob-card-price">$70.000</div>
+              <div class="ob-card-old">$105.000</div>
+              <div class="ob-card-save">−$35.000</div>
             </div>
           </div>
         </div>
         <button class="ob-toggle" onclick="toggleBump('bump3')">
-          Ver diseños y tallas disponibles <span class="ob-toggle-arrow">▼</span>
+          Ver colores y tallas disponibles <span class="ob-toggle-arrow">▼</span>
         </button>
         <div class="ob-colors" id="bump3-colors">
           <div class="ob-color-group">
-            <div class="ob-color-name">Cuadros azul</div>
+            <div class="ob-color-name">Todos los colores disponibles</div>
             <div class="ob-tallas-row">
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump3','cuadros-azul')">S</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump3','cuadros-azul')">M</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump3','cuadros-azul')">L</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump3','cuadros-azul')">XL</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump3','cuadros-azul')">XXL</div>
-            </div>
-          </div>
-          <div class="ob-color-group">
-            <div class="ob-color-name">Cuadros negro</div>
-            <div class="ob-tallas-row">
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump3','cuadros-negro')">S</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump3','cuadros-negro')">M</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump3','cuadros-negro')">L</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump3','cuadros-negro')">XL</div>
-            </div>
-          </div>
-          <div class="ob-color-group">
-            <div class="ob-color-name">Cuadros rojo</div>
-            <div class="ob-tallas-row">
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump3','cuadros-rojo')">M</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump3','cuadros-rojo')">L</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump3','cuadros-rojo')">XL</div>
+              <div class="ob-talla" onclick="pickBumpTalla(this,'bump3','color')">S</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump3','color')">M</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump3','color')">L</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump3','color')">XL</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump3','color')">XXL</div>
             </div>
           </div>
         </div>
-        <button class="ob-card-cta" id="bump3-cta" onclick="addBump('bump3','Cuadros Extra','$105.000')" disabled>
+        <button class="ob-card-cta" id="bump3-cta" onclick="addBump('bump3','Camiseta Psycho Bunny','$70.000')" disabled>
           + Agregar a mi pedido
         </button>
       </div>
 
-      <!-- BUMP 4: Rayas -->
+      <!-- BUMP 4: Selección Colombia -->
       <div class="ob-card" id="bump4">
         <div class="ob-card-head">
-          <div class="ob-card-img" style="background:#304060;">〰️</div>
+          <div class="ob-card-img" style="background:#C4940A;">🇨🇴</div>
           <div class="ob-card-info">
             <div class="ob-card-kicker">Agrega a tu pedido</div>
-            <div class="ob-card-name">Rayas Extra</div>
+            <div class="ob-card-name">Camiseta Selección Colombia</div>
             <div class="ob-card-price-row">
-              <div class="ob-card-price">$105.000</div>
-              <div class="ob-card-old">$115.000</div>
-              <div class="ob-card-save">−$10.000</div>
+              <div class="ob-card-price">$70.000</div>
+              <div class="ob-card-old">$105.000</div>
+              <div class="ob-card-save">−$35.000</div>
             </div>
           </div>
         </div>
         <button class="ob-toggle" onclick="toggleBump('bump4')">
-          Ver diseños y tallas disponibles <span class="ob-toggle-arrow">▼</span>
+          Ver colores y tallas disponibles <span class="ob-toggle-arrow">▼</span>
         </button>
         <div class="ob-colors" id="bump4-colors">
           <div class="ob-color-group">
-            <div class="ob-color-name">Rayas negra</div>
+            <div class="ob-color-name">Todos los colores disponibles</div>
             <div class="ob-tallas-row">
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump4','rayas-negra')">S</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump4','rayas-negra')">M</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump4','rayas-negra')">L</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump4','rayas-negra')">XL</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump4','rayas-negra')">XXL</div>
-            </div>
-          </div>
-          <div class="ob-color-group">
-            <div class="ob-color-name">Rayas naranja</div>
-            <div class="ob-tallas-row">
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump4','rayas-naranja')">S</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump4','rayas-naranja')">M</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump4','rayas-naranja')">L</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump4','rayas-naranja')">XL</div>
-            </div>
-          </div>
-          <div class="ob-color-group">
-            <div class="ob-color-name">Rayas amarilla</div>
-            <div class="ob-tallas-row">
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump4','rayas-amarilla')">M</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump4','rayas-amarilla')">L</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump4','rayas-amarilla')">XL</div>
-              <div class="ob-talla" onclick="pickBumpTalla(this,'bump4','rayas-amarilla')">XXL</div>
+              <div class="ob-talla" onclick="pickBumpTalla(this,'bump4','color')">S</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump4','color')">M</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump4','color')">L</div><div class="ob-talla" onclick="pickBumpTalla(this,'bump4','color')">XL</div>
             </div>
           </div>
         </div>
-        <button class="ob-card-cta" id="bump4-cta" onclick="addBump('bump4','Rayas Extra','$105.000')" disabled>
+        <button class="ob-card-cta" id="bump4-cta" onclick="addBump('bump4','Camiseta Selección Colombia','$70.000')" disabled>
           + Agregar a mi pedido
         </button>
       </div>
@@ -2916,9 +2864,8 @@ function addBump(bumpId, name, price) {
   }
 }
 
-  
 // ─── CONNECT CTAs ───
-document.querySelectorAll('.hero-cta, .cta-gold').forEach(btn => {
+document.querySelectorAll('.hero-cta, .cta-gold, .pack-btn').forEach(btn => {
   btn.addEventListener('click', openCheckout);
 });
 </script>
