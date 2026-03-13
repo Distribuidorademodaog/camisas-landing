@@ -2288,7 +2288,10 @@ function totalSteps() {
 
 function openCheckout(packPreset) {
   S = { talla:null, pack:null, packQty:0, packPrice:0, shirtIdx:0, shirts:[], curShirtTalla:null, curShirtCamisa:null, bumpSelections:{} };
-  if (typeof fbq !== 'undefined') fbq('track', 'ViewContent', { content_name: 'Checkout abierto', currency: 'COP' });
+  if (typeof fbq !== 'undefined' && !sessionStorage.getItem('fb_vc_sent')) {
+    sessionStorage.setItem('fb_vc_sent', '1');
+    fbq('track', 'ViewContent', { content_name: 'Checkout abierto', currency: 'COP' });
+  }
   currentStep = STEP_TALLA;
   document.getElementById('coOverlay').classList.add('active');
   document.body.style.overflow = 'hidden';
@@ -2304,9 +2307,6 @@ function openCheckoutWithPack(qty, price) {
   // Pre-select pack and jump straight to per-shirt flow
   S = { talla:null, pack:qty+' camisa'+(qty>1?'s':''), packQty:qty, packPrice:price,
         shirtIdx:0, shirts:[], curShirtTalla:null, curShirtCamisa:null, bumpSelections:{} };
-  if (typeof fbq !== 'undefined') {
-    fbq('track', 'AddToCart', { value: price, currency: 'COP', num_items: qty });
-  }
   document.getElementById('coOverlay').classList.add('active');
   document.body.style.overflow = 'hidden';
   document.getElementById('tyScreen').classList.remove('act');
@@ -2428,12 +2428,16 @@ function pickPack(el, qty, price) {
   S.packPrice = price;
   S.shirts = [];
   document.getElementById('coNextBtn').disabled = false;
-  // ── PIXEL: AddToCart ──
-  if (typeof fbq !== 'undefined') fbq('track', 'AddToCart', {
-    value: price, currency: 'COP',
-    content_name: qty + (qty===1?' camisa':' camisas'),
-    num_items: qty,
-  });
+  // ── PIXEL: AddToCart — anti-duplicado ──
+  const atcKey = 'fb_atc_' + qty + '_' + price;
+  if (typeof fbq !== 'undefined' && !sessionStorage.getItem(atcKey)) {
+    sessionStorage.setItem(atcKey, '1');
+    fbq('track', 'AddToCart', {
+      value: price, currency: 'COP',
+      content_name: qty + (qty===1?' camisa':' camisas'),
+      num_items: qty,
+    });
+  }
 }
 
 // ─── SHIRT STEPS ───
@@ -2550,9 +2554,10 @@ function coNext() {
       buildOrderSummary();
       showPanel('pnlForm');
       // ── PIXEL: InitiateCheckout ──
-      if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', {
-        value: S.packPrice, currency: 'COP', num_items: S.packQty,
-      });
+      if (typeof fbq !== 'undefined' && !sessionStorage.getItem('fb_ic_'+S.packQty+'_'+S.packPrice)) {
+    sessionStorage.setItem('fb_ic_'+S.packQty+'_'+S.packPrice, '1');
+    fbq('track', 'InitiateCheckout', { value: S.packPrice, currency: 'COP', num_items: S.packQty });
+  };
       document.getElementById('coNextBtn').textContent = '✓ Confirmar pedido';
       document.getElementById('coNextBtn').disabled = false;
     }
@@ -3095,9 +3100,4 @@ document.querySelectorAll('.pack-btn').forEach(btn => {
     if (price.includes('115')) openCheckoutWithPack(1, 115000);
     else if (price.includes('295')) openCheckoutWithPack(3, 295000);
     else if (price.includes('495')) openCheckoutWithPack(6, 495000);
-    else openCheckout(null);
-  });
-});
-</script>
-</body>
-</html>
+    els
