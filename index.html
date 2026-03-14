@@ -2614,6 +2614,9 @@ function buildOrderSummary() {
 
 // ─── FORM SUBMIT ───
 function submitForm() {
+  // Prevent double-submit: disable button immediately
+  const nextBtn = document.getElementById('coNextBtn');
+  if (nextBtn) nextBtn.disabled = true;
   const v = (id) => document.getElementById(id).value.trim();
   const nombre   = v('f_nombre'),
         cedula   = v('f_cedula'),
@@ -2660,7 +2663,8 @@ function submitForm() {
 
   // ── FACEBOOK PIXEL Purchase — anti-duplicado con sessionStorage ──
   const trackKey = 'fb_purchase_sent_' + pedidoId;
-  if (typeof fbq !== 'undefined' && !sessionStorage.getItem(trackKey)) {
+  // Usamos localStorage (persiste entre pestañas y recargas)
+  if (typeof fbq !== 'undefined' && !localStorage.getItem(trackKey)) {
     fbq('track', 'Purchase', {
       value:        S.packPrice,
       currency:     'COP',
@@ -2668,7 +2672,7 @@ function submitForm() {
       num_items:    S.packQty,
       external_id:  celSoloNum,
     }, { eventID: pedidoId });
-    sessionStorage.setItem(trackKey, 'true');
+    localStorage.setItem(trackKey, 'true');
     console.log('Evento Purchase enviado con ID:', pedidoId);
   }
 
