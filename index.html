@@ -3054,16 +3054,19 @@ function submitBump(bumpId) {
   const bumpOrderId = 'BUMP-' + Date.now();
 
   if (typeof emailjs !== 'undefined') {
+    const firstLine = lines[0] || {};
     emailjs.send('service_6ky78ug','template_n9yf1fc',{
       pedido_id: bumpOrderId,
-      subject: 'Upsell - ' + nombreCliente,
-      nombre: nombreCliente,
-      cedula: '', ciudad: '', barrio: '', direccion: '',
-      celular: celCliente,
-      Correo: correoCliente,
-      cantidad: totalUnits,
-      total: '$' + totalPrice.toLocaleString('es-CO'),
-      detalle: detalle
+      subject:   '¡Nuevo UPSELL añadido por ' + nombreCliente + '!',
+      nombre:    nombreCliente,
+      celular:   celCliente,
+      Correo:    correoCliente,
+      producto:  firstLine.nombre || '',
+      color:     firstLine.color  || '',
+      talla:     firstLine.talla  || '',
+      precio:    '$' + totalPrice.toLocaleString('es-CO'),
+      cantidad:  totalUnits,
+      detalle:   detalle
     }).catch(()=>{});
   }
 
