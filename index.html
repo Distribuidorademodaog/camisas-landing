@@ -1243,7 +1243,7 @@ body {
     </div>
     <div class="pack-container">
 
-      <div class="pack-card pack-light">
+      <div class="pack-card pack-light" data-pack-qty="1" data-pack-price="115000">
         <div class="pack-inner">
           <div class="pack-top">
             <div><div class="pack-name-label pnl-light">Pack Básico</div><div class="pack-name pn-light">1 Camisa</div><div class="pack-tagline ptag-light">Ideal para probar</div></div>
@@ -1260,7 +1260,7 @@ body {
         </div>
       </div>
 
-      <div class="pack-card pack-featured" style="margin-top:14px;">
+      <div class="pack-card pack-featured" data-pack-qty="3" data-pack-price="295000" style="margin-top:14px;">
         <div class="pack-badge">🏆 Más vendido — Mejor precio</div>
         <div class="pack-inner featured-inner">
           <div class="pack-top">
@@ -1287,7 +1287,7 @@ body {
         </div>
       </div>
 
-      <div class="pack-card pack-light">
+      <div class="pack-card pack-light" data-pack-qty="6" data-pack-price="495000">
         <div class="pack-inner" style="position:relative;">
           <div style="position:absolute;top:16px;right:16px;background:rgba(14,14,14,0.06);border-radius:6px;padding:3px 8px;font-family:'Outfit',sans-serif;font-size:9px;font-weight:600;color:var(--navy);text-transform:uppercase;letter-spacing:0.06em;">Mayor ahorro</div>
           <div class="pack-top" style="margin-top:4px;">
@@ -3077,27 +3077,32 @@ function submitBump(bumpId) {
 
 
 // ─── CONNECT CTAs ───
-// Generic CTAs: full flow
-document.querySelectorAll('.hero-cta').forEach(btn => {
-  btn.addEventListener('click', () => openCheckout(null));
+document.addEventListener('DOMContentLoaded', function() {
+  // Hero + section CTAs
+  document.querySelectorAll('.hero-cta, .cta-gold').forEach(btn => {
+    btn.addEventListener('click', () => openCheckout(null));
+  });
+
+  // Pack buttons — detect qty from data attribute or price text
+  document.querySelectorAll('.pack-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const card = e.currentTarget.closest('[data-pack-qty]');
+      if (card) {
+        const qty   = parseInt(card.dataset.packQty);
+        const price = parseInt(card.dataset.packPrice);
+        openCheckoutWithPack(qty, price);
+        return;
+      }
+      // Fallback: detect by price text
+      const pcard = e.currentTarget.closest('.pack-card, .pack-item, [class*="pack"]');
+      const txt = pcard ? pcard.textContent : '';
+      if (txt.includes('495')) openCheckoutWithPack(6, 495000);
+      else if (txt.includes('295')) openCheckoutWithPack(3, 295000);
+      else if (txt.includes('115')) openCheckoutWithPack(1, 115000);
+      else openCheckout(null);
+    });
+  });
 });
-// Section CTAs (cta-gold): full flow
-document.querySelectorAll('.cta-gold').forEach(btn => {
-  btn.addEventListener('click', () => openCheckout(null));
-});
-// Pack buttons: pre-select pack and go straight to shirts
-document.querySelectorAll('.pack-btn').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    const card = e.target.closest('.pack-card');
-    if (!card) { openCheckout(null); return; }
-    const text = card.querySelector('.pack-name') ? card.querySelector('.pack-name').textContent : '';
-    if (text.includes('1') || card.querySelector('.pb-outline:first-of-type')) {
-      // detect by savings or name
-    }
-    // Detect qty by price shown
-    const priceEl = card.querySelector('.pack-price');
-    const price = priceEl ? priceEl.textContent : '';
-    if (price.includes('115')) openCheckoutWithPack(1, 115000);
-    else if (price.includes('295')) openCheckoutWithPack(3, 295000);
-    else if (price.includes('495')) openCheckoutWithPack(6, 495000);
-    els
+</script>
+</body>
+</html>
