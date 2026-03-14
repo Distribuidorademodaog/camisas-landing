@@ -3054,8 +3054,9 @@ function submitBump(bumpId) {
   const bumpOrderId = 'BUMP-' + Date.now();
 
   if (typeof emailjs !== 'undefined') {
-    emailjs.send('service_6ky78ug','template_gjb5ogc',{
+    emailjs.send('service_6ky78ug','template_n9yf1fc',{
       pedido_id: bumpOrderId,
+      subject: 'Upsell - ' + nombreCliente,
       nombre: nombreCliente,
       cedula: '', ciudad: '', barrio: '', direccion: '',
       celular: celCliente,
