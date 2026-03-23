@@ -2018,7 +2018,7 @@ function toggleFaq(el) {
       <div class="talla-btn" onclick="pickTallaGeneral(this,'L')"><div class="tb-sz">L</div><div class="tb-lbl">40–42</div></div>
       <div class="talla-btn" onclick="pickTallaGeneral(this,'XL')"><div class="tb-sz">XL</div><div class="tb-lbl">42–44</div></div>
       <div class="talla-btn" onclick="pickTallaGeneral(this,'XXL')"><div class="tb-sz">XXL</div><div class="tb-lbl">44–46</div></div>
-      <div class="talla-btn" onclick="pickTallaGeneral(this,'XXXL')"><div class="tb-sz">3XL</div><div class="tb-lbl">46–48</div></div>
+      <div class="talla-btn" onclick="pickTallaGeneral(this,'3XL')"><div class="tb-sz">3XL</div><div class="tb-lbl">46–48</div></div>
     </div>
     <div style="padding:12px 24px 0;">
       <div class="catalog-note">📏 ¿Entre tallas? Elige la <strong style="color:#121C2E;">talla mayor</strong> — nuestro tallaje es generoso.</div>
@@ -2210,8 +2210,9 @@ async function loadCatalog() {
 // Normalize talla: our buttons use XXXL, inventory uses 3XL
 function normTalla(t) { return t === 'XXXL' ? '3XL' : t === '3XL' ? 'XXXL' : t; }
 function hasTalla(camisa, talla) {
-  const inv = talla === 'XXXL' ? '3XL' : talla;
-  return camisa.tallas.includes(inv);
+  // normalize: both XXXL and 3XL mean the same
+  const t = talla === 'XXXL' ? '3XL' : talla;
+  return camisa.tallas.map(x => x === 'XXXL' ? '3XL' : x).includes(t);
 }
 
 // ─── STATE ───
@@ -2415,7 +2416,7 @@ function buildShirtStep(idx) {
   // Talla pills
   const tallasDiv = document.getElementById('perShirtTallas');
   tallasDiv.innerHTML = '';
-  ['S','M','L','XL','XXL','XXXL'].forEach(t => {
+  ['S','M','L','XL','XXL','3XL'].forEach(t => {
     const btn = document.createElement('div');
     btn.className = 'tp-btn';
     btn.textContent = t;
@@ -2694,13 +2695,13 @@ const ORDER_BUMPS_CONFIG = [
     precioAntes: 159000,
     precioAhora: 89000,
     variants: [
-      { id: 'blanca',     name: 'Blanca',      img: 'https://media.paquetecompleto.com.co/order-bumps/blanca.jpg',      tallas: ['S','M','L','XL','XXL','XXXL'] },
-      { id: 'amarilla',   name: 'Amarilla',    img: 'https://media.paquetecompleto.com.co/order-bumps/amarilla.jpg',    tallas: ['S','M','L','XL','XXL','XXXL'] },
-      { id: 'rosada',     name: 'Rosada',      img: 'https://media.paquetecompleto.com.co/order-bumps/rosada.jpg',      tallas: ['S','M','L','XL','XXL','XXXL'] },
-      { id: 'azulmedio',  name: 'Azul medio',  img: 'https://media.paquetecompleto.com.co/order-bumps/azulmedio.jpg',  tallas: ['S','M','L','XL','XXL','XXXL'] },
-      { id: 'verde',      name: 'Verde',       img: 'https://media.paquetecompleto.com.co/order-bumps/verde.jpg',       tallas: ['S','M','L','XL','XXL','XXXL'] },
-      { id: 'negro',      name: 'Negro',       img: 'https://media.paquetecompleto.com.co/order-bumps/negro.jpg',       tallas: ['S','M','L','XL','XXL','XXXL'] },
-      { id: 'azuloscuro', name: 'Azul oscuro', img: 'https://media.paquetecompleto.com.co/order-bumps/azuloscuro.jpg', tallas: ['S','M','L','XL','XXL','XXXL'] },
+      { id: 'blanca',     name: 'Blanca',      img: 'https://media.paquetecompleto.com.co/order-bumps/blanca.jpg',      tallas: ['S','M','L','XL','XXL','3XL'] },
+      { id: 'amarilla',   name: 'Amarilla',    img: 'https://media.paquetecompleto.com.co/order-bumps/amarilla.jpg',    tallas: ['S','M','L','XL','XXL','3XL'] },
+      { id: 'rosada',     name: 'Rosada',      img: 'https://media.paquetecompleto.com.co/order-bumps/rosada.jpg',      tallas: ['S','M','L','XL','XXL','3XL'] },
+      { id: 'azulmedio',  name: 'Azul medio',  img: 'https://media.paquetecompleto.com.co/order-bumps/azulmedio.jpg',  tallas: ['S','M','L','XL','XXL','3XL'] },
+      { id: 'verde',      name: 'Verde',       img: 'https://media.paquetecompleto.com.co/order-bumps/verde.jpg',       tallas: ['S','M','L','XL','XXL','3XL'] },
+      { id: 'negro',      name: 'Negro',       img: 'https://media.paquetecompleto.com.co/order-bumps/negro.jpg',       tallas: ['S','M','L','XL','XXL','3XL'] },
+      { id: 'azuloscuro', name: 'Azul oscuro', img: 'https://media.paquetecompleto.com.co/order-bumps/azuloscuro.jpg', tallas: ['S','M','L','XL','XXL','3XL'] },
     ]
   },
   {
@@ -2709,8 +2710,8 @@ const ORDER_BUMPS_CONFIG = [
     precioAntes: 110000,
     precioAhora: 60000,
     variants: [
-      { id: 'verde',        name: 'Verde',        img: 'https://media.paquetecompleto.com.co/order-bumps/camisetaverde.jpg',       tallas: ['S','M','L','XL','XXL','XXXL'] },
-      { id: 'amarilla',     name: 'Amarilla',     img: 'https://media.paquetecompleto.com.co/order-bumps/camisetaamarilla.jpg',    tallas: ['S','M','L','XL','XXL','XXXL'] },
+      { id: 'verde',        name: 'Verde',        img: 'https://media.paquetecompleto.com.co/order-bumps/camisetaverde.jpg',       tallas: ['S','M','L','XL','XXL','3XL'] },
+      { id: 'amarilla',     name: 'Amarilla',     img: 'https://media.paquetecompleto.com.co/order-bumps/camisetaamarilla.jpg',    tallas: ['S','M','L','XL','XXL','3XL'] },
       { id: 'verdeoscura',  name: 'Verde oscura', img: 'https://media.paquetecompleto.com.co/order-bumps/camisetaverdeoscura.jpg', tallas: ['S','M','L','XXL','XXXL'] },
       { id: 'blanco',       name: 'Blanco',       img: 'https://media.paquetecompleto.com.co/order-bumps/camisetablanco.jpg',      tallas: ['L','XXL','XXXL'] },
       { id: 'negro',        name: 'Negro',        img: 'https://media.paquetecompleto.com.co/order-bumps/camisetanegro.jpg',       tallas: ['L','XXL','XXXL'] },
