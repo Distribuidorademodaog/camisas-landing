@@ -2325,6 +2325,7 @@ function pickTallaGeneral(el, talla) {
 
 // ─── STEP 2: CATALOG ───
 function buildCatalog() {
+  if (CATALOG.length === 0) { loadCatalog().then(() => buildCatalog()); return; }
   document.getElementById('pnl2talla').textContent = S.talla;
   const grid = document.getElementById('catalogGrid');
   grid.innerHTML = '';
@@ -2441,6 +2442,7 @@ function pickPerShirtTalla(el, talla) {
 }
 
 function buildPerShirtGrid() {
+  if (CATALOG.length === 0) { loadCatalog().then(() => buildPerShirtGrid()); return; }
   const grid = document.getElementById('perShirtGrid');
   grid.style.display = 'grid';
   grid.innerHTML = '';
@@ -3045,6 +3047,8 @@ function submitBump(bumpId) {
 
 // ─── CONNECT CTAs ───
 document.addEventListener('DOMContentLoaded', function() {
+  // Precarga el inventario al abrir la página para que esté listo antes del checkout
+  loadCatalog();
   // Hero + section CTAs
   document.querySelectorAll('.hero-cta, .cta-gold').forEach(btn => {
     btn.addEventListener('click', () => openCheckout(null));
