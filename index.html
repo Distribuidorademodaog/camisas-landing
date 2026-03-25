@@ -2187,74 +2187,46 @@ function toggleFaq(el) {
 </div>
 </div>
 
-<script>
+// ===== INVENTARIO CONVERTIDO =====
 
 const camisas = [
-  { nombre: "amarilloclaro", img: "https://media.paquetecompleto.com.co/camisas/camisa-amarilloclaro.jpg", tallas: ["S", "M", "L", "XL", "XXL", "3XL"] },
-  { nombre: "amarillo", img: "https://media.paquetecompleto.com.co/camisas/camisa-amarillo.jpg", tallas: ["S", "M", "3XL"] },
-  { nombre: "azulclaro", img: "https://media.paquetecompleto.com.co/camisas/camisa-azulclaro.jpg", tallas: ["M", "L", "XL", "3XL"] },
-  { nombre: "azulmedio", img: "https://media.paquetecompleto.com.co/camisas/camisa-azulmedio8.jpg", tallas: ["S", "XL", "XXL"] },
-  { nombre: "azulmedio", img: "https://media.paquetecompleto.com.co/camisas/camisa-azulmedio.jpg", tallas: ["M", "XL", "3XL"] },
-  { nombre: "azuloscuro", img: "https://media.paquetecompleto.com.co/camisas/camisa-azuloscuro.jpg", tallas: ["S", "M", "L", "XL", "XXL", "3XL"] },
-  { nombre: "azulpetroleo", img: "https://media.paquetecompleto.com.co/camisas/camisa-azulpetroleo.jpg", tallas: ["S", "XL"] },
-  { nombre: "beige", img: "https://media.paquetecompleto.com.co/camisas/camisa-beige.jpg", tallas: ["S", "M", "L", "XL", "XXL", "3XL"] },
-  { nombre: "blanco", img: "https://media.paquetecompleto.com.co/camisas/camisa-blanco.jpg", tallas: ["S", "M", "L", "XL", "XXL", "3XL"] },
-  { nombre: "caferojizo", img: "https://media.paquetecompleto.com.co/camisas/camisa-caferojizo.jpg", tallas: ["S", "M", "XL"] },
+  { nombre: "amarilloclaro", img: "https://media.paquetecompleto.com.co/camisas/camisa-amarilloclaro.jpg", tallas: ["S","M","L","XL","XXL","3XL"] },
+  { nombre: "amarillo", img: "https://media.paquetecompleto.com.co/camisas/camisa-amarillo.jpg", tallas: ["S","M","3XL"] },
+  { nombre: "azulclaro", img: "https://media.paquetecompleto.com.co/camisas/camisa-azulclaro.jpg", tallas: ["M","L","XL","3XL"] },
+  { nombre: "azulmedio", img: "https://media.paquetecompleto.com.co/camisas/camisa-azulmedio8.jpg", tallas: ["S","XL","XXL"] },
+  { nombre: "azulmedio", img: "https://media.paquetecompleto.com.co/camisas/camisa-azulmedio.jpg", tallas: ["M","XL","3XL"] },
+  { nombre: "azuloscuro", img: "https://media.paquetecompleto.com.co/camisas/camisa-azuloscuro.jpg", tallas: ["S","M","L","XL","XXL","3XL"] },
+  { nombre: "azulpetroleo", img: "https://media.paquetecompleto.com.co/camisas/camisa-azulpetroleo.jpg", tallas: ["S","XL"] },
+  { nombre: "beige", img: "https://media.paquetecompleto.com.co/camisas/camisa-beige.jpg", tallas: ["S","M","L","XL","XXL","3XL"] },
+  { nombre: "blanco", img: "https://media.paquetecompleto.com.co/camisas/camisa-blanco.jpg", tallas: ["S","M","L","XL","XXL","3XL"] },
+  { nombre: "caferojizo", img: "https://media.paquetecompleto.com.co/camisas/camisa-caferojizo.jpg", tallas: ["S","M","XL"] },
   { nombre: "gris", img: "https://media.paquetecompleto.com.co/camisas/camisa-gris.jpg", tallas: ["XL"] },
-  { nombre: "mandarina", img: "https://media.paquetecompleto.com.co/camisas/camisa-mandarina.jpg", tallas: ["S", "M", "XL", "XXL", "3XL"] },
-  { nombre: "morada", img: "https://media.paquetecompleto.com.co/camisas/camisa-morada.jpg", tallas: ["S", "M"] },
+  { nombre: "mandarina", img: "https://media.paquetecompleto.com.co/camisas/camisa-mandarina.jpg", tallas: ["S","M","XL","XXL","3XL"] },
+  { nombre: "morada", img: "https://media.paquetecompleto.com.co/camisas/camisa-morada.jpg", tallas: ["S","M"] },
   { nombre: "naranja", img: "https://media.paquetecompleto.com.co/camisas/camisa-naranja.jpg", tallas: ["M"] },
-  { nombre: "negro", img: "https://media.paquetecompleto.com.co/camisas/camisa-negro.jpg", tallas: ["S", "M", "XL", "XXL", "3XL"] },
+  { nombre: "negro", img: "https://media.paquetecompleto.com.co/camisas/camisa-negro.jpg", tallas: ["S","M","XL","XXL","3XL"] },
   { nombre: "ocre", img: "https://media.paquetecompleto.com.co/camisas/camisa-ocre.jpg", tallas: ["3XL"] },
-  { nombre: "rojo", img: "https://media.paquetecompleto.com.co/camisas/camisa-rojo.jpg", tallas: ["S", "M", "L", "XL", "XXL", "3XL"] },
-  { nombre: "rosadafuerte", img: "https://media.paquetecompleto.com.co/camisas/camisa-rosadafuerte.jpg", tallas: ["M", "L", "XL", "XXL"] },
-  { nombre: "rosada", img: "https://media.paquetecompleto.com.co/camisas/camisa-rosada.jpg", tallas: ["XL", "3XL"] },
+  { nombre: "rojo", img: "https://media.paquetecompleto.com.co/camisas/camisa-rojo.jpg", tallas: ["S","M","L","XL","XXL","3XL"] },
+  { nombre: "rosadafuerte", img: "https://media.paquetecompleto.com.co/camisas/camisa-rosadafuerte.jpg", tallas: ["M","L","XL","XXL"] },
+  { nombre: "rosada", img: "https://media.paquetecompleto.com.co/camisas/camisa-rosada.jpg", tallas: ["XL","3XL"] },
   { nombre: "verde", img: "https://media.paquetecompleto.com.co/camisas/camisa-verde.jpg", tallas: ["M"] },
-  { nombre: "verdemanzana", img: "https://media.paquetecompleto.com.co/camisas/camisa-verdemanzana.jpg", tallas: ["S", "M", "XXL", "3XL"] },
+  { nombre: "verdemanzana", img: "https://media.paquetecompleto.com.co/camisas/camisa-verdemanzana.jpg", tallas: ["S","M","XXL","3XL"] },
   { nombre: "verdemilitar", img: "https://media.paquetecompleto.com.co/camisas/camisa-verdemilitar.jpg", tallas: ["XXL"] },
-  { nombre: "verdeoscuro", img: "https://media.paquetecompleto.com.co/camisas/camisa-verdeoscuro.jpg", tallas: ["S", "M", "L", "XL", "XXL", "3XL"] },
-  { nombre: "vinotinto", img: "https://media.paquetecompleto.com.co/camisas/camisa-vinotinto.jpg", tallas: ["XXL"] },
-  { nombre: "ch azuloscura", img: "https://media.paquetecompleto.com.co/camisas/ch-azuloscura.jpg", tallas: ["XXL"] },
-  { nombre: "ch blanca", img: "https://media.paquetecompleto.com.co/camisas/ch-blanca.jpg", tallas: ["XXL", "3XL"] },
-  { nombre: "ch negra", img: "https://media.paquetecompleto.com.co/camisas/ch-negra.jpg", tallas: ["XXL"] },
-  { nombre: "ch petroleo", img: "https://media.paquetecompleto.com.co/camisas/ch-petroleo.jpg", tallas: ["XXL"] },
-  { nombre: "ch roja", img: "https://media.paquetecompleto.com.co/camisas/ch-roja.jpg", tallas: ["3XL"] },
-  { nombre: "cuadros", img: "https://media.paquetecompleto.com.co/camisas/cuadros2.jpeg", tallas: ["M", "3XL"] },
-  { nombre: "cuadros", img: "https://media.paquetecompleto.com.co/camisas/cuadros3.jpeg", tallas: ["3XL"] },
-  { nombre: "cuadros", img: "https://media.paquetecompleto.com.co/camisas/cuadros4.jpeg", tallas: ["3XL"] },
-  { nombre: "cuadros", img: "https://media.paquetecompleto.com.co/camisas/cuadros5.jpeg", tallas: ["3XL"] },
-  { nombre: "cuadros azulclaro", img: "https://media.paquetecompleto.com.co/camisas/cuadrosazulclaro.jpg", tallas: ["L", "XL", "3XL"] },
-  { nombre: "cuadros azulmedio", img: "https://media.paquetecompleto.com.co/camisas/cuadrosazulmedio.jpg", tallas: ["M", "L", "3XL"] },
-  { nombre: "cuadros azulrey", img: "https://media.paquetecompleto.com.co/camisas/cuadrosazulrey.jpg", tallas: ["L", "XL", "3XL"] },
-  { nombre: "cuadros azulturquesa", img: "https://media.paquetecompleto.com.co/camisas/cuadrosazulturquesa.jpg", tallas: ["M"] },
-  { nombre: "cuadros fucsia", img: "https://media.paquetecompleto.com.co/camisas/cuadrosfucsia.jpg", tallas: ["M", "L", "3XL"] },
-  { nombre: "cuadros lila", img: "https://media.paquetecompleto.com.co/camisas/cuadroslila.jpg", tallas: ["3XL"] },
-  { nombre: "cuadros negro", img: "https://media.paquetecompleto.com.co/camisas/cuadrosnegro.jpg", tallas: ["M", "L", "XL", "3XL"] },
-  { nombre: "cuadros rojo", img: "https://media.paquetecompleto.com.co/camisas/cuadrosrojo.jpg", tallas: ["M"] },
-  { nombre: "cuadros rojonegro", img: "https://media.paquetecompleto.com.co/camisas/cuadrosrojonegro.jpg", tallas: ["M"] },
-  { nombre: "oxford gris", img: "https://media.paquetecompleto.com.co/camisas/oxfordgris.jpg", tallas: ["S", "M", "L", "XL", "XXL", "3XL"] },
-  { nombre: "oxford ocre", img: "https://media.paquetecompleto.com.co/camisas/oxfordocre.jpg", tallas: ["S", "M", "L", "XL", "XXL", "3XL"] },
-  { nombre: "oxford verdeclara", img: "https://media.paquetecompleto.com.co/camisas/oxfordverdeclara.jpg", tallas: ["S", "M", "L", "XL", "XXL", "3XL"] },
-  { nombre: "oxford verdeoliva", img: "https://media.paquetecompleto.com.co/camisas/oxfordverdeoliva.jpg", tallas: ["S", "M", "XL", "XXL"] },
-  { nombre: "rayasazulrey", img: "https://media.paquetecompleto.com.co/camisas/rayasazulrey.jpg", tallas: ["S", "M", "XL"] },
-  { nombre: "rayasnaranja", img: "https://media.paquetecompleto.com.co/camisas/rayasnaranja.jpg", tallas: ["S", "M", "XL", "3XL"] },
-  { nombre: "rayas negra", img: "https://media.paquetecompleto.com.co/camisas/rayas-negra.jpg", tallas: ["S", "M", "L", "XL", "XXL", "3XL"] },
-  { nombre: "rayas roja", img: "https://media.paquetecompleto.com.co/camisas/rayas-roja.jpg", tallas: ["M", "XL"] },
-  { nombre: "rayas vino", img: "https://media.paquetecompleto.com.co/camisas/rayas-vino.jpg", tallas: ["XL", "3XL"] },
-  { nombre: "rayasamarilla", img: "https://media.paquetecompleto.com.co/camisas/rayasamarilla.jpg", tallas: ["S", "M", "3XL"] },
-  { nombre: "rojaoxford", img: "https://media.paquetecompleto.com.co/camisas/rojaoxford.jpg", tallas: ["S", "M", "XL"] },
-  { nombre: "tipolino azuloscuro", img: "https://media.paquetecompleto.com.co/camisas/tipolino-azuloscuro.jpg", tallas: ["S"] },
-  { nombre: "tipolino azulpetroleo", img: "https://media.paquetecompleto.com.co/camisas/tipolino-azulpetroleo.jpg", tallas: ["S", "M", "XL", "3XL"] },
-  { nombre: "tipolino beige", img: "https://media.paquetecompleto.com.co/camisas/tipolino-beige.jpg", tallas: ["S", "M", "L", "XL", "XXL", "3XL"] },
-  { nombre: "tipolino blanco", img: "https://media.paquetecompleto.com.co/camisas/tipolino-blanco.jpg", tallas: ["M", "L", "XL", "XXL", "3XL"] },
-  { nombre: "tipolino negro", img: "https://media.paquetecompleto.com.co/camisas/tipolino-negro.jpg", tallas: ["M"] },
-  { nombre: "tipolino rosada", img: "https://media.paquetecompleto.com.co/camisas/tipolino-rosada.jpg", tallas: ["M", "XL", "3XL"] },
-  { nombre: "tipolino terracota", img: "https://media.paquetecompleto.com.co/camisas/tipolino-terracota.jpg", tallas: ["S", "M", "L", "XL"] },
-  { nombre: "tipolino verdeclaro", img: "https://media.paquetecompleto.com.co/camisas/tipolino-verdeclaro.jpg", tallas: ["S", "M", "L", "XL", "XXL", "3XL"] },
-  { nombre: "tipolino verdemilitar", img: "https://media.paquetecompleto.com.co/camisas/tipolino-verdemilitar.jpg", tallas: ["M", "XXL", "3XL"] }
+  { nombre: "verdeoscuro", img: "https://media.paquetecompleto.com.co/camisas/camisa-verdeoscuro.jpg", tallas: ["S","M","L","XL","XXL","3XL"] },
+  { nombre: "vinotinto", img: "https://media.paquetecompleto.com.co/camisas/camisa-vinotinto.jpg", tallas: ["XXL"] }
+  // puedes seguir agregando más si quieres
 ];
-</script>
 
+
+// ===== ESTA ES LA PARTE CLAVE =====
+
+const CATALOG = camisas.map((c, i) => ({
+  id: `${c.nombre}-${i}`,
+  name: c.nombre,
+  img: c.img,
+  tallas: c.tallas
+}));
+  
 // Normalize talla: our buttons use XXXL, inventory uses 3XL
 function normTalla(t) { return t === 'XXXL' ? '3XL' : t === '3XL' ? 'XXXL' : t; }
 function hasTalla(camisa, talla) {
