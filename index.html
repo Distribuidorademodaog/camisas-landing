@@ -2188,8 +2188,6 @@ function toggleFaq(el) {
 </div>
 
 <script>
-// Catálogo generado desde Infinity Store Inventario
-// 25/3/2026
 
 const camisas = [
   { nombre: "amarilloclaro", img: "https://media.paquetecompleto.com.co/camisas/camisa-amarilloclaro.jpg", tallas: ["S", "M", "L", "XL", "XXL", "3XL"] },
@@ -2255,6 +2253,7 @@ const camisas = [
   { nombre: "tipolino verdeclaro", img: "https://media.paquetecompleto.com.co/camisas/tipolino-verdeclaro.jpg", tallas: ["S", "M", "L", "XL", "XXL", "3XL"] },
   { nombre: "tipolino verdemilitar", img: "https://media.paquetecompleto.com.co/camisas/tipolino-verdemilitar.jpg", tallas: ["M", "XXL", "3XL"] }
 ];
+
 
 // Normalize talla: our buttons use XXXL, inventory uses 3XL
 function normTalla(t) { return t === 'XXXL' ? '3XL' : t === '3XL' ? 'XXXL' : t; }
