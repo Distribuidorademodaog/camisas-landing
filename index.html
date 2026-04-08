@@ -991,7 +991,7 @@ body {
 
     <div class="vid-grid">
       <div class="vid-card">
-        <video src="video1.mp4" autoplay muted loop playsinline></video>
+        <video src="video1.mov" autoplay muted loop playsinline></video>
         <div class="vid-overlay"></div>
         <div class="vid-text">
           <div class="vid-kicker">En vivo</div>
@@ -1000,7 +1000,7 @@ body {
         <div class="vid-play">▶</div>
       </div>
       <div class="vid-card">
-        <video src="video.mp4" autoplay muted loop playsinline></video>
+        <video src="video2.mov" autoplay muted loop playsinline></video>
         <div class="vid-overlay"></div>
         <div class="vid-text">
           <div class="vid-kicker">En vivo</div>
@@ -2018,7 +2018,7 @@ function toggleFaq(el) {
       <div class="talla-btn" onclick="pickTallaGeneral(this,'L')"><div class="tb-sz">L</div><div class="tb-lbl">40–42</div></div>
       <div class="talla-btn" onclick="pickTallaGeneral(this,'XL')"><div class="tb-sz">XL</div><div class="tb-lbl">42–44</div></div>
       <div class="talla-btn" onclick="pickTallaGeneral(this,'XXL')"><div class="tb-sz">XXL</div><div class="tb-lbl">44–46</div></div>
-      <div class="talla-btn" onclick="pickTallaGeneral(this,'3XL')"><div class="tb-sz">3XL</div><div class="tb-lbl">46–48</div></div>
+      <div class="talla-btn" onclick="pickTallaGeneral(this,'XXXL')"><div class="tb-sz">3XL</div><div class="tb-lbl">46–48</div></div>
     </div>
     <div style="padding:12px 24px 0;">
       <div class="catalog-note">📏 ¿Entre tallas? Elige la <strong style="color:#121C2E;">talla mayor</strong> — nuestro tallaje es generoso.</div>
@@ -2188,31 +2188,75 @@ function toggleFaq(el) {
 </div>
 
 <script>
-let CATALOG = []; // se carga dinámicamente desde el servidor
-
-async function loadCatalog() {
-  try {
-    const res = await fetch('https://media.paquetecompleto.com.co/inventario_data.json?t=' + Date.now());
-    const data = await res.json();
-    CATALOG = Object.entries(data)
-      .filter(([file, item]) => !item.deleted && item.tallas && item.tallas.length > 0)
-      .map(([file, item]) => ({
-        id:     file.replace(/\.(jpg|jpeg|png)$/i, '').replace(/[^a-z0-9]/gi, '_'),
-        name:   item.nombre.replace(/-/g,' ').replace(/\w/g, c => c.toUpperCase()),
-        img:    'https://media.paquetecompleto.com.co/camisas/' + file,
-        tallas: item.tallas
-      }));
-  } catch(e) {
-    console.error('Error cargando inventario:', e);
-  }
-}
+const CATALOG = [
+  { id:'amarilloclaro',      name:'Amarillo claro',       img:'https://media.paquetecompleto.com.co/camisas/camisa-amarilloclaro.jpg',      tallas:['S','M','L','XL','XXL','3XL'] },
+  { id:'amarillo',           name:'Amarillo',              img:'https://media.paquetecompleto.com.co/camisas/camisa-amarillo.jpg',            tallas:['S','M'] },
+  { id:'azulclaro',          name:'Azul claro',            img:'https://media.paquetecompleto.com.co/camisas/camisa-azulclaro.jpg',           tallas:['M','XL','3XL'] },
+  { id:'azulmedio1',         name:'Azul medio',            img:'https://media.paquetecompleto.com.co/camisas/camisa-azulmedio8.jpg',          tallas:['S','XL','XXL'] },
+  { id:'azulmedio2',         name:'Azul medio (2)',        img:'https://media.paquetecompleto.com.co/camisas/camisa-azulmedio.jpg',           tallas:['S','M','XL','3XL'] },
+  { id:'azuloscuro',         name:'Azul oscuro',           img:'https://media.paquetecompleto.com.co/camisas/camisa-azuloscuro.jpg',          tallas:['S','M','L','XL','XXL'] },
+  { id:'azulpetroleo',       name:'Azul petróleo',         img:'https://media.paquetecompleto.com.co/camisas/camisa-azulpetroleo.jpg',        tallas:['S','XL'] },
+  { id:'beige',              name:'Beige',                 img:'https://media.paquetecompleto.com.co/camisas/camisa-beige.jpg',              tallas:['S','M','L','XL','XXL','3XL'] },
+  { id:'blanco',             name:'Blanco',                img:'https://media.paquetecompleto.com.co/camisas/camisa-blanco.jpg',             tallas:['S','M','L','XL','XXL','3XL'] },
+  { id:'caferojizo',         name:'Café rojizo',           img:'https://media.paquetecompleto.com.co/camisas/camisa-caferojizo.jpg',         tallas:['S','M','XL'] },
+  { id:'gris',               name:'Gris',                  img:'https://media.paquetecompleto.com.co/camisas/camisa-gris.jpg',               tallas:['XL'] },
+  { id:'mandarina',          name:'Mandarina',             img:'https://media.paquetecompleto.com.co/camisas/camisa-mandarina.jpg',          tallas:['S','M','XL','XXL','3XL'] },
+  { id:'morada',             name:'Morada',                img:'https://media.paquetecompleto.com.co/camisas/camisa-morada.jpg',             tallas:['S'] },
+  { id:'naranja',            name:'Naranja',               img:'https://media.paquetecompleto.com.co/camisas/camisa-naranja.jpg',            tallas:['M'] },
+  { id:'negro',              name:'Negro',                 img:'https://media.paquetecompleto.com.co/camisas/camisa-negro.jpg',              tallas:['S','XL'] },
+  { id:'ocre',               name:'Ocre',                  img:'https://media.paquetecompleto.com.co/camisas/camisa-ocre.jpg',               tallas:['3XL'] },
+  { id:'rojo',               name:'Rojo',                  img:'https://media.paquetecompleto.com.co/camisas/camisa-rojo.jpg',               tallas:['S','M','L','XL','XXL','3XL'] },
+  { id:'rosadafuerte',       name:'Rosada fuerte',         img:'https://media.paquetecompleto.com.co/camisas/camisa-rosadafuerte.jpg',       tallas:['M','L','XL','XXL'] },
+  { id:'rosada',             name:'Rosada',                img:'https://media.paquetecompleto.com.co/camisas/camisa-rosada.jpg',             tallas:['XL','3XL'] },
+  { id:'verde',              name:'Verde',                 img:'https://media.paquetecompleto.com.co/camisas/camisa-verde.jpg',              tallas:['M'] },
+  { id:'verdemanzana',       name:'Verde manzana',         img:'https://media.paquetecompleto.com.co/camisas/camisa-verdemanzana.jpg',       tallas:['S','M','XXL','3XL'] },
+  { id:'verdemilitar',       name:'Verde militar',         img:'https://media.paquetecompleto.com.co/camisas/camisa-verdemilitar.jpg',       tallas:['XXL'] },
+  { id:'verdeoscuro',        name:'Verde oscuro',          img:'https://media.paquetecompleto.com.co/camisas/camisa-verdeoscuro.jpg',        tallas:['S','M','L','XL','XXL','3XL'] },
+  { id:'vinotinto',          name:'Vinotinto',             img:'https://media.paquetecompleto.com.co/camisas/camisa-vinotinto.jpg',          tallas:['XXL'] },
+  { id:'ch-azuloscura',      name:'CH Azul oscura',        img:'https://media.paquetecompleto.com.co/camisas/ch-azuloscura.jpg',            tallas:['XXL'] },
+  { id:'ch-blanca',          name:'CH Blanca',             img:'https://media.paquetecompleto.com.co/camisas/ch-blanca.jpg',                tallas:['XXL'] },
+  { id:'ch-negra',           name:'CH Negra',              img:'https://media.paquetecompleto.com.co/camisas/ch-negra.jpg',                 tallas:['XXL','3XL'] },
+  { id:'ch-petroleo',        name:'CH Petróleo',           img:'https://media.paquetecompleto.com.co/camisas/ch-petroleo.jpg',              tallas:['XXL'] },
+  { id:'ch-roja',            name:'CH Roja',               img:'https://media.paquetecompleto.com.co/camisas/ch-roja.jpg',                  tallas:['3XL'] },
+  { id:'cuadros2',           name:'Cuadros',               img:'https://media.paquetecompleto.com.co/camisas/cuadros2.jpeg',                tallas:['M','3XL'] },
+  { id:'cuadros3',           name:'Cuadros (2)',            img:'https://media.paquetecompleto.com.co/camisas/cuadros3.jpeg',                tallas:['3XL'] },
+  { id:'cuadros4',           name:'Cuadros (3)',            img:'https://media.paquetecompleto.com.co/camisas/cuadros4.jpeg',                tallas:['3XL'] },
+  { id:'cuadros5',           name:'Cuadros (4)',            img:'https://media.paquetecompleto.com.co/camisas/cuadros5.jpeg',                tallas:['3XL'] },
+  { id:'cuadrosazulclaro',   name:'Cuadros azul claro',    img:'https://media.paquetecompleto.com.co/camisas/cuadrosazulclaro.jpg',         tallas:['XL','3XL'] },
+  { id:'cuadrosazulmedio',   name:'Cuadros azul medio',    img:'https://media.paquetecompleto.com.co/camisas/cuadrosazulmedio.jpg',         tallas:['M','L','3XL'] },
+  { id:'cuadrosazulrey',     name:'Cuadros azul rey',      img:'https://media.paquetecompleto.com.co/camisas/cuadrosazulrey.jpg',           tallas:['XL','3XL'] },
+  { id:'cuadrosazulturquesa',name:'Cuadros azul turquesa', img:'https://media.paquetecompleto.com.co/camisas/cuadrosazulturquesa.jpg',      tallas:['M'] },
+  { id:'cuadrosfucsia',      name:'Cuadros fucsia',        img:'https://media.paquetecompleto.com.co/camisas/cuadrosfucsia.jpg',           tallas:['M','3XL'] },
+  { id:'cuadroslila',        name:'Cuadros lila',          img:'https://media.paquetecompleto.com.co/camisas/cuadroslila.jpg',             tallas:['3XL'] },
+  { id:'cuadrosnegro',       name:'Cuadros negro',         img:'https://media.paquetecompleto.com.co/camisas/cuadrosnegro.jpg',            tallas:['XL','3XL'] },
+  { id:'cuadrosrojo',        name:'Cuadros rojo',          img:'https://media.paquetecompleto.com.co/camisas/cuadrosrojo.jpg',             tallas:['M'] },
+  { id:'cuadrosrojonegro',   name:'Cuadros rojo negro',    img:'https://media.paquetecompleto.com.co/camisas/cuadrosrojonegro.jpg',        tallas:['M'] },
+  { id:'oxfordgris',         name:'Oxford gris',           img:'https://media.paquetecompleto.com.co/camisas/oxfordgris.jpg',              tallas:['S','M','L','XL','XXL','3XL'] },
+  { id:'oxfordocre',         name:'Oxford ocre',           img:'https://media.paquetecompleto.com.co/camisas/oxfordocre.jpg',              tallas:['S','M','L','XL','XXL','3XL'] },
+  { id:'oxfordverdeclara',   name:'Oxford verde clara',    img:'https://media.paquetecompleto.com.co/camisas/oxfordverdeclara.jpg',        tallas:['M','XL','XXL','3XL'] },
+  { id:'oxfordverdeoliva',   name:'Oxford verde oliva',    img:'https://media.paquetecompleto.com.co/camisas/oxfordverdeoliva.jpg',        tallas:['S','XL','XXL'] },
+  { id:'rayasazulrey',       name:'Rayas azul rey',        img:'https://media.paquetecompleto.com.co/camisas/rayasazulrey.jpg',            tallas:['M','XL'] },
+  { id:'rayasnaranja',       name:'Rayas naranja',         img:'https://media.paquetecompleto.com.co/camisas/rayasnaranja.jpg',            tallas:['S','M','XL','3XL'] },
+  { id:'rayasnegra',         name:'Rayas negra',           img:'https://media.paquetecompleto.com.co/camisas/rayas-negra.jpg',             tallas:['S','M','XL','XXL','3XL'] },
+  { id:'rayasroja',          name:'Rayas roja',            img:'https://media.paquetecompleto.com.co/camisas/rayas-roja.jpg',              tallas:['M','XL'] },
+  { id:'rayasvino',          name:'Rayas vino',            img:'https://media.paquetecompleto.com.co/camisas/rayas-vino.jpg',              tallas:['XL','3XL'] },
+  { id:'rayasamarilla',      name:'Rayas amarilla',        img:'https://media.paquetecompleto.com.co/camisas/rayasamarilla.jpg',           tallas:['S','M','3XL'] },
+  { id:'rojaoxford',         name:'Roja oxford',           img:'https://media.paquetecompleto.com.co/camisas/rojaoxford.jpg',              tallas:['S','M','XL'] },
+  { id:'tipolinoamarilla',   name:'Tipo lino amarilla',    img:'https://media.paquetecompleto.com.co/camisas/tipolino-amarilla.jpg',       tallas:['M'] },
+  { id:'tipolinoazulpetroleo',name:'Tipo lino azul petróleo',img:'https://media.paquetecompleto.com.co/camisas/tipolino-azulpetroleo.jpg',tallas:['S','M','XL','3XL'] },
+  { id:'tipolinobeige',      name:'Tipo lino beige',       img:'https://media.paquetecompleto.com.co/camisas/tipolino-beige.jpg',          tallas:['S','M','XXL','3XL'] },
+  { id:'tipolinoblanco',     name:'Tipo lino blanco',      img:'https://media.paquetecompleto.com.co/camisas/tipolino-blanco.jpg',         tallas:['M','L','XL','XXL','3XL'] },
+  { id:'tipolinorosada',     name:'Tipo lino rosada',      img:'https://media.paquetecompleto.com.co/camisas/tipolino-rosada.jpg',         tallas:['M'] },
+  { id:'tipolinoterracota',  name:'Tipo lino terracota',   img:'https://media.paquetecompleto.com.co/camisas/tipolino-terracota.jpg',      tallas:['S','M','L','XL'] },
+  { id:'tipolinoverdeclaro', name:'Tipo lino verde claro', img:'https://media.paquetecompleto.com.co/camisas/tipolino-verdeclaro.jpg',     tallas:['S','M','L','XL','3XL'] },
+  { id:'tipolinoverdemilitar',name:'Tipo lino verde militar',img:'https://media.paquetecompleto.com.co/camisas/tipolino-verdemilitar.jpg',tallas:['M','XXL','3XL'] },
+];
 
 // Normalize talla: our buttons use XXXL, inventory uses 3XL
 function normTalla(t) { return t === 'XXXL' ? '3XL' : t === '3XL' ? 'XXXL' : t; }
 function hasTalla(camisa, talla) {
-  // normalize: both XXXL and 3XL mean the same
-  const t = talla === 'XXXL' ? '3XL' : talla;
-  return camisa.tallas.map(x => x === 'XXXL' ? '3XL' : x).includes(t);
+  const inv = talla === 'XXXL' ? '3XL' : talla;
+  return camisa.tallas.includes(inv);
 }
 
 // ─── STATE ───
@@ -2241,9 +2285,6 @@ function totalSteps() {
 }
 
 function openCheckout(packPreset) {
-  loadCatalog().then(() => _openCheckout(packPreset));
-}
-function _openCheckout(packPreset) {
   S = { talla:null, pack:null, packQty:0, packPrice:0, shirtIdx:0, shirts:[], curShirtTalla:null, curShirtCamisa:null, bumpSelections:{} };
   if (typeof fbq !== 'undefined' && !sessionStorage.getItem('fb_vc_sent')) {
     sessionStorage.setItem('fb_vc_sent', '1');
@@ -2261,9 +2302,6 @@ function _openCheckout(packPreset) {
 }
 
 function openCheckoutWithPack(qty, price) {
-  loadCatalog().then(() => _openCheckoutWithPack(qty, price));
-}
-function _openCheckoutWithPack(qty, price) {
   // Pre-select pack and jump straight to per-shirt flow
   S = { talla:null, pack:qty+' camisa'+(qty>1?'s':''), packQty:qty, packPrice:price,
         shirtIdx:0, shirts:[], curShirtTalla:null, curShirtCamisa:null, bumpSelections:{} };
@@ -2326,7 +2364,6 @@ function pickTallaGeneral(el, talla) {
 
 // ─── STEP 2: CATALOG ───
 function buildCatalog() {
-  if (CATALOG.length === 0) { loadCatalog().then(() => buildCatalog()); return; }
   document.getElementById('pnl2talla').textContent = S.talla;
   const grid = document.getElementById('catalogGrid');
   grid.innerHTML = '';
@@ -2416,7 +2453,7 @@ function buildShirtStep(idx) {
   // Talla pills
   const tallasDiv = document.getElementById('perShirtTallas');
   tallasDiv.innerHTML = '';
-  ['S','M','L','XL','XXL','3XL'].forEach(t => {
+  ['S','M','L','XL','XXL','XXXL'].forEach(t => {
     const btn = document.createElement('div');
     btn.className = 'tp-btn';
     btn.textContent = t;
@@ -2443,7 +2480,6 @@ function pickPerShirtTalla(el, talla) {
 }
 
 function buildPerShirtGrid() {
-  if (CATALOG.length === 0) { loadCatalog().then(() => buildPerShirtGrid()); return; }
   const grid = document.getElementById('perShirtGrid');
   grid.style.display = 'grid';
   grid.innerHTML = '';
@@ -2576,9 +2612,6 @@ function buildOrderSummary() {
 
 // ─── FORM SUBMIT ───
 function submitForm() {
-  // Prevent double-submit: disable button immediately
-  const nextBtn = document.getElementById('coNextBtn');
-  if (nextBtn) nextBtn.disabled = true;
   const v = (id) => document.getElementById(id).value.trim();
   const nombre   = v('f_nombre'),
         cedula   = v('f_cedula'),
@@ -2625,8 +2658,7 @@ function submitForm() {
 
   // ── FACEBOOK PIXEL Purchase — anti-duplicado con sessionStorage ──
   const trackKey = 'fb_purchase_sent_' + pedidoId;
-  // Usamos localStorage (persiste entre pestañas y recargas)
-  if (typeof fbq !== 'undefined' && !localStorage.getItem(trackKey)) {
+  if (typeof fbq !== 'undefined' && !sessionStorage.getItem(trackKey)) {
     fbq('track', 'Purchase', {
       value:        S.packPrice,
       currency:     'COP',
@@ -2634,7 +2666,7 @@ function submitForm() {
       num_items:    S.packQty,
       external_id:  celSoloNum,
     }, { eventID: pedidoId });
-    localStorage.setItem(trackKey, 'true');
+    sessionStorage.setItem(trackKey, 'true');
     console.log('Evento Purchase enviado con ID:', pedidoId);
   }
 
@@ -2695,13 +2727,13 @@ const ORDER_BUMPS_CONFIG = [
     precioAntes: 159000,
     precioAhora: 89000,
     variants: [
-      { id: 'blanca',     name: 'Blanca',      img: 'https://media.paquetecompleto.com.co/order-bumps/blanca.jpg',      tallas: ['S','M','L','XL','XXL','3XL'] },
-      { id: 'amarilla',   name: 'Amarilla',    img: 'https://media.paquetecompleto.com.co/order-bumps/amarilla.jpg',    tallas: ['S','M','L','XL','XXL','3XL'] },
-      { id: 'rosada',     name: 'Rosada',      img: 'https://media.paquetecompleto.com.co/order-bumps/rosada.jpg',      tallas: ['S','M','L','XL','XXL','3XL'] },
-      { id: 'azulmedio',  name: 'Azul medio',  img: 'https://media.paquetecompleto.com.co/order-bumps/azulmedio.jpg',  tallas: ['S','M','L','XL','XXL','3XL'] },
-      { id: 'verde',      name: 'Verde',       img: 'https://media.paquetecompleto.com.co/order-bumps/verde.jpg',       tallas: ['S','M','L','XL','XXL','3XL'] },
-      { id: 'negro',      name: 'Negro',       img: 'https://media.paquetecompleto.com.co/order-bumps/negro.jpg',       tallas: ['S','M','L','XL','XXL','3XL'] },
-      { id: 'azuloscuro', name: 'Azul oscuro', img: 'https://media.paquetecompleto.com.co/order-bumps/azuloscuro.jpg', tallas: ['S','M','L','XL','XXL','3XL'] },
+      { id: 'blanca',     name: 'Blanca',      img: 'https://media.paquetecompleto.com.co/order-bumps/blanca.jpg',      tallas: ['S','M','L','XL','XXL','XXXL'] },
+      { id: 'amarilla',   name: 'Amarilla',    img: 'https://media.paquetecompleto.com.co/order-bumps/amarilla.jpg',    tallas: ['S','M','L','XL','XXL','XXXL'] },
+      { id: 'rosada',     name: 'Rosada',      img: 'https://media.paquetecompleto.com.co/order-bumps/rosada.jpg',      tallas: ['S','M','L','XL','XXL','XXXL'] },
+      { id: 'azulmedio',  name: 'Azul medio',  img: 'https://media.paquetecompleto.com.co/order-bumps/azulmedio.jpg',  tallas: ['S','M','L','XL','XXL','XXXL'] },
+      { id: 'verde',      name: 'Verde',       img: 'https://media.paquetecompleto.com.co/order-bumps/verde.jpg',       tallas: ['S','M','L','XL','XXL','XXXL'] },
+      { id: 'negro',      name: 'Negro',       img: 'https://media.paquetecompleto.com.co/order-bumps/negro.jpg',       tallas: ['S','M','L','XL','XXL','XXXL'] },
+      { id: 'azuloscuro', name: 'Azul oscuro', img: 'https://media.paquetecompleto.com.co/order-bumps/azuloscuro.jpg', tallas: ['S','M','L','XL','XXL','XXXL'] },
     ]
   },
   {
@@ -2710,8 +2742,8 @@ const ORDER_BUMPS_CONFIG = [
     precioAntes: 110000,
     precioAhora: 60000,
     variants: [
-      { id: 'verde',        name: 'Verde',        img: 'https://media.paquetecompleto.com.co/order-bumps/camisetaverde.jpg',       tallas: ['S','M','L','XL','XXL','3XL'] },
-      { id: 'amarilla',     name: 'Amarilla',     img: 'https://media.paquetecompleto.com.co/order-bumps/camisetaamarilla.jpg',    tallas: ['S','M','L','XL','XXL','3XL'] },
+      { id: 'verde',        name: 'Verde',        img: 'https://media.paquetecompleto.com.co/order-bumps/camisetaverde.jpg',       tallas: ['S','M','L','XL','XXL','XXXL'] },
+      { id: 'amarilla',     name: 'Amarilla',     img: 'https://media.paquetecompleto.com.co/order-bumps/camisetaamarilla.jpg',    tallas: ['S','M','L','XL','XXL','XXXL'] },
       { id: 'verdeoscura',  name: 'Verde oscura', img: 'https://media.paquetecompleto.com.co/order-bumps/camisetaverdeoscura.jpg', tallas: ['S','M','L','XXL','XXXL'] },
       { id: 'blanco',       name: 'Blanco',       img: 'https://media.paquetecompleto.com.co/order-bumps/camisetablanco.jpg',      tallas: ['L','XXL','XXXL'] },
       { id: 'negro',        name: 'Negro',        img: 'https://media.paquetecompleto.com.co/order-bumps/camisetanegro.jpg',       tallas: ['L','XXL','XXXL'] },
@@ -3016,19 +3048,15 @@ function submitBump(bumpId) {
   const bumpOrderId = 'BUMP-' + Date.now();
 
   if (typeof emailjs !== 'undefined') {
-    const firstLine = lines[0] || {};
-    emailjs.send('service_6ky78ug','template_n9yf1fc',{
+    emailjs.send('service_6ky78ug','template_gjb5ogc',{
       pedido_id: bumpOrderId,
-      subject:   '¡Nuevo UPSELL añadido por ' + nombreCliente + '!',
-      nombre:    nombreCliente,
-      celular:   celCliente,
-      Correo:    correoCliente,
-      producto_upsell: firstLine.nombre || '',
-      color:     firstLine.color  || '',
-      talla:     firstLine.talla  || '',
-      precio:    '$' + totalPrice.toLocaleString('es-CO'),
-      cantidad:  totalUnits,
-      detalle:   detalle
+      nombre: nombreCliente,
+      cedula: '', ciudad: '', barrio: '', direccion: '',
+      celular: celCliente,
+      Correo: correoCliente,
+      cantidad: totalUnits,
+      total: '$' + totalPrice.toLocaleString('es-CO'),
+      detalle: detalle
     }).catch(()=>{});
   }
 
@@ -3048,8 +3076,6 @@ function submitBump(bumpId) {
 
 // ─── CONNECT CTAs ───
 document.addEventListener('DOMContentLoaded', function() {
-  // Precarga el inventario al abrir la página para que esté listo antes del checkout
-  loadCatalog();
   // Hero + section CTAs
   document.querySelectorAll('.hero-cta, .cta-gold').forEach(btn => {
     btn.addEventListener('click', () => openCheckout(null));
