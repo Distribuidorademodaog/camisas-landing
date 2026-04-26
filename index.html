@@ -1594,6 +1594,41 @@ function toggleFaq(el) {
   display:flex; align-items:center; gap:8px;
 }
 
+/* Separador de categoría (Manga Larga / Manga Corta) */
+.cat-divider {
+  grid-column: 1 / -1;
+  display:flex; align-items:center; gap:10px;
+  padding: 6px 0 2px;
+}
+.cat-divider:not(:first-child) { padding-top: 14px; }
+.cat-divider .cd-line {
+  flex:1; height:1px;
+  background: linear-gradient(90deg, transparent, rgba(154,123,60,0.35), transparent);
+}
+.cat-divider .cd-title {
+  font-family:'Cormorant Garamond', serif;
+  font-size: 15px; font-weight: 600; font-style: italic;
+  color: #9A7B3C; letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+/* Separador más compacto dentro del grid de selección por camisa */
+.shirt-divider {
+  grid-column: 1 / -1;
+  display:flex; align-items:center; gap:8px;
+  padding: 4px 0 0;
+}
+.shirt-divider:not(:first-child) { padding-top: 10px; }
+.shirt-divider .sd-line {
+  flex:1; height:1px;
+  background: linear-gradient(90deg, transparent, rgba(154,123,60,0.35), transparent);
+}
+.shirt-divider .sd-title {
+  font-family:'Cormorant Garamond', serif;
+  font-size: 13px; font-weight: 600; font-style: italic;
+  color: #9A7B3C; letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
 /* PACK CARDS */
 .pack-list {
   display:flex; flex-direction:column; gap:10px;
@@ -2288,6 +2323,10 @@ function hasTalla(camisa, talla) {
   const t = talla === 'XXXL' ? '3XL' : talla;
   return camisa.tallas.map(x => x === 'XXXL' ? '3XL' : x).includes(t);
 }
+// Detecta si una camisa es manga corta por su nombre
+function isMangaCorta(camisa) {
+  return /^manga\s*corta/i.test(camisa.name.trim());
+}
 
 // ─── STATE ───
 let S = {
@@ -2409,7 +2448,11 @@ function buildCatalog() {
     grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:20px;font-family:Outfit,sans-serif;font-size:13px;color:#7a7060;">No hay camisas disponibles en talla ' + S.talla + ' en este momento.</div>';
     return;
   }
-  disponibles.forEach(c => {
+  // Separar por tipo: manga larga primero, manga corta después
+  const mangaCorta = disponibles.filter(c => isMangaCorta(c));
+  const mangaLarga = disponibles.filter(c => !isMangaCorta(c));
+
+  const renderCard = (c) => {
     const el = document.createElement('div');
     el.className = 'cat-card';
     el.style.cursor = 'zoom-in';
@@ -2425,7 +2468,27 @@ function buildCatalog() {
     `;
     el.onclick = () => openLightbox(c);
     grid.appendChild(el);
-  });
+  };
+
+  const renderDivider = (titulo) => {
+    const div = document.createElement('div');
+    div.className = 'cat-divider';
+    div.innerHTML = `<span class="cd-line"></span><span class="cd-title">${titulo}</span><span class="cd-line"></span>`;
+    grid.appendChild(div);
+  };
+
+  // Solo mostrar título si hay ambos tipos (si solo hay un tipo, no hace falta separar)
+  const mostrarTitulos = mangaLarga.length > 0 && mangaCorta.length > 0;
+
+  if (mangaLarga.length > 0) {
+    if (mostrarTitulos) renderDivider('Manga Larga');
+    mangaLarga.forEach(renderCard);
+  }
+  if (mangaCorta.length > 0) {
+    if (mostrarTitulos) renderDivider('Manga Corta');
+    mangaCorta.forEach(renderCard);
+  }
+
   // Update subtitle
   document.querySelector('#pnl2 .co-sub').textContent =
     disponibles.length + ' diseños disponibles en talla ' + S.talla + '. Toca para ampliar.';
@@ -2527,7 +2590,11 @@ function buildPerShirtGrid() {
     document.getElementById('coNextBtn').disabled = true;
     return;
   }
-  disponibles.forEach(c => {
+  // Separar por tipo: manga larga primero, manga corta después
+  const mangaCorta = disponibles.filter(c => isMangaCorta(c));
+  const mangaLarga = disponibles.filter(c => !isMangaCorta(c));
+
+  const renderItem = (c) => {
     const item = document.createElement('div');
     item.className = 'si';
     item.dataset.id = c.id;
@@ -2543,7 +2610,25 @@ function buildPerShirtGrid() {
     `;
     item.onclick = () => pickShirtItem(item, c.name);
     grid.appendChild(item);
-  });
+  };
+
+  const renderDivider = (titulo) => {
+    const div = document.createElement('div');
+    div.className = 'shirt-divider';
+    div.innerHTML = `<span class="sd-line"></span><span class="sd-title">${titulo}</span><span class="sd-line"></span>`;
+    grid.appendChild(div);
+  };
+
+  const mostrarTitulos = mangaLarga.length > 0 && mangaCorta.length > 0;
+
+  if (mangaLarga.length > 0) {
+    if (mostrarTitulos) renderDivider('Manga Larga');
+    mangaLarga.forEach(renderItem);
+  }
+  if (mangaCorta.length > 0) {
+    if (mostrarTitulos) renderDivider('Manga Corta');
+    mangaCorta.forEach(renderItem);
+  }
 }
 
 function pickShirtItem(el, name) {
