@@ -2906,7 +2906,6 @@ const ORDER_BUMPS_CONFIG = [
       { id: 'amarilla',     name: 'Amarilla',     img: 'https://media.paquetecompleto.com.co/order-bumps/camisetaamarilla.jpg',    tallas: ['S','M','L','XL','XXL','3XL'] },
       { id: 'verdeoscura',  name: 'Verde oscura', img: 'https://media.paquetecompleto.com.co/order-bumps/camisetaverdeoscura.jpg', tallas: ['S','M','L','XXL','XXXL'] },
       { id: 'blanco',       name: 'Blanco',       img: 'https://media.paquetecompleto.com.co/order-bumps/camisetablanco.jpg',      tallas: ['L','XXL','XXXL'] },
-      { id: 'negro',        name: 'Negro',        img: 'https://media.paquetecompleto.com.co/order-bumps/camisetanegro.jpg',       tallas: ['L','XXL','XXXL'] },
       { id: 'vinotinto',    name: 'Vinotinto',    img: 'https://media.paquetecompleto.com.co/order-bumps/camisetavinotinto.jpg',   tallas: ['S','M','L','XXL','XXXL'] },
     ]
   },
@@ -2941,20 +2940,67 @@ const bumpState = {};
 
 function fmt(n) { return '$' + n.toLocaleString('es-CO'); }
 
+// Devuelve true si la lista de tallas del variant incluye la talla del cliente (con normalización XXXL↔3XL)
+function variantHasTalla(variantTallas, customerTalla) {
+  if (variantTallas.includes(customerTalla)) return true;
+  const alt = normTalla(customerTalla);
+  return alt !== customerTalla && variantTallas.includes(alt);
+}
+
+// Filtra la config de bumps según la talla del cliente.
+// Reglas: 1A (oculta colores que no tienen la talla), 2A (oculta bump completo si 0 colores aplican),
+// 3B (si NINGÚN bump tiene la talla, muestra todo sin filtrar — fallback para no perder venta)
+function getBumpsForCustomer() {
+  // Restaurar config original si fue mutada en una llamada previa
+  if (window._ORIGINAL_BUMPS_CONFIG) {
+    ORDER_BUMPS_CONFIG.length = 0;
+    window._ORIGINAL_BUMPS_CONFIG.forEach(b => ORDER_BUMPS_CONFIG.push(b));
+  }
+
+  const distinctTallas = [...new Set(S.shirts.map(s => s.talla))];
+  if (distinctTallas.length !== 1) return { bumps: ORDER_BUMPS_CONFIG.slice(), customerTalla: null };
+
+  const customerTalla = distinctTallas[0];
+  const filtered = ORDER_BUMPS_CONFIG
+    .map(bump => ({ ...bump, variants: bump.variants.filter(v => variantHasTalla(v.tallas, customerTalla)) }))
+    .filter(bump => bump.variants.length > 0);
+
+  // Fallback 3B
+  if (filtered.length === 0) return { bumps: ORDER_BUMPS_CONFIG.slice(), customerTalla: null };
+  return { bumps: filtered, customerTalla };
+}
+
 function renderOrderBumps() {
   const container = document.getElementById('ob-container');
   if (!container) return;
   container.innerHTML = '';
 
-  ORDER_BUMPS_CONFIG.forEach(bump => {
+  const { bumps, customerTalla } = getBumpsForCustomer();
+
+  // Reemplaza temporalmente la config global con la filtrada para que selectVariant/addExtraLine
+  // solo vean los variants permitidos (la pantalla de gracias se re-renderiza si llega otra venta)
+  window._ORIGINAL_BUMPS_CONFIG = window._ORIGINAL_BUMPS_CONFIG || ORDER_BUMPS_CONFIG.slice();
+  ORDER_BUMPS_CONFIG.length = 0;
+  bumps.forEach(b => ORDER_BUMPS_CONFIG.push(b));
+
+  bumps.forEach(bump => {
     bumpState[bump.id] = [];
     const card = document.createElement('div');
     card.className = 'ob-card';
     card.id = bump.id;
     card.innerHTML = buildBumpCard(bump);
     container.appendChild(card);
-    // Init: select first variant
-    setTimeout(() => selectVariant(bump.id, bump.variants[0].id), 0);
+    setTimeout(() => {
+      selectVariant(bump.id, bump.variants[0].id);
+      // Pre-seleccionar talla del cliente si aplica
+      if (customerTalla) {
+        const v0 = bump.variants[0];
+        const tallaParaPreseleccionar = v0.tallas.includes(customerTalla)
+          ? customerTalla
+          : (v0.tallas.includes(normTalla(customerTalla)) ? normTalla(customerTalla) : null);
+        if (tallaParaPreseleccionar) selectTallaMain(bump.id, tallaParaPreseleccionar);
+      }
+    }, 0);
   });
 }
 
