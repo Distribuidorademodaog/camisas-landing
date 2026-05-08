@@ -2940,11 +2940,23 @@ const bumpState = {};
 
 function fmt(n) { return '$' + n.toLocaleString('es-CO'); }
 
+// Talla del cliente (null = sin filtro). La fija renderOrderBumps; la usan selectVariant/addExtraLine/changeExtraVariant.
+let _customerTalla = null;
+
 // Devuelve true si la lista de tallas del variant incluye la talla del cliente (con normalización XXXL↔3XL)
 function variantHasTalla(variantTallas, customerTalla) {
   if (variantTallas.includes(customerTalla)) return true;
   const alt = normTalla(customerTalla);
   return alt !== customerTalla && variantTallas.includes(alt);
+}
+
+// Devuelve la talla a mostrar para una variant cuando hay filtro activo (usa la del cliente o su alt XXXL/3XL)
+function tallaParaVariant(variant) {
+  if (!_customerTalla) return null;
+  if (variant.tallas.includes(_customerTalla)) return _customerTalla;
+  const alt = normTalla(_customerTalla);
+  if (alt !== _customerTalla && variant.tallas.includes(alt)) return alt;
+  return null;
 }
 
 // Filtra la config de bumps según la talla del cliente.
@@ -2976,6 +2988,7 @@ function renderOrderBumps() {
   container.innerHTML = '';
 
   const { bumps, customerTalla } = getBumpsForCustomer();
+  _customerTalla = customerTalla;
 
   // Reemplaza temporalmente la config global con la filtrada para que selectVariant/addExtraLine
   // solo vean los variants permitidos (la pantalla de gracias se re-renderiza si llega otra venta)
@@ -3087,20 +3100,23 @@ function selectVariant(bumpId, variantId) {
   const selThumb = document.getElementById(bumpId+'-thumb-'+variantId);
   if (selThumb) selThumb.classList.add('sel');
 
-  // Update tallas
+  // Update tallas — si hay talla del cliente, solo mostrar esa (única opción, no se puede cambiar)
   const tallasDiv = document.getElementById(bumpId+'-tallas');
   if (tallasDiv) {
-    tallasDiv.innerHTML = variant.tallas.map(t =>
-      `<button class="ob-talla-btn" onclick="selectTallaMain('${bumpId}','${t}')" data-talla="${t}">${t}</button>`
+    const tallaForzada = tallaParaVariant(variant);
+    const tallasToShow = tallaForzada ? [tallaForzada] : variant.tallas;
+    tallasDiv.innerHTML = tallasToShow.map(t =>
+      `<button class="ob-talla-btn${tallaForzada?' sel':''}" onclick="selectTallaMain('${bumpId}','${t}')" data-talla="${t}">${t}</button>`
     ).join('');
   }
 
-  // Store selected variant (reset talla)
+  // Store selected variant
   document.getElementById(bumpId+'-qty').value = 1;
-  // Save current variant selection
   const card = document.getElementById(bumpId);
   card.dataset.selectedVariant = variantId;
-  card.dataset.selectedTalla = '';
+  // Si forzamos talla del cliente, ya queda seleccionada
+  const forzada = tallaParaVariant(variant);
+  card.dataset.selectedTalla = forzada || '';
   checkBumpReady(bumpId);
 }
 
@@ -3131,15 +3147,18 @@ function addExtraLine(bumpId) {
     `<option value="${v.id}">${v.name}</option>`
   ).join('');
 
-  const firstTallas = bump.variants[0].tallas.map(t =>
-    `<button class="ob-talla-btn" onclick="selectExtraTalla('${lineId}','${t}')" data-talla="${t}">${t}</button>`
+  const v0 = bump.variants[0];
+  const tallaForzadaExtra = tallaParaVariant(v0);
+  const tallasIniciales = tallaForzadaExtra ? [tallaForzadaExtra] : v0.tallas;
+  const firstTallas = tallasIniciales.map(t =>
+    `<button class="ob-talla-btn${tallaForzadaExtra?' sel':''}" onclick="selectExtraTalla('${lineId}','${t}')" data-talla="${t}">${t}</button>`
   ).join('');
 
   const div = document.createElement('div');
   div.className = 'ob-extra-item';
   div.id = lineId;
-  div.dataset.selectedVariant = bump.variants[0].id;
-  div.dataset.selectedTalla = '';
+  div.dataset.selectedVariant = v0.id;
+  div.dataset.selectedTalla = tallaForzadaExtra || '';
   div.innerHTML = `
     <button class="ob-extra-remove" onclick="removeExtraLine('${lineId}','${bumpId}')">✕</button>
     <div class="ob-select-label" style="margin-bottom:6px;">Color</div>
@@ -3171,14 +3190,16 @@ function changeExtraVariant(bumpId, lineId, variantId) {
   const bump = ORDER_BUMPS_CONFIG.find(b => b.id === bumpId);
   const variant = bump.variants.find(v => v.id === variantId);
   if (!variant) return;
+  const tallaForzada = tallaParaVariant(variant);
+  const tallasToShow = tallaForzada ? [tallaForzada] : variant.tallas;
   const tallasDiv = document.getElementById(lineId+'-tallas');
   if (tallasDiv) {
-    tallasDiv.innerHTML = variant.tallas.map(t =>
-      `<button class="ob-talla-btn" onclick="selectExtraTalla('${lineId}','${t}')" data-talla="${t}">${t}</button>`
+    tallasDiv.innerHTML = tallasToShow.map(t =>
+      `<button class="ob-talla-btn${tallaForzada?' sel':''}" onclick="selectExtraTalla('${lineId}','${t}')" data-talla="${t}">${t}</button>`
     ).join('');
   }
   document.getElementById(lineId).dataset.selectedVariant = variantId;
-  document.getElementById(lineId).dataset.selectedTalla = '';
+  document.getElementById(lineId).dataset.selectedTalla = tallaForzada || '';
   checkBumpReady(bumpId);
 }
 
