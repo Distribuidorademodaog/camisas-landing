@@ -2180,7 +2180,6 @@ function toggleFaq(el) {
     </div>
     <div class="lb-info">
       <div class="lb-name" id="lbName">—</div>
-      <div id="lbTallas" style="margin:6px 0 8px;display:flex;flex-wrap:wrap;gap:4px;"></div>
       <div class="lb-note">Toca fuera o la <strong>✕</strong> para cerrar.</div>
     </div>
   </div>
@@ -2596,14 +2595,7 @@ function openLightbox(c) {
       onerror="this.style.display='none';this.parentNode.innerHTML+='<span style=font-size:60px>👔</span>';" />
     <button class="lb-close" onclick="closeLightbox()">✕</button>
   `;
-  // Show available tallas as pills
   document.getElementById('lbName').textContent = c.name;
-  const tallasDiv = document.getElementById('lbTallas');
-  if (tallasDiv) {
-    tallasDiv.innerHTML = c.tallas.map(t =>
-      `<span style="display:inline-block;background:${t===S.talla?'#0e1828':'#f0ece4'};color:${t===S.talla?'#C4A35A':'#7a7060'};border:1px solid ${t===S.talla?'#C4A35A':'rgba(0,0,0,0.12)'};border-radius:6px;padding:3px 10px;font-family:Outfit,sans-serif;font-size:11px;font-weight:${t===S.talla?'700':'500'};margin:2px;">${t}</span>`
-    ).join('');
-  }
   document.getElementById('lbOverlay').classList.add('act');
 }
 function closeLightbox() {
