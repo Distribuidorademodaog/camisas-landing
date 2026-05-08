@@ -936,6 +936,55 @@ body {
     </div>
   </div>
 
+  <!-- ═══════ CARRUSEL ═══════ -->
+  <div class="carrusel-section">
+    <div class="carrusel-wrap">
+      <div class="carrusel-track" id="carruselTrack">
+        <div class="carrusel-slide"><img loading="lazy" decoding="async" src="https://media.paquetecompleto.com.co/landing/carrusel-1.webp" alt="Camisas Polo colores claros" /></div>
+        <div class="carrusel-slide"><img loading="lazy" decoding="async" src="https://media.paquetecompleto.com.co/landing/carrusel-2.webp" alt="Camisas Polo a cuadros" /></div>
+        <div class="carrusel-slide"><img loading="lazy" decoding="async" src="https://media.paquetecompleto.com.co/landing/carrusel-3.webp" alt="Camisas Polo colores oscuros" /></div>
+        <div class="carrusel-slide"><img loading="lazy" decoding="async" src="https://media.paquetecompleto.com.co/landing/carrusel-4.webp" alt="Camisas Polo Oxford" /></div>
+        <div class="carrusel-slide"><img loading="lazy" decoding="async" src="https://media.paquetecompleto.com.co/landing/carrusel-5.webp" alt="Camisas Harmont & Blaine" /></div>
+        <div class="carrusel-slide"><img loading="lazy" decoding="async" src="https://media.paquetecompleto.com.co/landing/carrusel-6.webp" alt="Camisas manga corta" /></div>
+      </div>
+      <div class="carrusel-dots" id="carruselDots">
+        <button class="carrusel-dot active" data-i="0" aria-label="Slide 1"></button>
+        <button class="carrusel-dot" data-i="1" aria-label="Slide 2"></button>
+        <button class="carrusel-dot" data-i="2" aria-label="Slide 3"></button>
+        <button class="carrusel-dot" data-i="3" aria-label="Slide 4"></button>
+        <button class="carrusel-dot" data-i="4" aria-label="Slide 5"></button>
+        <button class="carrusel-dot" data-i="5" aria-label="Slide 6"></button>
+      </div>
+    </div>
+  </div>
+  <script>
+  (function(){
+    const track = document.getElementById('carruselTrack');
+    const dots = document.querySelectorAll('#carruselDots .carrusel-dot');
+    const total = 6;
+    let idx = 0;
+    let timer = null;
+    function go(i){
+      idx = (i + total) % total;
+      track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+      dots.forEach((d, j) => d.classList.toggle('active', j === idx));
+    }
+    function start(){ timer = setInterval(() => go(idx + 1), 2000); }
+    function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+    dots.forEach(d => d.addEventListener('click', () => { stop(); go(parseInt(d.dataset.i)); start(); }));
+    let startX = 0, dragging = false;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; dragging = true; stop(); }, {passive:true});
+    track.addEventListener('touchend', e => {
+      if (!dragging) return;
+      dragging = false;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1));
+      start();
+    });
+    start();
+  })();
+  </script>
+
   <!-- ═══════ VARIEDAD ═══════ -->
   <div class="sec sec-dark">
     <div class="sec-head">
@@ -2096,6 +2145,16 @@ function toggleFaq(el) {
   font-family:'Outfit',sans-serif; font-size:11.5px; color:#7a7060; line-height:1.5;
 }
 .lb-note strong { color:#121C2E; font-weight:600; }
+
+/* CARRUSEL VARIEDAD */
+.carrusel-section { width:100%; padding:28px 16px 8px; background: var(--ivory); }
+.carrusel-wrap { max-width:560px; margin:0 auto; position:relative; overflow:hidden; border-radius:14px; box-shadow:0 6px 20px rgba(0,0,0,0.08); }
+.carrusel-track { display:flex; transition:transform 0.6s cubic-bezier(0.22,1,0.36,1); will-change:transform; }
+.carrusel-slide { flex:0 0 100%; aspect-ratio:1/1; background:#f0ece4; }
+.carrusel-slide img { width:100%; height:100%; object-fit:cover; display:block; }
+.carrusel-dots { position:absolute; bottom:10px; left:50%; transform:translateX(-50%); display:flex; gap:6px; padding:4px 8px; background:rgba(0,0,0,0.25); border-radius:20px; }
+.carrusel-dot { width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,0.5); cursor:pointer; transition:background 0.2s, transform 0.2s; border:none; padding:0; }
+.carrusel-dot.active { background:white; transform:scale(1.2); }
 
 /* SENDING */
 .sending-ov {
