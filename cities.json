@@ -1,0 +1,92 @@
+[
+  {
+    "slug": "bogota",
+    "name": "Bogotá",
+    "name_no_accent": "Bogota",
+    "department": "Cundinamarca",
+    "lat": 4.7110,
+    "lng": -74.0721,
+    "extra_keywords": "camisas polo bogota, camisas polo chapinero, camisas polo usaquen, camisas polo zona t, camisas polo norte bogota"
+  },
+  {
+    "slug": "medellin",
+    "name": "Medellín",
+    "name_no_accent": "Medellin",
+    "department": "Antioquia",
+    "lat": 6.2442,
+    "lng": -75.5812,
+    "extra_keywords": "camisas polo medellin, camisas polo el poblado, camisas polo laureles, camisas polo envigado, camisas polo sabaneta"
+  },
+  {
+    "slug": "cali",
+    "name": "Cali",
+    "name_no_accent": "Cali",
+    "department": "Valle del Cauca",
+    "lat": 3.4516,
+    "lng": -76.5320,
+    "extra_keywords": "camisas polo cali, camisas polo ciudad jardin, camisas polo granada, camisas polo san fernando, camisas polo valle del lili"
+  },
+  {
+    "slug": "barranquilla",
+    "name": "Barranquilla",
+    "name_no_accent": "Barranquilla",
+    "department": "Atlántico",
+    "lat": 10.9685,
+    "lng": -74.7813,
+    "extra_keywords": "camisas polo barranquilla, camisas polo norte barranquilla, camisas polo alto prado, camisas polo riomar, camisas polo el prado"
+  },
+  {
+    "slug": "cartagena",
+    "name": "Cartagena",
+    "name_no_accent": "Cartagena",
+    "department": "Bolívar",
+    "lat": 10.3910,
+    "lng": -75.4794,
+    "extra_keywords": "camisas polo cartagena, camisas polo bocagrande, camisas polo manga, camisas polo crespo, camisas polo el laguito"
+  },
+  {
+    "slug": "bucaramanga",
+    "name": "Bucaramanga",
+    "name_no_accent": "Bucaramanga",
+    "department": "Santander",
+    "lat": 7.1193,
+    "lng": -73.1227,
+    "extra_keywords": "camisas polo bucaramanga, camisas polo cabecera, camisas polo floridablanca, camisas polo cañaveral, camisas polo giron"
+  },
+  {
+    "slug": "pereira",
+    "name": "Pereira",
+    "name_no_accent": "Pereira",
+    "department": "Risaralda",
+    "lat": 4.8133,
+    "lng": -75.6961,
+    "extra_keywords": "camisas polo pereira, camisas polo circunvalar, camisas polo dosquebradas, camisas polo cuba, camisas polo alamos"
+  },
+  {
+    "slug": "manizales",
+    "name": "Manizales",
+    "name_no_accent": "Manizales",
+    "department": "Caldas",
+    "lat": 5.0689,
+    "lng": -75.5174,
+    "extra_keywords": "camisas polo manizales, camisas polo palermo, camisas polo milan, camisas polo la enea, camisas polo cable"
+  },
+  {
+    "slug": "cucuta",
+    "name": "Cúcuta",
+    "name_no_accent": "Cucuta",
+    "department": "Norte de Santander",
+    "lat": 7.8939,
+    "lng": -72.5078,
+    "extra_keywords": "camisas polo cucuta, camisas polo caobos, camisas polo quinta oriental, camisas polo ceiba, camisas polo san luis"
+  },
+  {
+    "slug": "ibague",
+    "name": "Ibagué",
+    "name_no_accent": "Ibague",
+    "department": "Tolima",
+    "lat": 4.4389,
+    "lng": -75.2322,
+    "extra_keywords": "camisas polo ibague, camisas polo piedrapintada, camisas polo la pola, camisas polo jordan, camisas polo calambeo"
+  }
+]
