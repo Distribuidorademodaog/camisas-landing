@@ -127,20 +127,9 @@ def build_city_html(template: str, city: dict) -> str:
         f'<meta property="og:url" content="{canonical}">'
     )
 
-    # 7. Hero eyebrow (chip arriba del hero) — visible al instante
-    out = out.replace(
-        '<div class="hero-eyebrow">✦ Camisas Premium Colombia</div>',
-        f'<div class="hero-eyebrow">✦ Camisas Premium en {name}</div>'
-    )
-
-    # 8. Hero subheadline — mencion explicita de la ciudad y entrega rapida
-    out = out.replace(
-        '<p class="hero-sub">Tallas <strong>S a 5XL</strong> — tallaje colombiano real. Entrega en <strong>3 a 6 días</strong>.</p>',
-        f'<p class="hero-sub">Tallas <strong>S a 5XL</strong> — tallaje colombiano real. Entrega a <strong>{name}</strong> en <strong>1-3 días</strong>.</p>'
-    )
-
-    # 9. Inyectar bloque visible de ciudad ANTES del carrusel
+    # 7. Inyectar bloque visible de ciudad ANTES del carrusel
     #    (asi aparece justo despues del hero, sin necesidad de mucho scroll)
+    #    Hero y subtitulo se dejan IGUAL al template (sin personalizar por ciudad)
     anchor = '<!-- ═══════ CARRUSEL ═══════ -->'
     section = build_city_section(city)
     if anchor in out:
