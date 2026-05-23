@@ -1,11 +1,14 @@
 """
 Generates per-city HTML files for camisascolombia.com SEO.
 
-Takes index.html as template, performs targeted SEO meta replacements per city,
-and outputs:
+Takes index.html as template, performs SEO meta replacements per city,
+AND injects a visible city-specific section (delivery info + testimonial + FAQ)
+right before the VARIEDAD section.
+
+Outputs:
   - camisas-polo-{slug}.html (one per city)
   - sitemap.xml (with all city URLs)
-  - robots.txt (pointing to sitemap)
+  - robots.txt
 
 Usage:
   python build_cities.py
@@ -21,10 +24,48 @@ OUTPUT_DIR = Path(__file__).parent / "output"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
 
-def build_city_html(template: str, city: dict) -> str:
-    """Apply targeted SEO replacements for one city."""
+def build_city_section(city: dict) -> str:
+    """HTML block inserted in the body, visible to users — strong SEO signal."""
     name = city["name"]
-    name_na = city["name_no_accent"]
+    dept = city["department"]
+    neighborhoods = city["neighborhoods"]
+    t_name = city["testimonial_name"]
+    t_barrio = city["testimonial_barrio"]
+    t_quote = city["testimonial_quote"]
+    faq = city["faq_answer"]
+    return f"""  <!-- ═══════ CIUDAD: {name} ═══════ -->
+  <div class="city-section">
+    <div class="sec-head">
+      <div class="sec-kicker">Envíos rápidos</div>
+      <h2 class="sec-title">Camisas polo en <em>{name}</em> con entrega 1-3 días</h2>
+      <p class="sec-subtitle">Cobertura completa en {name} y municipios cercanos de {dept}. Paga contraentrega — sin pagar nada por adelantado.</p>
+    </div>
+    <div class="city-info-grid">
+      <div class="city-card">
+        <div class="city-card-icon">🚚</div>
+        <h3>Llegamos a tu zona en {name}</h3>
+        <p>{neighborhoods}.</p>
+        <small>Y a todo el área metropolitana de {name}.</small>
+      </div>
+      <div class="city-card">
+        <div class="city-stars">★★★★★</div>
+        <p class="city-quote">"{t_quote}"</p>
+        <p class="city-author">— {t_name}, {t_barrio} ({name})</p>
+      </div>
+      <div class="city-card">
+        <div class="city-card-icon">📦</div>
+        <h3>¿Cómo me llega mi camisa a {name}?</h3>
+        <p>{faq}</p>
+      </div>
+    </div>
+  </div>
+
+"""
+
+
+def build_city_html(template: str, city: dict) -> str:
+    """Apply SEO meta replacements + inject visible city section."""
+    name = city["name"]
     slug = city["slug"]
     dept = city["department"]
     lat = city["lat"]
@@ -86,11 +127,18 @@ def build_city_html(template: str, city: dict) -> str:
         f'<meta property="og:url" content="{canonical}">'
     )
 
+    # 7. Inject visible city section before VARIEDAD
+    anchor = '<!-- ═══════ VARIEDAD ═══════ -->'
+    section = build_city_section(city)
+    if anchor in out:
+        out = out.replace(anchor, section + anchor)
+    else:
+        print(f"  WARNING: anchor '{anchor}' not found for {name}")
+
     return out
 
 
 def build_sitemap(cities: list) -> str:
-    """Generate sitemap.xml listing main + all city pages."""
     urls = [{"loc": f"{BASE_URL}/", "priority": "1.0"}]
     for c in cities:
         urls.append({
@@ -125,34 +173,17 @@ def main():
     print(f"Template: {len(template):,} bytes")
     print(f"Cities: {len(cities)}\n")
 
-    # 1. Per-city HTML files
-    changed_count = 0
     for c in cities:
         html = build_city_html(template, c)
         out_path = OUTPUT_DIR / f"camisas-polo-{c['slug']}.html"
         out_path.write_text(html, encoding="utf-8")
+        size_diff = len(html) - len(template)
+        print(f"  {c['name']:15} -> {out_path.name:40} ({len(html):,} bytes, +{size_diff} vs template)")
 
-        # Count meaningful diffs from template
-        diff = sum(1 for a, b in zip(template, html) if a != b)
-        diff += abs(len(template) - len(html))
-        if diff > 0:
-            changed_count += 1
-            print(f"  {c['name']:15} -> {out_path.name:40} ({len(html):,} bytes, ~{diff} char diff)")
-        else:
-            print(f"  {c['name']:15} -> NO CHANGES (replacements may have failed)")
-
-    # 2. sitemap.xml
-    sitemap_path = OUTPUT_DIR / "sitemap.xml"
-    sitemap_path.write_text(build_sitemap(cities), encoding="utf-8")
-    print(f"\nsitemap.xml: {sitemap_path.stat().st_size} bytes")
-
-    # 3. robots.txt
-    robots_path = OUTPUT_DIR / "robots.txt"
-    robots_path.write_text(build_robots(), encoding="utf-8")
-    print(f"robots.txt: {robots_path.stat().st_size} bytes")
+    (OUTPUT_DIR / "sitemap.xml").write_text(build_sitemap(cities), encoding="utf-8")
+    (OUTPUT_DIR / "robots.txt").write_text(build_robots(), encoding="utf-8")
 
     print(f"\n[OK] Generated {len(cities)} city pages + sitemap.xml + robots.txt")
-    print(f"     Changed {changed_count}/{len(cities)} files relative to template")
 
 
 if __name__ == "__main__":

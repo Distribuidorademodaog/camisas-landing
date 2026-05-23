@@ -1339,6 +1339,20 @@ body {
   from { width:0; }
   to { width:22%; }
 }
+
+/* ENVIOS POR CIUDAD (solo aparece en paginas /camisas-polo-CITY) */
+.city-section { padding:28px 0 36px; background:var(--ivory); }
+.city-section .sec-head { padding:0 24px 18px; }
+.city-section .sec-title em { color:#9A7B3C; font-style:normal; }
+.city-info-grid { display:grid; grid-template-columns:1fr; gap:14px; padding:0 18px; max-width:560px; margin:0 auto; }
+.city-card { background:white; border-radius:14px; padding:18px 18px 16px; box-shadow:0 3px 14px rgba(0,0,0,0.06); border:1px solid rgba(0,0,0,0.05); }
+.city-card .city-card-icon { font-size:22px; margin-bottom:6px; }
+.city-card h3 { font-family:'Outfit',sans-serif; font-size:14px; font-weight:700; color:#0e1828; margin:0 0 8px; line-height:1.3; }
+.city-card p { font-family:'Outfit',sans-serif; font-size:13px; color:#5a5448; line-height:1.55; margin:0; }
+.city-card small { display:block; margin-top:8px; font-size:11px; color:#8a7d6b; }
+.city-card .city-stars { color:#C4A35A; font-size:13px; letter-spacing:2px; margin-bottom:8px; }
+.city-card .city-quote { font-style:italic; }
+.city-card .city-author { font-size:12px; color:#7a7060; margin-top:8px; font-weight:500; }
 </style>
 </head>
 <body>
@@ -1508,7 +1522,34 @@ body {
     </div>
   </section>
 
-  <!-- ═══════ VARIEDAD ═══════ -->
+    <!-- ═══════ CIUDAD: Pereira ═══════ -->
+  <div class="city-section">
+    <div class="sec-head">
+      <div class="sec-kicker">Envíos rápidos</div>
+      <h2 class="sec-title">Camisas polo en <em>Pereira</em> con entrega 1-3 días</h2>
+      <p class="sec-subtitle">Cobertura completa en Pereira y municipios cercanos de Risaralda. Paga contraentrega — sin pagar nada por adelantado.</p>
+    </div>
+    <div class="city-info-grid">
+      <div class="city-card">
+        <div class="city-card-icon">🚚</div>
+        <h3>Llegamos a tu zona en Pereira</h3>
+        <p>Circunvalar, Pinares, Álamos, Cuba, Dosquebradas, La Virginia, Santa Rosa de Cabal y zona centro.</p>
+        <small>Y a todo el área metropolitana de Pereira.</small>
+      </div>
+      <div class="city-card">
+        <div class="city-stars">★★★★★</div>
+        <p class="city-quote">"Pedí el pack de 3 y todas perfectas. En Dosquebradas me llegaron sin demora. La calidad de la tela vale lo que cobran."</p>
+        <p class="city-author">— Esteban H., Dosquebradas (Pereira)</p>
+      </div>
+      <div class="city-card">
+        <div class="city-card-icon">📦</div>
+        <h3>¿Cómo me llega mi camisa a Pereira?</h3>
+        <p>Despachamos a Pereira, Dosquebradas, La Virginia y municipios cercanos de Risaralda. Llega entre 1 y 3 días hábiles. Pago contraentrega — sin riesgo, pagas solo si la camisa te queda como esperabas.</p>
+      </div>
+    </div>
+  </div>
+
+<!-- ═══════ VARIEDAD ═══════ -->
   <div class="sec sec-dark" id="productos">
     <div class="sec-head">
       <div class="sec-kicker kicker-gold">Más de 20 diseños</div>
