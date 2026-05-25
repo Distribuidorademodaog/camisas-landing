@@ -25,38 +25,62 @@ OUTPUT_DIR.mkdir(exist_ok=True)
 
 
 def build_city_section(city: dict) -> str:
-    """HTML block inserted in the body, visible to users — strong SEO signal."""
+    """HTML block inserted in the body, visible to users — rich SEO signal (~600-800 words)."""
     name = city["name"]
     dept = city["department"]
-    neighborhoods = city["neighborhoods"]
-    t_name = city["testimonial_name"]
-    t_barrio = city["testimonial_barrio"]
-    t_quote = city["testimonial_quote"]
-    faq = city["faq_answer"]
+    intro = city["intro_paragraph"]
+    neighborhoods = city["neighborhoods_extended"]
+    testimonials = city["testimonials"]
+    faqs = city["faqs"]
+    cta = city["cta_closing"]
+
+    # Testimonios
+    testi_html = ""
+    for t in testimonials:
+        testi_html += f"""        <div class="city-testi">
+          <span class="city-stars">★★★★★</span>
+          <p class="city-quote">"{t['quote']}"</p>
+          <p class="city-author">— {t['name']}, {t['barrio']} ({name})</p>
+        </div>
+"""
+
+    # FAQs
+    faqs_html = ""
+    for f in faqs:
+        faqs_html += f"""        <div class="city-faq">
+          <strong>{f['q']}</strong>
+          <p>{f['a']}</p>
+        </div>
+"""
+
     return f"""  <!-- ═══════ CIUDAD: {name} ═══════ -->
   <div class="city-section">
     <div class="sec-head">
-      <div class="sec-kicker">Envíos rápidos</div>
+      <div class="sec-kicker">Envíos rápidos · {name}</div>
       <h2 class="sec-title">Camisas polo en <em>{name}</em> con entrega 1-3 días</h2>
-      <p class="sec-subtitle">Cobertura completa en {name} y municipios cercanos de {dept}. Paga contraentrega — sin pagar nada por adelantado.</p>
+      <p class="sec-subtitle city-intro">{intro}</p>
     </div>
-    <div class="city-info-grid">
-      <div class="city-card">
-        <div class="city-card-icon">🚚</div>
-        <h3>Llegamos a tu zona en {name}</h3>
-        <p>{neighborhoods}.</p>
-        <small>Y a todo el área metropolitana de {name}.</small>
-      </div>
-      <div class="city-card">
-        <div class="city-stars">★★★★★</div>
-        <p class="city-quote">"{t_quote}"</p>
-        <p class="city-author">— {t_name}, {t_barrio} ({name})</p>
-      </div>
-      <div class="city-card">
-        <div class="city-card-icon">📦</div>
-        <h3>¿Cómo me llega mi camisa a {name}?</h3>
-        <p>{faq}</p>
-      </div>
+
+    <div class="city-block">
+      <h3 class="city-block-title">🚚 Llegamos a tu zona en {name}</h3>
+      <p>{neighborhoods}.</p>
+      <small>Y a todo el área metropolitana de {name}.</small>
+    </div>
+
+    <div class="city-block">
+      <h3 class="city-block-title">Lo que dicen nuestros clientes en {name}</h3>
+      <div class="city-testimonials">
+{testi_html}      </div>
+    </div>
+
+    <div class="city-block">
+      <h3 class="city-block-title">📦 Preguntas frecuentes sobre envíos a {name}</h3>
+      <div class="city-faqs">
+{faqs_html}      </div>
+    </div>
+
+    <div class="city-cta-block">
+      <p>{cta}</p>
     </div>
   </div>
 

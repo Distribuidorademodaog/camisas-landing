@@ -1344,15 +1344,25 @@ body {
 .city-section { padding:28px 0 36px; background:var(--ivory); }
 .city-section .sec-head { padding:0 24px 18px; }
 .city-section .sec-title em { color:#9A7B3C; font-style:normal; }
-.city-info-grid { display:grid; grid-template-columns:1fr; gap:14px; padding:0 18px; max-width:560px; margin:0 auto; }
-.city-card { background:white; border-radius:14px; padding:18px 18px 16px; box-shadow:0 3px 14px rgba(0,0,0,0.06); border:1px solid rgba(0,0,0,0.05); }
-.city-card .city-card-icon { font-size:22px; margin-bottom:6px; }
-.city-card h3 { font-family:'Outfit',sans-serif; font-size:14px; font-weight:700; color:#0e1828; margin:0 0 8px; line-height:1.3; }
-.city-card p { font-family:'Outfit',sans-serif; font-size:13px; color:#5a5448; line-height:1.55; margin:0; }
-.city-card small { display:block; margin-top:8px; font-size:11px; color:#8a7d6b; }
-.city-card .city-stars { color:#C4A35A; font-size:13px; letter-spacing:2px; margin-bottom:8px; }
-.city-card .city-quote { font-style:italic; }
-.city-card .city-author { font-size:12px; color:#7a7060; margin-top:8px; font-weight:500; }
+.city-section .city-intro { font-size:13.5px; line-height:1.65; max-width:580px; margin:14px auto 0; color:#5a5448; padding:0 18px; text-align:left; }
+.city-block { background:white; border-radius:14px; padding:18px; margin:12px 18px 0; max-width:560px; box-sizing:border-box; box-shadow:0 3px 14px rgba(0,0,0,0.06); }
+.city-block-title { font-family:'Outfit',sans-serif; font-size:15px; font-weight:700; color:#0e1828; margin:0 0 12px; line-height:1.3; }
+.city-block > p { font-family:'Outfit',sans-serif; font-size:13px; color:#5a5448; line-height:1.6; margin:0 0 8px; }
+.city-block small { display:block; margin-top:8px; font-size:11px; color:#8a7d6b; font-style:italic; }
+.city-testimonials { display:flex; flex-direction:column; gap:12px; }
+.city-testi { padding:12px 14px; background:#faf7f1; border-radius:10px; border-left:3px solid #C4A35A; }
+.city-testi .city-stars { color:#C4A35A; font-size:12px; letter-spacing:2px; margin-bottom:6px; display:block; }
+.city-testi .city-quote { font-style:italic; font-size:13px; color:#4a443a; margin:0; line-height:1.55; font-family:'Outfit',sans-serif; }
+.city-testi .city-author { font-size:11.5px; color:#7a7060; margin:6px 0 0; font-weight:500; font-family:'Outfit',sans-serif; }
+.city-faqs { display:flex; flex-direction:column; gap:0; }
+.city-faq { padding:12px 0; border-bottom:1px solid #f0ece4; }
+.city-faq:last-child { border-bottom:none; padding-bottom:0; }
+.city-faq:first-child { padding-top:0; }
+.city-faq strong { display:block; font-size:13px; color:#0e1828; margin-bottom:6px; font-family:'Outfit',sans-serif; font-weight:700; line-height:1.4; }
+.city-faq p { font-size:12.5px; color:#5a5448; line-height:1.6; margin:0; font-family:'Outfit',sans-serif; }
+.city-cta-block { background:#0e1828; color:#f5f0e8; border-radius:14px; padding:18px; margin:14px 18px 0; max-width:560px; box-sizing:border-box; text-align:center; }
+.city-cta-block p { font-size:13px; line-height:1.6; margin:0; font-family:'Outfit',sans-serif; }
+.city-cta-block strong { color:#C4A35A; }
 </style>
 </head>
 <body>
@@ -1433,27 +1443,66 @@ body {
     <!-- ═══════ CIUDAD: Barranquilla ═══════ -->
   <div class="city-section">
     <div class="sec-head">
-      <div class="sec-kicker">Envíos rápidos</div>
+      <div class="sec-kicker">Envíos rápidos · Barranquilla</div>
       <h2 class="sec-title">Camisas polo en <em>Barranquilla</em> con entrega 1-3 días</h2>
-      <p class="sec-subtitle">Cobertura completa en Barranquilla y municipios cercanos de Atlántico. Paga contraentrega — sin pagar nada por adelantado.</p>
+      <p class="sec-subtitle city-intro">Barranquilla es la Puerta de Oro de Colombia, con clima tropical de 30°C casi todo el año. Aquí la camisa polo debe ser fresca, transpirable y resistente al sudor — y eso es exactamente lo que ofrecemos. Nuestras telas en algodón pique son ideales para el calor barranquillero, perfectas para oficinas en Riomar, almuerzos en Alto Prado o paseos por la Vía 40 sin pasar calor.</p>
     </div>
-    <div class="city-info-grid">
-      <div class="city-card">
-        <div class="city-card-icon">🚚</div>
-        <h3>Llegamos a tu zona en Barranquilla</h3>
-        <p>Alto Prado, Riomar, El Prado, Villa Country, Buenavista, Soledad, Puerto Colombia y zona norte.</p>
-        <small>Y a todo el área metropolitana de Barranquilla.</small>
+
+    <div class="city-block">
+      <h3 class="city-block-title">🚚 Llegamos a tu zona en Barranquilla</h3>
+      <p>Alto Prado, Riomar, El Prado, Villa Country, Buenavista, Altos del Limón, El Recreo, Boston, Granadillo, El Country, Soledad, Puerto Colombia y zona norte.</p>
+      <small>Y a todo el área metropolitana de Barranquilla.</small>
+    </div>
+
+    <div class="city-block">
+      <h3 class="city-block-title">Lo que dicen nuestros clientes en Barranquilla</h3>
+      <div class="city-testimonials">
+        <div class="city-testi">
+          <span class="city-stars">★★★★★</span>
+          <p class="city-quote">"Las telas resisten muy bien el calor de Barranquilla, son frescas y no se arrugan tanto. Estoy estrenando la beige hoy mismo en la oficina."</p>
+          <p class="city-author">— Luis Fernando T., Alto Prado (Barranquilla)</p>
+        </div>
+        <div class="city-testi">
+          <span class="city-stars">★★★★★</span>
+          <p class="city-quote">"Compré 4 polos para variar. Llegaron a Riomar en 3 días y la tela aguanta el clima costeño sin dar calor. Excelente compra."</p>
+          <p class="city-author">— Miguel A., Riomar (Barranquilla)</p>
+        </div>
+        <div class="city-testi">
+          <span class="city-stars">★★★★★</span>
+          <p class="city-quote">"Buscaba polos cómodos para el verano barranquillero. Estos son perfectos, livianos y se ven elegantes. Llegaron sin problema a Villa Country."</p>
+          <p class="city-author">— Carlos H., Villa Country (Barranquilla)</p>
+        </div>
       </div>
-      <div class="city-card">
-        <div class="city-stars">★★★★★</div>
-        <p class="city-quote">"Las telas resisten muy bien el calor de Barranquilla, son frescas y no se arrugan tanto. Estoy estrenando la beige hoy mismo en la oficina."</p>
-        <p class="city-author">— Luis Fernando T., Alto Prado (Barranquilla)</p>
+    </div>
+
+    <div class="city-block">
+      <h3 class="city-block-title">📦 Preguntas frecuentes sobre envíos a Barranquilla</h3>
+      <div class="city-faqs">
+        <div class="city-faq">
+          <strong>¿Cuántos días tarda mi pedido de Medellín a Barranquilla?</strong>
+          <p>El despacho a Barranquilla llega entre 1 y 3 días hábiles. Para barrios del norte como Alto Prado, Riomar o Villa Country, generalmente entregamos en 48 horas.</p>
+        </div>
+        <div class="city-faq">
+          <strong>¿Aceptan pago con Nequi o Daviplata en Barranquilla?</strong>
+          <p>Sí, en Barranquilla aceptamos pago contraentrega en efectivo, Nequi, Daviplata y transferencias bancarias. Pagas al transportador cuando recibes — sin pagar nada por adelantado.</p>
+        </div>
+        <div class="city-faq">
+          <strong>¿Entregan en municipios cercanos como Soledad, Puerto Colombia o Galapa?</strong>
+          <p>Sí, despachamos a Soledad, Puerto Colombia, Galapa, Malambo y Sabanagrande. Los tiempos son similares (1-3 días hábiles).</p>
+        </div>
+        <div class="city-faq">
+          <strong>¿Las telas aguantan el calor de Barranquilla?</strong>
+          <p>Sí, todas nuestras camisas polo son en algodón pique transpirable, ideal para climas costeños. La tela permite circulación de aire y absorbe la humedad sin generar incomodidad.</p>
+        </div>
+        <div class="city-faq">
+          <strong>¿Tienen tienda física en Barranquilla?</strong>
+          <p>No tenemos tienda física en Barranquilla — vendemos solo online con envío directo. Para cambios por talla, el envío de retorno es gratuito y la nueva camisa llega en 3-5 días hábiles.</p>
+        </div>
       </div>
-      <div class="city-card">
-        <div class="city-card-icon">📦</div>
-        <h3>¿Cómo me llega mi camisa a Barranquilla?</h3>
-        <p>Despachamos a Barranquilla y municipios cercanos como Soledad, Puerto Colombia y Galapa. Llega entre 1 y 3 días hábiles. Pago contraentrega: pagas al transportador en efectivo o por transferencia.</p>
-      </div>
+    </div>
+
+    <div class="city-cta-block">
+      <p>Más de 90 barranquilleros ya disfrutan de polos premium aptos para el clima tropical. Haz tu pedido hoy y recíbelo en tu zona de Barranquilla en 1-3 días, con pago contraentrega.</p>
     </div>
   </div>
 

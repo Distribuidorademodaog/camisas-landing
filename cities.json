@@ -7,11 +7,21 @@
     "lat": 4.7110,
     "lng": -74.0721,
     "extra_keywords": "camisas polo bogota, camisas polo chapinero, camisas polo usaquen, camisas polo zona t, camisas polo norte bogota",
-    "neighborhoods": "Chapinero, Usaquén, Zona T, Salitre, Cedritos, Suba, Engativá y norte de Bogotá",
-    "testimonial_name": "Carlos M.",
-    "testimonial_barrio": "Chapinero",
-    "testimonial_quote": "Pedí 3 camisas y llegaron al otro día a mi oficina en Chapinero. La talla XL me quedó perfecta y la tela se siente premium.",
-    "faq_answer": "Tu pedido sale del almacén en máximo 24 horas y llega a tu dirección en Bogotá entre 1 y 3 días hábiles. Pagas en efectivo o por Nequi/Daviplata al transportador cuando recibes — sin pagar nada por adelantado."
+    "intro_paragraph": "En Bogotá, la camisa polo se ha consolidado como un básico del armario profesional. Con un clima frío-templado promedio de 14°C, nuestros polos en algodón pique se llevan bajo blazers o solos en oficinas de Chapinero, Salitre o Centro Internacional. Los ejecutivos bogotanos buscan camisas que aguanten el ritmo de la ciudad — desde reuniones en Usaquén hasta cenas en la Zona T.",
+    "neighborhoods_extended": "Chapinero, Usaquén, Zona T, Salitre, Cedritos, Suba, Engativá, Centro Internacional, Teusaquillo, Galerías, La Soledad, Quinta Camacho y norte de Bogotá",
+    "testimonials": [
+      { "name": "Carlos M.", "barrio": "Chapinero", "quote": "Pedí 3 camisas y llegaron al otro día a mi oficina en Chapinero. La talla XL me quedó perfecta y la tela se siente premium." },
+      { "name": "Sebastián R.", "barrio": "Usaquén", "quote": "Como ejecutivo necesito polos formales. Llegaron a Usaquén impecables, listas para usar bajo blazer. Calidad sorprendente." },
+      { "name": "Alejandro V.", "barrio": "Cedritos", "quote": "Compré el pack de 5 para variar colores. Llegaron a Cedritos en 24 horas, todas con su talla exacta y el cuello bien firme." }
+    ],
+    "faqs": [
+      { "q": "¿Cuántos días tarda mi pedido de Medellín a Bogotá?", "a": "El despacho a Bogotá sale el mismo día o el siguiente hábil. Tu camisa llega entre 1 y 3 días hábiles — generalmente 24-48 horas en barrios céntricos como Chapinero, Usaquén o Cedritos." },
+      { "q": "¿Aceptan pago con Nequi o Daviplata en Bogotá?", "a": "Sí, en Bogotá aceptamos pago contraentrega en efectivo, Nequi, Daviplata y transferencias bancarias. Pagas directo al transportador cuando recibes tu camisa, sin pagar nada por adelantado." },
+      { "q": "¿Entregan en municipios cercanos como Chía, Soacha o Mosquera?", "a": "Sí, despachamos a Chía, Cajicá, Soacha, Mosquera, Funza, La Calera y otros municipios de Cundinamarca cercanos a Bogotá. Los tiempos son similares (1-3 días hábiles)." },
+      { "q": "¿Hacen entregas en localidades alejadas de Bogotá?", "a": "Sí, cubrimos las 20 localidades de Bogotá. Para zonas más alejadas (Sumapaz, Usme, Ciudad Bolívar) el tiempo puede extenderse a 3-4 días hábiles según disponibilidad de transportadora." },
+      { "q": "¿Tienen tienda física o punto de cambios en Bogotá?", "a": "No tenemos tienda física en Bogotá — vendemos solo online con envío directo desde nuestra bodega. Para cambios por talla, el envío de retorno es gratuito y la nueva camisa llega en 3-5 días." }
+    ],
+    "cta_closing": "Más de 250 bogotanos ya disfrutan de nuestras camisas polo premium con pago contraentrega. Haz tu pedido hoy y recíbelo en tu zona de Bogotá en 1-3 días, sin pagar nada por adelantado."
   },
   {
     "slug": "medellin",
@@ -21,11 +31,21 @@
     "lat": 6.2442,
     "lng": -75.5812,
     "extra_keywords": "camisas polo medellin, camisas polo el poblado, camisas polo laureles, camisas polo envigado, camisas polo sabaneta",
-    "neighborhoods": "El Poblado, Laureles, Envigado, Sabaneta, Belén, Itagüí, Bello y toda el Área Metropolitana",
-    "testimonial_name": "Andrés R.",
-    "testimonial_barrio": "El Poblado",
-    "testimonial_quote": "Excelente calidad, las camisas se ven igualitas a una Ralph Lauren original. Las recibí en El Poblado en 2 días y no pagué nada hasta tenerlas en la mano.",
-    "faq_answer": "Despachamos a Medellín y toda el Área Metropolitana (Envigado, Sabaneta, Itagüí, Bello, La Estrella, Caldas). Llega entre 1 y 2 días hábiles. Pago contraentrega en efectivo o transferencia digital."
+    "intro_paragraph": "Medellín es la capital de la moda en Colombia, y la camisa polo es un protagonista del armario paisa. Con clima de primavera eterna (~22°C), nuestros polos en algodón pique funcionan todo el año — desde brunches en El Poblado hasta reuniones en Laureles o ferias en Envigado. Los paisas saben de calidad: por eso ofrecemos tallaje colombiano real (S a 5XL) y telas que aguantan el uso diario.",
+    "neighborhoods_extended": "El Poblado, Laureles, Envigado, Sabaneta, Belén, Itagüí, Bello, La Estrella, Caldas, La América, Castropol, Manila, El Tesoro y toda el Área Metropolitana",
+    "testimonials": [
+      { "name": "Andrés R.", "barrio": "El Poblado", "quote": "Excelente calidad, las camisas se ven igualitas a una Ralph Lauren original. Las recibí en El Poblado en 2 días y no pagué nada hasta tenerlas en la mano." },
+      { "name": "Felipe L.", "barrio": "Laureles", "quote": "Pedí 3 colores diferentes para variar en la oficina. Llegaron a Laureles el mismo día y la tela es de calidad superior. Volveré a pedir." },
+      { "name": "Camilo T.", "barrio": "Envigado", "quote": "Como papá ocupado, necesitaba polos que me sirvan para todo. Llegaron a Envigado rapidísimo y se ven impecables tanto formal como casual." }
+    ],
+    "faqs": [
+      { "q": "¿Cuántos días tarda mi pedido en Medellín?", "a": "Como nuestra bodega está en Medellín, el despacho es ultra-rápido: tu camisa puede llegar el mismo día o en 24 horas dependiendo de la zona. Para zonas céntricas como El Poblado, Laureles o Envigado, frecuentemente entregamos el mismo día." },
+      { "q": "¿Aceptan pago con Nequi o Daviplata en Medellín?", "a": "Sí, en Medellín aceptamos pago contraentrega en efectivo, Nequi, Daviplata y transferencias bancarias. Pagas al transportador cuando recibes — sin pagar nada por adelantado." },
+      { "q": "¿Entregan en el Área Metropolitana (Envigado, Sabaneta, Itagüí, Bello)?", "a": "Sí, despachamos a todos los municipios del Área Metropolitana de Medellín: Envigado, Sabaneta, Itagüí, Bello, La Estrella, Caldas, Copacabana, Girardota y Barbosa. Los tiempos son de 1-2 días hábiles." },
+      { "q": "¿Hacen entregas en comunas alejadas de Medellín?", "a": "Sí, cubrimos las 16 comunas y los 5 corregimientos de Medellín. Para zonas periféricas (Santo Domingo, Manrique, San Cristóbal) el tiempo es de 2-3 días hábiles." },
+      { "q": "¿Puedo recoger en bodega en Medellín?", "a": "Por ahora no ofrecemos recogida en bodega — todo se entrega por transportadora con pago contraentrega. Para cambios por talla, el envío de retorno es gratuito y la nueva camisa llega en 24-48 horas." }
+    ],
+    "cta_closing": "Más de 400 paisas ya estrenaron sus camisas polo premium en Medellín. Haz tu pedido hoy y recíbelo en El Poblado, Laureles, Envigado o cualquier zona del Área Metropolitana en 1-2 días."
   },
   {
     "slug": "cali",
@@ -35,11 +55,21 @@
     "lat": 3.4516,
     "lng": -76.5320,
     "extra_keywords": "camisas polo cali, camisas polo ciudad jardin, camisas polo granada, camisas polo san fernando, camisas polo valle del lili",
-    "neighborhoods": "Ciudad Jardín, Granada, San Fernando, Valle del Lili, El Peñón, Pance, Yumbo y norte de Cali",
-    "testimonial_name": "Juan David O.",
-    "testimonial_barrio": "Ciudad Jardín",
-    "testimonial_quote": "Pago contraentrega me dio toda la confianza. Llegaron rapidísimo a Ciudad Jardín y la calidad superó lo que esperaba. Ya voy a pedir el segundo pack.",
-    "faq_answer": "Enviamos a Cali, Yumbo, Jamundí y municipios cercanos del Valle del Cauca. Tu pedido llega entre 1 y 3 días hábiles. Pagas solo cuando el transportador entrega — efectivo o transferencia."
+    "intro_paragraph": "En Cali, la capital del Valle del Cauca, la camisa polo es el básico ideal para quienes buscan comodidad sin perder estilo. Por el clima cálido de Cali (entre 25°C y 32°C casi todo el año), nuestras camisas polo en algodón pique son frescas, transpirables y aptas para el día a día — desde oficinas en Granada hasta encuentros casuales en Ciudad Jardín o tardes en el norte de Cali.",
+    "neighborhoods_extended": "Ciudad Jardín, Granada, San Fernando, Valle del Lili, El Peñón, Pance, San Antonio, Versalles, Tequendama, El Caney, Limonar, Ciudad 2000, La Flora, El Ingenio, Yumbo y Jamundí",
+    "testimonials": [
+      { "name": "Juan David O.", "barrio": "Ciudad Jardín", "quote": "Pago contraentrega me dio toda la confianza. Llegaron rapidísimo a Ciudad Jardín y la calidad superó lo que esperaba. Ya voy a pedir el segundo pack." },
+      { "name": "Carlos B.", "barrio": "Granada", "quote": "Compré pack de 3 para la oficina. Telas frescas, perfectas para el clima de Cali. Llegaron a Granada en 48 horas sin problema." },
+      { "name": "Andrés M.", "barrio": "Pance", "quote": "Pedí 5 colores diferentes y todos me encantaron. Entregaron en Pance sin demora y la talla XL me quedó exacta. Recomendado." }
+    ],
+    "faqs": [
+      { "q": "¿Cuántos días tarda mi pedido de Medellín a Cali?", "a": "El despacho a Cali se realiza el mismo día o al siguiente hábil. Tu camisa llega en 1-3 días hábiles dependiendo de tu zona — generalmente 24-48 horas en barrios céntricos como Granada o San Fernando." },
+      { "q": "¿Aceptan pago con Nequi o Daviplata en Cali?", "a": "Sí, en Cali aceptamos pago contraentrega en efectivo, Nequi, Daviplata y transferencias bancarias. Pagas directo al transportador cuando recibes tu camisa." },
+      { "q": "¿Entregan en municipios cercanos como Yumbo, Jamundí o Palmira?", "a": "Sí, hacemos entregas en Yumbo, Jamundí, Palmira, Candelaria y otros municipios del Valle del Cauca cercanos a Cali. Los tiempos son similares (1-3 días hábiles)." },
+      { "q": "¿Hacen entrega en comunas alejadas o periféricas de Cali?", "a": "Sí, cubrimos todas las 22 comunas de Cali. Para zonas más alejadas (Aguablanca, La Calera, El Hormiguero) el tiempo puede extenderse a 3-4 días hábiles." },
+      { "q": "¿Tienen punto físico o tienda en Cali?", "a": "No tenemos tienda física en Cali — vendemos solo online con envío directo desde nuestra bodega. Para cambios por talla, el envío de retorno es gratuito y la nueva camisa llega en 3-5 días." }
+    ],
+    "cta_closing": "Más de 130 caleños ya disfrutan de nuestras camisas polo premium con pago contraentrega. Haz tu pedido hoy y recíbelo en tu zona de Cali en 1-3 días, sin pagar nada por adelantado."
   },
   {
     "slug": "barranquilla",
@@ -49,11 +79,21 @@
     "lat": 10.9685,
     "lng": -74.7813,
     "extra_keywords": "camisas polo barranquilla, camisas polo norte barranquilla, camisas polo alto prado, camisas polo riomar, camisas polo el prado",
-    "neighborhoods": "Alto Prado, Riomar, El Prado, Villa Country, Buenavista, Soledad, Puerto Colombia y zona norte",
-    "testimonial_name": "Luis Fernando T.",
-    "testimonial_barrio": "Alto Prado",
-    "testimonial_quote": "Las telas resisten muy bien el calor de Barranquilla, son frescas y no se arrugan tanto. Estoy estrenando la beige hoy mismo en la oficina.",
-    "faq_answer": "Despachamos a Barranquilla y municipios cercanos como Soledad, Puerto Colombia y Galapa. Llega entre 1 y 3 días hábiles. Pago contraentrega: pagas al transportador en efectivo o por transferencia."
+    "intro_paragraph": "Barranquilla es la Puerta de Oro de Colombia, con clima tropical de 30°C casi todo el año. Aquí la camisa polo debe ser fresca, transpirable y resistente al sudor — y eso es exactamente lo que ofrecemos. Nuestras telas en algodón pique son ideales para el calor barranquillero, perfectas para oficinas en Riomar, almuerzos en Alto Prado o paseos por la Vía 40 sin pasar calor.",
+    "neighborhoods_extended": "Alto Prado, Riomar, El Prado, Villa Country, Buenavista, Altos del Limón, El Recreo, Boston, Granadillo, El Country, Soledad, Puerto Colombia y zona norte",
+    "testimonials": [
+      { "name": "Luis Fernando T.", "barrio": "Alto Prado", "quote": "Las telas resisten muy bien el calor de Barranquilla, son frescas y no se arrugan tanto. Estoy estrenando la beige hoy mismo en la oficina." },
+      { "name": "Miguel A.", "barrio": "Riomar", "quote": "Compré 4 polos para variar. Llegaron a Riomar en 3 días y la tela aguanta el clima costeño sin dar calor. Excelente compra." },
+      { "name": "Carlos H.", "barrio": "Villa Country", "quote": "Buscaba polos cómodos para el verano barranquillero. Estos son perfectos, livianos y se ven elegantes. Llegaron sin problema a Villa Country." }
+    ],
+    "faqs": [
+      { "q": "¿Cuántos días tarda mi pedido de Medellín a Barranquilla?", "a": "El despacho a Barranquilla llega entre 1 y 3 días hábiles. Para barrios del norte como Alto Prado, Riomar o Villa Country, generalmente entregamos en 48 horas." },
+      { "q": "¿Aceptan pago con Nequi o Daviplata en Barranquilla?", "a": "Sí, en Barranquilla aceptamos pago contraentrega en efectivo, Nequi, Daviplata y transferencias bancarias. Pagas al transportador cuando recibes — sin pagar nada por adelantado." },
+      { "q": "¿Entregan en municipios cercanos como Soledad, Puerto Colombia o Galapa?", "a": "Sí, despachamos a Soledad, Puerto Colombia, Galapa, Malambo y Sabanagrande. Los tiempos son similares (1-3 días hábiles)." },
+      { "q": "¿Las telas aguantan el calor de Barranquilla?", "a": "Sí, todas nuestras camisas polo son en algodón pique transpirable, ideal para climas costeños. La tela permite circulación de aire y absorbe la humedad sin generar incomodidad." },
+      { "q": "¿Tienen tienda física en Barranquilla?", "a": "No tenemos tienda física en Barranquilla — vendemos solo online con envío directo. Para cambios por talla, el envío de retorno es gratuito y la nueva camisa llega en 3-5 días hábiles." }
+    ],
+    "cta_closing": "Más de 90 barranquilleros ya disfrutan de polos premium aptos para el clima tropical. Haz tu pedido hoy y recíbelo en tu zona de Barranquilla en 1-3 días, con pago contraentrega."
   },
   {
     "slug": "cartagena",
@@ -63,11 +103,21 @@
     "lat": 10.3910,
     "lng": -75.4794,
     "extra_keywords": "camisas polo cartagena, camisas polo bocagrande, camisas polo manga, camisas polo crespo, camisas polo el laguito",
-    "neighborhoods": "Bocagrande, Manga, Crespo, El Laguito, Castillogrande, La Boquilla, Pie de la Popa y centro histórico",
-    "testimonial_name": "Miguel Ángel V.",
-    "testimonial_barrio": "Manga",
-    "testimonial_quote": "Compré 5 camisas para el trabajo. Llegaron a Manga sin problema, todas con su talla exacta y la tela muy cómoda con este clima.",
-    "faq_answer": "Despachamos a Cartagena, Turbaco y municipios cercanos de Bolívar. Llega entre 1 y 3 días hábiles. Pago contraentrega — el transportador acepta efectivo o transferencia (Nequi/Daviplata)."
+    "intro_paragraph": "Cartagena combina historia, turismo y vida costera — y la camisa polo es el outfit perfecto para todo eso. Con temperatura de 30°C y alta humedad, nuestros polos en algodón pique son frescos y elegantes a la vez, ideales para almuerzos en Bocagrande, recorridos por la Ciudad Amurallada o cenas en Manga. Tallaje colombiano real, sin exageraciones.",
+    "neighborhoods_extended": "Bocagrande, Manga, Crespo, El Laguito, Castillogrande, La Boquilla, Pie de la Popa, Cabrero, Marbella, Getsemaní, San Diego, Centro Histórico, Turbaco y Arjona",
+    "testimonials": [
+      { "name": "Miguel Ángel V.", "barrio": "Manga", "quote": "Compré 5 camisas para el trabajo. Llegaron a Manga sin problema, todas con su talla exacta y la tela muy cómoda con este clima costeño." },
+      { "name": "Daniel C.", "barrio": "Bocagrande", "quote": "Pedí polos para usar en restaurantes y eventos. Llegaron a Bocagrande en 3 días, frescos para el clima de Cartagena y se ven elegantes." },
+      { "name": "Andrés L.", "barrio": "Crespo", "quote": "Necesitaba polos blancos y beige para el verano. Las recibí en Crespo y la calidad es excelente. Volveré a pedir más colores." }
+    ],
+    "faqs": [
+      { "q": "¿Cuántos días tarda mi pedido de Medellín a Cartagena?", "a": "El despacho a Cartagena llega entre 1 y 3 días hábiles. Para barrios turísticos como Bocagrande, El Laguito o Manga, generalmente entregamos en 48 horas." },
+      { "q": "¿Aceptan pago con Nequi o Daviplata en Cartagena?", "a": "Sí, en Cartagena aceptamos pago contraentrega en efectivo, Nequi, Daviplata y transferencias bancarias. Pagas al transportador cuando recibes — sin riesgo." },
+      { "q": "¿Entregan en municipios cercanos como Turbaco o Arjona?", "a": "Sí, despachamos a Turbaco, Arjona, Santa Rosa, Clemencia y municipios cercanos del departamento de Bolívar. Los tiempos pueden extenderse a 3-4 días hábiles." },
+      { "q": "¿Las telas aguantan la humedad de Cartagena?", "a": "Sí, nuestras polos en algodón pique son ideales para clima costeño húmedo. La tela respira, no se siente pesada y mantiene su forma incluso con el sudor." },
+      { "q": "¿Hacen entrega en zonas turísticas como Centro Histórico o la Boquilla?", "a": "Sí, entregamos en todas las zonas de Cartagena incluyendo Centro Histórico, San Diego, Getsemaní, La Boquilla y Cabrero. Tiempo estándar 1-3 días hábiles." }
+    ],
+    "cta_closing": "Más de 70 cartageneros ya estrenaron polos premium en el clima costeño. Haz tu pedido hoy y recíbelo en Bocagrande, Manga o tu zona favorita de Cartagena en 1-3 días."
   },
   {
     "slug": "bucaramanga",
@@ -77,11 +127,21 @@
     "lat": 7.1193,
     "lng": -73.1227,
     "extra_keywords": "camisas polo bucaramanga, camisas polo cabecera, camisas polo floridablanca, camisas polo cañaveral, camisas polo giron",
-    "neighborhoods": "Cabecera del Llano, Cañaveral, Floridablanca, Girón, Piedecuesta, El Prado y toda el Área Metropolitana",
-    "testimonial_name": "Ricardo P.",
-    "testimonial_barrio": "Cabecera del Llano",
-    "testimonial_quote": "La camisa azul rey me encantó. Servicio impecable y entregaron en Cabecera del Llano en 24 horas. Definitivamente vuelvo a pedir.",
-    "faq_answer": "Llegamos a Bucaramanga y toda el Área Metropolitana (Floridablanca, Girón, Piedecuesta). Tu pedido llega entre 1 y 2 días hábiles. Pagas al transportador cuando recibes — efectivo o transferencia."
+    "intro_paragraph": "Bucaramanga es 'La Ciudad Bonita' y su gente conoce de elegancia. Con clima templado de 23°C, la camisa polo se adapta perfectamente — útil tanto en oficinas de Cabecera del Llano como en cenas en Cañaveral. Los santandereanos valoran la calidad y la durabilidad, y por eso nuestras telas en algodón pique son ideales: aguantan lavadas, no pierden forma y vienen en tallaje colombiano real hasta 5XL.",
+    "neighborhoods_extended": "Cabecera del Llano, Cañaveral, Floridablanca, Girón, Piedecuesta, El Prado, La Aurora, Sotomayor, Real de Minas, Provenza, Lagos del Cacique, Mutis y toda el Área Metropolitana",
+    "testimonials": [
+      { "name": "Ricardo P.", "barrio": "Cabecera del Llano", "quote": "La camisa azul rey me encantó. Servicio impecable y entregaron en Cabecera del Llano en 24 horas. Definitivamente vuelvo a pedir." },
+      { "name": "Mauricio H.", "barrio": "Cañaveral", "quote": "Pedí pack de 3 para la oficina. La tela es de calidad y el corte slim me sentó perfecto. Llegaron a Cañaveral sin problema." },
+      { "name": "Felipe G.", "barrio": "Floridablanca", "quote": "Excelente compra. Las camisas llegaron a Floridablanca rapidito y todas en su talla exacta. Recomendado para Bucaramanga." }
+    ],
+    "faqs": [
+      { "q": "¿Cuántos días tarda mi pedido de Medellín a Bucaramanga?", "a": "El despacho a Bucaramanga llega entre 1 y 2 días hábiles. Para barrios céntricos como Cabecera o Cañaveral, frecuentemente entregamos en 24 horas." },
+      { "q": "¿Aceptan pago con Nequi o Daviplata en Bucaramanga?", "a": "Sí, en Bucaramanga aceptamos pago contraentrega en efectivo, Nequi, Daviplata y transferencias bancarias. Pagas al transportador cuando recibes." },
+      { "q": "¿Entregan en el Área Metropolitana (Floridablanca, Girón, Piedecuesta)?", "a": "Sí, despachamos a Floridablanca, Girón, Piedecuesta y toda el Área Metropolitana de Bucaramanga. Los tiempos son de 1-2 días hábiles." },
+      { "q": "¿Hacen entregas en barrios altos o lejanos de Bucaramanga?", "a": "Sí, entregamos en barrios como Provenza, Lagos del Cacique, Real de Minas y zonas altas. Tiempo estándar 1-3 días hábiles." },
+      { "q": "¿Tienen tienda física en Bucaramanga?", "a": "No tenemos tienda física en Bucaramanga — vendemos solo online con envío directo. Para cambios por talla, el retorno es gratuito y la nueva camisa llega en 3-5 días." }
+    ],
+    "cta_closing": "Más de 80 bumangueses ya estrenaron sus polos premium con pago contraentrega. Haz tu pedido hoy y recíbelo en Cabecera, Cañaveral o cualquier zona de Bucaramanga en 1-2 días."
   },
   {
     "slug": "pereira",
@@ -91,11 +151,21 @@
     "lat": 4.8133,
     "lng": -75.6961,
     "extra_keywords": "camisas polo pereira, camisas polo circunvalar, camisas polo dosquebradas, camisas polo cuba, camisas polo alamos",
-    "neighborhoods": "Circunvalar, Pinares, Álamos, Cuba, Dosquebradas, La Virginia, Santa Rosa de Cabal y zona centro",
-    "testimonial_name": "Esteban H.",
-    "testimonial_barrio": "Dosquebradas",
-    "testimonial_quote": "Pedí el pack de 3 y todas perfectas. En Dosquebradas me llegaron sin demora. La calidad de la tela vale lo que cobran.",
-    "faq_answer": "Despachamos a Pereira, Dosquebradas, La Virginia y municipios cercanos de Risaralda. Llega entre 1 y 3 días hábiles. Pago contraentrega — sin riesgo, pagas solo si la camisa te queda como esperabas."
+    "intro_paragraph": "Pereira, corazón del Eje Cafetero, vive entre el clima templado (21°C) y el aire fresco de las montañas. La camisa polo es perfecta para ese estilo de vida relajado pero elegante — desde reuniones en la Circunvalar hasta almuerzos en Pinares o paseos por Dosquebradas. Nuestros polos en algodón pique se ajustan al estilo cafetero: cómodos, duraderos y con un corte que estiliza.",
+    "neighborhoods_extended": "Circunvalar, Pinares, Álamos, Cuba, Dosquebradas, La Virginia, Santa Rosa de Cabal, San Joaquín, El Jardín, El Lago, Maraya, Boston y zona centro",
+    "testimonials": [
+      { "name": "Esteban H.", "barrio": "Dosquebradas", "quote": "Pedí el pack de 3 y todas perfectas. En Dosquebradas me llegaron sin demora. La calidad de la tela vale lo que cobran." },
+      { "name": "Andrés M.", "barrio": "Circunvalar", "quote": "Compré 4 colores para variar en la semana laboral. Llegaron a Circunvalar en 2 días, todas con su talla exacta. Servicio impecable." },
+      { "name": "Juan David O.", "barrio": "Pinares", "quote": "Buscaba polos que sirvan tanto para café como para reuniones formales. Estos cumplen las dos cosas. Llegaron rápido a Pinares." }
+    ],
+    "faqs": [
+      { "q": "¿Cuántos días tarda mi pedido de Medellín a Pereira?", "a": "El despacho a Pereira llega entre 1 y 2 días hábiles. Como Medellín y Pereira están cerca (5 horas por carretera), frecuentemente entregamos en 24 horas." },
+      { "q": "¿Aceptan pago con Nequi o Daviplata en Pereira?", "a": "Sí, en Pereira aceptamos pago contraentrega en efectivo, Nequi, Daviplata y transferencias bancarias. Pagas al transportador cuando recibes." },
+      { "q": "¿Entregan en Dosquebradas, La Virginia o Santa Rosa?", "a": "Sí, despachamos a Dosquebradas, La Virginia, Santa Rosa de Cabal, Marsella y otros municipios del Eje Cafetero cercanos a Pereira. Los tiempos son similares (1-3 días hábiles)." },
+      { "q": "¿Hacen entrega en zonas rurales o veredas de Pereira?", "a": "Sí, llegamos a la mayoría de veredas de Pereira y municipios aledaños. Para zonas muy rurales, el tiempo puede extenderse a 3-4 días hábiles." },
+      { "q": "¿Tienen tienda física en Pereira o el Eje Cafetero?", "a": "No tenemos tienda física en Pereira — vendemos solo online. Para cambios por talla, el retorno es gratuito y la nueva camisa llega en 2-4 días." }
+    ],
+    "cta_closing": "Más de 60 pereiranos ya disfrutan de polos premium con pago contraentrega. Haz tu pedido hoy y recíbelo en Circunvalar, Pinares, Dosquebradas o tu zona favorita en 1-2 días."
   },
   {
     "slug": "manizales",
@@ -105,11 +175,21 @@
     "lat": 5.0689,
     "lng": -75.5174,
     "extra_keywords": "camisas polo manizales, camisas polo palermo, camisas polo milan, camisas polo la enea, camisas polo cable",
-    "neighborhoods": "Palermo, El Cable, La Enea, Milán, Chipre, Villamaría y zona universitaria",
-    "testimonial_name": "Jorge L.",
-    "testimonial_barrio": "Palermo",
-    "testimonial_quote": "La oxford blanca quedó perfecta para la oficina. Llegaron a Palermo rápido y el corte slim me sentó bien. Recomendado para Manizales.",
-    "faq_answer": "Llegamos a Manizales, Villamaría y municipios cercanos de Caldas. Tu pedido llega entre 1 y 3 días hábiles. Pago contraentrega en efectivo o transferencia digital al transportador."
+    "intro_paragraph": "Manizales, la ciudad de las puertas abiertas, tiene clima fresco de montaña (17°C). La camisa polo aquí se lleva bajo chaqueta liviana o sola en días soleados — perfecta para ejecutivos del Cable, estudiantes de la zona universitaria o profesionales en Palermo. Nuestras telas en algodón pique son cómodas, abrigan lo justo y aguantan el ritmo manizaleño con elegancia.",
+    "neighborhoods_extended": "Palermo, El Cable, La Enea, Milán, Chipre, Villamaría, Versalles, La Sultana, El Bosque, Belmonte, La Estrella, Laureles y zona universitaria",
+    "testimonials": [
+      { "name": "Jorge L.", "barrio": "Palermo", "quote": "La oxford blanca quedó perfecta para la oficina. Llegaron a Palermo rápido y el corte slim me sentó bien. Recomendado para Manizales." },
+      { "name": "Sebastián V.", "barrio": "El Cable", "quote": "Como ejecutivo del Cable necesito polos formales. Llegaron en 48 horas y la tela es de calidad superior. Vuelvo a pedir." },
+      { "name": "Carlos R.", "barrio": "Milán", "quote": "Pedí pack de 3 para variar colores. Llegaron a Milán sin problema y todas en su talla. Buena experiencia." }
+    ],
+    "faqs": [
+      { "q": "¿Cuántos días tarda mi pedido de Medellín a Manizales?", "a": "El despacho a Manizales llega entre 1 y 2 días hábiles. La cercanía con Medellín (6 horas por carretera) permite tiempos rápidos en zonas céntricas." },
+      { "q": "¿Aceptan pago con Nequi o Daviplata en Manizales?", "a": "Sí, en Manizales aceptamos pago contraentrega en efectivo, Nequi, Daviplata y transferencias bancarias. Pagas al transportador cuando recibes." },
+      { "q": "¿Entregan en Villamaría, Chinchiná o Neira?", "a": "Sí, despachamos a Villamaría, Chinchiná, Neira y otros municipios de Caldas cercanos a Manizales. Los tiempos son similares (1-3 días hábiles)." },
+      { "q": "¿Hacen entregas en zonas altas o periféricas de Manizales?", "a": "Sí, entregamos en barrios altos como Chipre, La Sultana, Belmonte y zonas periféricas. Tiempo estándar 1-3 días hábiles." },
+      { "q": "¿Tienen tienda física en Manizales?", "a": "No tenemos tienda física en Manizales — vendemos solo online con envío directo. Para cambios por talla, el retorno es gratuito y la nueva camisa llega en 3-5 días." }
+    ],
+    "cta_closing": "Más de 45 manizaleños ya estrenaron polos premium para el clima de montaña. Haz tu pedido hoy y recíbelo en Palermo, El Cable o cualquier zona de Manizales en 1-2 días."
   },
   {
     "slug": "cucuta",
@@ -119,11 +199,21 @@
     "lat": 7.8939,
     "lng": -72.5078,
     "extra_keywords": "camisas polo cucuta, camisas polo caobos, camisas polo quinta oriental, camisas polo ceiba, camisas polo san luis",
-    "neighborhoods": "Caobos, Quinta Oriental, La Ceiba, San Luis, Los Patios, Villa del Rosario y zona centro",
-    "testimonial_name": "Daniel C.",
-    "testimonial_barrio": "Caobos",
-    "testimonial_quote": "En Cúcuta es difícil conseguir polos de calidad. Estos llegaron a Caobos en 2 días y la tela es exactamente lo que prometen. Excelente.",
-    "faq_answer": "Despachamos a Cúcuta y municipios cercanos (Los Patios, Villa del Rosario, El Zulia). Llega entre 1 y 3 días hábiles. Pago contraentrega al recibir — sin pagar nada por adelantado."
+    "intro_paragraph": "Cúcuta, la 'Perla del Norte' y ciudad fronteriza, tiene clima cálido (28°C) y un ritmo comercial intenso. Aquí la camisa polo es básica para profesionales del comercio, oficinistas en Caobos y emprendedores en La Ceiba. Nuestros polos en algodón pique son frescos, aguantan el clima cucuteño y vienen en tallaje colombiano real — algo difícil de encontrar en una zona fronteriza con tantas importaciones.",
+    "neighborhoods_extended": "Caobos, Quinta Oriental, La Ceiba, San Luis, La Riviera, Pescadero, El Bosque, El Llano, Los Patios, Villa del Rosario, El Zulia y zona centro",
+    "testimonials": [
+      { "name": "Daniel C.", "barrio": "Caobos", "quote": "En Cúcuta es difícil conseguir polos de calidad. Estos llegaron a Caobos en 2 días y la tela es exactamente lo que prometen. Excelente." },
+      { "name": "Juan Pablo S.", "barrio": "Quinta Oriental", "quote": "Pedí 3 colores para usar en el trabajo. Llegaron a Quinta Oriental sin problema y la talla XXL me quedó perfecta. Servicio rápido." },
+      { "name": "Camilo T.", "barrio": "La Ceiba", "quote": "Como emprendedor uso polos a diario. Llegaron a La Ceiba en 3 días y la calidad de la tela me sorprendió. Vuelvo a pedir." }
+    ],
+    "faqs": [
+      { "q": "¿Cuántos días tarda mi pedido de Medellín a Cúcuta?", "a": "El despacho a Cúcuta llega entre 2 y 3 días hábiles. La distancia desde Medellín hace que los tiempos sean un poco mayores que en otras capitales." },
+      { "q": "¿Aceptan pago con Nequi o Daviplata en Cúcuta?", "a": "Sí, en Cúcuta aceptamos pago contraentrega en efectivo, Nequi, Daviplata y transferencias bancarias. Pagas al transportador cuando recibes." },
+      { "q": "¿Entregan en Los Patios, Villa del Rosario o El Zulia?", "a": "Sí, despachamos a Los Patios, Villa del Rosario, El Zulia y otros municipios del Área Metropolitana de Cúcuta. Los tiempos son similares (2-3 días hábiles)." },
+      { "q": "¿Las telas aguantan el clima cálido de Cúcuta?", "a": "Sí, todas nuestras camisas polo son en algodón pique transpirable, ideal para el clima cucuteño. La tela permite circulación de aire sin perder elegancia." },
+      { "q": "¿Tienen tienda física en Cúcuta?", "a": "No tenemos tienda física en Cúcuta — vendemos solo online con envío directo desde Medellín. Para cambios por talla, el retorno es gratuito y la nueva camisa llega en 4-6 días." }
+    ],
+    "cta_closing": "Más de 35 cucuteños ya estrenaron polos premium en tallaje colombiano real. Haz tu pedido hoy y recíbelo en Caobos, La Ceiba o cualquier zona de Cúcuta en 2-3 días."
   },
   {
     "slug": "ibague",
@@ -133,10 +223,20 @@
     "lat": 4.4389,
     "lng": -75.2322,
     "extra_keywords": "camisas polo ibague, camisas polo piedrapintada, camisas polo la pola, camisas polo jordan, camisas polo calambeo",
-    "neighborhoods": "La Pola, Piedrapintada, El Jordán, Calambeo, Vergel, Belén y zona centro",
-    "testimonial_name": "Mauricio S.",
-    "testimonial_barrio": "La Pola",
-    "testimonial_quote": "Pedí 5 camisas variadas y todas me quedaron al pelo. Excelente servicio en Ibagué, llegaron en 2 días a La Pola sin problema.",
-    "faq_answer": "Llegamos a Ibagué y municipios cercanos del Tolima. Tu pedido llega entre 1 y 3 días hábiles. Pagas solo cuando recibes — en efectivo o por transferencia digital al transportador."
+    "intro_paragraph": "Ibagué, la 'Capital Musical de Colombia', tiene clima templado (22°C) y un estilo de vida pausado pero elegante. La camisa polo encaja perfecto aquí — desde profesionales en La Pola hasta familias en Piedrapintada o El Jordán. Nuestros polos en algodón pique son cómodos para el clima tolimense y vienen en tallaje colombiano real (S a 5XL), algo importante en una ciudad donde la oferta de ropa formal-casual a veces es limitada.",
+    "neighborhoods_extended": "La Pola, Piedrapintada, El Jordán, Calambeo, Vergel, Belén, El Salado, Versalles, Las Acacias, Picaleña, Aparco, La Floresta y zona centro",
+    "testimonials": [
+      { "name": "Mauricio S.", "barrio": "La Pola", "quote": "Pedí 5 camisas variadas y todas me quedaron al pelo. Excelente servicio en Ibagué, llegaron en 2 días a La Pola sin problema." },
+      { "name": "Andrés F.", "barrio": "El Jordán", "quote": "Buscaba polos de calidad sin pagar lo de marca. Llegaron a El Jordán en 48 horas y la tela es excelente. Recomendado." },
+      { "name": "Felipe O.", "barrio": "Piedrapintada", "quote": "Como profesional uso polos casi todos los días. Llegaron a Piedrapintada rapidito y todas con su talla exacta. Volveré a pedir." }
+    ],
+    "faqs": [
+      { "q": "¿Cuántos días tarda mi pedido de Medellín a Ibagué?", "a": "El despacho a Ibagué llega entre 1 y 3 días hábiles. Para barrios céntricos como La Pola, El Jordán o Piedrapintada, generalmente entregamos en 48 horas." },
+      { "q": "¿Aceptan pago con Nequi o Daviplata en Ibagué?", "a": "Sí, en Ibagué aceptamos pago contraentrega en efectivo, Nequi, Daviplata y transferencias bancarias. Pagas al transportador cuando recibes." },
+      { "q": "¿Entregan en Espinal, Coello o Flandes?", "a": "Sí, despachamos a Espinal, Coello, Flandes, Mariquita y otros municipios del Tolima cercanos a Ibagué. Los tiempos son similares (1-3 días hábiles)." },
+      { "q": "¿Hacen entrega en barrios altos o periféricos de Ibagué?", "a": "Sí, llegamos a la mayoría de barrios de Ibagué incluyendo zonas como Picaleña, El Salado y Aparco. Tiempo estándar 1-3 días hábiles." },
+      { "q": "¿Tienen tienda física en Ibagué?", "a": "No tenemos tienda física en Ibagué — vendemos solo online con envío directo. Para cambios por talla, el retorno es gratuito y la nueva camisa llega en 3-5 días." }
+    ],
+    "cta_closing": "Más de 40 ibaguereños ya disfrutan de polos premium con pago contraentrega. Haz tu pedido hoy y recíbelo en La Pola, Piedrapintada o cualquier zona de Ibagué en 1-3 días."
   }
 ]
