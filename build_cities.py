@@ -152,14 +152,30 @@ def build_city_html(template: str, city: dict) -> str:
     )
 
     # 7. Inyectar bloque visible de ciudad ANTES del carrusel
-    #    (asi aparece justo despues del hero, sin necesidad de mucho scroll)
-    #    Hero y subtitulo se dejan IGUAL al template (sin personalizar por ciudad)
     anchor = '<!-- ═══════ CARRUSEL ═══════ -->'
     section = build_city_section(city)
     if anchor in out:
         out = out.replace(anchor, section + anchor)
     else:
         print(f"  WARNING: anchor '{anchor}' not found for {name}")
+
+    # 8. ELIMINAR TESTIMONIOS y FAQ genericos en city pages.
+    #    Esto reduce duplicacion vs home (fix para 'canonical duplicado' de Search Console).
+    #    Los city pages ya tienen testimonios + FAQs locales en la seccion de ciudad.
+    out = re.sub(
+        r'  <!-- ═══════ TESTIMONIOS ═══════ -->.*?(?=  <!-- ═══════ PACKS ═══════ -->)',
+        '',
+        out,
+        flags=re.DOTALL,
+        count=1
+    )
+    out = re.sub(
+        r'  <!-- ═══════ FAQ ═══════ -->.*?(?=  <!-- ═══════ CIUDADES ATENDIDAS ═══════ -->)',
+        '',
+        out,
+        flags=re.DOTALL,
+        count=1
+    )
 
     return out
 

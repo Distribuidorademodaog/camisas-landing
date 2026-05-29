@@ -229,6 +229,24 @@
     "offerCount":"3",
     "availability":"https://schema.org/InStock",
     "areaServed":{"@type":"Country","name":"Colombia"},
+    "shippingDetails":{
+      "@type":"OfferShippingDetails",
+      "shippingRate":{"@type":"MonetaryAmount","value":"0","currency":"COP"},
+      "shippingDestination":{"@type":"DefinedRegion","addressCountry":"CO"},
+      "deliveryTime":{
+        "@type":"ShippingDeliveryTime",
+        "handlingTime":{"@type":"QuantitativeValue","minValue":1,"maxValue":2,"unitCode":"DAY"},
+        "transitTime":{"@type":"QuantitativeValue","minValue":3,"maxValue":6,"unitCode":"DAY"}
+      }
+    },
+    "hasMerchantReturnPolicy":{
+      "@type":"MerchantReturnPolicy",
+      "applicableCountry":"CO",
+      "returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays":30,
+      "returnMethod":"https://schema.org/ReturnByMail",
+      "returnFees":"https://schema.org/FreeReturn"
+    },
     "offers":[
       {
         "@type":"Offer",
@@ -239,6 +257,10 @@
         "availability":"https://schema.org/InStock",
         "itemCondition":"https://schema.org/NewCondition",
         "priceValidUntil":"2026-12-31",
+        "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"998","bestRating":"5","worstRating":"1"},
+        "review":[
+          {"@type":"Review","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"author":{"@type":"Person","name":"Hernando Morales"},"reviewBody":"La tela es increíblemente suave, se siente la calidad desde que la sacas del empaque. Talla M perfecta."}
+        ],
         "shippingDetails":{
           "@type":"OfferShippingDetails",
           "shippingRate":{"@type":"MonetaryAmount","value":"0","currency":"COP"},
@@ -267,6 +289,10 @@
         "availability":"https://schema.org/InStock",
         "itemCondition":"https://schema.org/NewCondition",
         "priceValidUntil":"2026-12-31",
+        "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"998","bestRating":"5","worstRating":"1"},
+        "review":[
+          {"@type":"Review","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"author":{"@type":"Person","name":"Ricardo Cifuentes"},"reviewBody":"Pedí el pack de 3 y todas perfectas. La de cuadros azul espectacular, me la comentaron en la oficina."}
+        ],
         "shippingDetails":{
           "@type":"OfferShippingDetails",
           "shippingRate":{"@type":"MonetaryAmount","value":"0","currency":"COP"},
@@ -295,6 +321,10 @@
         "availability":"https://schema.org/InStock",
         "itemCondition":"https://schema.org/NewCondition",
         "priceValidUntil":"2026-12-31",
+        "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"998","bestRating":"5","worstRating":"1"},
+        "review":[
+          {"@type":"Review","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"author":{"@type":"Person","name":"Jorge Vargas"},"reviewBody":"El pack de 6 vale cada peso. Al tocar la tela uno siente que es otra cosa — suave, fresca, de verdad premium."}
+        ],
         "shippingDetails":{
           "@type":"OfferShippingDetails",
           "shippingRate":{"@type":"MonetaryAmount","value":"0","currency":"COP"},
@@ -1399,6 +1429,15 @@ body {
 .city-cta-block { background:#0e1828; color:#f5f0e8; border-radius:14px; padding:18px; margin:14px 18px 0; max-width:560px; box-sizing:border-box; text-align:center; }
 .city-cta-block p { font-size:13px; line-height:1.6; margin:0; font-family:'Outfit',sans-serif; }
 .city-cta-block strong { color:#C4A35A; }
+
+/* CIUDADES ATENDIDAS - footer con cross-linking SEO */
+.cities-footer { background:var(--ivory); padding:24px 18px 32px; }
+.cities-footer-title { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:#0e1828; text-align:center; margin:8px 0 14px; line-height:1.3; }
+.cities-footer-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; max-width:480px; margin:0 auto 14px; }
+@media (min-width:480px) { .cities-footer-grid { grid-template-columns:repeat(3,1fr); } }
+.cities-footer-grid a { display:block; padding:10px 12px; background:white; border-radius:8px; text-decoration:none; color:#0e1828; font-family:'Outfit',sans-serif; font-size:13px; font-weight:600; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,0.05); transition:background 0.15s, color 0.15s; border:1px solid rgba(0,0,0,0.04); }
+.cities-footer-grid a:hover { background:#0e1828; color:#C4A35A; }
+.cities-footer-note { text-align:center; font-family:'Outfit',sans-serif; font-size:11.5px; color:#7a7060; max-width:480px; margin:0 auto; line-height:1.5; }
 </style>
 </head>
 <body>
@@ -2134,6 +2173,27 @@ function toggleFaq(el) {
   }
 }
 </script>
+
+  <!-- ═══════ CIUDADES ATENDIDAS ═══════ -->
+  <div class="cities-footer">
+    <div class="sec-head" style="padding:0 6px 4px;">
+      <div class="sec-kicker">Cobertura nacional</div>
+      <h3 class="cities-footer-title">Camisas polo con entrega a tu ciudad</h3>
+    </div>
+    <nav class="cities-footer-grid" aria-label="Ciudades con entrega">
+      <a href="/camisas-polo-bogota">Bogotá</a>
+      <a href="/camisas-polo-medellin">Medellín</a>
+      <a href="/camisas-polo-cali">Cali</a>
+      <a href="/camisas-polo-barranquilla">Barranquilla</a>
+      <a href="/camisas-polo-cartagena">Cartagena</a>
+      <a href="/camisas-polo-bucaramanga">Bucaramanga</a>
+      <a href="/camisas-polo-pereira">Pereira</a>
+      <a href="/camisas-polo-manizales">Manizales</a>
+      <a href="/camisas-polo-cucuta">Cúcuta</a>
+      <a href="/camisas-polo-ibague">Ibagué</a>
+    </nav>
+    <p class="cities-footer-note">Y todos los demás municipios del país. Pago contraentrega, envío 1-3 días hábiles a las principales ciudades.</p>
+  </div>
 
 <!-- ═══════ EMAILJS ═══════ -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>

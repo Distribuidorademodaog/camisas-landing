@@ -229,6 +229,24 @@
     "offerCount":"3",
     "availability":"https://schema.org/InStock",
     "areaServed":{"@type":"Country","name":"Colombia"},
+    "shippingDetails":{
+      "@type":"OfferShippingDetails",
+      "shippingRate":{"@type":"MonetaryAmount","value":"0","currency":"COP"},
+      "shippingDestination":{"@type":"DefinedRegion","addressCountry":"CO"},
+      "deliveryTime":{
+        "@type":"ShippingDeliveryTime",
+        "handlingTime":{"@type":"QuantitativeValue","minValue":1,"maxValue":2,"unitCode":"DAY"},
+        "transitTime":{"@type":"QuantitativeValue","minValue":3,"maxValue":6,"unitCode":"DAY"}
+      }
+    },
+    "hasMerchantReturnPolicy":{
+      "@type":"MerchantReturnPolicy",
+      "applicableCountry":"CO",
+      "returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays":30,
+      "returnMethod":"https://schema.org/ReturnByMail",
+      "returnFees":"https://schema.org/FreeReturn"
+    },
     "offers":[
       {
         "@type":"Offer",
@@ -239,6 +257,10 @@
         "availability":"https://schema.org/InStock",
         "itemCondition":"https://schema.org/NewCondition",
         "priceValidUntil":"2026-12-31",
+        "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"998","bestRating":"5","worstRating":"1"},
+        "review":[
+          {"@type":"Review","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"author":{"@type":"Person","name":"Hernando Morales"},"reviewBody":"La tela es increíblemente suave, se siente la calidad desde que la sacas del empaque. Talla M perfecta."}
+        ],
         "shippingDetails":{
           "@type":"OfferShippingDetails",
           "shippingRate":{"@type":"MonetaryAmount","value":"0","currency":"COP"},
@@ -267,6 +289,10 @@
         "availability":"https://schema.org/InStock",
         "itemCondition":"https://schema.org/NewCondition",
         "priceValidUntil":"2026-12-31",
+        "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"998","bestRating":"5","worstRating":"1"},
+        "review":[
+          {"@type":"Review","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"author":{"@type":"Person","name":"Ricardo Cifuentes"},"reviewBody":"Pedí el pack de 3 y todas perfectas. La de cuadros azul espectacular, me la comentaron en la oficina."}
+        ],
         "shippingDetails":{
           "@type":"OfferShippingDetails",
           "shippingRate":{"@type":"MonetaryAmount","value":"0","currency":"COP"},
@@ -295,6 +321,10 @@
         "availability":"https://schema.org/InStock",
         "itemCondition":"https://schema.org/NewCondition",
         "priceValidUntil":"2026-12-31",
+        "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"998","bestRating":"5","worstRating":"1"},
+        "review":[
+          {"@type":"Review","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"author":{"@type":"Person","name":"Jorge Vargas"},"reviewBody":"El pack de 6 vale cada peso. Al tocar la tela uno siente que es otra cosa — suave, fresca, de verdad premium."}
+        ],
         "shippingDetails":{
           "@type":"OfferShippingDetails",
           "shippingRate":{"@type":"MonetaryAmount","value":"0","currency":"COP"},
@@ -1399,6 +1429,15 @@ body {
 .city-cta-block { background:#0e1828; color:#f5f0e8; border-radius:14px; padding:18px; margin:14px 18px 0; max-width:560px; box-sizing:border-box; text-align:center; }
 .city-cta-block p { font-size:13px; line-height:1.6; margin:0; font-family:'Outfit',sans-serif; }
 .city-cta-block strong { color:#C4A35A; }
+
+/* CIUDADES ATENDIDAS - footer con cross-linking SEO */
+.cities-footer { background:var(--ivory); padding:24px 18px 32px; }
+.cities-footer-title { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:#0e1828; text-align:center; margin:8px 0 14px; line-height:1.3; }
+.cities-footer-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; max-width:480px; margin:0 auto 14px; }
+@media (min-width:480px) { .cities-footer-grid { grid-template-columns:repeat(3,1fr); } }
+.cities-footer-grid a { display:block; padding:10px 12px; background:white; border-radius:8px; text-decoration:none; color:#0e1828; font-family:'Outfit',sans-serif; font-size:13px; font-weight:600; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,0.05); transition:background 0.15s, color 0.15s; border:1px solid rgba(0,0,0,0.04); }
+.cities-footer-grid a:hover { background:#0e1828; color:#C4A35A; }
+.cities-footer-note { text-align:center; font-family:'Outfit',sans-serif; font-size:11.5px; color:#7a7060; max-width:480px; margin:0 auto; line-height:1.5; }
 </style>
 </head>
 <body>
@@ -1875,84 +1914,6 @@ body {
     </div>
   </div>
 
-  <!-- ═══════ TESTIMONIOS ═══════ -->
-  <div class="sec sec-light" style="padding-bottom:36px;">
-    <div class="rating-header">
-      <div class="rating-big">4.9</div>
-      <div class="rating-right">
-        <div class="stars-big">★★★★★</div>
-        <div class="rating-sub">Basado en +998 pedidos</div>
-      </div>
-    </div>
-    <div class="sec-head" style="padding-top:16px;">
-      <div class="sec-kicker kicker-gold">Clientes reales</div>
-      <h2 class="sec-title sec-title-light">Lo que dicen<br><em>quienes ya las usan</em></h2>
-    </div>
-
-    <div style="height:20px;"></div>
-
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:0 24px;">
-      <div class="tcard tcard-light" style="margin:0;">
-      <div class="tcard-img"><img loading="lazy" decoding="async" src="https://media.paquetecompleto.com.co/landing/testimonio-hernando.jpg" alt="Hernando Morales, cliente satisfecho de 52 años en Medellín, vistiendo camisa Colombia Premium"/><div class="tcard-img-fade-light"></div></div>
-      <div class="tcard-body">
-        <div class="tcard-top">
-          <div class="tcard-person"><div class="tcard-av tav-light">HM</div><div><div class="tcard-name tcard-name-light">Hernando Morales</div><div class="tcard-city tcard-city-light">Medellín · 52 años</div></div></div>
-          <div class="verified-badge vb-light">✓ Verificado</div>
-        </div>
-        <div class="tcard-stars">★★★★★</div>
-        <p class="tcard-text tcard-text-light">"Llevaba años comprando en tienda. Lo primero que noté fue el tacto — la tela es increíblemente suave, se siente la calidad desde que la sacas del empaque. La talla M me quedó perfecta. Ya pedí otras 3."</p>
-        <div class="tcard-pack tp-light"><span>📦</span><div><span class="tp-bold-light">Pack 3 camisas</span> · Azul claro, Blanco, Beige</div></div>
-      </div>
-    </div>
-      <div class="tcard tcard-dark" style="margin:0;">
-      <div class="tcard-img"><img loading="lazy" decoding="async" src="https://media.paquetecompleto.com.co/landing/testimonio-ricardo.jpg" alt="Ricardo Cifuentes, cliente de 48 años en Bogotá, gerente con camisa de cuadros azul"/><div class="tcard-img-fade-dark"></div></div>
-      <div class="tcard-body">
-        <div class="tcard-top">
-          <div class="tcard-person"><div class="tcard-av tav-dark">RC</div><div><div class="tcard-name tcard-name-dark">Ricardo Cifuentes</div><div class="tcard-city tcard-city-dark">Bogotá · 48 años</div></div></div>
-          <div class="verified-badge vb-dark">✓ Verificado</div>
-        </div>
-        <div class="tcard-stars">★★★★★</div>
-        <p class="tcard-text tcard-text-dark">"Soy gerente y necesito verme bien en reuniones. La camisa llegó en 4 días. La de cuadros azul es espectacular, me la han comentado en la oficina. El pago contraentrega me dio confianza total."</p>
-        <div class="tcard-pack tp-dark"><span>📦</span><div><span class="tp-bold-dark">Pack 1 camisa</span> · Cuadros azul</div></div>
-      </div>
-    </div>
-    </div>
-
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:12px 24px 0;">
-      <div class="tcard tcard-light" style="margin:0;">
-      <div class="tcard-img"><img loading="lazy" decoding="async" src="https://media.paquetecompleto.com.co/landing/testimonio-jorge.jpg" alt="Jorge Vargas, cliente de 57 años en Cali, con pack de 6 camisas premium"/><div class="tcard-img-fade-light"></div></div>
-      <div class="tcard-body">
-        <div class="tcard-top">
-          <div class="tcard-person"><div class="tcard-av tav-light">JV</div><div><div class="tcard-name tcard-name-light">Jorge Vargas</div><div class="tcard-city tcard-city-light">Cali · 57 años</div></div></div>
-          <div class="verified-badge vb-light">✓ Verificado</div>
-        </div>
-        <div class="tcard-stars">★★★★★</div>
-        <p class="tcard-text tcard-text-light">"Compré antes en otra página y llegó pequeña y áspera. Con estos fue diferente. Al tocar la tela uno siente de inmediato que es otra cosa — suave, fresca, de verdad premium. El pack de 6 vale cada peso."</p>
-        <div class="tcard-pack tp-light"><span>📦</span><div><span class="tp-bold-light">Pack 6 camisas</span> · Varios colores</div></div>
-      </div>
-    </div>
-      <div class="tcard tcard-dark" style="margin:0;">
-      <div class="tcard-img"><img loading="lazy" decoding="async" src="https://media.paquetecompleto.com.co/landing/testimonio-gustavo.jpg" alt="Gustavo Arango, cliente de 45 años en Barranquilla, vistiendo camisa amarilla premium"/><div class="tcard-img-fade-dark"></div></div>
-      <div class="tcard-body">
-        <div class="tcard-top">
-          <div class="tcard-person"><div class="tcard-av tav-dark">GA</div><div><div class="tcard-name tcard-name-dark">Gustavo Arango</div><div class="tcard-city tcard-city-dark">Barranquilla · 45 años</div></div></div>
-          <div class="verified-badge vb-dark">✓ Verificado</div>
-        </div>
-        <div class="tcard-stars">★★★★★</div>
-        <p class="tcard-text tcard-text-dark">"La camisa amarilla es de primera. Se ve elegante, sirve para el trabajo y para salir en la noche. Ya la lavé varias veces y mantiene el color y la forma. Aquí no hay engaño."</p>
-        <div class="tcard-pack tp-dark"><span>📦</span><div><span class="tp-bold-dark">Pack 3 camisas</span> · Amarillo, Blanco, Verde oliva</div></div>
-      </div>
-    </div>
-
-    </div>
-    </div>
-
-        <div style="padding:20px 24px 0;">
-      <button class="cta-gold">Yo también quiero la mía <div class="cta-icon">→</div></button>
-      <p class="cta-sub cta-sub-light">🔒 Pagas solo cuando llega · Cambios por talla</p>
-    </div>
-  </div>
-
   <!-- ═══════ PACKS ═══════ -->
   <div class="sec sec-light" style="padding-bottom:36px;">
     <div class="sec-head">
@@ -2128,78 +2089,26 @@ body {
     </div>
   </div>
 
-  <!-- ═══════ FAQ ═══════ -->
-  <div class="sec sec-dark" style="padding-bottom:48px;">
-    <div class="sec-head">
-      <div class="sec-kicker kicker-white">Preguntas frecuentes</div>
-      <h2 class="sec-title sec-title-dark">Todo claro antes<br>de <em>hacer tu pedido</em></h2>
-      <p class="sec-subtitle sec-subtitle-dark">Las dudas más comunes — resueltas.</p>
+  <!-- ═══════ CIUDADES ATENDIDAS ═══════ -->
+  <div class="cities-footer">
+    <div class="sec-head" style="padding:0 6px 4px;">
+      <div class="sec-kicker">Cobertura nacional</div>
+      <h3 class="cities-footer-title">Camisas polo con entrega a tu ciudad</h3>
     </div>
-
-    <div class="faq-list" id="faqList">
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q"><div class="faq-q-inner"><span class="faq-emoji">👕</span><span class="faq-q-text">¿Son camisas polo Ralph Lauren?</span></div><span class="faq-arrow">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">No. Somos <strong>distribuidores en Colombia</strong> de <strong>camisas polo premium</strong> con estética <strong>estilo Ralph Lauren</strong> — corte clásico, tela suave y acabado fino. Las traemos a precio justo, con pago contraentrega y envío gratis a todo el país. <strong>Calidad real</strong>, sin sobrecostos de marca.</div></div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q"><div class="faq-q-inner"><span class="faq-emoji">🎨</span><span class="faq-q-text">¿Tienen camisas polo manga corta y manga larga?</span></div><span class="faq-arrow">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Sí. Manejamos <strong>camisas polo manga larga</strong> en estilos Oxford, Tipo Lino, Cuadros y Rayas, y <strong>camisas polo manga corta</strong> en colores sólidos. Más de <strong>20 colores y diseños</strong> disponibles, tallas <strong>S a 5XL</strong>.</div></div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q"><div class="faq-q-inner"><span class="faq-emoji">📦</span><span class="faq-q-text">¿En cuántos días llega a mi ciudad?</span></div><span class="faq-arrow">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Entregamos en <strong>3 a 6 días hábiles</strong> a todo Colombia — Bogotá, Medellín, Cali, Barranquilla y municipios. Te enviamos el tracking para que hagas seguimiento en tiempo real.</div></div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q"><div class="faq-q-inner"><span class="faq-emoji">💳</span><span class="faq-q-text">¿Cómo funciona el pago contraentrega?</span></div><span class="faq-arrow">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Simple: haces tu pedido hoy, <strong>no pagas nada por adelantado.</strong> Cuando el domiciliario llegue a tu puerta, revisas la camisa y pagas en efectivo o con datafono.</div></div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q"><div class="faq-q-inner"><span class="faq-emoji">📏</span><span class="faq-q-text">¿Qué pasa si la talla no me queda?</span></div><span class="faq-arrow">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Nos escribes por WhatsApp y coordinamos el cambio dentro de los <strong>30 días</strong> siguientes a tu compra. Manejamos tallas de S hasta 5XL.</div></div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q"><div class="faq-q-inner"><span class="faq-emoji">🚪</span><span class="faq-q-text">¿Qué pasa si no estoy cuando llega?</span></div><span class="faq-arrow">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">La transportadora hace <strong>hasta 3 intentos de entrega.</strong> También puedes programar la entrega al horario que más te convenga o recoger en el punto más cercano.</div></div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q"><div class="faq-q-inner"><span class="faq-emoji">👔</span><span class="faq-q-text">¿Puedo pedir varios colores en un pack?</span></div><span class="faq-arrow">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner"><strong>¡Sí, claro!</strong> Al hacer tu pedido puedes elegir el color y talla de cada camisa del pack de forma independiente. Más de 20 opciones disponibles.</div></div>
-      </div>
-    </div>
-
-    <div class="faq-whatsapp">
-      <div class="faq-wa-icon">💬</div>
-      <div>
-        <div class="faq-wa-title">¿Tienes otra pregunta?</div>
-        <div class="faq-wa-sub">Escríbenos por WhatsApp y te respondemos en menos de <strong>10 minutos.</strong></div>
-      </div>
-    </div>
-
-    <div style="padding:20px 24px 0;">
-      <button class="cta-gold">Hacer mi pedido ahora <div class="cta-icon">→</div></button>
-      <p class="cta-sub cta-sub-dark">🔒 Sin pago anticipado · 📦 Envío gratis · 🔄 Cambios por talla</p>
-    </div>
+    <nav class="cities-footer-grid" aria-label="Ciudades con entrega">
+      <a href="/camisas-polo-bogota">Bogotá</a>
+      <a href="/camisas-polo-medellin">Medellín</a>
+      <a href="/camisas-polo-cali">Cali</a>
+      <a href="/camisas-polo-barranquilla">Barranquilla</a>
+      <a href="/camisas-polo-cartagena">Cartagena</a>
+      <a href="/camisas-polo-bucaramanga">Bucaramanga</a>
+      <a href="/camisas-polo-pereira">Pereira</a>
+      <a href="/camisas-polo-manizales">Manizales</a>
+      <a href="/camisas-polo-cucuta">Cúcuta</a>
+      <a href="/camisas-polo-ibague">Ibagué</a>
+    </nav>
+    <p class="cities-footer-note">Y todos los demás municipios del país. Pago contraentrega, envío 1-3 días hábiles a las principales ciudades.</p>
   </div>
-
-</div>
-
-<script>
-function toggleFaq(el) {
-  const a = el.querySelector('.faq-a');
-  const arrow = el.querySelector('.faq-arrow');
-  const isOpen = el.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i => {
-    i.classList.remove('open');
-    i.querySelector('.faq-a').style.maxHeight = '0px';
-    i.querySelector('.faq-arrow').textContent = '+';
-  });
-  if (!isOpen) {
-    el.classList.add('open');
-    a.style.maxHeight = a.scrollHeight + 'px';
-    arrow.textContent = '−';
-  }
-}
-</script>
 
 <!-- ═══════ EMAILJS ═══════ -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
