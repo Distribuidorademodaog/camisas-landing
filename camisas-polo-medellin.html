@@ -266,7 +266,25 @@
         "priceCurrency":"COP",
         "availability":"https://schema.org/InStock",
         "itemCondition":"https://schema.org/NewCondition",
-        "priceValidUntil":"2026-12-31"
+        "priceValidUntil":"2026-12-31",
+        "shippingDetails":{
+          "@type":"OfferShippingDetails",
+          "shippingRate":{"@type":"MonetaryAmount","value":"0","currency":"COP"},
+          "shippingDestination":{"@type":"DefinedRegion","addressCountry":"CO"},
+          "deliveryTime":{
+            "@type":"ShippingDeliveryTime",
+            "handlingTime":{"@type":"QuantitativeValue","minValue":1,"maxValue":2,"unitCode":"DAY"},
+            "transitTime":{"@type":"QuantitativeValue","minValue":3,"maxValue":6,"unitCode":"DAY"}
+          }
+        },
+        "hasMerchantReturnPolicy":{
+          "@type":"MerchantReturnPolicy",
+          "applicableCountry":"CO",
+          "returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays":30,
+          "returnMethod":"https://schema.org/ReturnByMail",
+          "returnFees":"https://schema.org/FreeReturn"
+        }
       },
       {
         "@type":"Offer",
@@ -276,7 +294,25 @@
         "priceCurrency":"COP",
         "availability":"https://schema.org/InStock",
         "itemCondition":"https://schema.org/NewCondition",
-        "priceValidUntil":"2026-12-31"
+        "priceValidUntil":"2026-12-31",
+        "shippingDetails":{
+          "@type":"OfferShippingDetails",
+          "shippingRate":{"@type":"MonetaryAmount","value":"0","currency":"COP"},
+          "shippingDestination":{"@type":"DefinedRegion","addressCountry":"CO"},
+          "deliveryTime":{
+            "@type":"ShippingDeliveryTime",
+            "handlingTime":{"@type":"QuantitativeValue","minValue":1,"maxValue":2,"unitCode":"DAY"},
+            "transitTime":{"@type":"QuantitativeValue","minValue":3,"maxValue":6,"unitCode":"DAY"}
+          }
+        },
+        "hasMerchantReturnPolicy":{
+          "@type":"MerchantReturnPolicy",
+          "applicableCountry":"CO",
+          "returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays":30,
+          "returnMethod":"https://schema.org/ReturnByMail",
+          "returnFees":"https://schema.org/FreeReturn"
+        }
       }
     ]
   },
