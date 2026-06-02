@@ -101,13 +101,13 @@ def build_city_html(template: str, city: dict) -> str:
 
     # 1. <title>
     out = out.replace(
-        "<title>Camisas Polo para Hombre Estilo Ralph Lauren en Colombia | Pago Contraentrega</title>",
+        "<title>Camisas Polo para Hombre Estilo Ralph Lauren en Colombia</title>",
         f"<title>Camisas Polo Hombre en {name} ({dept}) | Pago Contraentrega Colombia</title>"
     )
 
     # 2. meta description
-    old_desc = '<meta name="description" content="Camisas polo para hombre estilo Ralph Lauren en Colombia. Alternativa premium a precio justo, +20 colores, tallas S a 5XL. Paga al recibir, envío gratis. 4.9★ +998 clientes.">'
-    new_desc = f'<meta name="description" content="Camisas polo para hombre en {name}, {dept}. Premium estilo Ralph Lauren, +20 colores, tallas S a 5XL. Paga al recibir en {name}, envío 1-3 días. 4.9★ +998 clientes en Colombia.">'
+    old_desc = '<meta name="description" content="Camisas polo hombre estilo Ralph Lauren en Colombia con +20 colores premium y tallas S a 5XL. Pago contraentrega, envío gratis. 4.9★ +998 clientes.">'
+    new_desc = f'<meta name="description" content="Camisas polo para hombre en {name}, {dept}. Estilo Ralph Lauren, +20 colores, tallas S a 5XL. Paga al recibir, envío 1-3 días en {name}. 4.9★ +998 clientes.">'
     out = out.replace(old_desc, new_desc)
 
     # 3. meta keywords (insert city-specific keywords at the start)
@@ -139,7 +139,7 @@ def build_city_html(template: str, city: dict) -> str:
 
     # 6. og:title & og:description & og:url
     out = out.replace(
-        '<meta property="og:title" content="Camisas Polo Hombre Estilo Ralph Lauren en Colombia | Pago Contraentrega">',
+        '<meta property="og:title" content="Camisas Polo para Hombre Estilo Ralph Lauren en Colombia">',
         f'<meta property="og:title" content="Camisas Polo Hombre en {name} | Pago Contraentrega Colombia">'
     )
     out = out.replace(
