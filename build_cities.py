@@ -102,7 +102,7 @@ def build_city_html(template: str, city: dict) -> str:
     # 1. <title>
     out = out.replace(
         "<title>Camisas Polo para Hombre Estilo Ralph Lauren en Colombia</title>",
-        f"<title>Camisas Polo Hombre en {name} ({dept}) | Pago Contraentrega Colombia</title>"
+        f"<title>Camisas Polo en {name} | Pago Contraentrega Colombia</title>"
     )
 
     # 2. meta description
