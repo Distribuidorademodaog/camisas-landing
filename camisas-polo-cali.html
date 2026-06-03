@@ -551,6 +551,55 @@
 }
 </script>
 
+<!-- ═══════ JSON-LD: HOWTO (Como elegir tu talla) ═══════ -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "name":"Cómo elegir tu talla de camisa polo",
+  "description":"Guía paso a paso para elegir la talla correcta de camisa polo Camisas Colombia con tallaje colombiano real S a 5XL.",
+  "image":"https://media.paquetecompleto.com.co/landing/hero-camisa.jpg",
+  "totalTime":"PT2M",
+  "estimatedCost":{"@type":"MonetaryAmount","currency":"COP","value":"0"},
+  "supply":[
+    {"@type":"HowToSupply","name":"Cinta métrica"}
+  ],
+  "tool":[
+    {"@type":"HowToTool","name":"Tabla de tallas Camisas Colombia"}
+  ],
+  "step":[
+    {
+      "@type":"HowToStep",
+      "position":1,
+      "name":"Mide tu pecho con cinta métrica",
+      "text":"Pasa la cinta alrededor de la parte más ancha del pecho, manteniéndola horizontal. Anota la medida en centímetros.",
+      "url":"https://www.camisascolombia.com/#paso-1"
+    },
+    {
+      "@type":"HowToStep",
+      "position":2,
+      "name":"Mide tu cintura natural",
+      "text":"Mide a la altura del ombligo, sin apretar la cinta. Esta medida confirma la talla si quedas entre dos opciones.",
+      "url":"https://www.camisascolombia.com/#paso-2"
+    },
+    {
+      "@type":"HowToStep",
+      "position":3,
+      "name":"Compara con la tabla de tallas S a 5XL",
+      "text":"Nuestro tallaje colombiano va desde S (pecho 96-100 cm) hasta 5XL (pecho 138-142 cm). Cubre todas las contexturas.",
+      "url":"https://www.camisascolombia.com/#paso-3"
+    },
+    {
+      "@type":"HowToStep",
+      "position":4,
+      "name":"Si quedas entre dos tallas, elige la mayor",
+      "text":"Nuestro corte es generoso. Si dudas, escoge la talla mayor — y si no te queda, te cambiamos gratis dentro de los 30 días.",
+      "url":"https://www.camisascolombia.com/#paso-4"
+    }
+  ]
+}
+</script>
+
 <!-- ═══════ FACEBOOK PIXEL ═══════ -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -1443,6 +1492,18 @@ body {
 .cities-footer-subtitle { text-align:center; font-family:'Outfit',sans-serif; font-size:13px; color:#5a5448; max-width:520px; margin:0 auto 14px; line-height:1.55; padding:0 8px; }
 .cities-footer-cta { display:block; max-width:520px; margin:14px auto 0; padding:14px 18px; background:#0e1828; color:#C4A35A; border-radius:12px; text-align:center; font-family:'Outfit',sans-serif; font-size:13px; font-weight:600; }
 .cities-footer-cta strong { display:block; font-family:'Cormorant Garamond',serif; font-size:18px; color:white; margin-bottom:4px; font-weight:600; }
+
+/* HOWTO - Como elegir tu talla */
+.size-howto { background:#f5f0e8; padding:32px 18px 36px; }
+.size-howto .sec-head { padding:0 6px 6px; }
+.size-howto .sec-title em { color:#9A7B3C; font-style:normal; }
+.howto-steps { list-style:none; padding:0; margin:18px auto 0; max-width:560px; counter-reset:howto; }
+.howto-steps li { display:flex; gap:14px; align-items:flex-start; padding:14px 0; border-bottom:1px solid rgba(0,0,0,0.08); }
+.howto-steps li:last-child { border-bottom:none; }
+.howto-num { width:38px; height:38px; flex-shrink:0; background:#0e1828; color:#C4A35A; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Cormorant Garamond',serif; font-size:19px; font-weight:700; line-height:1; }
+.howto-content { flex:1; }
+.howto-content strong { display:block; font-family:'Outfit',sans-serif; font-size:14px; color:#0e1828; margin-bottom:4px; font-weight:700; line-height:1.3; }
+.howto-content p { font-family:'Outfit',sans-serif; font-size:13px; color:#5a5448; margin:0; line-height:1.55; }
 </style>
 </head>
 <body>
@@ -1917,6 +1978,45 @@ body {
       <button class="cta-gold">Quiero calidad real <div class="cta-icon">→</div></button>
       <p class="cta-sub cta-sub-dark">Pagas solo cuando llega a tu puerta</p>
     </div>
+  </div>
+
+  <!-- ═══════ COMO ELEGIR TALLA (HowTo) ═══════ -->
+  <div class="size-howto">
+    <div class="sec-head">
+      <div class="sec-kicker">Guía de tallas</div>
+      <h2 class="sec-title">Elige tu talla en <em>4 pasos</em></h2>
+      <p class="sec-subtitle">Para que tu camisa polo te quede perfecta a la primera, sin tener que devolverla.</p>
+    </div>
+    <ol class="howto-steps">
+      <li>
+        <div class="howto-num">1</div>
+        <div class="howto-content">
+          <strong>Mide tu pecho con cinta métrica</strong>
+          <p>Pasa la cinta alrededor de la parte más ancha del pecho, manteniéndola horizontal. Anota la medida en centímetros.</p>
+        </div>
+      </li>
+      <li>
+        <div class="howto-num">2</div>
+        <div class="howto-content">
+          <strong>Mide tu cintura natural</strong>
+          <p>Mide a la altura del ombligo, sin apretar la cinta. Esta medida confirma la talla si quedas entre dos opciones.</p>
+        </div>
+      </li>
+      <li>
+        <div class="howto-num">3</div>
+        <div class="howto-content">
+          <strong>Compara con nuestra tabla S a 5XL</strong>
+          <p>Nuestro tallaje colombiano va desde <strong>S (pecho 96-100 cm)</strong> hasta <strong>5XL (pecho 138-142 cm)</strong>. Tenemos 8 tallas para cubrir todas las contexturas.</p>
+        </div>
+      </li>
+      <li>
+        <div class="howto-num">4</div>
+        <div class="howto-content">
+          <strong>Si quedas entre dos tallas, elige la mayor</strong>
+          <p>Nuestro corte es generoso pero ajustado. Si dudas, escoge la talla mayor — y recuerda que si no te queda, te cambiamos gratis dentro de los 30 días.</p>
+        </div>
+      </li>
+    </ol>
   </div>
 
   <!-- ═══════ PACKS ═══════ -->
