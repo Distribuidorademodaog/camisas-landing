@@ -19,8 +19,11 @@ from pathlib import Path
 
 BASE_URL = "https://www.camisascolombia.com"
 POSTS_FILE = Path(__file__).parent / "posts.json"
+PILLARS_FILE = Path(__file__).parent / "pillars.json"
 OUTPUT_DIR = Path(__file__).parent / "output" / "blog"
+GUIAS_DIR = Path(__file__).parent / "output" / "guias"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+GUIAS_DIR.mkdir(parents=True, exist_ok=True)
 
 CITY_NAMES = {
     "bogota": "Bogotá", "medellin": "Medellín", "cali": "Cali",
@@ -439,24 +442,166 @@ def render_index(posts: list) -> str:
 </html>'''
 
 
+def render_pillar(pillar: dict, all_posts: dict) -> str:
+    """Pillar pages: same template as posts but with table of contents."""
+    html = render_post(pillar, all_posts)
+    if "table_of_contents" in pillar:
+        toc_html = '<div class="post-toc"><h3>📑 Tabla de contenidos</h3><ol>'
+        for item in pillar["table_of_contents"]:
+            anchor = re.sub(r'[^a-z0-9]+', '-', item.lower()).strip('-')
+            toc_html += f'<li><a href="#{anchor}">{item}</a></li>'
+        toc_html += '</ol></div>'
+        html = html.replace('<p class="post-lead">', toc_html + '<p class="post-lead">')
+    return html
+
+
+def render_guias_hub(posts: list, pillars: list) -> str:
+    """Hub /guias/ que agrupa posts por topic clusters."""
+    clusters = {
+        "Tallas y Medidas": ["como-elegir-talla-camisa-polo", "tallas-grandes-3xl-4xl-5xl"],
+        "Estilo y Combinaciones": ["como-combinar-camisa-polo", "estilos-camisa-polo", "ocasiones-camisa-polo", "tendencias-2026-camisas-polo-colombia"],
+        "Materiales y Tejidos": ["algodon-pique-vs-liso", "historia-origen-camisa-polo"],
+        "Comparativas": ["camisa-polo-ralph-lauren-original-vs-alternativa", "polo-vs-camisa-cuello-botones", "manga-larga-vs-corta", "mejores-tiendas-online-camisas-hombre-colombia"],
+        "Cuidados y Mantenimiento": ["cuidados-camisa-polo", "como-lavar-camisa-blanca-sin-amarillear"],
+        "Compras Seguras": ["pago-contraentrega-seguro"]
+    }
+
+    posts_by_slug = {p["slug"]: p for p in posts}
+
+    # Pillar destacada arriba
+    pillar_html = ""
+    if pillars:
+        p = pillars[0]
+        pillar_html = f'''<div class="pillar-featured">
+          <span class="pillar-badge">Guía Definitiva</span>
+          <h2><a href="/guias/{p["slug"]}">{p["title"]}</a></h2>
+          <p>{p["meta_description"]}</p>
+          <p class="pillar-meta">{estimate_word_count(p):,} palabras · {p["read_time"]} min de lectura</p>
+        </div>'''
+
+    clusters_html = ""
+    for cluster_name, slugs in clusters.items():
+        clusters_html += f'<section class="cluster"><h2>{cluster_name}</h2><div class="cluster-posts">'
+        for slug in slugs:
+            p = posts_by_slug.get(slug)
+            if p:
+                clusters_html += f'<a href="/blog/{slug}" class="cluster-card"><h3>{p["title"]}</h3><p>{p["meta_description"]}</p><span class="cluster-meta">{p["read_time"]} min</span></a>'
+        clusters_html += '</div></section>'
+
+    extra_css = """
+    .pillar-featured { background:#0e1828; color:white; padding:28px 24px; border-radius:14px; margin:24px 20px; max-width:720px; box-shadow:0 6px 24px rgba(0,0,0,0.12); }
+    @media(min-width:760px) { .pillar-featured { margin: 24px auto; } }
+    .pillar-badge { display:inline-block; background:#C4A35A; color:#0e1828; padding:4px 10px; border-radius:4px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px; }
+    .pillar-featured h2 { font-family:'Cormorant Garamond',serif; font-size:24px; line-height:1.3; margin-bottom:10px; }
+    .pillar-featured h2 a { color:white; text-decoration:none; }
+    .pillar-featured h2 a:hover { color:#C4A35A; }
+    .pillar-featured p { color:rgba(255,255,255,0.85); font-size:14px; line-height:1.6; margin-bottom:10px; }
+    .pillar-meta { color:#C4A35A !important; font-size:12px !important; font-weight:600; }
+    .cluster { max-width:720px; margin:32px auto 0; padding:0 20px; }
+    .cluster h2 { font-family:'Cormorant Garamond',serif; font-size:24px; color:#0e1828; margin-bottom:14px; padding-bottom:8px; border-bottom:2px solid #C4A35A; }
+    .cluster-posts { display:grid; grid-template-columns:1fr; gap:12px; }
+    @media(min-width:600px) { .cluster-posts { grid-template-columns:1fr 1fr; } }
+    .cluster-card { background:white; padding:14px 16px; border-radius:10px; text-decoration:none; color:inherit; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:transform 0.15s; }
+    .cluster-card:hover { transform:translateY(-2px); box-shadow:0 4px 14px rgba(0,0,0,0.08); }
+    .cluster-card h3 { font-family:'Outfit',sans-serif; font-size:14.5px; color:#0e1828; margin-bottom:6px; line-height:1.35; }
+    .cluster-card p { font-size:12px; color:#5a5448; line-height:1.5; margin-bottom:8px; }
+    .cluster-meta { font-size:11px; color:#8a7d6b; }
+    """
+
+    breadcrumb_schema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Inicio", "item": f"{BASE_URL}/"},
+            {"@type": "ListItem", "position": 2, "name": "Guías", "item": f"{BASE_URL}/guias"}
+        ]
+    }
+    collection_schema = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Guías sobre camisas polo en Colombia",
+        "description": "Hub de guías sobre tallas, estilos, materiales, cuidados, comparativas y compras seguras de camisas polo en Colombia.",
+        "url": f"{BASE_URL}/guias"
+    }
+
+    return f'''<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guías de Camisas Polo en Colombia | Hub de Contenido</title>
+<meta name="description" content="Hub de guías sobre camisas polo en Colombia: tallas, estilos, cuidados, comparativas, materiales y compras seguras. 11 guías + 1 guía definitiva.">
+<link rel="canonical" href="{BASE_URL}/guias">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Guías de Camisas Polo en Colombia">
+<meta property="og:description" content="Hub de guías sobre camisas polo en Colombia.">
+<meta property="og:url" content="{BASE_URL}/guias">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">{json.dumps(collection_schema, ensure_ascii=False)}</script>
+<script type="application/ld+json">{json.dumps(breadcrumb_schema, ensure_ascii=False)}</script>
+
+<style>{BLOG_CSS}{extra_css}</style>
+</head>
+<body>
+<nav class="blog-header">
+  <a href="/" class="brand">Camisas Colombia</a>
+  <a href="/">← Inicio</a>
+</nav>
+
+<header class="blog-index-header">
+  <h1>Guías de Camisas Polo</h1>
+  <p>Topic clusters organizados por tema. Encuentra exactamente la información que buscas.</p>
+</header>
+
+{pillar_html}
+
+{clusters_html}
+
+<footer class="blog-footer">
+  © Camisas Colombia · <a href="/">Inicio</a> · <a href="/blog">Blog</a> · <a href="/guias">Guías</a> · <a href="/sitemap.xml">Sitemap</a>
+</footer>
+</body>
+</html>'''
+
+
 def main():
     posts = json.loads(POSTS_FILE.read_text(encoding="utf-8"))
     posts_by_slug = {p["slug"]: p for p in posts}
 
-    print(f"Building {len(posts)} blog posts...")
+    pillars = []
+    if PILLARS_FILE.exists():
+        pillars = json.loads(PILLARS_FILE.read_text(encoding="utf-8"))
+
+    print(f"Building {len(posts)} blog posts + {len(pillars)} pillars...")
 
     for p in posts:
         html = render_post(p, posts_by_slug)
         out = OUTPUT_DIR / f"{p['slug']}.html"
         out.write_text(html, encoding="utf-8")
         wc = estimate_word_count(p)
-        print(f"  {p['slug']:50} ({wc} words, {len(html):,} bytes)")
+        print(f"  blog/{p['slug']:50} ({wc} words, {len(html):,} bytes)")
+
+    for p in pillars:
+        html = render_pillar(p, posts_by_slug)
+        out = GUIAS_DIR / f"{p['slug']}.html"
+        out.write_text(html, encoding="utf-8")
+        wc = estimate_word_count(p)
+        print(f"  guias/{p['slug']:50} ({wc} words, {len(html):,} bytes)")
 
     index_html = render_index(posts)
     (OUTPUT_DIR / "index.html").write_text(index_html, encoding="utf-8")
     print(f"\n  blog/index.html ({len(index_html):,} bytes)")
 
-    print(f"\n[OK] Generated {len(posts)} posts + index in {OUTPUT_DIR}")
+    guias_index = render_guias_hub(posts, pillars)
+    (GUIAS_DIR / "index.html").write_text(guias_index, encoding="utf-8")
+    print(f"  guias/index.html ({len(guias_index):,} bytes)")
+
+    print(f"\n[OK] Generated {len(posts)} posts + {len(pillars)} pillars + 2 hubs")
 
 
 if __name__ == "__main__":

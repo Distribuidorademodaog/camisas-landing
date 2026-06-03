@@ -206,6 +206,23 @@ def build_sitemap(cities: list) -> str:
                 "lastmod": p.get("modified_date", p.get("publish_date"))
             })
 
+    # Guias hub + pillar pages
+    pillars_path = Path(__file__).parent / "pillars.json"
+    if pillars_path.exists():
+        urls.append({
+            "loc": f"{BASE_URL}/guias",
+            "priority": "0.8",
+            "changefreq": "weekly"
+        })
+        pillars = json.loads(pillars_path.read_text(encoding="utf-8"))
+        for p in pillars:
+            urls.append({
+                "loc": f"{BASE_URL}/guias/{p['slug']}",
+                "priority": "0.9",  # pillar pages prioridad alta
+                "changefreq": "monthly",
+                "lastmod": p.get("modified_date", p.get("publish_date"))
+            })
+
     parts = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
