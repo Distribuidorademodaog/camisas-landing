@@ -181,19 +181,39 @@ def build_city_html(template: str, city: dict) -> str:
 
 
 def build_sitemap(cities: list) -> str:
-    urls = [{"loc": f"{BASE_URL}/", "priority": "1.0"}]
+    urls = [{"loc": f"{BASE_URL}/", "priority": "1.0", "changefreq": "weekly"}]
     for c in cities:
         urls.append({
             "loc": f"{BASE_URL}/camisas-polo-{c['slug']}",
-            "priority": "0.8"
+            "priority": "0.8",
+            "changefreq": "weekly"
         })
+
+    # Blog: index + posts (lee posts.json si existe)
+    posts_path = Path(__file__).parent / "posts.json"
+    if posts_path.exists():
+        urls.append({
+            "loc": f"{BASE_URL}/blog",
+            "priority": "0.7",
+            "changefreq": "weekly"
+        })
+        posts = json.loads(posts_path.read_text(encoding="utf-8"))
+        for p in posts:
+            urls.append({
+                "loc": f"{BASE_URL}/blog/{p['slug']}",
+                "priority": "0.6",
+                "changefreq": "monthly",
+                "lastmod": p.get("modified_date", p.get("publish_date"))
+            })
 
     parts = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
         parts.append("  <url>")
         parts.append(f"    <loc>{u['loc']}</loc>")
-        parts.append(f"    <changefreq>weekly</changefreq>")
+        if u.get("lastmod"):
+            parts.append(f"    <lastmod>{u['lastmod']}</lastmod>")
+        parts.append(f"    <changefreq>{u.get('changefreq','weekly')}</changefreq>")
         parts.append(f"    <priority>{u['priority']}</priority>")
         parts.append("  </url>")
     parts.append("</urlset>")
