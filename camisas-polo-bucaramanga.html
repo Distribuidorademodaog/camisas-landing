@@ -1518,8 +1518,9 @@ body {
 .blog-toggle-btn:hover { transform:translateY(-1px); box-shadow:0 6px 18px rgba(0,0,0,0.12); }
 .blog-toggle-arrow { display:inline-block; transition:transform 0.3s ease; font-size:12px; }
 .blog-toggle-btn.open .blog-toggle-arrow { transform:rotate(180deg); }
-.blog-collapsible { max-height:0; overflow:hidden; transition:max-height 0.6s cubic-bezier(0.22,1,0.36,1); }
-.blog-collapsible.open { max-height:6000px; }
+.blog-collapsible { display:none !important; }
+.blog-collapsible.open { display:block !important; animation:blogFadeIn 0.4s ease-out; }
+@keyframes blogFadeIn { from { opacity:0; transform:translateY(-10px); } to { opacity:1; transform:translateY(0); } }
 </style>
 </head>
 <body>
