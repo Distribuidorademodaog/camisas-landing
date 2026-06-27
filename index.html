@@ -1504,6 +1504,14 @@ body {
 .howto-content { flex:1; }
 .howto-content strong { display:block; font-family:'Outfit',sans-serif; font-size:14px; color:#0e1828; margin-bottom:4px; font-weight:700; line-height:1.3; }
 .howto-content p { font-family:'Outfit',sans-serif; font-size:13px; color:#5a5448; margin:0; line-height:1.55; }
+.blog-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:6px 24px 0; }
+@media (max-width:520px){ .blog-grid { grid-template-columns:1fr; } }
+.blogcard { display:flex; flex-direction:column; gap:5px; background:#fff; border:1px solid var(--border,#e6ddd0); border-radius:12px; padding:14px 15px; text-decoration:none; box-shadow:0 1px 4px rgba(0,0,0,0.04); transition:transform .15s, box-shadow .15s, border-color .15s; }
+.blogcard:hover { transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,0.08); border-color:#C4A35A; }
+.blogcard-cat { font-family:'Outfit',sans-serif; font-size:9.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#C4A35A; }
+.blogcard-title { font-family:'Cormorant Garamond',serif; font-size:17px; line-height:1.2; font-weight:700; color:#121C2E; margin:0; }
+.blogcard-desc { font-family:'Outfit',sans-serif; font-size:12px; line-height:1.5; color:#6b6357; margin:0; }
+.blogcard-more { font-family:'Outfit',sans-serif; font-size:11.5px; font-weight:600; color:#9A7B3C; margin-top:2px; }
 </style>
 </head>
 <body>
@@ -2278,6 +2286,110 @@ function toggleFaq(el) {
   }
 }
 </script>
+
+  <!-- ═══════ BLOG / GUÍAS (cross-linking SEO) ═══════ -->
+  <div class="sec sec-light" id="articulos">
+    <div class="sec-head">
+      <div class="sec-kicker kicker-gold">Blog · Guías y consejos</div>
+      <h2 class="sec-title sec-title-light">Aprende todo sobre<br><em>las camisas polo</em></h2>
+      <p class="sec-subtitle sec-subtitle-light">Guías honestas sobre tallas, telas, estilos y cuidados — para que elijas y uses tu camisa polo como un experto.</p>
+    </div>
+    <div class="blog-grid">
+      <a class="blogcard" href="/blog/como-elegir-talla-camisa-polo">
+        <span class="blogcard-cat">Guías de tallas</span>
+        <h3 class="blogcard-title">Cómo elegir la talla de tu camisa polo perfecta en Colombia</h3>
+        <p class="blogcard-desc">Guía paso a paso para elegir tu talla de camisa polo en Colombia. Tallas S a 5XL con medidas exactas en cm y t…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/camisa-polo-ralph-lauren-original-vs-alternativa">
+        <span class="blogcard-cat">Comparativas</span>
+        <h3 class="blogcard-title">Camisa polo Ralph Lauren original vs alternativa: 7 diferencias reales</h3>
+        <p class="blogcard-desc">Comparativa honesta entre una camisa polo Ralph Lauren original ($300-700K) y una alternativa premium colombia…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/algodon-pique-vs-liso">
+        <span class="blogcard-cat">Materiales</span>
+        <h3 class="blogcard-title">Algodón pique vs algodón liso: cuál es mejor para una camisa polo</h3>
+        <p class="blogcard-desc">Diferencias entre algodón pique (camisas polo) y algodón liso (camisetas). Cuál elegir según uso, clima y form…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/como-combinar-camisa-polo">
+        <span class="blogcard-cat">Estilo</span>
+        <h3 class="blogcard-title">Cómo combinar tu camisa polo: 5 looks elegantes para cada ocasión</h3>
+        <p class="blogcard-desc">5 formas de combinar tu camisa polo: oficina ejecutiva, casual fin de semana, smart casual, deportivo y look n…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/cuidados-camisa-polo">
+        <span class="blogcard-cat">Cuidados</span>
+        <h3 class="blogcard-title">Cómo cuidar tu camisa polo: guía de lavado, secado y planchado</h3>
+        <p class="blogcard-desc">Guía paso a paso para cuidar tu camisa polo: lavado correcto, secado, planchado y errores que la arruinan. Haz…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/manga-larga-vs-corta">
+        <span class="blogcard-cat">Guías</span>
+        <h3 class="blogcard-title">Camisa polo manga larga o manga corta: ¿cuál elegir según el clima?</h3>
+        <p class="blogcard-desc">Guía para elegir entre camisa polo manga larga o manga corta según el clima de tu ciudad en Colombia. Comparat…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/pago-contraentrega-seguro">
+        <span class="blogcard-cat">Compras seguras</span>
+        <h3 class="blogcard-title">¿Por qué el pago contraentrega es la forma más segura de comprar online en Colombia?</h3>
+        <p class="blogcard-desc">Cómo funciona el pago contraentrega en Colombia, ventajas reales vs pago anticipado, y por qué reduce el riesg…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/estilos-camisa-polo">
+        <span class="blogcard-cat">Estilo</span>
+        <h3 class="blogcard-title">Estilos de camisa polo: guía completa de Oxford, Cuadros, Lino y Rayas</h3>
+        <p class="blogcard-desc">Guía completa de los 4 estilos principales de camisa polo: Oxford, Tipo Lino, Cuadros y Rayas. Cuál elegir seg…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/tallas-grandes-3xl-4xl-5xl">
+        <span class="blogcard-cat">Tallas grandes</span>
+        <h3 class="blogcard-title">Camisas polo en tallas 3XL, 4XL y 5XL: guía para hombres talla grande</h3>
+        <p class="blogcard-desc">Encuentra camisas polo en tallas 3XL, 4XL y 5XL con tallaje colombiano real. Guía de medidas, errores comunes…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/ocasiones-camisa-polo">
+        <span class="blogcard-cat">Estilo</span>
+        <h3 class="blogcard-title">7 ocasiones perfectas para usar una camisa polo en Colombia</h3>
+        <p class="blogcard-desc">7 ocasiones donde la camisa polo es el outfit perfecto: oficina, almuerzo de negocios, citas, eventos sociales…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/mejores-tiendas-online-camisas-hombre-colombia">
+        <span class="blogcard-cat">Comparativas</span>
+        <h3 class="blogcard-title">Las 7 mejores tiendas online de camisas hombre en Colombia (2026)</h3>
+        <p class="blogcard-desc">Comparativa actualizada 2026 de las 7 mejores tiendas online de camisas hombre en Colombia: precios, calidad,…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/como-lavar-camisa-blanca-sin-amarillear">
+        <span class="blogcard-cat">Cuidados</span>
+        <h3 class="blogcard-title">Cómo lavar una camisa blanca sin que se vuelva amarilla</h3>
+        <p class="blogcard-desc">Guía paso a paso para lavar camisas blancas y evitar que se amarilleen. Trucos caseros y errores comunes en al…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/polo-vs-camisa-cuello-botones">
+        <span class="blogcard-cat">Comparativas</span>
+        <h3 class="blogcard-title">Camisa polo vs camisa de cuello con botones: ¿cuál usar y cuándo?</h3>
+        <p class="blogcard-desc">Diferencias entre camisa polo y camisa formal con cuello y botones. Cuál elegir según ocasión, clima y formali…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/historia-origen-camisa-polo">
+        <span class="blogcard-cat">Historia</span>
+        <h3 class="blogcard-title">Historia y origen de la camisa polo: del polo al tenis al armario moderno</h3>
+        <p class="blogcard-desc">Historia de la camisa polo: cómo Lewis Lacey y René Lacoste crearon la prenda más versátil del armario masculi…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/tendencias-2026-camisas-polo-colombia">
+        <span class="blogcard-cat">Tendencias</span>
+        <h3 class="blogcard-title">Tendencias 2026 en camisas polo Colombia: colores, cortes y combinaciones</h3>
+        <p class="blogcard-desc">Las tendencias en camisas polo para 2026 en Colombia: colores que dominan, cortes que regresan, telas y combin…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+    </div>
+    <div style="padding:18px 24px 36px;text-align:center;">
+      <a href="/blog" style="display:inline-block;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;color:#9A7B3C;text-decoration:underline;">Ver todos los artículos del blog →</a>
+    </div>
+  </div>
 
   <!-- ═══════ CIUDADES ATENDIDAS ═══════ -->
   <div class="cities-footer">
