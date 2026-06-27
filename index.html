@@ -1647,7 +1647,14 @@ body {
   })();
   </script>
 
-  <!-- ═══════ POLO ESTILO RALPH LAUREN (SEO) ═══════ -->
+  <!-- ═══════ POLO ESTILO RALPH LAUREN (SEO) — colapsable ═══════ -->
+  <div class="blog-toggle-wrap">
+    <button class="blog-toggle-btn" id="polosToggleBtn" onclick="togglePolosSection()" aria-expanded="false" aria-controls="polosCollapsible">
+      👔 Por qué somos la alternativa a Ralph Lauren
+      <span class="blog-toggle-arrow">▼</span>
+    </button>
+  </div>
+  <div class="blog-collapsible" id="polosCollapsible">
   <section class="sec sec-light" id="polos" itemscope itemtype="https://schema.org/Product">
     <meta itemprop="name" content="Camisa Polo Premium para Hombre Estilo Ralph Lauren">
     <meta itemprop="brand" content="Camisas Colombia">
@@ -1689,6 +1696,20 @@ body {
       </div>
     </div>
   </section>
+  </div>
+  <script>
+    function togglePolosSection() {
+      var btn = document.getElementById('polosToggleBtn');
+      var content = document.getElementById('polosCollapsible');
+      var isOpen = content.classList.toggle('open');
+      btn.classList.toggle('open', isOpen);
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      btn.firstChild.textContent = isOpen ? '👔 Cerrar comparativa Ralph Lauren ' : '👔 Por qué somos la alternativa a Ralph Lauren ';
+      if (isOpen) {
+        setTimeout(function(){ content.scrollIntoView({behavior:'smooth', block:'start'}); }, 200);
+      }
+    }
+  </script>
 
   <!-- ═══════ VARIEDAD ═══════ -->
   <div class="sec sec-dark" id="productos">
