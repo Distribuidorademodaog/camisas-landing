@@ -159,11 +159,14 @@ def build_city_html(template: str, city: dict) -> str:
     else:
         print(f"  WARNING: anchor '{anchor}' not found for {name}")
 
-    # 8. ELIMINAR TESTIMONIOS y FAQ genericos en city pages.
-    #    Esto reduce duplicacion vs home (fix para 'canonical duplicado' de Search Console).
-    #    Los city pages ya tienen testimonios + FAQs locales en la seccion de ciudad.
+    # 8. ELIMINAR SECCIONES GENERICAS en city pages para reducir DRASTICAMENTE la
+    #    duplicacion vs home y entre ciudades (fix para 'Rastreada/Descubierta: sin indexar'
+    #    en Search Console — Google trataba las 10 paginas como doorway pages casi identicas).
+    #    Se quita el bloque completo VARIEDAD -> PACKS (VARIEDAD, BENEFICIOS, DESACREDITACION,
+    #    HowTo guia de tallas y TESTIMONIOS). El city page queda enfocado en hero + seccion
+    #    LOCAL unica (intro, barrios, testimonios y FAQs de la ciudad) + packs.
     out = re.sub(
-        r'  <!-- ═══════ TESTIMONIOS ═══════ -->.*?(?=  <!-- ═══════ PACKS ═══════ -->)',
+        r'  <!-- ═══════ VARIEDAD ═══════ -->.*?(?=  <!-- ═══════ PACKS ═══════ -->)',
         '',
         out,
         flags=re.DOTALL,
