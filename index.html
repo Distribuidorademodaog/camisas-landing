@@ -2421,7 +2421,14 @@ function toggleFaq(el) {
     }
   </script>
 
-  <!-- ═══════ CIUDADES ATENDIDAS ═══════ -->
+  <!-- ═══════ CIUDADES ATENDIDAS (colapsable) ═══════ -->
+  <div class="blog-toggle-wrap">
+    <button class="blog-toggle-btn" id="citiesToggleBtn" onclick="toggleCitiesSection()" aria-expanded="false" aria-controls="citiesCollapsible">
+      🚚 Ver ciudades y cobertura Colombia
+      <span class="blog-toggle-arrow">▼</span>
+    </button>
+  </div>
+  <div class="blog-collapsible" id="citiesCollapsible">
   <div class="cities-footer">
     <div class="sec-head" style="padding:0 6px 4px;">
       <div class="sec-kicker">✈ Enviamos a todo Colombia</div>
@@ -2449,6 +2456,20 @@ function toggleFaq(el) {
       📖 ¿Quieres saber más sobre camisas polo? Lee nuestro <a href="/blog" style="color:#9A7B3C;font-weight:700;text-decoration:underline;">Blog</a> o explora las <a href="/guias" style="color:#9A7B3C;font-weight:700;text-decoration:underline;">Guías organizadas por tema →</a>
     </p>
   </div>
+  </div>
+  <script>
+    function toggleCitiesSection() {
+      var btn = document.getElementById('citiesToggleBtn');
+      var content = document.getElementById('citiesCollapsible');
+      var isOpen = content.classList.toggle('open');
+      btn.classList.toggle('open', isOpen);
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      btn.firstChild.textContent = isOpen ? '🚚 Cerrar ciudades y cobertura ' : '🚚 Ver ciudades y cobertura Colombia ';
+      if (isOpen) {
+        setTimeout(function(){ content.scrollIntoView({behavior:'smooth', block:'start'}); }, 200);
+      }
+    }
+  </script>
 
 <!-- ═══════ EMAILJS ═══════ -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>

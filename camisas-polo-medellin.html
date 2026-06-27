@@ -1931,7 +1931,212 @@ body {
     </div>
   </div>
 
-  <!-- ═══════ CIUDADES ATENDIDAS ═══════ -->
+  <!-- ═══════ FAQ ═══════ -->
+  <div class="sec sec-dark" style="padding-bottom:48px;">
+    <div class="sec-head">
+      <div class="sec-kicker kicker-white">Preguntas frecuentes</div>
+      <h2 class="sec-title sec-title-dark">Todo claro antes<br>de <em>hacer tu pedido</em></h2>
+      <p class="sec-subtitle sec-subtitle-dark">Las dudas más comunes — resueltas.</p>
+    </div>
+
+    <div class="faq-list" id="faqList">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><div class="faq-q-inner"><span class="faq-emoji">👕</span><span class="faq-q-text">¿Son camisas polo Ralph Lauren?</span></div><span class="faq-arrow">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">No. Somos <strong>distribuidores en Colombia</strong> de <strong>camisas polo premium</strong> con estética <strong>estilo Ralph Lauren</strong> — corte clásico, tela suave y acabado fino. Las traemos a precio justo, con pago contraentrega y envío gratis a todo el país. <strong>Calidad real</strong>, sin sobrecostos de marca.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><div class="faq-q-inner"><span class="faq-emoji">🎨</span><span class="faq-q-text">¿Tienen camisas polo manga corta y manga larga?</span></div><span class="faq-arrow">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Sí. Manejamos <strong>camisas polo manga larga</strong> en estilos Oxford, Tipo Lino, Cuadros y Rayas, y <strong>camisas polo manga corta</strong> en colores sólidos. Más de <strong>20 colores y diseños</strong> disponibles, tallas <strong>S a 5XL</strong>.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><div class="faq-q-inner"><span class="faq-emoji">📦</span><span class="faq-q-text">¿En cuántos días llega a mi ciudad?</span></div><span class="faq-arrow">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Entregamos en <strong>3 a 6 días hábiles</strong> a todo Colombia — Bogotá, Medellín, Cali, Barranquilla y municipios. Te enviamos el tracking para que hagas seguimiento en tiempo real.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><div class="faq-q-inner"><span class="faq-emoji">💳</span><span class="faq-q-text">¿Cómo funciona el pago contraentrega?</span></div><span class="faq-arrow">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Simple: haces tu pedido hoy, <strong>no pagas nada por adelantado.</strong> Cuando el domiciliario llegue a tu puerta, revisas la camisa y pagas en efectivo o con datafono.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><div class="faq-q-inner"><span class="faq-emoji">📏</span><span class="faq-q-text">¿Qué pasa si la talla no me queda?</span></div><span class="faq-arrow">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Nos escribes por WhatsApp y coordinamos el cambio dentro de los <strong>30 días</strong> siguientes a tu compra. Manejamos tallas de S hasta 5XL.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><div class="faq-q-inner"><span class="faq-emoji">🚪</span><span class="faq-q-text">¿Qué pasa si no estoy cuando llega?</span></div><span class="faq-arrow">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">La transportadora hace <strong>hasta 3 intentos de entrega.</strong> También puedes programar la entrega al horario que más te convenga o recoger en el punto más cercano.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><div class="faq-q-inner"><span class="faq-emoji">👔</span><span class="faq-q-text">¿Puedo pedir varios colores en un pack?</span></div><span class="faq-arrow">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner"><strong>¡Sí, claro!</strong> Al hacer tu pedido puedes elegir el color y talla de cada camisa del pack de forma independiente. Más de 20 opciones disponibles.</div></div>
+      </div>
+    </div>
+
+    <div class="faq-whatsapp">
+      <div class="faq-wa-icon">💬</div>
+      <div>
+        <div class="faq-wa-title">¿Tienes otra pregunta?</div>
+        <div class="faq-wa-sub">Escríbenos por WhatsApp y te respondemos en menos de <strong>10 minutos.</strong></div>
+      </div>
+    </div>
+
+    <div style="padding:20px 24px 0;">
+      <button class="cta-gold">Hacer mi pedido ahora <div class="cta-icon">→</div></button>
+      <p class="cta-sub cta-sub-dark">🔒 Sin pago anticipado · 📦 Envío gratis · 🔄 Cambios por talla</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function toggleFaq(el) {
+  const a = el.querySelector('.faq-a');
+  const arrow = el.querySelector('.faq-arrow');
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.faq-a').style.maxHeight = '0px';
+    i.querySelector('.faq-arrow').textContent = '+';
+  });
+  if (!isOpen) {
+    el.classList.add('open');
+    a.style.maxHeight = a.scrollHeight + 'px';
+    arrow.textContent = '−';
+  }
+}
+</script>
+
+  <!-- ═══════ BLOG / GUÍAS (colapsable) ═══════ -->
+  <div class="blog-toggle-wrap">
+    <button class="blog-toggle-btn" id="blogToggleBtn" onclick="toggleBlogSection()" aria-expanded="false" aria-controls="blogCollapsible">
+      📖 Abrir blog y guías de polos
+      <span class="blog-toggle-arrow">▼</span>
+    </button>
+  </div>
+  <div class="blog-collapsible" id="blogCollapsible">
+  <div class="sec sec-light" id="articulos">
+    <div class="sec-head">
+      <div class="sec-kicker kicker-gold">Blog · Guías y consejos</div>
+      <h2 class="sec-title sec-title-light">Aprende todo sobre<br><em>las camisas polo</em></h2>
+      <p class="sec-subtitle sec-subtitle-light">Guías honestas sobre tallas, telas, estilos y cuidados — para que elijas y uses tu camisa polo como un experto.</p>
+    </div>
+    <div class="blog-grid">
+      <a class="blogcard" href="/blog/como-elegir-talla-camisa-polo">
+        <span class="blogcard-cat">Guías de tallas</span>
+        <h3 class="blogcard-title">Cómo elegir la talla de tu camisa polo perfecta en Colombia</h3>
+        <p class="blogcard-desc">Guía paso a paso para elegir tu talla de camisa polo en Colombia. Tallas S a 5XL con medidas exactas en cm y t…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/camisa-polo-ralph-lauren-original-vs-alternativa">
+        <span class="blogcard-cat">Comparativas</span>
+        <h3 class="blogcard-title">Camisa polo Ralph Lauren original vs alternativa: 7 diferencias reales</h3>
+        <p class="blogcard-desc">Comparativa honesta entre una camisa polo Ralph Lauren original ($300-700K) y una alternativa premium colombia…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/algodon-pique-vs-liso">
+        <span class="blogcard-cat">Materiales</span>
+        <h3 class="blogcard-title">Algodón pique vs algodón liso: cuál es mejor para una camisa polo</h3>
+        <p class="blogcard-desc">Diferencias entre algodón pique (camisas polo) y algodón liso (camisetas). Cuál elegir según uso, clima y form…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/como-combinar-camisa-polo">
+        <span class="blogcard-cat">Estilo</span>
+        <h3 class="blogcard-title">Cómo combinar tu camisa polo: 5 looks elegantes para cada ocasión</h3>
+        <p class="blogcard-desc">5 formas de combinar tu camisa polo: oficina ejecutiva, casual fin de semana, smart casual, deportivo y look n…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/cuidados-camisa-polo">
+        <span class="blogcard-cat">Cuidados</span>
+        <h3 class="blogcard-title">Cómo cuidar tu camisa polo: guía de lavado, secado y planchado</h3>
+        <p class="blogcard-desc">Guía paso a paso para cuidar tu camisa polo: lavado correcto, secado, planchado y errores que la arruinan. Haz…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/manga-larga-vs-corta">
+        <span class="blogcard-cat">Guías</span>
+        <h3 class="blogcard-title">Camisa polo manga larga o manga corta: ¿cuál elegir según el clima?</h3>
+        <p class="blogcard-desc">Guía para elegir entre camisa polo manga larga o manga corta según el clima de tu ciudad en Colombia. Comparat…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/pago-contraentrega-seguro">
+        <span class="blogcard-cat">Compras seguras</span>
+        <h3 class="blogcard-title">¿Por qué el pago contraentrega es la forma más segura de comprar online en Colombia?</h3>
+        <p class="blogcard-desc">Cómo funciona el pago contraentrega en Colombia, ventajas reales vs pago anticipado, y por qué reduce el riesg…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/estilos-camisa-polo">
+        <span class="blogcard-cat">Estilo</span>
+        <h3 class="blogcard-title">Estilos de camisa polo: guía completa de Oxford, Cuadros, Lino y Rayas</h3>
+        <p class="blogcard-desc">Guía completa de los 4 estilos principales de camisa polo: Oxford, Tipo Lino, Cuadros y Rayas. Cuál elegir seg…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/tallas-grandes-3xl-4xl-5xl">
+        <span class="blogcard-cat">Tallas grandes</span>
+        <h3 class="blogcard-title">Camisas polo en tallas 3XL, 4XL y 5XL: guía para hombres talla grande</h3>
+        <p class="blogcard-desc">Encuentra camisas polo en tallas 3XL, 4XL y 5XL con tallaje colombiano real. Guía de medidas, errores comunes…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/ocasiones-camisa-polo">
+        <span class="blogcard-cat">Estilo</span>
+        <h3 class="blogcard-title">7 ocasiones perfectas para usar una camisa polo en Colombia</h3>
+        <p class="blogcard-desc">7 ocasiones donde la camisa polo es el outfit perfecto: oficina, almuerzo de negocios, citas, eventos sociales…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/mejores-tiendas-online-camisas-hombre-colombia">
+        <span class="blogcard-cat">Comparativas</span>
+        <h3 class="blogcard-title">Las 7 mejores tiendas online de camisas hombre en Colombia (2026)</h3>
+        <p class="blogcard-desc">Comparativa actualizada 2026 de las 7 mejores tiendas online de camisas hombre en Colombia: precios, calidad,…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/como-lavar-camisa-blanca-sin-amarillear">
+        <span class="blogcard-cat">Cuidados</span>
+        <h3 class="blogcard-title">Cómo lavar una camisa blanca sin que se vuelva amarilla</h3>
+        <p class="blogcard-desc">Guía paso a paso para lavar camisas blancas y evitar que se amarilleen. Trucos caseros y errores comunes en al…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/polo-vs-camisa-cuello-botones">
+        <span class="blogcard-cat">Comparativas</span>
+        <h3 class="blogcard-title">Camisa polo vs camisa de cuello con botones: ¿cuál usar y cuándo?</h3>
+        <p class="blogcard-desc">Diferencias entre camisa polo y camisa formal con cuello y botones. Cuál elegir según ocasión, clima y formali…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/historia-origen-camisa-polo">
+        <span class="blogcard-cat">Historia</span>
+        <h3 class="blogcard-title">Historia y origen de la camisa polo: del polo al tenis al armario moderno</h3>
+        <p class="blogcard-desc">Historia de la camisa polo: cómo Lewis Lacey y René Lacoste crearon la prenda más versátil del armario masculi…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+      <a class="blogcard" href="/blog/tendencias-2026-camisas-polo-colombia">
+        <span class="blogcard-cat">Tendencias</span>
+        <h3 class="blogcard-title">Tendencias 2026 en camisas polo Colombia: colores, cortes y combinaciones</h3>
+        <p class="blogcard-desc">Las tendencias en camisas polo para 2026 en Colombia: colores que dominan, cortes que regresan, telas y combin…</p>
+        <span class="blogcard-more">Leer artículo →</span>
+      </a>
+    </div>
+    <div style="padding:18px 24px 36px;text-align:center;">
+      <a href="/blog" style="display:inline-block;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;color:#9A7B3C;text-decoration:underline;">Ver todos los artículos del blog →</a>
+    </div>
+  </div>
+  </div>
+  <script>
+    function toggleBlogSection() {
+      var btn = document.getElementById('blogToggleBtn');
+      var content = document.getElementById('blogCollapsible');
+      var isOpen = content.classList.toggle('open');
+      btn.classList.toggle('open', isOpen);
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      btn.firstChild.textContent = isOpen ? '📖 Cerrar blog y guías ' : '📖 Abrir blog y guías de polos ';
+      if (isOpen) {
+        setTimeout(function(){ content.scrollIntoView({behavior:'smooth', block:'start'}); }, 200);
+      }
+    }
+  </script>
+
+  <!-- ═══════ CIUDADES ATENDIDAS (colapsable) ═══════ -->
+  <div class="blog-toggle-wrap">
+    <button class="blog-toggle-btn" id="citiesToggleBtn" onclick="toggleCitiesSection()" aria-expanded="false" aria-controls="citiesCollapsible">
+      🚚 Ver ciudades y cobertura Colombia
+      <span class="blog-toggle-arrow">▼</span>
+    </button>
+  </div>
+  <div class="blog-collapsible" id="citiesCollapsible">
   <div class="cities-footer">
     <div class="sec-head" style="padding:0 6px 4px;">
       <div class="sec-kicker">✈ Enviamos a todo Colombia</div>
@@ -1959,6 +2164,20 @@ body {
       📖 ¿Quieres saber más sobre camisas polo? Lee nuestro <a href="/blog" style="color:#9A7B3C;font-weight:700;text-decoration:underline;">Blog</a> o explora las <a href="/guias" style="color:#9A7B3C;font-weight:700;text-decoration:underline;">Guías organizadas por tema →</a>
     </p>
   </div>
+  </div>
+  <script>
+    function toggleCitiesSection() {
+      var btn = document.getElementById('citiesToggleBtn');
+      var content = document.getElementById('citiesCollapsible');
+      var isOpen = content.classList.toggle('open');
+      btn.classList.toggle('open', isOpen);
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      btn.firstChild.textContent = isOpen ? '🚚 Cerrar ciudades y cobertura ' : '🚚 Ver ciudades y cobertura Colombia ';
+      if (isOpen) {
+        setTimeout(function(){ content.scrollIntoView({behavior:'smooth', block:'start'}); }, 200);
+      }
+    }
+  </script>
 
 <!-- ═══════ EMAILJS ═══════ -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
