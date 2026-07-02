@@ -187,6 +187,7 @@ def build_sitemap(cities: list) -> str:
     from datetime import date
     today = date.today().isoformat()
     urls = [{"loc": f"{BASE_URL}/", "priority": "1.0", "changefreq": "weekly", "lastmod": today}]
+    urls.append({"loc": f"{BASE_URL}/camisas-hombre-colombia", "priority": "0.9", "changefreq": "monthly", "lastmod": today})
     for c in cities:
         urls.append({
             "loc": f"{BASE_URL}/camisas-polo-{c['slug']}",
