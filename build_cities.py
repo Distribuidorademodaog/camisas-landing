@@ -57,7 +57,7 @@ def build_city_section(city: dict) -> str:
   <div class="city-section">
     <div class="sec-head">
       <div class="sec-kicker">Envíos rápidos · {name}</div>
-      <h2 class="sec-title">Camisas polo en <em>{name}</em> con entrega 1-3 días</h2>
+      <h2 class="sec-title">Camisas polo para hombre en <em>{name}</em> con entrega 1-3 días</h2>
       <p class="sec-subtitle city-intro">{intro}</p>
     </div>
 
@@ -102,7 +102,7 @@ def build_city_html(template: str, city: dict) -> str:
     # 1. <title>
     out = out.replace(
         "<title>Camisas Polo para Hombre Estilo Ralph Lauren en Colombia</title>",
-        f"<title>Camisas Polo en {name} | Pago Contraentrega Colombia</title>"
+        f"<title>Camisas Polo para Hombre en {name} | Pago Contraentrega Colombia</title>"
     )
 
     # 2. meta description
@@ -140,7 +140,7 @@ def build_city_html(template: str, city: dict) -> str:
     # 6. og:title & og:description & og:url
     out = out.replace(
         '<meta property="og:title" content="Camisas Polo para Hombre Estilo Ralph Lauren en Colombia">',
-        f'<meta property="og:title" content="Camisas Polo Hombre en {name} | Pago Contraentrega Colombia">'
+        f'<meta property="og:title" content="Camisas Polo para Hombre en {name} | Pago Contraentrega Colombia">'
     )
     out = out.replace(
         '<meta property="og:description" content="Camisas polo premium estilo Ralph Lauren. +20 colores, tallas S a 5XL. Paga al recibir, envío gratis a todo Colombia. 4.9★ +998 clientes.">',
