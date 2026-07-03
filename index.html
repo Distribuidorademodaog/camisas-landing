@@ -3182,6 +3182,10 @@ function toggleFaq(el) {
         <a href="https://wa.me/573207544636?text=Hola,%20no%20s%C3%A9%20mi%20talla%20de%20camisa,%20me%20ayudan%3F" target="_blank" rel="noopener" style="font-family:'Outfit',sans-serif;font-size:12.5px;color:#128C7E;font-weight:700;text-decoration:none;">💬 ¿No sabes tu talla? Escríbenos por WhatsApp</a>
       </div>
     </div>
+    <div style="padding:14px 24px 2px;">
+      <label for="earlyPhone" style="display:block;text-align:center;font-family:'Outfit',sans-serif;font-size:12px;color:#7a7060;margin-bottom:6px;">📱 Déjanos tu celular y te <strong style="color:#121C2E;">guardamos el descuento</strong> <span style="opacity:.6;">(opcional)</span></label>
+      <input id="earlyPhone" type="tel" inputmode="numeric" maxlength="10" autocomplete="tel" placeholder="Ej: 300 123 4567" oninput="captureEarlyPhone(this)" style="width:100%;max-width:280px;margin:0 auto;display:block;padding:11px 14px;border:1px solid #d8cfc0;border-radius:10px;font-family:'Outfit',sans-serif;font-size:15px;text-align:center;box-sizing:border-box;" />
+    </div>
     <div style="flex:1;"></div>
   </div>
 
@@ -3594,6 +3598,24 @@ function preselectPack3() {
   S.pack = '3 camisas'; S.packQty = 3; S.packPrice = 295000; S.shirts = [];
 }
 
+// Captura opcional de celular en el paso de talla -> lead parcial para recuperar
+// carritos abandonados (COD). Se envía UNA vez a un webhook dedicado (NO al de pedidos).
+let _earlyLeadSent = false;
+function captureEarlyPhone(el) {
+  const num = (el.value || '').replace(/\D/g, '').slice(0, 10);
+  if (el.value !== num) el.value = num;
+  window.__earlyPhone = num;
+  if (num.length === 10 && !_earlyLeadSent) {
+    _earlyLeadSent = true;
+    try { localStorage.setItem('cc_early_phone', num); } catch(e){}
+    fetch('https://n8n.paquetecompleto.com.co/webhook/lead-parcial', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ tipo: 'lead_parcial', phone: num, talla: S.talla || null, url: location.pathname, ts: Date.now() })
+    }).catch(function(){});
+    if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'Celular guardado (paso talla)' });
+  }
+}
+
 // ─── SHIRT STEPS ───
 function buildShirtStep(idx) {
   S.curShirtTalla = null;
@@ -3784,6 +3806,11 @@ function coBack() {
 }
 
 function buildOrderSummary() {
+  try {
+    const _f = document.getElementById('f_celular');
+    const _p = window.__earlyPhone || localStorage.getItem('cc_early_phone');
+    if (_f && !_f.value && _p) _f.value = _p;
+  } catch(e){}
   const selLines = S.shirts.map((s,i) => `Camisa ${i+1}: ${s.camisa} (Talla ${s.talla})`).join(' · ');
   document.getElementById('obProd').textContent = S.pack;
   document.getElementById('obSel').textContent = selLines;
