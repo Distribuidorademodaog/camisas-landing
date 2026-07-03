@@ -1572,13 +1572,13 @@ body {
       </div>
       <div class="hero-price-block">
         <div class="hero-price-left">
-          <div class="price-label">Precio especial hoy</div>
-          <div class="price-main">$115.000</div>
-          <div class="price-old">Antes $172.500</div>
+          <div class="price-label">Estilo Ralph Lauren</div>
+          <div class="price-main">Desde $82.500</div>
+          <div class="price-old">El original cuesta $400.000+</div>
         </div>
         <div class="hero-savings">
           <div class="save-label">Ahorras</div>
-          <div class="save-amt">$57.500</div>
+          <div class="save-amt">+$300.000</div>
         </div>
       </div>
       <button class="hero-cta">
@@ -1596,6 +1596,12 @@ body {
       <div class="stock-track"><div class="stock-fill"></div></div>
       <div class="stock-label"><strong>¡Pocas unidades!</strong> <span>Stock limitado hoy</span></div>
     </div>
+  </div>
+
+  <!-- VIDEO TELA (embebido, cerca del hero) -->
+  <div class="hero-video-wrap">
+    <video class="hero-video" src="video.mp4" autoplay muted loop playsinline preload="auto" poster="https://media.paquetecompleto.com.co/landing/hero-camisa.jpg"></video>
+    <div class="hero-video-cap">👀 Mira la tela y el tacto real — sin filtros</div>
   </div>
 
     <!-- ═══════ CIUDAD: Barranquilla ═══════ -->
@@ -2879,6 +2885,9 @@ function toggleFaq(el) {
     </div>
     <div style="padding:12px 24px 0;">
       <div class="catalog-note">📏 ¿Entre tallas? Elige la <strong style="color:#121C2E;">talla mayor</strong> — nuestro tallaje es generoso.</div>
+      <div style="text-align:center;margin-top:12px;">
+        <a href="https://wa.me/573207544636?text=Hola,%20no%20s%C3%A9%20mi%20talla%20de%20camisa,%20me%20ayudan%3F" target="_blank" rel="noopener" style="font-family:'Outfit',sans-serif;font-size:12.5px;color:#128C7E;font-weight:700;text-decoration:none;">💬 ¿No sabes tu talla? Escríbenos por WhatsApp</a>
+      </div>
     </div>
     <div style="flex:1;"></div>
   </div>
@@ -3112,6 +3121,7 @@ function _openCheckout(packPreset) {
   }
   currentStep = STEP_TALLA;
   document.getElementById('coOverlay').classList.add('active');
+  document.body.classList.add('co-open');
   document.body.style.overflow = 'hidden';
   showPanel('pnl1');
   updateProg();
@@ -3129,6 +3139,7 @@ function _openCheckoutWithPack(qty, price) {
   S = { talla:null, pack:qty+' camisa'+(qty>1?'s':''), packQty:qty, packPrice:price,
         shirtIdx:0, shirts:[], curShirtTalla:null, curShirtCamisa:null, bumpSelections:{} };
   document.getElementById('coOverlay').classList.add('active');
+  document.body.classList.add('co-open');
   document.body.style.overflow = 'hidden';
   document.getElementById('tyScreen').classList.remove('act');
   document.getElementById('coBar').style.display = 'flex';
@@ -3144,6 +3155,7 @@ function _openCheckoutWithPack(qty, price) {
 
 function closeCheckout() {
   document.getElementById('coOverlay').classList.remove('active');
+  document.body.classList.remove('co-open');
   document.body.style.overflow = '';
 }
 
@@ -3279,6 +3291,16 @@ function pickPack(el, qty, price) {
   }
 }
 
+// Preselecciona el Pack 3 (Más vendido) por defecto en el paso de pack — sube el AOV.
+// No dispara AddToCart (eso solo si el usuario elige activamente otro pack).
+function preselectPack3() {
+  const card = document.querySelector('#pnl3 .pk-feat');
+  if (!card) return;
+  document.querySelectorAll('#pnl3 .pk-card').forEach(c => c.classList.remove('sel'));
+  card.classList.add('sel');
+  S.pack = '3 camisas'; S.packQty = 3; S.packPrice = 295000; S.shirts = [];
+}
+
 // ─── SHIRT STEPS ───
 function buildShirtStep(idx) {
   S.curShirtTalla = null;
@@ -3391,6 +3413,7 @@ function coNext() {
   } else if (currentStep === STEP_CAT) {
     currentStep = STEP_PACK;
     showPanel('pnl3');
+    if (!S.pack) preselectPack3();
     document.getElementById('coNextBtn').disabled = !S.pack;
     document.getElementById('coNextBtn').textContent = 'Continuar →';
   } else if (currentStep === STEP_PACK) {
@@ -4104,5 +4127,24 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+<style>
+.wa-float { position:fixed; right:16px; bottom:88px; z-index:9998; width:54px; height:54px; border-radius:50%; background:#25D366; box-shadow:0 4px 14px rgba(0,0,0,0.28); display:flex; align-items:center; justify-content:center; }
+.wa-float svg { width:30px; height:30px; fill:#fff; }
+@media (min-width:768px){ .wa-float { bottom:24px; } }
+.sticky-cta { position:fixed; left:0; right:0; bottom:0; z-index:9997; display:flex; align-items:center; gap:12px; padding:9px 14px calc(9px + env(safe-area-inset-bottom)); background:#0e1828; box-shadow:0 -4px 16px rgba(0,0,0,0.25); }
+.sticky-cta-price { display:flex; flex-direction:column; line-height:1.15; color:#fff; font-family:'Outfit',sans-serif; }
+.sticky-cta-price strong { font-size:15px; color:#C4A35A; }
+.sticky-cta-price span { font-size:10.5px; color:rgba(255,255,255,0.65); }
+.sticky-cta-btn { margin-left:auto; background:#C4A35A; color:#0e1828; border:none; border-radius:10px; padding:12px 20px; font-family:'Outfit',sans-serif; font-size:14px; font-weight:700; cursor:pointer; white-space:nowrap; }
+@media (min-width:768px){ .sticky-cta { display:none; } }
+body.co-open .sticky-cta, body.co-open .wa-float { display:none !important; }
+</style>
+<a href="https://wa.me/573207544636?text=Hola,%20quiero%20info%20de%20las%20camisas%20polo" target="_blank" rel="noopener" class="wa-float" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.1 1.6 5.9L4 29l8.3-1.6c1.7.9 3.6 1.4 5.7 1.4h.1c6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.8-.2-.4c-1-1.6-1.5-3.4-1.5-5.3C5.5 9.5 10.2 4.8 16 4.8S26.5 9.5 26.5 15 21.8 24.8 16 24.8zm5.8-7.3c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.8.2s-.9 1-1.1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.3-.2-.3 0-.5.1-.7.1-.1.3-.4.5-.6.1-.2.2-.3.3-.6.1-.2 0-.4 0-.6-.1-.2-.8-1.9-1.1-2.6-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.6c.2.2 2.4 3.7 5.8 5.1.8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+<div class="sticky-cta">
+  <div class="sticky-cta-price"><strong>Desde $82.500</strong><span>Pago contraentrega · Envío gratis</span></div>
+  <button class="sticky-cta-btn" onclick="openCheckout(null)">Pedir ahora →</button>
+</div>
 </body>
 </html>
