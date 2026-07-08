@@ -443,7 +443,8 @@ def render_index(posts: list) -> str:
 
 
 def render_pillar(pillar: dict, all_posts: dict) -> str:
-    """Pillar pages: same template as posts but with table of contents."""
+    """Pillar pages: same template as posts but with table of contents.
+    Fix: reemplazar /blog/ por /guias/ en canonical, og:url, schemas y breadcrumb."""
     html = render_post(pillar, all_posts)
     if "table_of_contents" in pillar:
         toc_html = '<div class="post-toc"><h3>📑 Tabla de contenidos</h3><ol>'
@@ -452,6 +453,16 @@ def render_pillar(pillar: dict, all_posts: dict) -> str:
             toc_html += f'<li><a href="#{anchor}">{item}</a></li>'
         toc_html += '</ol></div>'
         html = html.replace('<p class="post-lead">', toc_html + '<p class="post-lead">')
+
+    # FIX: los pillars viven en /guias/ no en /blog/
+    slug = pillar["slug"]
+    html = html.replace(f'{BASE_URL}/blog/{slug}', f'{BASE_URL}/guias/{slug}')
+    # Breadcrumb: "Blog" -> "Guías"
+    html = html.replace('"name": "Blog", "item": ', '"name": "Guías", "item": ')
+    html = html.replace('"name":"Blog","item":', '"name":"Guías","item":')
+    html = html.replace(f'"{BASE_URL}/blog"', f'"{BASE_URL}/guias"')
+    # Breadcrumb visible en el HTML
+    html = html.replace('<a href="/blog">Blog</a> › <span>', '<a href="/guias">Guías</a> › <span>')
     return html
 
 
