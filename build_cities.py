@@ -25,7 +25,7 @@ OUTPUT_DIR.mkdir(exist_ok=True)
 
 
 def build_city_section(city: dict) -> str:
-    """HTML block inserted in the body, visible to users — rich SEO signal (~600-800 words)."""
+    """HTML block inserted in the body, visible to users — rich SEO signal (~1500-2000 words)."""
     name = city["name"]
     dept = city["department"]
     intro = city["intro_paragraph"]
@@ -33,8 +33,11 @@ def build_city_section(city: dict) -> str:
     testimonials = city["testimonials"]
     faqs = city["faqs"]
     cta = city["cta_closing"]
+    estilo = city.get("estilo_local", {})
+    envios = city.get("envios_barrios", {})
+    referentes = city.get("referentes_moda", {})
 
-    # Testimonios
+    # Testimonios (8 por ciudad)
     testi_html = ""
     for t in testimonials:
         testi_html += f"""        <div class="city-testi">
@@ -44,7 +47,7 @@ def build_city_section(city: dict) -> str:
         </div>
 """
 
-    # FAQs
+    # FAQs (12 por ciudad)
     faqs_html = ""
     for f in faqs:
         faqs_html += f"""        <div class="city-faq">
@@ -53,11 +56,49 @@ def build_city_section(city: dict) -> str:
         </div>
 """
 
+    # SECCIÓN NUEVA: Estilo local
+    estilo_html = ""
+    if estilo:
+        paragraphs = "".join([f"<p>{p}</p>" for p in estilo.get("paragraphs", [])])
+        estilo_html = f"""    <div class="city-block">
+      <h3 class="city-block-title">👔 {estilo.get("heading", "Estilo local")}</h3>
+      {paragraphs}
+    </div>
+"""
+
+    # SECCIÓN NUEVA: Envíos por barrio con zonas detalladas
+    envios_html = ""
+    if envios:
+        zones_html = ""
+        for z in envios.get("zones", []):
+            zones_html += f"""        <div class="city-zone">
+          <strong>{z['name']}</strong> · <span class="city-zone-time">{z['time']}</span>
+          <p>{z['detail']}</p>
+        </div>
+"""
+        envios_html = f"""    <div class="city-block">
+      <h3 class="city-block-title">📍 {envios.get("heading", "Cobertura y tiempos por zona")}</h3>
+      <p>{envios.get("intro", "")}</p>
+      <div class="city-zones">
+{zones_html}      </div>
+    </div>
+"""
+
+    # SECCIÓN NUEVA: Referentes de moda local
+    referentes_html = ""
+    if referentes:
+        paragraphs = "".join([f"<p>{p}</p>" for p in referentes.get("paragraphs", [])])
+        referentes_html = f"""    <div class="city-block">
+      <h3 class="city-block-title">🛍️ {referentes.get("heading", "Referentes de moda locales")}</h3>
+      {paragraphs}
+    </div>
+"""
+
     return f"""  <!-- ═══════ CIUDAD: {name} ═══════ -->
   <div class="city-section">
     <div class="sec-head">
       <div class="sec-kicker">Envíos rápidos · {name}</div>
-      <h2 class="sec-title">Camisas polo para hombre en <em>{name}</em> con entrega 1-3 días</h2>
+      <h2 class="sec-title">Camisas polo en <em>{name}</em> con entrega 1-3 días</h2>
       <p class="sec-subtitle city-intro">{intro}</p>
     </div>
 
@@ -67,12 +108,15 @@ def build_city_section(city: dict) -> str:
       <small>Y a todo el área metropolitana de {name}.</small>
     </div>
 
+{estilo_html}
+{envios_html}
     <div class="city-block">
       <h3 class="city-block-title">Lo que dicen nuestros clientes en {name}</h3>
       <div class="city-testimonials">
 {testi_html}      </div>
     </div>
 
+{referentes_html}
     <div class="city-block">
       <h3 class="city-block-title">📦 Preguntas frecuentes sobre envíos a {name}</h3>
       <div class="city-faqs">
@@ -102,7 +146,7 @@ def build_city_html(template: str, city: dict) -> str:
     # 1. <title>
     out = out.replace(
         "<title>Camisas Polo para Hombre Estilo Ralph Lauren en Colombia</title>",
-        f"<title>Camisas Polo para Hombre en {name} | Pago Contraentrega Colombia</title>"
+        f"<title>Camisas Polo en {name} | Pago Contraentrega Colombia</title>"
     )
 
     # 2. meta description
@@ -140,7 +184,7 @@ def build_city_html(template: str, city: dict) -> str:
     # 6. og:title & og:description & og:url
     out = out.replace(
         '<meta property="og:title" content="Camisas Polo para Hombre Estilo Ralph Lauren en Colombia">',
-        f'<meta property="og:title" content="Camisas Polo para Hombre en {name} | Pago Contraentrega Colombia">'
+        f'<meta property="og:title" content="Camisas Polo Hombre en {name} | Pago Contraentrega Colombia">'
     )
     out = out.replace(
         '<meta property="og:description" content="Camisas polo premium estilo Ralph Lauren. +20 colores, tallas S a 5XL. Paga al recibir, envío gratis a todo Colombia. 4.9★ +998 clientes.">',
@@ -163,8 +207,8 @@ def build_city_html(template: str, city: dict) -> str:
     #    duplicacion vs home y entre ciudades (fix para 'Rastreada/Descubierta: sin indexar'
     #    en Search Console — Google trataba las 10 paginas como doorway pages casi identicas).
     #    Se quita el bloque completo VARIEDAD -> PACKS (VARIEDAD, BENEFICIOS, DESACREDITACION,
-    #    HowTo guia de tallas y TESTIMONIOS). El city page queda enfocado en hero + seccion
-    #    LOCAL unica (intro, barrios, testimonios y FAQs de la ciudad) + packs.
+    #    HowTo guia de tallas y TESTIMONIOS genericos). El city page queda enfocado en:
+    #    hero + seccion LOCAL unica (intro, barrios, testimonios y FAQs de la ciudad) + packs.
     out = re.sub(
         r'  <!-- ═══════ VARIEDAD ═══════ -->.*?(?=  <!-- ═══════ PACKS ═══════ -->)',
         '',
@@ -184,16 +228,12 @@ def build_city_html(template: str, city: dict) -> str:
 
 
 def build_sitemap(cities: list) -> str:
-    from datetime import date
-    today = date.today().isoformat()
-    urls = [{"loc": f"{BASE_URL}/", "priority": "1.0", "changefreq": "weekly", "lastmod": today}]
-    urls.append({"loc": f"{BASE_URL}/camisas-hombre-colombia", "priority": "0.9", "changefreq": "monthly", "lastmod": today})
+    urls = [{"loc": f"{BASE_URL}/", "priority": "1.0", "changefreq": "weekly"}]
     for c in cities:
         urls.append({
             "loc": f"{BASE_URL}/camisas-polo-{c['slug']}",
             "priority": "0.8",
-            "changefreq": "weekly",
-            "lastmod": today
+            "changefreq": "weekly"
         })
 
     # Blog: index + posts (lee posts.json si existe)

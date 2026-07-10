@@ -6,21 +6,61 @@
     "department": "Cundinamarca",
     "lat": 4.7110,
     "lng": -74.0721,
-    "extra_keywords": "camisas polo bogota, camisas polo chapinero, camisas polo usaquen, camisas polo zona t, camisas polo norte bogota",
+    "extra_keywords": "camisas polo bogota, camisas polo chapinero, camisas polo usaquen, camisas polo zona t, camisas polo norte bogota, camisas polo hombre bogota, tienda camisas bogota",
     "intro_paragraph": "En Bogotá, la camisa polo se ha consolidado como un básico del armario profesional. Con un clima frío-templado promedio de 14°C, nuestros polos en algodón pique se llevan bajo blazers o solos en oficinas de Chapinero, Salitre o Centro Internacional. Los ejecutivos bogotanos buscan camisas que aguanten el ritmo de la ciudad — desde reuniones en Usaquén hasta cenas en la Zona T.",
-    "neighborhoods_extended": "Chapinero, Usaquén, Zona T, Salitre, Cedritos, Suba, Engativá, Centro Internacional, Teusaquillo, Galerías, La Soledad, Quinta Camacho y norte de Bogotá",
+    "neighborhoods_extended": "Chapinero, Usaquén, Zona T, Salitre, Cedritos, Suba, Engativá, Centro Internacional, Teusaquillo, Galerías, La Soledad, Quinta Camacho, Rosales, El Nogal, Country Club, Santa Bárbara, El Chicó, Los Rosales, Santa Ana, Batán y norte de Bogotá",
     "testimonials": [
       { "name": "Carlos M.", "barrio": "Chapinero", "quote": "Pedí 3 camisas y llegaron al otro día a mi oficina en Chapinero. La talla XL me quedó perfecta y la tela se siente premium." },
       { "name": "Sebastián R.", "barrio": "Usaquén", "quote": "Como ejecutivo necesito polos formales. Llegaron a Usaquén impecables, listas para usar bajo blazer. Calidad sorprendente." },
-      { "name": "Alejandro V.", "barrio": "Cedritos", "quote": "Compré el pack de 5 para variar colores. Llegaron a Cedritos en 24 horas, todas con su talla exacta y el cuello bien firme." }
+      { "name": "Alejandro V.", "barrio": "Cedritos", "quote": "Compré el pack de 5 para variar colores. Llegaron a Cedritos en 24 horas, todas con su talla exacta y el cuello bien firme." },
+      { "name": "Andrés F.", "barrio": "Rosales", "quote": "Trabajo en una firma de abogados y las uso bajo saco todos los días. Aguantan el frío bogotano perfectamente con un buster encima." },
+      { "name": "Juan Pablo H.", "barrio": "Zona T", "quote": "Las use en 3 reuniones seguidas en la Zona T, un almuerzo y una cena. Ninguna se arrugó ni perdió forma. Servicio impecable, llegaron en 18 horas." },
+      { "name": "Diego M.", "barrio": "Salitre", "quote": "Vivo en Salitre y trabajo en el Centro Internacional. La polo blanca me sirve para reuniones formales y la negra para salir de noche. Excelente compra." },
+      { "name": "Ricardo L.", "barrio": "Country Club", "quote": "Pedí un pack para viajar a Cartagena y otro para el frío de Bogotá. Las de manga larga aguantan increíble aquí en el frío del norte." },
+      { "name": "Camilo A.", "barrio": "Suba", "quote": "Contra la costumbre de comprar en centros comerciales, pedí online con miedo. Llegaron a Suba, revisé todo, pagué con Nequi. Sin dramas." }
     ],
     "faqs": [
       { "q": "¿Cuántos días tarda mi pedido de Medellín a Bogotá?", "a": "El despacho a Bogotá sale el mismo día o el siguiente hábil. Tu camisa llega entre 1 y 3 días hábiles — generalmente 24-48 horas en barrios céntricos como Chapinero, Usaquén o Cedritos." },
       { "q": "¿Aceptan pago con Nequi o Daviplata en Bogotá?", "a": "Sí, en Bogotá aceptamos pago contraentrega en efectivo, Nequi, Daviplata y transferencias bancarias. Pagas directo al transportador cuando recibes tu camisa, sin pagar nada por adelantado." },
       { "q": "¿Entregan en municipios cercanos como Chía, Soacha o Mosquera?", "a": "Sí, despachamos a Chía, Cajicá, Soacha, Mosquera, Funza, La Calera y otros municipios de Cundinamarca cercanos a Bogotá. Los tiempos son similares (1-3 días hábiles)." },
       { "q": "¿Hacen entregas en localidades alejadas de Bogotá?", "a": "Sí, cubrimos las 20 localidades de Bogotá. Para zonas más alejadas (Sumapaz, Usme, Ciudad Bolívar) el tiempo puede extenderse a 3-4 días hábiles según disponibilidad de transportadora." },
-      { "q": "¿Tienen tienda física o punto de cambios en Bogotá?", "a": "No tenemos tienda física en Bogotá — vendemos solo online con envío directo desde nuestra bodega. Para cambios por talla, el envío de retorno es gratuito y la nueva camisa llega en 3-5 días." }
+      { "q": "¿Tienen tienda física o punto de cambios en Bogotá?", "a": "No tenemos tienda física en Bogotá — vendemos solo online con envío directo desde nuestra bodega. Para cambios por talla, el envío de retorno es gratuito y la nueva camisa llega en 3-5 días." },
+      { "q": "¿La camisa polo aguanta el frío de Bogotá?", "a": "El algodón pique de nuestras polos es 100% aislante natural. En Bogotá se lleva perfecta bajo blazer, chaqueta liviana o buster. En verano bogotano (marzo, julio) se puede usar sola sin problema." },
+      { "q": "¿Cuál polo recomiendan para reuniones formales en Bogotá?", "a": "Para reuniones ejecutivas en el norte de Bogotá (Rosales, Chicó, Country) recomendamos polo Oxford blanca, azul marino o vinotinto, con corte clásico. Van perfectas bajo blazer y con corbata delgada opcional." },
+      { "q": "¿Puedo pagar con tarjeta de crédito en Bogotá?", "a": "Sí, muchos transportadores en Bogotá llevan datáfono. Aún así, la mayoría de clientes bogotanos prefieren Nequi o Daviplata por rapidez. Confirma con el transportador al agendar." },
+      { "q": "¿Los envíos llegan sábados en Bogotá?", "a": "Sí, tenemos entregas de lunes a sábado en Bogotá. Los domingos no se despachan pedidos, pero los que salieron el sábado se entregan el lunes temprano." },
+      { "q": "¿Hacen entrega el mismo día en Bogotá?", "a": "En algunos casos sí, si el pedido se genera antes de las 10 AM y el destino está en Chapinero, Usaquén, Zona T o Cedritos. No lo garantizamos pero lo intentamos siempre." },
+      { "q": "¿Puedo pedir varias tallas en el mismo pedido para probar cuál me queda?", "a": "Sí, en Bogotá muchos clientes piden 2-3 tallas del mismo diseño para probar cuál queda mejor. Devuelves las que no y solo pagas las que te quedes. Ideal para primer pedido." },
+      { "q": "¿Ofrecen descuento por compras corporativas en Bogotá?", "a": "Sí, para pedidos de 20+ camisas para empresas en Bogotá (regalos ejecutivos, uniformes de equipos) manejamos descuentos escalonados. Escríbenos por WhatsApp para cotizar." }
     ],
+    "estilo_local": {
+      "heading": "El estilo del hombre bogotano y la camisa polo",
+      "paragraphs": [
+        "Bogotá tiene un estilo masculino distintivo: sobrio, funcional, adaptable al clima frío. El hombre bogotano promedio vive en 3 microclimas por día — la sala calentita de casa, la calle a 12°C, la oficina con calefacción — y necesita ropa que se adapte a todos. La camisa polo cumple exactamente ese rol.",
+        "En sectores corporativos como el norte, Chicó, Chapinero Alto y Salitre, la polo Oxford color sólido bajo blazer se ha convertido en el uniforme oficial del 'business casual' bogotano. Se ve profesional sin ser rígida, y permite quitarse el blazer en almuerzos informales sin desconfigurarse.",
+        "En zonas más relajadas como La Candelaria, La Macarena, Chapinero Central o Teusaquillo, el estilo es más creativo. Aquí se ven polos con colores más vibrantes (verde botella, mostaza, tierra), combinadas con jeans y sneakers premium. Es el estilo del bogotano creativo, del profesional joven, del emprendedor.",
+        "Los fines de semana en Usaquén, la Zona G o la Zona T, la polo se usa con chinos color camel o gris, mocasín y reloj sobrio. Perfecta para brunch, para acompañar a la familia al mercado orgánico, para un almuerzo en Andrés Carne de Res Chía. Versátil de lunes a domingo."
+      ]
+    },
+    "envios_barrios": {
+      "heading": "Cobertura y tiempos de entrega por zona en Bogotá",
+      "intro": "Bogotá está dividida en 20 localidades y varias zonas comerciales/residenciales. Nuestros tiempos de entrega varían según la ubicación:",
+      "zones": [
+        { "name": "Norte (Chapinero, Usaquén, Suba)", "time": "24-48 horas", "detail": "Chapinero, Usaquén, Rosales, Chicó, Country, El Nogal, Cedritos, Batán, Colina Campestre, Prado Veraniego" },
+        { "name": "Centro (Teusaquillo, Los Mártires, La Candelaria)", "time": "48-72 horas", "detail": "Centro Internacional, La Soledad, Galerías, Palermo, La Macarena, La Candelaria, Santa Fe" },
+        { "name": "Occidente (Fontibón, Engativá, Kennedy)", "time": "48-72 horas", "detail": "Salitre, Fontibón, Modelia, Normandía, Ciudad Salitre, Villa Alsacia, Metropolitano" },
+        { "name": "Sur (Bosa, Ciudad Bolívar, Tunjuelito)", "time": "2-4 días hábiles", "detail": "Todas las localidades del sur son cubiertas con tiempos ampliados por logística de zona" },
+        { "name": "Municipios aledaños", "time": "2-4 días hábiles", "detail": "Chía, Cajicá, Cota, Tenjo, Soacha, Mosquera, Funza, La Calera, Sopó, Zipaquirá" }
+      ]
+    },
+    "referentes_moda": {
+      "heading": "Centros comerciales y referentes de moda masculina en Bogotá",
+      "paragraphs": [
+        "El norte de Bogotá concentra la mayor densidad de tiendas de moda masculina en Colombia. El Centro Comercial Andino (Zona T) es el epicentro para marcas internacionales, incluidas boutiques con opciones premium tipo Ralph Lauren originales. El Retiro y Atlantis Plaza complementan la oferta de la zona.",
+        "Otros referentes son Centro Comercial Santafé (norte-Salitre), Titán Plaza (Salitre), Gran Estación (Salitre) y Unicentro Bogotá. En estos malls se puede encontrar el rango completo de camisas polo — desde marcas colombianas asequibles hasta ediciones importadas.",
+        "Nuestra ventaja es que ofrecemos camisas polo con calidad y estética similar a las marcas premium de estos centros comerciales, pero a 1/3 del precio y sin necesidad de desplazarse hasta el norte. Recibes en tu casa u oficina — sea en el norte, occidente, centro o sur bogotano — con pago contraentrega."
+      ]
+    },
     "cta_closing": "Más de 250 bogotanos ya disfrutan de nuestras camisas polo premium con pago contraentrega. Haz tu pedido hoy y recíbelo en tu zona de Bogotá en 1-3 días, sin pagar nada por adelantado."
   },
   {
@@ -30,21 +70,61 @@
     "department": "Antioquia",
     "lat": 6.2442,
     "lng": -75.5812,
-    "extra_keywords": "camisas polo medellin, camisas polo el poblado, camisas polo laureles, camisas polo envigado, camisas polo sabaneta",
+    "extra_keywords": "camisas polo medellin, camisas polo el poblado, camisas polo laureles, camisas polo envigado, camisas polo sabaneta, camisas hombre medellin, tienda camisas antioquia",
     "intro_paragraph": "Medellín es la capital de la moda en Colombia, y la camisa polo es un protagonista del armario paisa. Con clima de primavera eterna (~22°C), nuestros polos en algodón pique funcionan todo el año — desde brunches en El Poblado hasta reuniones en Laureles o ferias en Envigado. Los paisas saben de calidad: por eso ofrecemos tallaje colombiano real (S a 5XL) y telas que aguantan el uso diario.",
-    "neighborhoods_extended": "El Poblado, Laureles, Envigado, Sabaneta, Belén, Itagüí, Bello, La Estrella, Caldas, La América, Castropol, Manila, El Tesoro y toda el Área Metropolitana",
+    "neighborhoods_extended": "El Poblado, Laureles, Envigado, Sabaneta, Belén, Itagüí, Bello, La Estrella, Caldas, La América, Castropol, Manila, El Tesoro, Provenza, Astorga, Alejandría, El Trapiche, La Frontera, Zúñiga, Otra Banda, San Diego y toda el Área Metropolitana",
     "testimonials": [
       { "name": "Andrés R.", "barrio": "El Poblado", "quote": "Excelente calidad, las camisas se ven igualitas a una Ralph Lauren original. Las recibí en El Poblado en 2 días y no pagué nada hasta tenerlas en la mano." },
       { "name": "Felipe L.", "barrio": "Laureles", "quote": "Pedí 3 colores diferentes para variar en la oficina. Llegaron a Laureles el mismo día y la tela es de calidad superior. Volveré a pedir." },
-      { "name": "Camilo T.", "barrio": "Envigado", "quote": "Como papá ocupado, necesitaba polos que me sirvan para todo. Llegaron a Envigado rapidísimo y se ven impecables tanto formal como casual." }
+      { "name": "Camilo T.", "barrio": "Envigado", "quote": "Como papá ocupado, necesitaba polos que me sirvan para todo. Llegaron a Envigado rapidísimo y se ven impecables tanto formal como casual." },
+      { "name": "Juan Sebastián M.", "barrio": "Sabaneta", "quote": "Trabajo en tecnología, viajo mucho a Bogotá y Cartagena. Las polos manga larga aguantan el frío bogotano y las de manga corta el calor costeño. Camisas universales." },
+      { "name": "Mateo O.", "barrio": "Belén", "quote": "En Belén las tiendas se llenan los sábados, evité toda esa vuelta. Pedí online, llegaron el domingo y esa misma noche estaba estrenando en Provenza. Perfecto." },
+      { "name": "David S.", "barrio": "Manila", "quote": "Pedí el pack de 6 y una tienda en el Tesoro me ofreció lo mismo a $850k. Pagué $495k con estas y las camisas se ven idénticas. Sin marca, mismo estilo." },
+      { "name": "Nicolás G.", "barrio": "Itagüí", "quote": "Padre paisa clásico, muy exigente con las telas. Aprobé todas las polos. Duran, no se decoloran con las 4 lavadas por semana. Recomendado." },
+      { "name": "Alejandro P.", "barrio": "Envigado", "quote": "Compré por primera vez online porque un amigo me recomendó. Recibí, revisé, pagué. Tan sencillo como comprar en una tienda pero desde la casa." }
     ],
     "faqs": [
       { "q": "¿Cuántos días tarda mi pedido en Medellín?", "a": "Como nuestra bodega está en Medellín, el despacho es ultra-rápido: tu camisa puede llegar el mismo día o en 24 horas dependiendo de la zona. Para zonas céntricas como El Poblado, Laureles o Envigado, frecuentemente entregamos el mismo día." },
       { "q": "¿Aceptan pago con Nequi o Daviplata en Medellín?", "a": "Sí, en Medellín aceptamos pago contraentrega en efectivo, Nequi, Daviplata y transferencias bancarias. Pagas al transportador cuando recibes — sin pagar nada por adelantado." },
       { "q": "¿Entregan en el Área Metropolitana (Envigado, Sabaneta, Itagüí, Bello)?", "a": "Sí, despachamos a todos los municipios del Área Metropolitana de Medellín: Envigado, Sabaneta, Itagüí, Bello, La Estrella, Caldas, Copacabana, Girardota y Barbosa. Los tiempos son de 1-2 días hábiles." },
       { "q": "¿Hacen entregas en comunas alejadas de Medellín?", "a": "Sí, cubrimos las 16 comunas y los 5 corregimientos de Medellín. Para zonas periféricas (Santo Domingo, Manrique, San Cristóbal) el tiempo es de 2-3 días hábiles." },
-      { "q": "¿Puedo recoger en bodega en Medellín?", "a": "Por ahora no ofrecemos recogida en bodega — todo se entrega por transportadora con pago contraentrega. Para cambios por talla, el envío de retorno es gratuito y la nueva camisa llega en 24-48 horas." }
+      { "q": "¿Puedo recoger en bodega en Medellín?", "a": "Por ahora no ofrecemos recogida en bodega — todo se entrega por transportadora con pago contraentrega. Para cambios por talla, el envío de retorno es gratuito y la nueva camisa llega en 24-48 horas." },
+      { "q": "¿La polo es adecuada para el clima de primavera eterna de Medellín?", "a": "Perfecta. El algodón pique con nuestros gramajes de 220 gsm ofrece transpirabilidad ideal para los 22°C promedio de Medellín. No pasa calor de día ni frío en las noches del Poblado o Envigado. Uso todo el año sin cambios estacionales." },
+      { "q": "¿Recomendaciones para vestir polo en un plan social en El Poblado o Provenza?", "a": "Para bares y restaurantes en El Poblado, la polo negra o azul marino con jeans oscuros y sneakers premium es la combinación ganadora. Manga corta si es de día, manga larga si vas de noche cuando refresca en la loma." },
+      { "q": "¿Sirven para el vestuario ejecutivo de las torres del centro de Medellín?", "a": "Sí, especialmente el polo Oxford blanco, azul claro o rosado pastel bajo saco liviano. Es el look 'business casual' aceptado en las oficinas modernas de Ciudad del Río, Poblado torres y algunas del centro." },
+      { "q": "¿Cómo cuidar la polo para que dure más de un año en Medellín?", "a": "Con nuestro pique de calidad la polo dura fácil 2-3 años con uso semanal. Lava con agua fría, no uses secadora (el sol paisa la seca rápido), plancha por dentro y no la exprimas con torsión. Duración garantizada." },
+      { "q": "¿Ofrecen envío express en Medellín para pedidos urgentes?", "a": "Para pedidos urgentes en Medellín centro/norte a hacer antes del mediodía, contáctanos por WhatsApp y coordinamos entrega el mismo día en El Poblado, Laureles, Envigado, Sabaneta. Sin costo adicional para clientes recurrentes." },
+      { "q": "¿Puedo cambiar la talla si no me queda al probarme en casa en Medellín?", "a": "Sí, tienes 30 días desde la entrega. Nos escribes por WhatsApp, un mensajero recoge la camisa en tu casa (gratuito para Medellín y Área Metropolitana) y en 24-48 horas te llegamos la nueva talla." },
+      { "q": "¿Tienen convenios con Bancolombia o Davivienda para pagos en Medellín?", "a": "Aceptamos transferencias inmediatas por Bancolombia (transferencia clásica sin costo), Davivienda (transferencia PSE), Nequi (instantáneo) y Daviplata (instantáneo). También datáfono cuando el transportador lo lleva." }
     ],
+    "estilo_local": {
+      "heading": "El estilo del hombre paisa y la camisa polo",
+      "paragraphs": [
+        "Medellín es donde nace el 'street style' colombiano moderno. El hombre paisa combina audacia y funcionalidad: no le teme al color, entiende de proporciones y sabe que la ropa debe hablar sin gritar. La camisa polo es su lienzo perfecto — desde el ejecutivo joven en las torres del Río hasta el creativo de Manila.",
+        "En El Poblado y Manila, el estilo es 'smart casual' evolucionado: polo color sólido con jeans oscuros premium, mocasines o sneakers de cuero, reloj minimalista. Es el look de brunch de sábado en Astorga, el after-office en Provenza, el domingo en el Parque de El Poblado.",
+        "En Laureles y Envigado, el estilo es más relajado pero igual de cuidadoso. La polo sirve para el almuerzo en La Frontera, el cafecito en Otraparte, el paseo por el Parque Envigado con la familia. Colores tierra, verdes militares y azules son los preferidos.",
+        "Los sábados por la noche en Provenza o la Calle del Poblado, la polo negra o vinotinto con jean oscuro y bota es el uniforme del paisa que va de bar en bar. Cómoda, elegante y con actitud — todo lo que un plan de rumba paisa demanda."
+      ]
+    },
+    "envios_barrios": {
+      "heading": "Cobertura y tiempos de entrega por zona en Medellín",
+      "intro": "Como nuestra bodega está en Medellín, los envíos son ultra-rápidos. Casi todos los barrios reciben el mismo día o al siguiente hábil:",
+      "zones": [
+        { "name": "El Poblado y alrededores", "time": "Mismo día o 24 horas", "detail": "El Poblado, Manila, Provenza, Astorga, El Tesoro, Los Balsos, Las Palmas, Loma del Indio, La Frontera, La Aguacatala" },
+        { "name": "Laureles-Estadio", "time": "Mismo día o 24 horas", "detail": "Laureles, Nutibara, San Joaquín, Suramericana, Belén, Las Playas, El Estadio, Segundo Parque" },
+        { "name": "Envigado y sur", "time": "24-48 horas", "detail": "Envigado centro, Los Molinos, Zúñiga, La Frontera, Sabaneta, Itagüí, La Estrella, Caldas" },
+        { "name": "Norte del Valle de Aburrá", "time": "24-48 horas", "detail": "Bello, Copacabana, Girardota, Barbosa" },
+        { "name": "Occidente y comunas altas", "time": "48-72 horas", "detail": "San Cristóbal, Robledo, Castilla, 12 de Octubre, Manrique, Santo Domingo, Aranjuez" }
+      ]
+    },
+    "referentes_moda": {
+      "heading": "Centros comerciales y referentes de moda masculina en Medellín",
+      "paragraphs": [
+        "Medellín tiene el circuito de moda masculina más denso de Colombia. Centro Comercial El Tesoro (Poblado) es el epicentro para marcas premium internacionales — aquí están las boutiques de Polo Ralph Lauren, Lacoste y otras marcas del rango $400-700K. Santafé (Poblado), Oviedo, Los Molinos y Premium Plaza complementan la oferta del sur.",
+        "En Laureles, Centro Comercial Unicentro y Obelisco tienen opciones de rango medio. Al norte, Puerta del Norte en Bello ofrece precios más competitivos. El Área Metropolitana tiene Viva Envigado y Sao (Sabaneta) para los que buscan lo estándar.",
+        "Nuestras camisas polo replican la estética premium de El Tesoro y Santafé a un tercio del precio. Sin el desplazamiento, sin la cola, sin el estacionamiento. Recibes en tu casa u oficina en Medellín — sea Poblado, Laureles, Envigado o Bello — con pago contraentrega. Perfecto para el paisa moderno que valora tiempo y dinero por igual."
+      ]
+    },
     "cta_closing": "Más de 400 paisas ya estrenaron sus camisas polo premium en Medellín. Haz tu pedido hoy y recíbelo en El Poblado, Laureles, Envigado o cualquier zona del Área Metropolitana en 1-2 días."
   },
   {
@@ -54,21 +134,61 @@
     "department": "Valle del Cauca",
     "lat": 3.4516,
     "lng": -76.5320,
-    "extra_keywords": "camisas polo cali, camisas polo ciudad jardin, camisas polo granada, camisas polo san fernando, camisas polo valle del lili",
+    "extra_keywords": "camisas polo cali, camisas polo ciudad jardin, camisas polo granada, camisas polo san fernando, camisas polo valle del lili, camisas hombre cali, tienda camisas valle",
     "intro_paragraph": "En Cali, la capital del Valle del Cauca, la camisa polo es el básico ideal para quienes buscan comodidad sin perder estilo. Por el clima cálido de Cali (entre 25°C y 32°C casi todo el año), nuestras camisas polo en algodón pique son frescas, transpirables y aptas para el día a día — desde oficinas en Granada hasta encuentros casuales en Ciudad Jardín o tardes en el norte de Cali.",
-    "neighborhoods_extended": "Ciudad Jardín, Granada, San Fernando, Valle del Lili, El Peñón, Pance, San Antonio, Versalles, Tequendama, El Caney, Limonar, Ciudad 2000, La Flora, El Ingenio, Yumbo y Jamundí",
+    "neighborhoods_extended": "Ciudad Jardín, Granada, San Fernando, Valle del Lili, El Peñón, Pance, San Antonio, Versalles, Tequendama, El Caney, Limonar, Ciudad 2000, La Flora, El Ingenio, Cristales, Los Cristales, Ciudad Cordoba, Nueva Tequendama, Yumbo, Jamundí, Palmira y municipios cercanos",
     "testimonials": [
       { "name": "Juan David O.", "barrio": "Ciudad Jardín", "quote": "Pago contraentrega me dio toda la confianza. Llegaron rapidísimo a Ciudad Jardín y la calidad superó lo que esperaba. Ya voy a pedir el segundo pack." },
       { "name": "Carlos B.", "barrio": "Granada", "quote": "Compré pack de 3 para la oficina. Telas frescas, perfectas para el clima de Cali. Llegaron a Granada en 48 horas sin problema." },
-      { "name": "Andrés M.", "barrio": "Pance", "quote": "Pedí 5 colores diferentes y todos me encantaron. Entregaron en Pance sin demora y la talla XL me quedó exacta. Recomendado." }
+      { "name": "Andrés M.", "barrio": "Pance", "quote": "Pedí 5 colores diferentes y todos me encantaron. Entregaron en Pance sin demora y la talla XL me quedó exacta. Recomendado." },
+      { "name": "Santiago V.", "barrio": "San Fernando", "quote": "Trabajo en oficinas del norte pero vivo en San Fernando. Las polos blancas y beige son ideales para el sol caleño. No pasan calor y se ven elegantes." },
+      { "name": "Mauricio T.", "barrio": "Valle del Lili", "quote": "Vivo cerca de la Fundación Valle del Lili. La entrega llegó el segundo día. La camisa polo de rayas es mi favorita para salir de noche a Menga o Granada." },
+      { "name": "Kevin R.", "barrio": "El Caney", "quote": "En El Caney a veces las entregas se demoran pero la mía llegó a tiempo. Talla XXL, tela suave. Muy contento con la compra." },
+      { "name": "Andrés Felipe D.", "barrio": "El Peñón", "quote": "Un amigo me recomendó. Pedí, no pagué nada, llegaron. Probé, todo bien, pagué con transferencia Nequi al mismo repartidor. Súper cómodo el proceso." },
+      { "name": "Sebastián J.", "barrio": "Limonar", "quote": "Compré para mi papá y para mí. A los dos nos gustaron. Él es 3XL y en pocas tiendas de Cali encuentra su talla. Aquí sí. Volveré." }
     ],
     "faqs": [
       { "q": "¿Cuántos días tarda mi pedido de Medellín a Cali?", "a": "El despacho a Cali se realiza el mismo día o al siguiente hábil. Tu camisa llega en 1-3 días hábiles dependiendo de tu zona — generalmente 24-48 horas en barrios céntricos como Granada o San Fernando." },
       { "q": "¿Aceptan pago con Nequi o Daviplata en Cali?", "a": "Sí, en Cali aceptamos pago contraentrega en efectivo, Nequi, Daviplata y transferencias bancarias. Pagas directo al transportador cuando recibes tu camisa." },
       { "q": "¿Entregan en municipios cercanos como Yumbo, Jamundí o Palmira?", "a": "Sí, hacemos entregas en Yumbo, Jamundí, Palmira, Candelaria y otros municipios del Valle del Cauca cercanos a Cali. Los tiempos son similares (1-3 días hábiles)." },
       { "q": "¿Hacen entrega en comunas alejadas o periféricas de Cali?", "a": "Sí, cubrimos todas las 22 comunas de Cali. Para zonas más alejadas (Aguablanca, La Calera, El Hormiguero) el tiempo puede extenderse a 3-4 días hábiles." },
-      { "q": "¿Tienen punto físico o tienda en Cali?", "a": "No tenemos tienda física en Cali — vendemos solo online con envío directo desde nuestra bodega. Para cambios por talla, el envío de retorno es gratuito y la nueva camisa llega en 3-5 días." }
+      { "q": "¿Tienen punto físico o tienda en Cali?", "a": "No tenemos tienda física en Cali — vendemos solo online con envío directo desde nuestra bodega. Para cambios por talla, el envío de retorno es gratuito y la nueva camisa llega en 3-5 días." },
+      { "q": "¿La polo es adecuada para el calor de Cali?", "a": "Sí, muy adecuada. El algodón pique deja circular el aire y absorbe la humedad sin generar sensación pegajosa. Para Cali recomendamos colores claros (blanco, beige, azul cielo, rosa pastel) durante el día." },
+      { "q": "¿Con qué combinarla para salir de rumba en Cali?", "a": "Para bares en Granada, Menga o el Peñón, la polo negra o vinotinto con jean oscuro y bota de cuero funciona increíble. Manga corta siempre para el clima caleño. Reloj plata suma puntos." },
+      { "q": "¿Sirve para bailar salsa en Cali?", "a": "Sí, siempre y cuando sea manga corta y algodón pique 100%. La circulación de aire evita que sudes exceso. Colores oscuros ayudan a disimular. Vinotinto y azul rey son las favoritas de los caleños." },
+      { "q": "¿Cuál color polo es más popular en Cali?", "a": "Blanca (por elegancia sin pasar calor), azul cielo (por combinar con jean) y beige (por versatilidad). Los caleños jóvenes prefieren colores más vibrantes: verde botella, mostaza, terracota." },
+      { "q": "¿Ofrecen envío 24 horas en Cali?", "a": "Sí, para pedidos generados antes de las 11 AM con destino a Granada, San Fernando, Ciudad Jardín, El Peñón. Confirma disponibilidad por WhatsApp para asegurar el 24-horas." },
+      { "q": "¿Aceptan pago en efectivo por el clima caleño (mucha rumba, poco banco)?", "a": "Sí, efectivo es la forma más común de pago en Cali. También aceptamos Nequi, Daviplata, transferencias bancarias y datáfono cuando el transportador lo lleva. Total flexibilidad." },
+      { "q": "¿Manejan tallas grandes 3XL, 4XL y 5XL en Cali?", "a": "Sí, uno de los diferenciales para el mercado caleño donde muchos hombres necesitan tallas grandes. Manejamos hasta 5XL en la mayoría de estilos, con cortes cómodos y tela transpirable ideal para el calor." }
     ],
+    "estilo_local": {
+      "heading": "El estilo del hombre caleño y la camisa polo",
+      "paragraphs": [
+        "El hombre caleño tiene un estilo particular: fresco por necesidad climática, pero cuidadoso por herencia cultural. Cali es tierra de salseros y rumberos, donde la ropa habla — habla de barrio, de gusto, de estatus. La camisa polo es el basic caleño por excelencia porque cumple: se ve elegante, es fresca, se lava fácil.",
+        "En Ciudad Jardín, Pance y el sur, el estilo es más 'country club' — polos color pastel, mocasines sin medias, gafas de sol. Es el look del ejecutivo del Valle del Lili, del médico del CMI, del hijo de familia jugando golf en Farallones.",
+        "En Granada y San Fernando, el estilo es más profesional-elegante. Polo blanca u Oxford azul bajo saco liviano, chinos gris o beige y mocasín. Perfecta para almuerzos en El Peñón, reuniones en San Antonio o eventos en El Cubo del Banco de la República.",
+        "Para la noche caleña — Menga, la Zona Rosa de la Sexta, los bares de Granada — la polo negra o vinotinto con jean premium oscuro y bota es el uniforme. Es el uniforme del hombre caleño listo para bailar salsa hasta el amanecer sin sudar."
+      ]
+    },
+    "envios_barrios": {
+      "heading": "Cobertura y tiempos de entrega por zona en Cali",
+      "intro": "Cali es la tercera ciudad más grande de Colombia. Cubrimos las 22 comunas con estos tiempos:",
+      "zones": [
+        { "name": "Sur premium (Ciudad Jardín, Pance)", "time": "24-48 horas", "detail": "Ciudad Jardín, Valle del Lili, Pance, La Rivera, El Refugio, Ciudad 2000, Cristales" },
+        { "name": "Centro-Norte (Granada, San Fernando)", "time": "24-48 horas", "detail": "Granada, San Fernando, El Peñón, Tequendama, Versalles, San Antonio, Champagnat, Santa Teresita" },
+        { "name": "Norte (El Caney, La Flora)", "time": "48-72 horas", "detail": "El Caney, La Flora, La Rivera, Limonar, El Ingenio, Ciudad 2000, La Selva" },
+        { "name": "Oriente y sur alejado", "time": "2-4 días hábiles", "detail": "Aguablanca (Manuela Beltrán, El Poblado, Vallado, Puertas del Sol), Meléndez, El Diamante" },
+        { "name": "Municipios cercanos", "time": "2-3 días hábiles", "detail": "Yumbo, Jamundí, Palmira, Candelaria, La Cumbre" }
+      ]
+    },
+    "referentes_moda": {
+      "heading": "Centros comerciales y referentes de moda masculina en Cali",
+      "paragraphs": [
+        "El sur de Cali concentra los referentes premium de moda masculina. Centro Comercial Unicentro (Ciudad Jardín) y Chipichape (norte) tienen la mayor densidad de boutiques y marcas internacionales. Jardín Plaza (Ciudad Jardín) también es referente.",
+        "Otros malls importantes: Centenario, Palmetto Plaza (sur), Cosmocentro y Único (Norte). Para el rango más económico están La 14 de Calima y el sector de la Sexta con múltiples tiendas de moda masculina.",
+        "El sector del Peñón, San Antonio y Granada tiene boutiques independientes y sastres tradicionales — es donde el hombre caleño clásico compra ropa de vestir. Nuestras polos ofrecen una alternativa a esa oferta local: estética premium, envío gratis a Ciudad Jardín, Granada o cualquier zona de Cali, con pago contraentrega. Sin la vuelta al centro comercial."
+      ]
+    },
     "cta_closing": "Más de 130 caleños ya disfrutan de nuestras camisas polo premium con pago contraentrega. Haz tu pedido hoy y recíbelo en tu zona de Cali en 1-3 días, sin pagar nada por adelantado."
   },
   {
@@ -78,21 +198,60 @@
     "department": "Atlántico",
     "lat": 10.9685,
     "lng": -74.7813,
-    "extra_keywords": "camisas polo barranquilla, camisas polo norte barranquilla, camisas polo alto prado, camisas polo riomar, camisas polo el prado",
+    "extra_keywords": "camisas polo barranquilla, camisas polo norte barranquilla, camisas polo alto prado, camisas polo riomar, camisas polo el prado, camisas hombre barranquilla",
     "intro_paragraph": "Barranquilla es la Puerta de Oro de Colombia, con clima tropical de 30°C casi todo el año. Aquí la camisa polo debe ser fresca, transpirable y resistente al sudor — y eso es exactamente lo que ofrecemos. Nuestras telas en algodón pique son ideales para el calor barranquillero, perfectas para oficinas en Riomar, almuerzos en Alto Prado o paseos por la Vía 40 sin pasar calor.",
-    "neighborhoods_extended": "Alto Prado, Riomar, El Prado, Villa Country, Buenavista, Altos del Limón, El Recreo, Boston, Granadillo, El Country, Soledad, Puerto Colombia y zona norte",
+    "neighborhoods_extended": "Alto Prado, Riomar, El Prado, Villa Country, Buenavista, Altos del Limón, El Recreo, Boston, Granadillo, El Country, Villa Santos, Miramar, San Vicente, Betania, El Poblado, Ciudad Jardín, Soledad, Puerto Colombia y zona norte",
     "testimonials": [
       { "name": "Luis Fernando T.", "barrio": "Alto Prado", "quote": "Las telas resisten muy bien el calor de Barranquilla, son frescas y no se arrugan tanto. Estoy estrenando la beige hoy mismo en la oficina." },
       { "name": "Miguel A.", "barrio": "Riomar", "quote": "Compré 4 polos para variar. Llegaron a Riomar en 3 días y la tela aguanta el clima costeño sin dar calor. Excelente compra." },
-      { "name": "Carlos H.", "barrio": "Villa Country", "quote": "Buscaba polos cómodos para el verano barranquillero. Estos son perfectos, livianos y se ven elegantes. Llegaron sin problema a Villa Country." }
+      { "name": "Carlos H.", "barrio": "Villa Country", "quote": "Buscaba polos cómodos para el verano barranquillero. Estos son perfectos, livianos y se ven elegantes. Llegaron sin problema a Villa Country." },
+      { "name": "Andrés F.", "barrio": "El Prado", "quote": "El Prado tiene un microclima más caluroso. Las polos blancas y beige me han salvado. No sudo lo mismo que con camisas de otras telas." },
+      { "name": "Camilo E.", "barrio": "Buenavista", "quote": "Vivo cerca al Centro Comercial Buenavista. Las polos son mi básico para ir a trabajar en el sector empresarial de la Vía 40. Cómodas todo el día." },
+      { "name": "Juan Pablo O.", "barrio": "Miramar", "quote": "En Miramar el sol pega fuerte. Las polos de algodón pique aíslan mejor que camisetas normales. Compro por comodidad y calidad, no por marca." },
+      { "name": "Andrés M.", "barrio": "Puerto Colombia", "quote": "Vivo en Puerto Colombia por la playa. Compré polos para el after-oficina en Vía 40 y para los planes de fin de semana. Ambas funciones cumplen." },
+      { "name": "Diego R.", "barrio": "Soledad", "quote": "Soledad está afuera pero el envío llegó bien. Talla 3XL, algo difícil de conseguir en Barranquilla. Contento, volveré a pedir." }
     ],
     "faqs": [
       { "q": "¿Cuántos días tarda mi pedido de Medellín a Barranquilla?", "a": "El despacho a Barranquilla llega entre 1 y 3 días hábiles. Para barrios del norte como Alto Prado, Riomar o Villa Country, generalmente entregamos en 48 horas." },
       { "q": "¿Aceptan pago con Nequi o Daviplata en Barranquilla?", "a": "Sí, en Barranquilla aceptamos pago contraentrega en efectivo, Nequi, Daviplata y transferencias bancarias. Pagas al transportador cuando recibes — sin pagar nada por adelantado." },
       { "q": "¿Entregan en municipios cercanos como Soledad, Puerto Colombia o Galapa?", "a": "Sí, despachamos a Soledad, Puerto Colombia, Galapa, Malambo y Sabanagrande. Los tiempos son similares (1-3 días hábiles)." },
       { "q": "¿Las telas aguantan el calor de Barranquilla?", "a": "Sí, todas nuestras camisas polo son en algodón pique transpirable, ideal para climas costeños. La tela permite circulación de aire y absorbe la humedad sin generar incomodidad." },
-      { "q": "¿Tienen tienda física en Barranquilla?", "a": "No tenemos tienda física en Barranquilla — vendemos solo online con envío directo. Para cambios por talla, el envío de retorno es gratuito y la nueva camisa llega en 3-5 días hábiles." }
+      { "q": "¿Tienen tienda física en Barranquilla?", "a": "No tenemos tienda física en Barranquilla — vendemos solo online con envío directo. Para cambios por talla, el envío de retorno es gratuito y la nueva camisa llega en 3-5 días hábiles." },
+      { "q": "¿Cuál polo recomiendan para el clima tropical húmedo de Barranquilla?", "a": "Definitivamente colores claros: blanco, beige, azul cielo, rosa pastel, verde menta. El pique liviano (200 gsm) es preferible al grueso. Manga corta salvo para reuniones ejecutivas en Buenavista." },
+      { "q": "¿Sirven para el Carnaval de Barranquilla?", "a": "Las polos blancas son parte del look tradicional del Carnaval combinadas con jean, sombrero y accesorios coloridos. Aguantan la fiesta, se lavan fácil y no restringen movimiento para bailar cumbia." },
+      { "q": "¿Cómo se lavan mejor las polo para el clima barranquillero?", "a": "Lava con agua fría, no uses cloro (el sol costeño ya blanquea), seca a la sombra (el sol directo decolora rápido), y plancha por dentro. Con este cuidado duran 2+ años con uso semanal." },
+      { "q": "¿Ofrecen colores especiales para Carnaval o eventos especiales?", "a": "Nuestros colores estándar incluyen amarillo, verde bandera, rojo y azul (bandera atlanticense). Para pedidos corporativos de Carnaval o eventos manejamos personalización, escríbenos por WhatsApp." },
+      { "q": "¿La polo aguanta el sudor de Barranquilla?", "a": "El algodón pique absorbe humedad mejor que camisetas convencionales, se seca al aire rápidamente y las manchas de sudor no se hacen permanentes. Con lavado frecuente en agua fría, la polo aguanta el uso diario intenso." },
+      { "q": "¿Aceptan pagos en efectivo dólar en Barranquilla (por turistas o negocios)?", "a": "Nuestros pagos son en pesos colombianos. Si vas a pagar en efectivo en Barranquilla, es en pesos. Para transferencias internacionales o pagos con USD, contáctanos previamente para coordinar." },
+      { "q": "¿Manejan tallas grandes 3XL, 4XL y 5XL en Barranquilla?", "a": "Sí, es una de nuestras fortalezas y una necesidad clara del mercado costeño. Manejamos hasta 5XL en varios estilos con corte cómodo y tela transpirable, ideal para hombres grandes en clima caliente." }
     ],
+    "estilo_local": {
+      "heading": "El estilo del hombre costeño y la camisa polo en Barranquilla",
+      "paragraphs": [
+        "El hombre barranquillero tiene un estilo particular: fresco por necesidad, elegante por herencia. Barranquilla es cuna de la costeñidad culta — familias tradicionales del Prado, ejecutivos de Buenavista, empresarios de Riomar. La camisa polo es el basic ideal: fresca, elegante y aceptada en todos los estratos.",
+        "En Alto Prado y El Prado, el estilo es 'costeño tradicional-elegante': polo Oxford blanca o azul cielo, chinos beige o blanco, mocasines de cuero suave. Perfecta para almuerzo en el Country Club, misa en la Catedral Metropolitana, evento en el Museo del Caribe.",
+        "En Riomar y Villa Country, el estilo es más corporativo moderno. Polos color pastel bajo saco liviano de lino, pantalón de vestir gris y zapato semi-formal. Es el look del ejecutivo del sector Vía 40, del gerente en Villa Country Plaza, del profesional joven en Buenavista.",
+        "Para la noche barranquillera — La Troja, la Calle 84, los bares en Buenavista — la polo negra o vinotinto con jean oscuro y bota de cuero es la fórmula. Cómoda para caminar por la Vía 40, elegante para entrar a discotecas exclusivas, y fresca para bailar champeta hasta la madrugada."
+      ]
+    },
+    "envios_barrios": {
+      "heading": "Cobertura y tiempos de entrega por zona en Barranquilla",
+      "intro": "Barranquilla concentra su población en el norte y centro. Nuestros tiempos:",
+      "zones": [
+        { "name": "Norte premium (Riomar, Alto Prado)", "time": "24-48 horas", "detail": "Riomar, Alto Prado, El Prado, Villa Country, Buenavista, Altos del Limón, El Recreo" },
+        { "name": "Centro-Norte", "time": "48-72 horas", "detail": "Boston, El Country, Villa Santos, Miramar, San Vicente, Betania, Centro" },
+        { "name": "Sur y áreas periféricas", "time": "2-3 días hábiles", "detail": "El Poblado, Ciudad Jardín, Rebolo, Los Ángeles, Bella Vista, Simón Bolívar" },
+        { "name": "Municipios cercanos", "time": "2-3 días hábiles", "detail": "Soledad, Puerto Colombia, Galapa, Malambo, Sabanagrande, Sabanalarga, Sitionuevo (Magdalena)" }
+      ]
+    },
+    "referentes_moda": {
+      "heading": "Centros comerciales y referentes de moda masculina en Barranquilla",
+      "paragraphs": [
+        "Barranquilla tiene una escena de moda masculina en crecimiento. Centro Comercial Buenavista y Buenavista II son los referentes del norte, con boutiques de marcas nacionales e internacionales. Villa Country también concentra oferta ejecutiva.",
+        "En el centro tradicional, la Calle 72 y el sector de la Antigua Aduana tienen tiendas de moda masculina más clásicas. Único, Portal del Prado y Centro Mayor complementan la oferta en diferentes zonas y estratos.",
+        "Nuestras polos son el complemento perfecto al armario del hombre barranquillero: calidad premium, precio justo, entrega en Alto Prado, Riomar, Villa Country o cualquier zona de Barranquilla en 1-3 días. Sin ir hasta Buenavista, sin lidiar con parqueaderos ni colas de caja. Y siempre pagas al recibir — cero riesgo."
+      ]
+    },
     "cta_closing": "Más de 90 barranquilleros ya disfrutan de polos premium aptos para el clima tropical. Haz tu pedido hoy y recíbelo en tu zona de Barranquilla en 1-3 días, con pago contraentrega."
   },
   {
@@ -102,21 +261,61 @@
     "department": "Bolívar",
     "lat": 10.3910,
     "lng": -75.4794,
-    "extra_keywords": "camisas polo cartagena, camisas polo bocagrande, camisas polo manga, camisas polo crespo, camisas polo el laguito",
+    "extra_keywords": "camisas polo cartagena, camisas polo bocagrande, camisas polo manga, camisas polo crespo, camisas polo el laguito, camisas hombre cartagena",
     "intro_paragraph": "Cartagena combina historia, turismo y vida costera — y la camisa polo es el outfit perfecto para todo eso. Con temperatura de 30°C y alta humedad, nuestros polos en algodón pique son frescos y elegantes a la vez, ideales para almuerzos en Bocagrande, recorridos por la Ciudad Amurallada o cenas en Manga. Tallaje colombiano real, sin exageraciones.",
-    "neighborhoods_extended": "Bocagrande, Manga, Crespo, El Laguito, Castillogrande, La Boquilla, Pie de la Popa, Cabrero, Marbella, Getsemaní, San Diego, Centro Histórico, Turbaco y Arjona",
+    "neighborhoods_extended": "Bocagrande, Manga, Crespo, El Laguito, Castillogrande, La Boquilla, Pie de la Popa, Cabrero, Marbella, Getsemaní, San Diego, Centro Histórico, La Matuna, La Serrezuela, Torices, Chambacú, Turbaco, Arjona y otros municipios cercanos",
     "testimonials": [
       { "name": "Miguel Ángel V.", "barrio": "Manga", "quote": "Compré 5 camisas para el trabajo. Llegaron a Manga sin problema, todas con su talla exacta y la tela muy cómoda con este clima costeño." },
       { "name": "Daniel C.", "barrio": "Bocagrande", "quote": "Pedí polos para usar en restaurantes y eventos. Llegaron a Bocagrande en 3 días, frescos para el clima de Cartagena y se ven elegantes." },
-      { "name": "Andrés L.", "barrio": "Crespo", "quote": "Necesitaba polos blancos y beige para el verano. Las recibí en Crespo y la calidad es excelente. Volveré a pedir más colores." }
+      { "name": "Andrés L.", "barrio": "Crespo", "quote": "Necesitaba polos blancos y beige para el verano. Las recibí en Crespo y la calidad es excelente. Volveré a pedir más colores." },
+      { "name": "Jorge H.", "barrio": "Castillogrande", "quote": "En Castillogrande el clima es aún más húmedo por la brisa marina. La polo aguanta mejor que las camisas Oxford tradicionales. Cero manchas de sudor." },
+      { "name": "Sebastián R.", "barrio": "El Laguito", "quote": "El Laguito es turismo puro. Necesitaba polos para eventos con clientes internacionales. Se ven premium sin serlo, y aguantan el clima cartagenero. Perfecto." },
+      { "name": "Juan F.", "barrio": "La Boquilla", "quote": "Trabajo en La Boquilla en un hotel. Las polos me sirven para tarde-noche cuando cambio del uniforme al look casual-elegante. Frescas, cómodas, elegantes." },
+      { "name": "Andrés G.", "barrio": "Getsemaní", "quote": "Getsemaní es bohemio, artístico. Compré polos color tierra y verde militar. Perfectas para el estilo que se lleva en la zona sin salirme del uniforme cartagenero." },
+      { "name": "Carlos F.", "barrio": "Turbaco", "quote": "Vivo en Turbaco. Envío llegó a los 3 días. Talla XXL, tela de calidad, tela fresca. Compré para el trabajo en Cartagena, cumplen todos los usos." }
     ],
     "faqs": [
       { "q": "¿Cuántos días tarda mi pedido de Medellín a Cartagena?", "a": "El despacho a Cartagena llega entre 1 y 3 días hábiles. Para barrios turísticos como Bocagrande, El Laguito o Manga, generalmente entregamos en 48 horas." },
       { "q": "¿Aceptan pago con Nequi o Daviplata en Cartagena?", "a": "Sí, en Cartagena aceptamos pago contraentrega en efectivo, Nequi, Daviplata y transferencias bancarias. Pagas al transportador cuando recibes — sin riesgo." },
       { "q": "¿Entregan en municipios cercanos como Turbaco o Arjona?", "a": "Sí, despachamos a Turbaco, Arjona, Santa Rosa, Clemencia y municipios cercanos del departamento de Bolívar. Los tiempos pueden extenderse a 3-4 días hábiles." },
       { "q": "¿Las telas aguantan la humedad de Cartagena?", "a": "Sí, nuestras polos en algodón pique son ideales para clima costeño húmedo. La tela respira, no se siente pesada y mantiene su forma incluso con el sudor." },
-      { "q": "¿Hacen entrega en zonas turísticas como Centro Histórico o la Boquilla?", "a": "Sí, entregamos en todas las zonas de Cartagena incluyendo Centro Histórico, San Diego, Getsemaní, La Boquilla y Cabrero. Tiempo estándar 1-3 días hábiles." }
+      { "q": "¿Hacen entrega en zonas turísticas como Centro Histórico o la Boquilla?", "a": "Sí, entregamos en todas las zonas de Cartagena incluyendo Centro Histórico, San Diego, Getsemaní, La Boquilla y Cabrero. Tiempo estándar 1-3 días hábiles." },
+      { "q": "¿Recomendaciones para polo en el Centro Histórico de Cartagena?", "a": "El Centro Histórico exige elegancia sin sacrificar frescor. Polo blanca o beige con chino tostado y mocasín sin medias es el look ideal. Colores oscuros absorben más calor, evítalos en pleno día." },
+      { "q": "¿Puedo pagar en dólares por turistas en Cartagena?", "a": "Nuestros pagos son en pesos colombianos. Si eres turista con dólares, hay casas de cambio en Bocagrande y el Centro Histórico. Para transferencias internacionales, coordinamos previamente por WhatsApp." },
+      { "q": "¿Cómo sobreviven las polo el aire salado de Cartagena?", "a": "El aire salado desgasta ropa más rápido. Lava con más frecuencia (al menos cada 2 usos), enjuaga con agua limpia después del uso en playa, y evita colgar cerca al mar. Con este cuidado duran igual que en cualquier otra ciudad." },
+      { "q": "¿Ofrecen envío express en el Centro Histórico de Cartagena?", "a": "Para pedidos generados antes de las 10 AM con destino a Bocagrande, Centro Histórico o Manga, podemos hacer entrega en 24 horas dependiendo de la carga. Escríbenos por WhatsApp para confirmar." },
+      { "q": "¿Sirven para eventos en el Castillo San Felipe o restaurantes elegantes?", "a": "Sí, especialmente el polo Oxford blanco o azul marino bajo blazer liviano. Para bodas y eventos exclusivos en Castillo San Felipe, La Cevichería, La Vitrola o Alma sí funcionan. Cómodas para el clima cartagenero." },
+      { "q": "¿Manejan tallas grandes 3XL, 4XL y 5XL en Cartagena?", "a": "Sí, cubrimos hasta 5XL. Es un mercado donde muchos hombres tienen contextura grande y las tiendas locales no siempre manejan estas tallas. Nosotros sí, con cortes cómodos para el calor." },
+      { "q": "¿Qué polo llevar para un plan de rumba en Getsemaní?", "a": "Getsemaní tiene vibra bohemia y artística. Polo color tierra, verde militar, mostaza o azul denim con jean oscuro y bota de cuero. Manga corta obligatoria por el calor. Chaqueta liviana si vas a Bazurto Social Club o Café del Mar." }
     ],
+    "estilo_local": {
+      "heading": "El estilo del hombre cartagenero y la camisa polo",
+      "paragraphs": [
+        "Cartagena es única en Colombia: mezcla histórica española, cultura afro-caribeña y turismo internacional. El hombre cartagenero, del familiar tradicional al ejecutivo joven, tiene un estilo distintivo — fresco, elegante, adaptado al clima y al espíritu del Caribe.",
+        "En Bocagrande, El Laguito y Castillogrande, el estilo es más 'coastal luxury': polo blanca o beige, pantalón blanco o beige, mocasín sin medias, gafas de sol. Es el uniforme del turista sofisticado, del ejecutivo hotelero, del familiar cartagenero clásico en su almuerzo dominical.",
+        "En Manga y Pie de la Popa, el estilo se vuelve más tradicional-elegante. Polo color sólido, chinos beige, mocasín cuero. Es el look del profesional cartagenero clásico, del médico del Hospital Universitario, del abogado del centro histórico.",
+        "En Getsemaní y Centro Histórico, el estilo es más creativo y bohemio: polo color tierra, verde militar, mostaza con jean o pantalón de lino, sandalia de cuero. Es el look del artista, del guía turístico independiente, del ejecutivo joven que trabaja en startups o marketing digital."
+      ]
+    },
+    "envios_barrios": {
+      "heading": "Cobertura y tiempos de entrega por zona en Cartagena",
+      "intro": "Cartagena tiene 3 grandes zonas: turística, tradicional y periferia. Nuestros tiempos:",
+      "zones": [
+        { "name": "Zona turística premium (Bocagrande, Castillogrande, El Laguito)", "time": "24-48 horas", "detail": "Bocagrande, El Laguito, Castillogrande, Marbella, Cabrero, Crespo" },
+        { "name": "Manga, Pie de la Popa y Centro Histórico", "time": "24-48 horas", "detail": "Manga, Pie de la Popa, La Matuna, San Diego, Getsemaní, Centro Histórico, La Serrezuela" },
+        { "name": "Norte-La Boquilla y áreas turísticas nuevas", "time": "48-72 horas", "detail": "La Boquilla, Torices, Zapatero, Anillo Vial, La Boquilla playa" },
+        { "name": "Sur y áreas periféricas", "time": "2-4 días hábiles", "detail": "Chambacú, Nelson Mandela, Olaya Herrera, El Pozón, San José de los Campanos" },
+        { "name": "Municipios cercanos", "time": "3-4 días hábiles", "detail": "Turbaco, Arjona, Turbana, Santa Rosa, Clemencia" }
+      ]
+    },
+    "referentes_moda": {
+      "heading": "Centros comerciales y referentes de moda masculina en Cartagena",
+      "paragraphs": [
+        "Cartagena tiene una escena de moda enfocada en el turista premium. Centro Comercial Caribe Plaza es el más grande y con mayor oferta de marcas. Bocagrande Center concentra boutiques exclusivas. En el Centro Histórico y San Diego hay boutiques independientes con precios altos por ubicación turística.",
+        "Otras referencias: La Serrezuela (mall boutique de lujo), Bocagrande Plaza, Centro Comercial Los Ejecutivos, Centro Comercial Mall Plaza El Castillo. Para el rango más económico están el Centro tradicional y el sector de Getsemaní con tiendas de moda local.",
+        "Nuestras polos son la alternativa perfecta a las boutiques premium del sector turístico: mismo look, tercio del precio, y las recibes en Bocagrande, Manga, El Laguito o cualquier zona de Cartagena en 1-3 días. Sin ir hasta Caribe Plaza, sin pagar precios inflados por ubicación."
+      ]
+    },
     "cta_closing": "Más de 70 cartageneros ya estrenaron polos premium en el clima costeño. Haz tu pedido hoy y recíbelo en Bocagrande, Manga o tu zona favorita de Cartagena en 1-3 días."
   },
   {
@@ -126,21 +325,61 @@
     "department": "Santander",
     "lat": 7.1193,
     "lng": -73.1227,
-    "extra_keywords": "camisas polo bucaramanga, camisas polo cabecera, camisas polo floridablanca, camisas polo cañaveral, camisas polo giron",
+    "extra_keywords": "camisas polo bucaramanga, camisas polo cabecera, camisas polo floridablanca, camisas polo cañaveral, camisas polo giron, camisas hombre bucaramanga",
     "intro_paragraph": "Bucaramanga es 'La Ciudad Bonita' y su gente conoce de elegancia. Con clima templado de 23°C, la camisa polo se adapta perfectamente — útil tanto en oficinas de Cabecera del Llano como en cenas en Cañaveral. Los santandereanos valoran la calidad y la durabilidad, y por eso nuestras telas en algodón pique son ideales: aguantan lavadas, no pierden forma y vienen en tallaje colombiano real hasta 5XL.",
-    "neighborhoods_extended": "Cabecera del Llano, Cañaveral, Floridablanca, Girón, Piedecuesta, El Prado, La Aurora, Sotomayor, Real de Minas, Provenza, Lagos del Cacique, Mutis y toda el Área Metropolitana",
+    "neighborhoods_extended": "Cabecera del Llano, Cañaveral, Floridablanca, Girón, Piedecuesta, El Prado, La Aurora, Sotomayor, Real de Minas, Provenza, Lagos del Cacique, Mutis, Ricaurte, San Alonso, La Concordia, Bolarquí, Guarín, Barrio Alarcón, Universidad, Bucarica y toda el Área Metropolitana",
     "testimonials": [
       { "name": "Ricardo P.", "barrio": "Cabecera del Llano", "quote": "La camisa azul rey me encantó. Servicio impecable y entregaron en Cabecera del Llano en 24 horas. Definitivamente vuelvo a pedir." },
       { "name": "Mauricio H.", "barrio": "Cañaveral", "quote": "Pedí pack de 3 para la oficina. La tela es de calidad y el corte slim me sentó perfecto. Llegaron a Cañaveral sin problema." },
-      { "name": "Felipe G.", "barrio": "Floridablanca", "quote": "Excelente compra. Las camisas llegaron a Floridablanca rapidito y todas en su talla exacta. Recomendado para Bucaramanga." }
+      { "name": "Felipe G.", "barrio": "Floridablanca", "quote": "Excelente compra. Las camisas llegaron a Floridablanca rapidito y todas en su talla exacta. Recomendado para Bucaramanga." },
+      { "name": "David M.", "barrio": "Sotomayor", "quote": "Sotomayor está creciendo comercialmente. Trabajo en un despacho y necesito polos formales. Estas cumplen sin gastar $500K en una." },
+      { "name": "Andrés F.", "barrio": "Girón", "quote": "Girón es un municipio bonito pero conservador. Compro polos color neutro que sirvan para trabajo y para salida familiar. Las polos beige y azul marino son perfectas." },
+      { "name": "Juan Carlos S.", "barrio": "Piedecuesta", "quote": "Piedecuesta queda lejos pero el envío llegó en 2 días. Es raro encontrar tallas grandes en la ciudad. Aquí sí manejan 4XL en varios colores. Excelente." },
+      { "name": "Camilo R.", "barrio": "Provenza", "quote": "En Provenza se ve mucho el estilo santandereano cuidadoso, ordenado. Las polos Oxford blanco y azul cielo son las que más uso. Se ven serias sin ser aburridas." },
+      { "name": "Sebastián T.", "barrio": "Real de Minas", "quote": "Compré varias polos para variar en la oficina. En Bucaramanga hay tiendas pero sus tallas son limitadas. Aquí pedí 3XL, llegó bien, y con la calidad que esperaba." }
     ],
     "faqs": [
       { "q": "¿Cuántos días tarda mi pedido de Medellín a Bucaramanga?", "a": "El despacho a Bucaramanga llega entre 1 y 2 días hábiles. Para barrios céntricos como Cabecera o Cañaveral, frecuentemente entregamos en 24 horas." },
       { "q": "¿Aceptan pago con Nequi o Daviplata en Bucaramanga?", "a": "Sí, en Bucaramanga aceptamos pago contraentrega en efectivo, Nequi, Daviplata y transferencias bancarias. Pagas al transportador cuando recibes." },
       { "q": "¿Entregan en el Área Metropolitana (Floridablanca, Girón, Piedecuesta)?", "a": "Sí, despachamos a Floridablanca, Girón, Piedecuesta y toda el Área Metropolitana de Bucaramanga. Los tiempos son de 1-2 días hábiles." },
       { "q": "¿Hacen entregas en barrios altos o lejanos de Bucaramanga?", "a": "Sí, entregamos en barrios como Provenza, Lagos del Cacique, Real de Minas y zonas altas. Tiempo estándar 1-3 días hábiles." },
-      { "q": "¿Tienen tienda física en Bucaramanga?", "a": "No tenemos tienda física en Bucaramanga — vendemos solo online con envío directo. Para cambios por talla, el retorno es gratuito y la nueva camisa llega en 3-5 días." }
+      { "q": "¿Tienen tienda física en Bucaramanga?", "a": "No tenemos tienda física en Bucaramanga — vendemos solo online con envío directo. Para cambios por talla, el retorno es gratuito y la nueva camisa llega en 3-5 días." },
+      { "q": "¿Sirven para el clima templado de Bucaramanga?", "a": "Perfectas. Los 23°C promedio de Bucaramanga es el clima ideal para el algodón pique — ni tan frío que necesites capas, ni tan cálido que sudes. La polo se usa sola de día y bajo blazer liviano de noche cuando refresca." },
+      { "q": "¿Cuál polo recomiendan para trabajo formal en Bucaramanga?", "a": "Para oficinas ejecutivas en Cabecera del Llano o Cañaveral, polo Oxford blanca o azul marino con chinos beige, mocasín cuero. Se ve profesional sin ser rígida. Los santandereanos valoran esa elegancia sobria." },
+      { "q": "¿Puedo pagar con tarjeta débito en Bucaramanga?", "a": "Sí, muchos transportadores llevan datáfono. También aceptamos Nequi, Daviplata, transferencias PSE y efectivo. Total flexibilidad al momento de recibir tu pedido." },
+      { "q": "¿Ofrecen envío el mismo día en Bucaramanga?", "a": "Para pedidos generados antes de las 11 AM en zonas céntricas como Cabecera del Llano, Cañaveral o Sotomayor, podemos coordinar entrega el mismo día. Contáctanos por WhatsApp para asegurar." },
+      { "q": "¿Manejan tallas grandes 3XL, 4XL y 5XL en Bucaramanga?", "a": "Sí, hasta 5XL en varios estilos. Es una necesidad clara en el mercado santandereano donde los hombres suelen tener contextura grande y las tiendas locales no siempre las manejan." },
+      { "q": "¿Los envíos llegan sábados en Bucaramanga?", "a": "Sí, tenemos entregas de lunes a sábado en Bucaramanga y Área Metropolitana. Domingos no despachan, pero pedidos del sábado se entregan el lunes temprano." },
+      { "q": "¿Ofrecen descuento por compras corporativas en Bucaramanga?", "a": "Sí, para pedidos de 15+ camisas (regalos ejecutivos, uniformes de equipos) manejamos descuentos escalonados. Escríbenos por WhatsApp para cotizar exclusivo para empresas en Santander." }
     ],
+    "estilo_local": {
+      "heading": "El estilo del hombre santandereano y la camisa polo",
+      "paragraphs": [
+        "El hombre santandereano es reconocido por su elegancia sobria y su gusto por lo bien hecho. Bucaramanga es una ciudad limpia, ordenada y con clase — 'La Ciudad Bonita' — y el estilo masculino refleja esos valores. La camisa polo se adapta perfectamente al armario santandereano: se ve elegante, es duradera, y funciona para múltiples ocasiones.",
+        "En Cabecera del Llano y Cañaveral, el estilo es 'business casual pulido': polo Oxford color sólido, chinos beige o gris medio, mocasín cuero, reloj sobrio. Es el look del ejecutivo santandereano moderno, del médico especialista, del gerente joven de empresa familiar.",
+        "En Provenza, Real de Minas y Sotomayor, el estilo es más casual pero igual de cuidadoso. Polo color pastel o tierra, jean o chino, sneaker de cuero. Perfecta para brunch en el CC Cacique, paseo por el Parque García Rovira, cena en Floridablanca con la familia.",
+        "En Piedecuesta y Girón, el estilo es más tradicional-familiar. Polo blanca o beige, pantalón formal, zapato semi-formal. Es el uniforme del padre de familia santandereano clásico que va a misa el domingo, al asado familiar el sábado, a la oficina de lunes a viernes."
+      ]
+    },
+    "envios_barrios": {
+      "heading": "Cobertura y tiempos de entrega por zona en Bucaramanga",
+      "intro": "Bucaramanga y su Área Metropolitana cubren 4 municipios principales. Nuestros tiempos:",
+      "zones": [
+        { "name": "Bucaramanga centro-norte (Cabecera, Cañaveral)", "time": "24-48 horas", "detail": "Cabecera del Llano, Cañaveral, El Prado, La Aurora, Sotomayor, Bolarquí, San Alonso, La Concordia" },
+        { "name": "Bucaramanga sur (Provenza, Real de Minas)", "time": "24-48 horas", "detail": "Provenza, Real de Minas, Ricaurte, Mutis, Guarín, Bucarica, Lagos del Cacique" },
+        { "name": "Floridablanca", "time": "24-48 horas", "detail": "Floridablanca centro, Cañaveral (parte Floridablanca), El Bosque, Villabel, Sotomayor Sector" },
+        { "name": "Girón y Piedecuesta", "time": "48-72 horas", "detail": "Girón centro, Piedecuesta centro, Guaripa, El Reposo, Villa Concha, Piedecuesta zona norte" },
+        { "name": "Municipios cercanos", "time": "2-3 días hábiles", "detail": "Los Santos, San Vicente de Chucurí, Zapatoca, Rionegro (Santander), Barichara, Villanueva" }
+      ]
+    },
+    "referentes_moda": {
+      "heading": "Centros comerciales y referentes de moda masculina en Bucaramanga",
+      "paragraphs": [
+        "Bucaramanga tiene una escena de moda masculina consolidada. Centro Comercial Cacique es el más grande y con mayor oferta de marcas premium y ejecutivas. Centro Comercial La Florida en Floridablanca es referente para el Área Metropolitana. Cañaveral Center y Megamall completan la oferta de los sectores modernos.",
+        "En el centro tradicional bumangués, la Carrera 27 y sectores comerciales del centro tienen tiendas de moda masculina con precios más accesibles. Portal del Cacique y Centro Comercial El Puente ofrecen opciones para diferentes rangos de precio.",
+        "Nuestras camisas polo son la alternativa perfecta a las boutiques de Cacique y La Florida: calidad premium, precio de tercio, y entrega en Cabecera del Llano, Cañaveral, Floridablanca o cualquier zona del Área Metropolitana de Bucaramanga en 1-2 días. Sin desplazamientos, con pago al recibir."
+      ]
+    },
     "cta_closing": "Más de 80 bumangueses ya estrenaron sus polos premium con pago contraentrega. Haz tu pedido hoy y recíbelo en Cabecera, Cañaveral o cualquier zona de Bucaramanga en 1-2 días."
   },
   {
@@ -150,21 +389,61 @@
     "department": "Risaralda",
     "lat": 4.8133,
     "lng": -75.6961,
-    "extra_keywords": "camisas polo pereira, camisas polo circunvalar, camisas polo dosquebradas, camisas polo cuba, camisas polo alamos",
+    "extra_keywords": "camisas polo pereira, camisas polo circunvalar, camisas polo dosquebradas, camisas polo cuba, camisas polo alamos, camisas hombre pereira",
     "intro_paragraph": "Pereira, corazón del Eje Cafetero, vive entre el clima templado (21°C) y el aire fresco de las montañas. La camisa polo es perfecta para ese estilo de vida relajado pero elegante — desde reuniones en la Circunvalar hasta almuerzos en Pinares o paseos por Dosquebradas. Nuestros polos en algodón pique se ajustan al estilo cafetero: cómodos, duraderos y con un corte que estiliza.",
-    "neighborhoods_extended": "Circunvalar, Pinares, Álamos, Cuba, Dosquebradas, La Virginia, Santa Rosa de Cabal, San Joaquín, El Jardín, El Lago, Maraya, Boston y zona centro",
+    "neighborhoods_extended": "Circunvalar, Pinares, Álamos, Cuba, Dosquebradas, La Virginia, Santa Rosa de Cabal, San Joaquín, El Jardín, El Lago, Maraya, Boston, Corales, El Poblado (Pereira), El Bosque, Los Alpes, Los Chinares, El Carmen, Boquerón y zona centro",
     "testimonials": [
       { "name": "Esteban H.", "barrio": "Dosquebradas", "quote": "Pedí el pack de 3 y todas perfectas. En Dosquebradas me llegaron sin demora. La calidad de la tela vale lo que cobran." },
       { "name": "Andrés M.", "barrio": "Circunvalar", "quote": "Compré 4 colores para variar en la semana laboral. Llegaron a Circunvalar en 2 días, todas con su talla exacta. Servicio impecable." },
-      { "name": "Juan David O.", "barrio": "Pinares", "quote": "Buscaba polos que sirvan tanto para café como para reuniones formales. Estos cumplen las dos cosas. Llegaron rápido a Pinares." }
+      { "name": "Juan David O.", "barrio": "Pinares", "quote": "Buscaba polos que sirvan tanto para café como para reuniones formales. Estos cumplen las dos cosas. Llegaron rápido a Pinares." },
+      { "name": "Camilo R.", "barrio": "Álamos", "quote": "Álamos está creciendo mucho. Pedí polos verdes y azul marino para el trabajo. Llegaron perfecto, tela suave, corte moderno." },
+      { "name": "Felipe M.", "barrio": "El Lago", "quote": "En El Lago los planes son de café y almuerzo con la familia. La polo blanca me sirve para todo. Aguanta lavadas semanales sin decolorarse." },
+      { "name": "Diego S.", "barrio": "Cuba", "quote": "Cuba es un sector muy comercial. Trabajo cerca al CC Victoria. Uso las polos color pastel para diferenciarme del resto de gerentes de la zona. Sutil pero notable." },
+      { "name": "Andrés F.", "barrio": "La Virginia", "quote": "Vivo en La Virginia. El envío se demoró 3 días por la distancia pero llegó bien. La polo talla 3XL es difícil de conseguir en tiendas locales, aquí sí." },
+      { "name": "Sebastián V.", "barrio": "Santa Rosa de Cabal", "quote": "Santa Rosa está cerca. Pedí desde acá para no ir a Pereira. Llegó bien, polos color tierra ideales para el clima cafetero." }
     ],
     "faqs": [
       { "q": "¿Cuántos días tarda mi pedido de Medellín a Pereira?", "a": "El despacho a Pereira llega entre 1 y 2 días hábiles. Como Medellín y Pereira están cerca (5 horas por carretera), frecuentemente entregamos en 24 horas." },
       { "q": "¿Aceptan pago con Nequi o Daviplata en Pereira?", "a": "Sí, en Pereira aceptamos pago contraentrega en efectivo, Nequi, Daviplata y transferencias bancarias. Pagas al transportador cuando recibes." },
       { "q": "¿Entregan en Dosquebradas, La Virginia o Santa Rosa?", "a": "Sí, despachamos a Dosquebradas, La Virginia, Santa Rosa de Cabal, Marsella y otros municipios del Eje Cafetero cercanos a Pereira. Los tiempos son similares (1-3 días hábiles)." },
       { "q": "¿Hacen entrega en zonas rurales o veredas de Pereira?", "a": "Sí, llegamos a la mayoría de veredas de Pereira y municipios aledaños. Para zonas muy rurales, el tiempo puede extenderse a 3-4 días hábiles." },
-      { "q": "¿Tienen tienda física en Pereira o el Eje Cafetero?", "a": "No tenemos tienda física en Pereira — vendemos solo online. Para cambios por talla, el retorno es gratuito y la nueva camisa llega en 2-4 días." }
+      { "q": "¿Tienen tienda física en Pereira o el Eje Cafetero?", "a": "No tenemos tienda física en Pereira — vendemos solo online. Para cambios por talla, el retorno es gratuito y la nueva camisa llega en 2-4 días." },
+      { "q": "¿Sirven para el clima templado del Eje Cafetero?", "a": "Sí, perfectas. Los 21°C promedio de Pereira son ideales para el algodón pique. Se lleva sola de día y bajo chaqueta liviana en las noches frescas de Pinares o Circunvalar." },
+      { "q": "¿Qué polo llevar para un plan cafetero típico en Pereira?", "a": "Para café en el CC Victoria, brunch en El Lago o almuerzo en El Manzano, la polo color tierra, verde militar o azul cielo con jean o chino funciona perfecto. Cómoda, elegante sin ser rígida." },
+      { "q": "¿Aceptan pagos en efectivo por costumbre cafetera?", "a": "Sí, aceptamos efectivo, Nequi, Daviplata, transferencia bancaria y datáfono. En el Eje Cafetero el efectivo sigue siendo común, especialmente en municipios cercanos." },
+      { "q": "¿Recomendaciones para vestir polo en oficina en Pereira?", "a": "Para oficinas ejecutivas en Circunvalar o Pinares, polo Oxford color sólido (blanco, azul cielo, gris claro) con chinos beige y mocasín cuero. Se ve profesional para el estilo cafetero moderno." },
+      { "q": "¿Ofrecen envío el mismo día en Pereira?", "a": "Para pedidos antes de las 11 AM con destino a Circunvalar, Pinares, Álamos o Centro, podemos coordinar entrega el mismo día. Contáctanos por WhatsApp." },
+      { "q": "¿Manejan tallas grandes 3XL, 4XL y 5XL en Pereira?", "a": "Sí, hasta 5XL. En el Eje Cafetero muchos hombres tienen contextura fuerte y las tiendas locales no siempre las manejan. Nosotros sí, con tela transpirable y corte cómodo." },
+      { "q": "¿Los envíos llegan a Santa Rosa de Cabal en cuánto tiempo?", "a": "Santa Rosa de Cabal recibe pedidos en 1-2 días hábiles. Es municipio conurbado con Pereira. La Virginia y Marsella toman 2-3 días." }
     ],
+    "estilo_local": {
+      "heading": "El estilo del hombre pereirano y la camisa polo",
+      "paragraphs": [
+        "El hombre pereirano tiene un estilo cafetero moderno: relajado sin ser descuidado, cómodo sin perder elegancia. Pereira es una ciudad joven, dinámica, con mucha influencia cultural del Eje Cafetero, y el estilo masculino refleja esa mezcla. La camisa polo es el basic ideal — funcional, elegante, cafetero por naturaleza.",
+        "En Circunvalar y Pinares, el estilo es 'smart casual cafetero': polo color sólido, chinos beige, mocasín cuero, gafas de sol Ray-Ban clásicas. Es el look del ejecutivo pereirano moderno, del médico del Hospital San Jorge, del gerente joven de empresa cafetera.",
+        "En Álamos y Cuba, el estilo es más comercial-familiar. Polo Oxford color sólido, jean o chino, sneaker de cuero. Perfecta para plan familiar en CC Victoria, café en El Lago, almuerzo dominical en la finca.",
+        "Los fines de semana en Dosquebradas, La Virginia o Santa Rosa, la polo se vuelve más casual. Con jean, camiseta térmica interior si va a hacer trekking, sneakers premium. Es el uniforme del hombre cafetero que va al Parque Ukumari, Termales de Santa Rosa o el Bioparque el fin de semana."
+      ]
+    },
+    "envios_barrios": {
+      "heading": "Cobertura y tiempos de entrega por zona en Pereira",
+      "intro": "Pereira y el Área Metropolitana Centro Occidente cubren varios municipios. Tiempos:",
+      "zones": [
+        { "name": "Pereira centro-norte (Circunvalar, Pinares)", "time": "24-48 horas", "detail": "Circunvalar, Pinares, Álamos, El Lago, San Joaquín, El Jardín, Maraya, El Carmen" },
+        { "name": "Pereira sur (Cuba, Boston)", "time": "24-48 horas", "detail": "Cuba, Boston, Corales, El Poblado, Los Alpes, El Bosque, Boquerón" },
+        { "name": "Dosquebradas", "time": "24-48 horas", "detail": "Dosquebradas centro, La Popa, Comuna 4, Los Rosales, La Esneda" },
+        { "name": "La Virginia y Santa Rosa", "time": "2-3 días hábiles", "detail": "La Virginia centro, Santa Rosa de Cabal centro, Marsella" },
+        { "name": "Municipios cafeteros cercanos", "time": "3-4 días hábiles", "detail": "Balboa, La Celia, Guática, Belén de Umbría, Pueblo Rico, Mistrató, Quinchía" }
+      ]
+    },
+    "referentes_moda": {
+      "heading": "Centros comerciales y referentes de moda masculina en Pereira",
+      "paragraphs": [
+        "Pereira tiene una escena de moda masculina en pleno crecimiento. Centro Comercial Victoria es el referente más grande, con boutiques de marcas nacionales e internacionales. Pereira Plaza y Unicentro Pereira complementan la oferta central.",
+        "En Dosquebradas, Portal del Quindío y Centro Comercial Único ofrecen alternativas más económicas. Para el rango premium, boutiques independientes en Circunvalar y Pinares con marcas exclusivas.",
+        "Nuestras polos son la opción perfecta para el hombre pereirano: mismo estilo que las boutiques del CC Victoria, tercio del precio, entrega en Circunvalar, Pinares, Álamos, Dosquebradas o cualquier zona en 1-2 días. Sin ir al mall, sin pagar sobreprecio por ubicación."
+      ]
+    },
     "cta_closing": "Más de 60 pereiranos ya disfrutan de polos premium con pago contraentrega. Haz tu pedido hoy y recíbelo en Circunvalar, Pinares, Dosquebradas o tu zona favorita en 1-2 días."
   },
   {
@@ -174,21 +453,61 @@
     "department": "Caldas",
     "lat": 5.0689,
     "lng": -75.5174,
-    "extra_keywords": "camisas polo manizales, camisas polo palermo, camisas polo milan, camisas polo la enea, camisas polo cable",
+    "extra_keywords": "camisas polo manizales, camisas polo palermo, camisas polo milan, camisas polo la enea, camisas polo cable, camisas hombre manizales",
     "intro_paragraph": "Manizales, la ciudad de las puertas abiertas, tiene clima fresco de montaña (17°C). La camisa polo aquí se lleva bajo chaqueta liviana o sola en días soleados — perfecta para ejecutivos del Cable, estudiantes de la zona universitaria o profesionales en Palermo. Nuestras telas en algodón pique son cómodas, abrigan lo justo y aguantan el ritmo manizaleño con elegancia.",
-    "neighborhoods_extended": "Palermo, El Cable, La Enea, Milán, Chipre, Villamaría, Versalles, La Sultana, El Bosque, Belmonte, La Estrella, Laureles y zona universitaria",
+    "neighborhoods_extended": "Palermo, El Cable, La Enea, Milán, Chipre, Villamaría, Versalles, La Sultana, El Bosque, Belmonte, La Estrella, Laureles, El Prado, La Camelia, La Argentina, La Rambla, El Nevado, San Marcel, Solferino, La Frontera, Alta Suiza y zona universitaria",
     "testimonials": [
       { "name": "Jorge L.", "barrio": "Palermo", "quote": "La oxford blanca quedó perfecta para la oficina. Llegaron a Palermo rápido y el corte slim me sentó bien. Recomendado para Manizales." },
       { "name": "Sebastián V.", "barrio": "El Cable", "quote": "Como ejecutivo del Cable necesito polos formales. Llegaron en 48 horas y la tela es de calidad superior. Vuelvo a pedir." },
-      { "name": "Carlos R.", "barrio": "Milán", "quote": "Pedí pack de 3 para variar colores. Llegaron a Milán sin problema y todas en su talla. Buena experiencia." }
+      { "name": "Carlos R.", "barrio": "Milán", "quote": "Pedí pack de 3 para variar colores. Llegaron a Milán sin problema y todas en su talla. Buena experiencia." },
+      { "name": "Andrés G.", "barrio": "La Enea", "quote": "La Enea está en crecimiento. Trabajo en la zona empresarial. Las polos color pastel son ideales para el clima frío pero con sol. Perfectas combinadas con blazer." },
+      { "name": "David F.", "barrio": "Chipre", "quote": "Vivo en Chipre. El envío tomó 2 días pero llegó impecable. La polo Oxford blanca es mi favorita para trabajo, elegante y con el frío no se ve pobre." },
+      { "name": "Andrés M.", "barrio": "Versalles", "quote": "En Versalles los planes son familiares y tranquilos. La polo color tierra me sirve para almuerzo, café en El Cable, cine en Fundadores. Versátil, elegante, cómoda." },
+      { "name": "Felipe T.", "barrio": "Villamaría", "quote": "Villamaría queda al cruzar el puente. Pedí desde acá para no ir a Manizales. Llegó bien, polos manga larga ideal para el clima manizaleño." },
+      { "name": "Juan David R.", "barrio": "El Bosque", "quote": "Estudiante universitario. Necesitaba polos elegantes sin gastar en marcas costosas. Estas cumplen: se ven premium sin serlo, y con el pago contraentrega no arriesgué nada." }
     ],
     "faqs": [
       { "q": "¿Cuántos días tarda mi pedido de Medellín a Manizales?", "a": "El despacho a Manizales llega entre 1 y 2 días hábiles. La cercanía con Medellín (6 horas por carretera) permite tiempos rápidos en zonas céntricas." },
       { "q": "¿Aceptan pago con Nequi o Daviplata en Manizales?", "a": "Sí, en Manizales aceptamos pago contraentrega en efectivo, Nequi, Daviplata y transferencias bancarias. Pagas al transportador cuando recibes." },
       { "q": "¿Entregan en Villamaría, Chinchiná o Neira?", "a": "Sí, despachamos a Villamaría, Chinchiná, Neira y otros municipios de Caldas cercanos a Manizales. Los tiempos son similares (1-3 días hábiles)." },
       { "q": "¿Hacen entregas en zonas altas o periféricas de Manizales?", "a": "Sí, entregamos en barrios altos como Chipre, La Sultana, Belmonte y zonas periféricas. Tiempo estándar 1-3 días hábiles." },
-      { "q": "¿Tienen tienda física en Manizales?", "a": "No tenemos tienda física en Manizales — vendemos solo online con envío directo. Para cambios por talla, el retorno es gratuito y la nueva camisa llega en 3-5 días." }
+      { "q": "¿Tienen tienda física en Manizales?", "a": "No tenemos tienda física en Manizales — vendemos solo online con envío directo. Para cambios por talla, el retorno es gratuito y la nueva camisa llega en 3-5 días." },
+      { "q": "¿Sirven para el clima frío de Manizales?", "a": "Sí, siempre bajo capa. Los 17°C promedio de Manizales requieren una polo manga larga combinada con chaqueta liviana, gabardina o buster de lana. El algodón pique conserva el calor sin hacer el look pesado." },
+      { "q": "¿Recomiendan manga corta o manga larga para Manizales?", "a": "Manga larga para casi todo el año en Manizales. La manga corta se usa solo en días muy soleados de mediodía. La versatilidad de la manga larga es superior en este clima." },
+      { "q": "¿Ofrecen colores especiales para el estilo cafetero?", "a": "Sí, nuestros colores tierra, verde militar, azul denim y burdeos son perfectos para el estilo cafetero-manizaleño. Reflejan el estilo del hombre de montaña sin ser aburridos." },
+      { "q": "¿Aceptan pago en efectivo por costumbre local?", "a": "Sí, efectivo es común en Manizales y municipios de Caldas. También Nequi, Daviplata, transferencia y datáfono. Total flexibilidad." },
+      { "q": "¿Ofrecen descuento para universitarios en Manizales?", "a": "Sí, para estudiantes universitarios (Universidad de Manizales, Universidad Nacional Sede Manizales, Autónoma de Manizales, Católica de Manizales) manejamos descuentos con presentación de carnet. Escríbenos por WhatsApp." },
+      { "q": "¿Manejan tallas grandes 3XL, 4XL y 5XL en Manizales?", "a": "Sí, hasta 5XL. Aunque menos común que en otras ciudades, la demanda existe en Manizales, especialmente para adultos mayores y hombres deportistas robustos. Cubrimos con varios colores." },
+      { "q": "¿La polo aguanta el sol manizaleño intenso?", "a": "Sí, especialmente las de color oscuro (azul marino, verde botella, vinotinto, negro). Los colores claros (blanco, beige) se recomienda no exponerlos al sol prolongado al secar. Con este cuidado duran años." }
     ],
+    "estilo_local": {
+      "heading": "El estilo del hombre manizaleño y la camisa polo",
+      "paragraphs": [
+        "El hombre manizaleño tiene un estilo distintivo: elegante, cuidado, adaptado al clima frío pero soleado. Manizales es una ciudad universitaria y cafetera, con población joven y clásica a la vez. El estilo masculino se caracteriza por buenos tejidos, cortes clásicos y colores sobrios.",
+        "En Palermo y El Cable, el estilo es 'business casual pulido': polo Oxford color sólido bajo blazer liviano de lana o gabardina, chinos gris o beige, mocasín cuero de calidad. Es el uniforme del ejecutivo manizaleño, del médico del Hospital de Caldas, del abogado en el centro.",
+        "En Milán, La Enea y sectores modernos, el estilo es más contemporáneo. Polo color tierra, verde militar o azul cielo con chinos beige, mocasín o zapato semi-formal. Perfecta para café en Juan Valdez del Cable, almuerzo en el CC Fundadores, cine en Cable Plaza.",
+        "En zonas universitarias como La Camelia, San Marcel o cerca a la Universidad de Manizales, el estilo es más juvenil-casual. Polo color pastel con jean, sneakers premium. Es el uniforme del estudiante mayor que se toma en serio su presentación."
+      ]
+    },
+    "envios_barrios": {
+      "heading": "Cobertura y tiempos de entrega por zona en Manizales",
+      "intro": "Manizales y municipios de Caldas cercanos. Tiempos:",
+      "zones": [
+        { "name": "Manizales centro (Palermo, El Cable)", "time": "24-48 horas", "detail": "Palermo, El Cable, La Rambla, Chipre, Milán, Versalles, La Sultana, Fundadores" },
+        { "name": "Manizales oriente (La Enea)", "time": "48-72 horas", "detail": "La Enea, Belmonte, San Marcel, La Camelia, Alta Suiza, Villapilar, Solferino" },
+        { "name": "Villamaría", "time": "24-48 horas", "detail": "Villamaría centro, La Florida, San Cayetano, Gerona, Villa del Sol" },
+        { "name": "Municipios de Caldas cercanos", "time": "2-3 días hábiles", "detail": "Chinchiná, Neira, Palestina, Manzanares, Anserma, Riosucio, Salamina" },
+        { "name": "Zonas rurales de Manizales", "time": "3-4 días hábiles", "detail": "Corregimientos altos, veredas de Caldas, zonas rurales de Villamaría" }
+      ]
+    },
+    "referentes_moda": {
+      "heading": "Centros comerciales y referentes de moda masculina en Manizales",
+      "paragraphs": [
+        "Manizales tiene una escena de moda cuidada. Centro Comercial Fundadores es el más grande, con boutiques ejecutivas y de marcas nacionales. Centro Comercial Cable Plaza es referente del sector premium en El Cable. Centro Comercial Sancancio y Centro Comercial Parque Caldas complementan la oferta.",
+        "En el centro tradicional, la Avenida Santander y la Carrera 23 tienen tiendas de moda masculina más clásicas. Portales del Café y Multicentro Estrella ofrecen alternativas más económicas.",
+        "Nuestras polos son ideales para el hombre manizaleño: estética premium acorde con el estilo local, precio justo, entrega en Palermo, El Cable, Milán o cualquier zona en 1-2 días. Sin ir a Fundadores ni Cable Plaza, sin desplazamientos por la topografía manizaleña."
+      ]
+    },
     "cta_closing": "Más de 45 manizaleños ya estrenaron polos premium para el clima de montaña. Haz tu pedido hoy y recíbelo en Palermo, El Cable o cualquier zona de Manizales en 1-2 días."
   },
   {
@@ -198,21 +517,61 @@
     "department": "Norte de Santander",
     "lat": 7.8939,
     "lng": -72.5078,
-    "extra_keywords": "camisas polo cucuta, camisas polo caobos, camisas polo quinta oriental, camisas polo ceiba, camisas polo san luis",
+    "extra_keywords": "camisas polo cucuta, camisas polo caobos, camisas polo quinta oriental, camisas polo ceiba, camisas polo san luis, camisas hombre cucuta",
     "intro_paragraph": "Cúcuta, la 'Perla del Norte' y ciudad fronteriza, tiene clima cálido (28°C) y un ritmo comercial intenso. Aquí la camisa polo es básica para profesionales del comercio, oficinistas en Caobos y emprendedores en La Ceiba. Nuestros polos en algodón pique son frescos, aguantan el clima cucuteño y vienen en tallaje colombiano real — algo difícil de encontrar en una zona fronteriza con tantas importaciones.",
-    "neighborhoods_extended": "Caobos, Quinta Oriental, La Ceiba, San Luis, La Riviera, Pescadero, El Bosque, El Llano, Los Patios, Villa del Rosario, El Zulia y zona centro",
+    "neighborhoods_extended": "Caobos, Quinta Oriental, La Ceiba, San Luis, La Riviera, Pescadero, El Bosque, El Llano, Los Patios, Villa del Rosario, El Zulia, Puente Barco, La Merced, Barrio Colombia, Barrio Loma de Bolívar, Barrio Chapinero, Barrio Bogotá, Barrio Guaimaral, Barrio San Rafael y zona centro",
     "testimonials": [
       { "name": "Daniel C.", "barrio": "Caobos", "quote": "En Cúcuta es difícil conseguir polos de calidad. Estos llegaron a Caobos en 2 días y la tela es exactamente lo que prometen. Excelente." },
       { "name": "Juan Pablo S.", "barrio": "Quinta Oriental", "quote": "Pedí 3 colores para usar en el trabajo. Llegaron a Quinta Oriental sin problema y la talla XXL me quedó perfecta. Servicio rápido." },
-      { "name": "Camilo T.", "barrio": "La Ceiba", "quote": "Como emprendedor uso polos a diario. Llegaron a La Ceiba en 3 días y la calidad de la tela me sorprendió. Vuelvo a pedir." }
+      { "name": "Camilo T.", "barrio": "La Ceiba", "quote": "Como emprendedor uso polos a diario. Llegaron a La Ceiba en 3 días y la calidad de la tela me sorprendió. Vuelvo a pedir." },
+      { "name": "Andrés R.", "barrio": "San Luis", "quote": "San Luis está bien ubicado. Recibí la polo negra y azul oscuro, ideales para el trabajo comercial cucuteño. Aguantan el sol y las lavadas frecuentes." },
+      { "name": "Diego M.", "barrio": "El Bosque", "quote": "Trabajo en el comercio fronterizo. Necesito polos que se vean serias pero sean cómodas. Estas cumplen. Costo-beneficio excelente contra las importadas del San Andresito." },
+      { "name": "Felipe G.", "barrio": "Pescadero", "quote": "En Pescadero manejamos negocios de mucho intercambio. La polo blanca y beige son mis favoritas para reuniones con clientes internacionales. Se ven profesionales." },
+      { "name": "Sebastián L.", "barrio": "Los Patios", "quote": "Los Patios es municipio cercano. Envío llegó bien, en 3 días. Talla 3XL, tela suave. En Cúcuta es raro conseguir estas tallas en el rango de precio, aquí sí." },
+      { "name": "Kevin H.", "barrio": "Villa del Rosario", "quote": "Villa del Rosario tiene muchas movidas comerciales. Pedí polos color tierra y verde militar, se ven bien y aguantan el clima cálido. Recomendado." }
     ],
     "faqs": [
       { "q": "¿Cuántos días tarda mi pedido de Medellín a Cúcuta?", "a": "El despacho a Cúcuta llega entre 2 y 3 días hábiles. La distancia desde Medellín hace que los tiempos sean un poco mayores que en otras capitales." },
       { "q": "¿Aceptan pago con Nequi o Daviplata en Cúcuta?", "a": "Sí, en Cúcuta aceptamos pago contraentrega en efectivo, Nequi, Daviplata y transferencias bancarias. Pagas al transportador cuando recibes." },
       { "q": "¿Entregan en Los Patios, Villa del Rosario o El Zulia?", "a": "Sí, despachamos a Los Patios, Villa del Rosario, El Zulia y otros municipios del Área Metropolitana de Cúcuta. Los tiempos son similares (2-3 días hábiles)." },
       { "q": "¿Las telas aguantan el clima cálido de Cúcuta?", "a": "Sí, todas nuestras camisas polo son en algodón pique transpirable, ideal para el clima cucuteño. La tela permite circulación de aire sin perder elegancia." },
-      { "q": "¿Tienen tienda física en Cúcuta?", "a": "No tenemos tienda física en Cúcuta — vendemos solo online con envío directo desde Medellín. Para cambios por talla, el retorno es gratuito y la nueva camisa llega en 4-6 días." }
+      { "q": "¿Tienen tienda física en Cúcuta?", "a": "No tenemos tienda física en Cúcuta — vendemos solo online con envío directo desde Medellín. Para cambios por talla, el retorno es gratuito y la nueva camisa llega en 4-6 días." },
+      { "q": "¿Aceptan pagos con bolívares o pesos venezolanos en Cúcuta?", "a": "No, aceptamos únicamente pesos colombianos. Si tienes clientes o familiares en la frontera con moneda venezolana, deben cambiar a pesos antes del pago. En Cúcuta hay muchas casas de cambio." },
+      { "q": "¿Cuál polo recomiendan para el clima intenso de Cúcuta?", "a": "Para Cúcuta (28°C promedio con picos de 35°C), colores claros (blanco, beige, azul cielo, verde menta), gramaje liviano y manga corta. La polo blanca es la más versátil y fresca." },
+      { "q": "¿Cómo cuidar la polo con el sol intenso cucuteño?", "a": "Lava con agua fría, no expongas al sol directo al secar (decolora rápido en Cúcuta), plancha por dentro. Con estos cuidados la polo dura 2+ años con uso semanal, incluso en el clima cucuteño." },
+      { "q": "¿Ofrecen entregas en el San Andresito o zonas comerciales de Cúcuta?", "a": "Sí, entregamos en el sector comercial de Cúcuta incluyendo San Andresito, Ceiba, Caobos y Centro. Muchos comerciantes son nuestros clientes recurrentes." },
+      { "q": "¿Aceptan pagos en efectivo por costumbre fronteriza?", "a": "Sí, efectivo es común en Cúcuta especialmente en el sector comercial. También aceptamos Nequi, Daviplata, transferencias PSE y datáfono cuando el transportador lo lleva." },
+      { "q": "¿Manejan tallas grandes 3XL, 4XL y 5XL en Cúcuta?", "a": "Sí, hasta 5XL. En Cúcuta es común encontrar hombres con contextura fuerte y las tiendas locales o del San Andresito no siempre las manejan en calidad. Nosotros sí, con tela transpirable ideal para el calor." },
+      { "q": "¿Ofrecen descuento para comerciantes en Cúcuta por compras al mayor?", "a": "Sí, para pedidos de 20+ polos manejamos precios mayoristas para comerciantes en Cúcuta. Escríbenos por WhatsApp para cotizar. Enviamos con transportadora dedicada." }
     ],
+    "estilo_local": {
+      "heading": "El estilo del hombre cucuteño y la camisa polo",
+      "paragraphs": [
+        "El hombre cucuteño tiene un estilo particular: influido por el comercio fronterizo, el clima cálido, la mezcla cultural colombiana-venezolana. Cúcuta es una ciudad comercial por excelencia, y el estilo masculino refleja la necesidad de verse profesional en un clima intenso sin gastar demasiado.",
+        "En Caobos, Quinta Oriental y La Ceiba, el estilo es 'business casual comercial': polo Oxford color sólido, chinos beige o gris, mocasín cuero cómodo para caminar. Es el look del gerente comercial, del ejecutivo joven, del profesional que hace visitas a clientes por toda la ciudad.",
+        "En San Luis, Pescadero y sector centro, el estilo es más tradicional-comercial. Polo blanca o azul cielo, pantalón formal, zapato semi-formal. Perfecta para el comerciante fronterizo, el gerente de importaciones, el ejecutivo bancario del centro.",
+        "En Los Patios, Villa del Rosario y municipios cercanos, el estilo es más casual-familiar. Polo color tierra, verde militar, azul denim con jean o chino, sneakers cómodos. Es el uniforme del hombre cucuteño que trabaja duro y sabe presentarse bien sin exagerar."
+      ]
+    },
+    "envios_barrios": {
+      "heading": "Cobertura y tiempos de entrega por zona en Cúcuta",
+      "intro": "Cúcuta y su Área Metropolitana. Tiempos:",
+      "zones": [
+        { "name": "Cúcuta centro-este (Caobos, Quinta Oriental)", "time": "48-72 horas", "detail": "Caobos, Quinta Oriental, La Ceiba, San Luis, La Riviera, Pescadero, La Merced" },
+        { "name": "Cúcuta norte-oeste", "time": "48-72 horas", "detail": "El Bosque, El Llano, Barrio Colombia, Loma de Bolívar, Chapinero, Bogotá, Guaimaral" },
+        { "name": "Los Patios y Villa del Rosario", "time": "2-3 días hábiles", "detail": "Los Patios centro, Villa del Rosario centro, Puente Internacional Simón Bolívar zona colombiana" },
+        { "name": "El Zulia y municipios cercanos", "time": "2-3 días hábiles", "detail": "El Zulia, San Cayetano, Puerto Santander, Ureña zona colombiana" },
+        { "name": "Municipios más lejanos", "time": "3-4 días hábiles", "detail": "Chinácota, Bochalema, Ocaña, Pamplona, Sardinata" }
+      ]
+    },
+    "referentes_moda": {
+      "heading": "Centros comerciales y referentes de moda masculina en Cúcuta",
+      "paragraphs": [
+        "Cúcuta tiene una escena comercial única en Colombia por su ubicación fronteriza. Centro Comercial Ventura Plaza y Unicentro Cúcuta son los referentes principales de moda. El San Andresito de Cúcuta es famoso por opciones más económicas — aunque calidad es variable.",
+        "Centro Comercial Alejandría y Centro Comercial Bolívar complementan la oferta. En el centro tradicional, la Avenida Cero y la Calle 10 concentran tiendas de moda masculina de rango medio.",
+        "Nuestras polos son la alternativa perfecta al San Andresito: calidad garantizada, marca propia (sin engaños), precio competitivo, y llegan a Caobos, La Ceiba, San Luis o cualquier zona de Cúcuta con pago contraentrega. Sin ir al Ventura, sin arriesgar en San Andresito."
+      ]
+    },
     "cta_closing": "Más de 35 cucuteños ya estrenaron polos premium en tallaje colombiano real. Haz tu pedido hoy y recíbelo en Caobos, La Ceiba o cualquier zona de Cúcuta en 2-3 días."
   },
   {
@@ -222,21 +581,61 @@
     "department": "Tolima",
     "lat": 4.4389,
     "lng": -75.2322,
-    "extra_keywords": "camisas polo ibague, camisas polo piedrapintada, camisas polo la pola, camisas polo jordan, camisas polo calambeo",
+    "extra_keywords": "camisas polo ibague, camisas polo piedrapintada, camisas polo la pola, camisas polo jordan, camisas polo calambeo, camisas hombre ibague",
     "intro_paragraph": "Ibagué, la 'Capital Musical de Colombia', tiene clima templado (22°C) y un estilo de vida pausado pero elegante. La camisa polo encaja perfecto aquí — desde profesionales en La Pola hasta familias en Piedrapintada o El Jordán. Nuestros polos en algodón pique son cómodos para el clima tolimense y vienen en tallaje colombiano real (S a 5XL), algo importante en una ciudad donde la oferta de ropa formal-casual a veces es limitada.",
-    "neighborhoods_extended": "La Pola, Piedrapintada, El Jordán, Calambeo, Vergel, Belén, El Salado, Versalles, Las Acacias, Picaleña, Aparco, La Floresta y zona centro",
+    "neighborhoods_extended": "La Pola, Piedrapintada, El Jordán, Calambeo, Vergel, Belén, El Salado, Versalles, Las Acacias, Picaleña, Aparco, La Floresta, Prado Colombia, Cadiz, Cañaveral, La Estrella, Musical, Boquerón, Malabar, Interlaken, El Carmen, El Vergel, La Frontera, Santa Rita y zona centro",
     "testimonials": [
       { "name": "Mauricio S.", "barrio": "La Pola", "quote": "Pedí 5 camisas variadas y todas me quedaron al pelo. Excelente servicio en Ibagué, llegaron en 2 días a La Pola sin problema." },
       { "name": "Andrés F.", "barrio": "El Jordán", "quote": "Buscaba polos de calidad sin pagar lo de marca. Llegaron a El Jordán en 48 horas y la tela es excelente. Recomendado." },
-      { "name": "Felipe O.", "barrio": "Piedrapintada", "quote": "Como profesional uso polos casi todos los días. Llegaron a Piedrapintada rapidito y todas con su talla exacta. Volveré a pedir." }
+      { "name": "Felipe O.", "barrio": "Piedrapintada", "quote": "Como profesional uso polos casi todos los días. Llegaron a Piedrapintada rapidito y todas con su talla exacta. Volveré a pedir." },
+      { "name": "Camilo R.", "barrio": "Calambeo", "quote": "Calambeo es un barrio cercano al centro. Trabajo en gobierno departamental. Uso polo Oxford todos los días, se ve profesional sin ser demasiado. Ideal para el clima ibaguereño." },
+      { "name": "Daniel V.", "barrio": "Versalles", "quote": "Compré polos color tierra y verde militar. Perfectas para uso familiar en almuerzos dominicales o paseos por Combeima. El servicio fue rápido a Versalles." },
+      { "name": "Andrés G.", "barrio": "Vergel", "quote": "El Vergel está más al sur. Envío llegó en 3 días. Compré talla XXL, se ve elegante sin ser cara. Perfecta para el trabajo en la Alcaldía." },
+      { "name": "Sebastián H.", "barrio": "Belén", "quote": "Belén tiene mucho movimiento comercial. Uso las polos color pastel para diferenciarme del look tradicional ibaguereño. Sutil pero elegante." },
+      { "name": "Juan Pablo D.", "barrio": "Picaleña", "quote": "Picaleña es municipio cercano. El envío se demoró 3 días por la distancia pero llegó bien. Talla 3XL, corte cómodo, tela transpirable ideal para el clima tolimense." }
     ],
     "faqs": [
       { "q": "¿Cuántos días tarda mi pedido de Medellín a Ibagué?", "a": "El despacho a Ibagué llega entre 1 y 3 días hábiles. Para barrios céntricos como La Pola, El Jordán o Piedrapintada, generalmente entregamos en 48 horas." },
       { "q": "¿Aceptan pago con Nequi o Daviplata en Ibagué?", "a": "Sí, en Ibagué aceptamos pago contraentrega en efectivo, Nequi, Daviplata y transferencias bancarias. Pagas al transportador cuando recibes." },
       { "q": "¿Entregan en Espinal, Coello o Flandes?", "a": "Sí, despachamos a Espinal, Coello, Flandes, Mariquita y otros municipios del Tolima cercanos a Ibagué. Los tiempos son similares (1-3 días hábiles)." },
       { "q": "¿Hacen entrega en barrios altos o periféricos de Ibagué?", "a": "Sí, llegamos a la mayoría de barrios de Ibagué incluyendo zonas como Picaleña, El Salado y Aparco. Tiempo estándar 1-3 días hábiles." },
-      { "q": "¿Tienen tienda física en Ibagué?", "a": "No tenemos tienda física en Ibagué — vendemos solo online con envío directo. Para cambios por talla, el retorno es gratuito y la nueva camisa llega en 3-5 días." }
+      { "q": "¿Tienen tienda física en Ibagué?", "a": "No tenemos tienda física en Ibagué — vendemos solo online con envío directo. Para cambios por talla, el retorno es gratuito y la nueva camisa llega en 3-5 días." },
+      { "q": "¿La polo sirve para el clima templado-cálido de Ibagué?", "a": "Sí, perfecta. Los 22°C promedio de Ibagué son ideales para el algodón pique — cómodo de día y de noche. Se lleva sola sin necesidad de capa adicional, útil para el ritmo pausado de la ciudad musical." },
+      { "q": "¿Cuál polo recomiendan para Ibagué?", "a": "Para el clima ibaguereño, polos color sólido (blanco, azul cielo, beige, verde militar) con gramaje 220-240 gsm. La versatilidad entre trabajo y planes familiares hace que la polo blanca sea la más pedida." },
+      { "q": "¿Ofrecen envío el mismo día en Ibagué?", "a": "Para pedidos generados antes de las 11 AM con destino a La Pola, El Jordán, Piedrapintada, podemos coordinar entrega el mismo día. Contáctanos por WhatsApp para confirmar." },
+      { "q": "¿Manejan tallas grandes 3XL, 4XL y 5XL en Ibagué?", "a": "Sí, hasta 5XL. En Ibagué las tiendas locales no siempre tienen estas tallas en calidad decente. Nosotros manejamos hasta 5XL en varios colores y estilos, con corte cómodo." },
+      { "q": "¿Aceptan pagos en efectivo por costumbre local?", "a": "Sí, efectivo es común en Ibagué especialmente en municipios cercanos. También Nequi, Daviplata, transferencia y datáfono. Total flexibilidad." },
+      { "q": "¿Ofrecen descuento por compras corporativas en Ibagué?", "a": "Sí, para pedidos de 15+ camisas (regalos ejecutivos, uniformes para eventos de la Capital Musical) manejamos descuentos escalonados. Escríbenos por WhatsApp." },
+      { "q": "¿Los envíos llegan sábados en Ibagué?", "a": "Sí, tenemos entregas de lunes a sábado en Ibagué. Domingos no despachan, pero pedidos del sábado se entregan el lunes." }
     ],
+    "estilo_local": {
+      "heading": "El estilo del hombre ibaguereño y la camisa polo",
+      "paragraphs": [
+        "El hombre ibaguereño tiene un estilo distintivo: elegante pero relajado, cuidadoso pero sin ostentación. Ibagué es una ciudad tranquila, musical, con familias tradicionales y jóvenes profesionales. La camisa polo se adapta perfecto: se ve elegante sin ser rígida, cómoda para el clima templado, versátil para múltiples ocasiones.",
+        "En La Pola y Piedrapintada, el estilo es 'business casual clásico': polo Oxford color sólido, chinos beige, mocasín cuero de calidad. Es el uniforme del ejecutivo ibaguereño, del médico especialista, del profesional del sector gobernamental.",
+        "En El Jordán, Calambeo y sector centro, el estilo es más tradicional-elegante. Polo blanca o azul cielo, pantalón formal, zapato semi-formal. Perfecta para reuniones en la Alcaldía, eventos en el Conservatorio del Tolima, cena en un restaurante clásico ibaguereño.",
+        "En sectores nuevos como Vergel, Calambeo y municipios cercanos como Ibagué Norte, el estilo es más casual-moderno. Polo color tierra, verde militar o azul denim con jean o chino, sneakers cómodos. Es el uniforme del hombre ibaguereño moderno que valora estilo sin sacrificar comodidad."
+      ]
+    },
+    "envios_barrios": {
+      "heading": "Cobertura y tiempos de entrega por zona en Ibagué",
+      "intro": "Ibagué y municipios del Tolima cercanos. Tiempos:",
+      "zones": [
+        { "name": "Ibagué centro-norte (La Pola, El Jordán)", "time": "24-48 horas", "detail": "La Pola, El Jordán, Piedrapintada, Calambeo, Vergel, Prado Colombia, Interlaken" },
+        { "name": "Ibagué sur (Belén, Cadiz)", "time": "48-72 horas", "detail": "Belén, Cadiz, Cañaveral, La Estrella, Musical, Malabar, El Vergel" },
+        { "name": "Ibagué occidental (Picaleña, Aparco)", "time": "48-72 horas", "detail": "Picaleña, Aparco, La Floresta, Santa Rita, Boquerón, El Carmen, La Frontera" },
+        { "name": "Municipios cercanos del Tolima", "time": "2-3 días hábiles", "detail": "Espinal, Coello, Flandes, Cajamarca, Anzoátegui, Alvarado" },
+        { "name": "Municipios más lejanos", "time": "3-4 días hábiles", "detail": "Mariquita, Honda, Fresno, Melgar, Chaparral, Ortega, Purificación" }
+      ]
+    },
+    "referentes_moda": {
+      "heading": "Centros comerciales y referentes de moda masculina en Ibagué",
+      "paragraphs": [
+        "Ibagué tiene una escena de moda modesta pero creciente. Centro Comercial Multicentro Ibagué es el más grande, con marcas nacionales y algunas internacionales. Centro Comercial La Estación y Portal del Prado complementan la oferta.",
+        "En el centro tradicional, la Carrera 3 y la Calle 15 concentran tiendas de moda masculina de rango medio. San Andresito de Ibagué ofrece opciones económicas pero calidad variable.",
+        "Nuestras polos son perfectas para el hombre ibaguereño: calidad premium, precio justo, entrega en La Pola, El Jordán, Piedrapintada o cualquier zona en 1-3 días. Sin ir al Multicentro, sin desplazamientos innecesarios, con pago contraentrega para cero riesgo."
+      ]
+    },
     "cta_closing": "Más de 40 ibaguereños ya disfrutan de polos premium con pago contraentrega. Haz tu pedido hoy y recíbelo en La Pola, Piedrapintada o cualquier zona de Ibagué en 1-3 días."
   }
 ]
