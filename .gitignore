@@ -3,3 +3,5 @@ dist
 .vite
 .env
 .vercel
+_landings
+output
