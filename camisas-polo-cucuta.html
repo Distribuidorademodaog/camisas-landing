@@ -4290,7 +4290,7 @@ body.co-open .sticky-cta, body.co-open .wa-float { display:none !important; }
   function load(v){ if(!v.src && v.dataset.src){ v.src = v.dataset.src; var p=v.play(); if(p&&p.catch)p.catch(function(){}); } }
   if(!('IntersectionObserver' in window)){ vids.forEach(load); return; }
   var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ load(e.target); io.unobserve(e.target); } }); }, {rootMargin:'300px'});
-  vids.forEach(function(v){ io.observe(v); });
+  function _sv(){vids.forEach(function(v){ io.observe(v); });}if(document.readyState==="complete"){setTimeout(_sv,700);}else{addEventListener("load",function(){setTimeout(_sv,700);});}
 })();
 </script>
 </body>
