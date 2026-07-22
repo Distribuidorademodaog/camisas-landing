@@ -1,4 +1,11 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/blog/camisa-polo-ralph-lauren-original-vs-alternativa",
+      "destination": "/blog/camisas-premium-vs-marca-costosa",
+      "permanent": true
+    }
+  ]
 }
