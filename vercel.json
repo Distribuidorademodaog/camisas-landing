@@ -6,6 +6,11 @@
       "source": "/blog/camisa-polo-ralph-lauren-original-vs-alternativa",
       "destination": "/blog/camisas-premium-vs-marca-costosa",
       "permanent": true
+    },
+    {
+      "source": "/camisas-polo-ralph-lauren-colombia",
+      "destination": "/camisas-polo-premium-colombia",
+      "permanent": true
     }
   ]
 }
