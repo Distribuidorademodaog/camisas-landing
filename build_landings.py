@@ -19,19 +19,19 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).parent
-TEMPLATE = ROOT / "camisas-polo-ralph-lauren-colombia.html"
+TEMPLATE = ROOT / "camisas-polo-premium-colombia.html"
 SPECS = ROOT / "_landings"
 BASE = "https://www.camisascolombia.com"
-RL_SLUG = "camisas-polo-ralph-lauren-colombia"
+RL_SLUG = "camisas-polo-premium-colombia"
 
 # ---- strings EXACTAS del template RL que reemplazamos (assert si no aparecen) ----
-RL_TITLE = "Camisas Polo Estilo Ralph Lauren en Colombia | Alternativa Premium"
-RL_OG_TITLE = "Camisas Polo Estilo Ralph Lauren en Colombia | Alternativa Premium"
-RL_TW_TITLE = "Camisas Polo Hombre Estilo Ralph Lauren en Colombia"
-RL_WEBPAGE_NAME = '"name":"Camisas Polo Estilo Ralph Lauren en Colombia | Alternativa Premium"'
-RL_WEBPAGE_DESC = '"description":"Tienda online colombiana de camisas polo premium para hombre estilo Ralph Lauren. Pago contraentrega, envío gratis y +20 colores."'
-RL_BC1 = '"name":"Camisas Polo Estilo Ralph Lauren","item"'          # breadcrumb compacto (head)
-RL_BC2 = '"name": "Camisas Polo Estilo Ralph Lauren en Colombia",'  # breadcrumb espaciado (pre-footer)
+RL_TITLE = "Camisas Polo Estilo Premium en Colombia | Alternativa Premium"
+RL_OG_TITLE = "Camisas Polo Estilo Premium en Colombia | Alternativa Premium"
+RL_TW_TITLE = "Camisas Polo Hombre Estilo Premium en Colombia"
+RL_WEBPAGE_NAME = '"name":"Camisas Polo Estilo Premium en Colombia | Alternativa Premium"'
+RL_WEBPAGE_DESC = '"description":"Tienda online colombiana de camisas polo premium para hombre estilo premium. Pago contraentrega, envío gratis y +20 colores."'
+RL_BC1 = '"name":"Camisas Polo Estilo Premium","item"'          # breadcrumb compacto (head)
+RL_BC2 = '"name": "Camisas Polo Estilo Premium en Colombia",'  # breadcrumb espaciado (pre-footer)
 
 
 def strip_tags(html: str) -> str:
@@ -75,7 +75,7 @@ def build(slug, template):
     # 1. Seccion unica (desde el <section id RL> hasta el marcador CARRUSEL)
     carrusel = "  <!-- ═══════ CARRUSEL ═══════ -->"
     out = sub1(
-        r'  <section class="sec sec-light" id="camisas-polo-ralph-lauren">.*?  <!-- ═══════ CARRUSEL ═══════ -->',
+        r'  <section class="sec sec-light" id="camisas-polo-premium">.*?  <!-- ═══════ CARRUSEL ═══════ -->',
         section + "\n\n" + carrusel,
         out, flags=re.DOTALL, label="section",
     )
