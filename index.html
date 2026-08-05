@@ -3300,9 +3300,24 @@ function toggleFaq(el) {
     <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:7px 10px;justify-content:center;font-family:'Outfit',sans-serif;font-size:12px;color:#4a4a4a;font-weight:600;">
       <span>🚚 Envío GRATIS</span><span>📦 Pago contraentrega</span><span>⭐ Miles de clientes satisfechos</span>
     </div>
-    <div style="margin-top:10px;background:#fff4e6;border:1px solid #ffd8a8;border-radius:10px;padding:9px 12px;text-align:center;font-family:'Outfit',sans-serif;font-size:12.5px;color:#b45309;font-weight:700;">
+    <div id="despachoBanner" style="margin-top:10px;background:#fff4e6;border:1px solid #ffd8a8;border-radius:10px;padding:9px 12px;text-align:center;font-family:'Outfit',sans-serif;font-size:12.5px;color:#b45309;font-weight:700;">
       ⏰ Despacho HOY si ordenas antes de las 4:00 pm · Últimas unidades
     </div>
+    <script>(function(){
+      // Despacho HOY solo lun-vie no festivo (hora Colombia). Sabado/domingo/festivo/despues de 4pm -> proximo dia habil.
+      function easter(y){var a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1;return new Date(y,mo-1,da);}
+      function toMon(dt){var wd=dt.getDay();if(wd!==1)dt.setDate(dt.getDate()+((8-wd)%7));return dt;}
+      function ymd(dt){return dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');}
+      function fest(y){var s=new Set();[[1,1],[5,1],[7,20],[8,7],[12,8],[12,25]].forEach(function(f){s.add(ymd(new Date(y,f[0]-1,f[1])));});[[1,6],[3,19],[6,29],[8,15],[10,12],[11,1],[11,11]].forEach(function(f){s.add(ymd(toMon(new Date(y,f[0]-1,f[1]))));});var e=easter(y);function ad(n){var d=new Date(e);d.setDate(d.getDate()+n);return d;}s.add(ymd(ad(-3)));s.add(ymd(ad(-2)));s.add(ymd(toMon(ad(43))));s.add(ymd(toMon(ad(64))));s.add(ymd(toMon(ad(71))));return s;}
+      try{
+        var now=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Bogota'}));
+        var habil=now.getDay()>=1&&now.getDay()<=5&&!fest(now.getFullYear()).has(ymd(now));
+        var el=document.getElementById('despachoBanner');
+        if(el) el.innerHTML=(habil&&now.getHours()<16)
+          ? '⏰ Despacho HOY si ordenas antes de las 4:00 pm · Últimas unidades'
+          : '📦 Haz tu pedido hoy · Despachamos el próximo día hábil · Últimas unidades';
+      }catch(e){}
+    })();</script>
     <div style="height:16px;"></div>
   </div>
 
