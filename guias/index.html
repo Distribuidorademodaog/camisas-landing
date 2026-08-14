@@ -133,6 +133,82 @@ h1.post-title { font-family: 'Cormorant Garamond', serif; font-size: 32px; line-
     .cluster-card p { font-size:12px; color:#5a5448; line-height:1.5; margin-bottom:8px; }
     .cluster-meta { font-size:11px; color:#8a7d6b; }
     </style>
+
+  <!-- ═══════ FACEBOOK PIXEL ═══════ -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '773251872839863');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" alt=""
+  src="https://www.facebook.com/tr?id=773251872839863&ev=PageView&noscript=1" /></noscript>
+  <!-- FIN PIXEL -->
+
+  <!-- ═══════ GOOGLE ANALYTICS 4 ═══════ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZ03N4NWTW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QZ03N4NWTW');
+  </script>
+  <!-- FIN GA4 -->
+
+  <!-- ═══════ MICROSOFT CLARITY ═══════ -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wkvu8s5xzh");
+  </script>
+  <!-- FIN CLARITY -->
+
+  <!-- ═══════ EVENTOS DE CONTENIDO (remarketing tibio) ═══════ -->
+  <script>
+  (function(){
+    var fired = {};
+    function send(name, params){
+      if (fired[name]) return; fired[name] = 1;
+      if (window.gtag) gtag('event', name, params || {});
+      if (window.fbq) fbq('trackCustom', name, params || {});
+    }
+    function pct(){
+      var d = document.documentElement, b = document.body;
+      var h = Math.max(b.scrollHeight, d.scrollHeight) - window.innerHeight;
+      return h > 0 ? (window.scrollY / h) * 100 : 0;
+    }
+    window.addEventListener('scroll', function(){
+      var p = pct();
+      if (p >= 50) send('scroll_50', {content_type: 'article'});
+      if (p >= 75) send('scroll_75', {content_type: 'article'});
+      if (p >= 90) send('article_complete', {content_type: 'article'});
+    }, {passive: true});
+    setTimeout(function(){ send('engaged_30s', {content_type: 'article'}); }, 30000);
+    document.addEventListener('click', function(e){
+      var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
+      if (a) {
+        if (window.fbq) fbq('track', 'Contact', {content_name: document.title});
+        if (window.gtag) gtag('event', 'whatsapp_click', {link_url: a.href});
+      }
+    });
+  })();
+  </script>
+  <!-- FIN EVENTOS DE CONTENIDO -->
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta name="theme-color" content="#121C2E">
+  <meta name="apple-mobile-web-app-title" content="Camisas Colombia">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#121C2E">
 </head>
 <body>
 <nav class="blog-header">

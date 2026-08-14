@@ -156,3 +156,25 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# ─────────────────────────────────────────────────────────────
+# Guardarrail de marcas ajenas (añadido por la auditoria SEO 2026-08).
+# Usar una marca de terceros en title/description/alt es lo que revisa
+# Google Merchant Center bajo su politica de marcas, y es reportable por
+# el titular ante Meta Ads. Si el build vuelve a introducirla, aborta.
+# ─────────────────────────────────────────────────────────────
+MARCAS_PROHIBIDAS = [
+    "ralph lauren", "polo rl", "lacoste", "tommy hilfiger",
+    "hugo boss", "calvin klein", "nautica",
+]
+
+
+def verificar_marcas(ruta_salida):
+    """Aborta el build si el HTML generado contiene una marca ajena."""
+    with open(ruta_salida, encoding="utf-8", errors="replace") as fh:
+        contenido = fh.read().lower()
+    encontradas = sorted({m for m in MARCAS_PROHIBIDAS if m in contenido})
+    if encontradas:
+        raise SystemExit(
+            "BUILD ABORTADO: marca ajena en %s -> %s" % (ruta_salida, encontradas))

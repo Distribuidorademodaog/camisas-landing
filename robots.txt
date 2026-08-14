@@ -1,4 +1,20 @@
 User-agent: *
 Allow: /
+Disallow: /gracias
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+Disallow: /*?utm_
+
+# Bots de IA: se permiten a proposito. Aparecer en respuestas de
+# asistentes es un canal de descubrimiento y esta marca no tiene
+# contenido que proteger de ellos.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
 
 Sitemap: https://www.camisascolombia.com/sitemap.xml

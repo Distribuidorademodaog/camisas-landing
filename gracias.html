@@ -27,6 +27,86 @@
   .status-declined { color:#f07f7f; }
   .whatsapp { display:inline-flex; align-items:center; gap:6px; background:#25D366; color:white; padding:12px 20px; border-radius:8px; text-decoration:none; font-weight:600; font-size:13px; margin-top:12px; }
 </style>
+
+  <!-- ═══════ FACEBOOK PIXEL ═══════ -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '773251872839863');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" alt=""
+  src="https://www.facebook.com/tr?id=773251872839863&ev=PageView&noscript=1" /></noscript>
+  <!-- FIN PIXEL -->
+
+  <!-- ═══════ GOOGLE ANALYTICS 4 ═══════ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZ03N4NWTW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QZ03N4NWTW');
+  </script>
+  <!-- FIN GA4 -->
+
+  <!-- ═══════ MICROSOFT CLARITY ═══════ -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wkvu8s5xzh");
+  </script>
+  <!-- FIN CLARITY -->
+
+  <!-- ═══════ EVENTO DE CONVERSION ═══════ -->
+  <script>
+  (function(){
+    var qs = new URLSearchParams(window.location.search);
+    var value = parseFloat(qs.get('valor') || qs.get('value') || '') || 82500;
+    var orderId = qs.get('pedido') || qs.get('order') || qs.get('id') || '';
+    var items = qs.get('items') || 'camisa-polo-premium';
+
+    if (window.fbq) {
+      fbq('track', 'Purchase', {
+        value: value,
+        currency: 'COP',
+        content_type: 'product',
+        content_ids: [items],
+        content_name: 'Camisa Polo Premium Hombre'
+      }, orderId ? {eventID: orderId} : undefined);
+    }
+    if (window.gtag) {
+      gtag('event', 'purchase', {
+        transaction_id: orderId || ('cc-' + Date.now()),
+        value: value,
+        currency: 'COP',
+        items: [{
+          item_id: items,
+          item_name: 'Camisa Polo Premium Hombre',
+          item_category: 'Camisas Polo',
+          price: value,
+          quantity: 1
+        }]
+      });
+    }
+  })();
+  </script>
+  <!-- FIN EVENTO DE CONVERSION -->
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta name="theme-color" content="#121C2E">
+  <meta name="apple-mobile-web-app-title" content="Camisas Colombia">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#121C2E">
+  <link rel="canonical" href="https://www.camisascolombia.com/gracias">
 </head>
 <body>
 

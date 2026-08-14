@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página no encontrada | Camisas Colombia</title>
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#121C2E">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Outfit',system-ui,sans-serif;background:#F5F0E8;color:#121C2E;
+         min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+    .wrap{max-width:640px;width:100%;text-align:center}
+    .badge{display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+           color:#9A7B3C;font-weight:600;margin-bottom:14px}
+    h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.2rem,9vw,3.4rem);
+       line-height:1.05;margin-bottom:12px}
+    h1 em{font-style:italic;color:#9A7B3C}
+    p.lead{font-size:15.5px;line-height:1.65;color:rgba(18,28,46,.72);margin-bottom:26px}
+    .links{list-style:none;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:26px}
+    .links a{display:inline-block;padding:11px 18px;border-radius:9px;background:#fff;
+             border:1px solid rgba(18,28,46,.12);color:#121C2E;text-decoration:none;
+             font-size:14px;font-weight:500;transition:.18s}
+    .links a:hover{background:#121C2E;color:#D4B060;border-color:#121C2E}
+    .cta{display:inline-block;padding:14px 30px;border-radius:10px;background:#121C2E;
+         color:#D4B060;text-decoration:none;font-weight:600;font-size:15px}
+    .cta:hover{background:#0D1626}
+    .foot{margin-top:28px;font-size:12.5px;color:rgba(18,28,46,.5)}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="badge">Error 404</div>
+    <h1>Esta página no existe.<br><em>Sus camisas sí.</em></h1>
+    <p class="lead">
+      El enlace que siguió ya no está disponible. Le dejamos los atajos a lo que
+      la mayoría viene a buscar: tallas de la S a la 5XL, pago contraentrega y
+      envío gratis a todo Colombia.
+    </p>
+
+    <ul class="links">
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/camisas-polo-premium-colombia">Camisas polo premium</a></li>
+      <li><a href="/camisas-hombre-tallas-grandes">Tallas 3XL · 4XL · 5XL</a></li>
+      <li><a href="/pack-camisas-polo-hombre">Packs con descuento</a></li>
+      <li><a href="/camisas-manga-corta-hombre">Manga corta</a></li>
+      <li><a href="/blog/como-elegir-talla-camisa-polo">Guía de tallas</a></li>
+      <li><a href="/blog">Blog</a></li>
+    </ul>
+
+    <a class="cta" href="https://wa.me/573207544636?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20camisas%20polo"
+       rel="noopener">Escribir por WhatsApp</a>
+
+    <p class="foot">Camisas Colombia · Envío gratis y pago contraentrega a todo el país</p>
+  </main>
+
+  <!-- ═══════ FACEBOOK PIXEL ═══════ -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '773251872839863');
+  fbq('track', 'PageView');
+  </script>
+  <!-- ═══════ GOOGLE ANALYTICS 4 ═══════ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZ03N4NWTW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QZ03N4NWTW');
+    // Registrar que URL produjo el 404 y desde donde se llego, para poder
+    // arreglar los enlaces rotos en vez de adivinarlos.
+    gtag('event', 'page_not_found', {
+      broken_url: location.pathname + location.search,
+      referrer: document.referrer || '(directo)'
+    });
+  </script>
+</body>
+</html>
