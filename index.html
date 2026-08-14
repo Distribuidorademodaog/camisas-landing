@@ -3981,37 +3981,20 @@ async function payWithWompi(clienteData) {
     return;
   }
 
-  // Abrir widget de Wompi
-  if (typeof WidgetCheckout === 'undefined') {
-    alert('Cargando pasarela de pago... intenta de nuevo en unos segundos');
-    document.getElementById('sendingOv').classList.remove('act');
-    window.__submittingOrder = false;
-    const nb = document.getElementById('coNextBtn'); if (nb) nb.disabled = false;
-    return;
-  }
-  const checkout = new WidgetCheckout({
-    currency: 'COP',
-    amountInCents: orderData.amount_in_cents,
-    reference: orderData.reference,
-    publicKey: orderData.public_key,
-    signature: { integrity: orderData.signature },
-    redirectUrl: 'https://www.camisascolombia.com/gracias?ref=' + orderData.reference,
-    customerData: {
-      email: clienteData.correo || '',
-      fullName: clienteData.nombre || '',
-      phoneNumber: clienteData.celular || '',
-      phoneNumberPrefix: '+57'
-    }
+  // Web Checkout de Wompi (redirect a página completa — evita bugs de scroll del widget iframe)
+  const params = new URLSearchParams({
+    'public-key': orderData.public_key,
+    'currency': 'COP',
+    'amount-in-cents': String(orderData.amount_in_cents),
+    'reference': orderData.reference,
+    'signature:integrity': orderData.signature,
+    'redirect-url': 'https://www.camisascolombia.com/gracias?ref=' + orderData.reference,
+    'customer-data:email': clienteData.correo || '',
+    'customer-data:full-name': clienteData.nombre || '',
+    'customer-data:phone-number': clienteData.celular || '',
+    'customer-data:phone-number-prefix': '+57'
   });
-  checkout.open((result) => {
-    // Callback si el widget se cierra sin redirect (usuario cancela)
-    document.getElementById('sendingOv').classList.remove('act');
-    window.__submittingOrder = false;
-    const nb = document.getElementById('coNextBtn'); if (nb) nb.disabled = false;
-    if (result?.transaction?.status === 'APPROVED') {
-      // Wompi redireccionará automáticamente al redirectUrl
-    }
-  });
+  window.location.href = 'https://checkout.wompi.co/p/?' + params.toString();
 }
 
 function submitForm() {
