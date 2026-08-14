@@ -276,13 +276,21 @@ def render_post(post: dict, all_posts: dict) -> str:
     <a href="/">Ver packs disponibles →</a>
     </div>'''
 
+    # El <title> del SERP se separa del H1 a proposito: el H1 es el titulo del
+    # articulo, el <title> es la promesa que gana el clic. Si posts.json no trae
+    # seo_title, se cae al comportamiento anterior (titulo + sufijo de marca).
+    # OJO: no truncar aqui. Un titulo de 64 chars intacto se clickea mas que uno
+    # de 56 cortado a mitad de frase (ver seo_titles_2026_08.py).
+    seo_title = post.get("seo_title") or f'{post["title"]} | Blog Camisas Colombia'
+    seo_desc = post.get("seo_description") or post["meta_description"]
+
     return f'''<!DOCTYPE html>
 <html lang="es-CO">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{post["title"]} | Blog Camisas Colombia</title>
-<meta name="description" content="{post["meta_description"]}">
+<title>{seo_title}</title>
+<meta name="description" content="{seo_desc}">
 <meta name="author" content="{post["author"]}">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="canonical" href="{BASE_URL}/blog/{post["slug"]}">
@@ -400,7 +408,7 @@ def render_index(posts: list) -> str:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog Camisas Colombia | Guías de Estilo, Tallas y Cuidado de Polos</title>
+<title>Blog Camisas Colombia | Guías de Estilo, Tallas y Cuidado</title>
 <meta name="description" content="Blog de Camisas Colombia: guías de tallas, comparativas de marcas, estilos de polos, cuidados y consejos de moda masculina en Colombia.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="{BASE_URL}/blog">
