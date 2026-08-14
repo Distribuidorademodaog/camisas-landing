@@ -2827,14 +2827,15 @@ function toggleFaq(el) {
   background:#0e1828; border-radius:12px; padding:16px 18px;
   border:1px solid rgba(154,123,60,0.2);
 }
-/* SELECTOR MÉTODO DE PAGO */
-.pago-opt { display:flex; gap:10px; align-items:flex-start; background:rgba(255,255,255,0.05); border:1.5px solid rgba(196,163,90,0.25); border-radius:10px; padding:12px 14px; margin-bottom:8px; cursor:pointer; transition:all 0.15s; }
-.pago-opt:hover { background:rgba(255,255,255,0.08); }
-.pago-opt.pago-opt-selected { border-color:#C4A35A; background:rgba(196,163,90,0.15); }
+/* SELECTOR MÉTODO DE PAGO — sobre fondo ivory del checkout */
+.pago-selector-title { font-family:'Cormorant Garamond',serif; color:#0e1828; font-size:15px; font-weight:600; margin-bottom:10px; }
+.pago-opt { display:flex; gap:10px; align-items:flex-start; background:#fff; border:1.5px solid rgba(0,0,0,0.08); border-radius:10px; padding:12px 14px; margin-bottom:8px; cursor:pointer; transition:all 0.15s; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+.pago-opt:hover { border-color:rgba(196,163,90,0.5); }
+.pago-opt.pago-opt-selected { border-color:#C4A35A; background:#fdf9f0; box-shadow:0 3px 10px rgba(196,163,90,0.15); }
 .pago-opt input[type="radio"] { margin-top:3px; accent-color:#C4A35A; flex-shrink:0; }
 .pago-opt-body { flex:1; }
-.pago-opt-title { font-family:'Outfit',sans-serif; color:#fff; font-size:14px; font-weight:600; }
-.pago-opt-sub { font-family:'Outfit',sans-serif; color:rgba(255,255,255,0.55); font-size:12px; margin-top:2px; line-height:1.4; }
+.pago-opt-title { font-family:'Outfit',sans-serif; color:#0e1828; font-size:14px; font-weight:600; }
+.pago-opt-sub { font-family:'Outfit',sans-serif; color:#6a6155; font-size:12px; margin-top:3px; line-height:1.4; }
 /* BUMPS WOMPI INLINE */
 .wompi-bump-card { background:#fff; border-radius:10px; padding:10px 12px; margin-bottom:8px; display:flex; gap:10px; align-items:center; }
 .wompi-bump-card img { width:52px; height:52px; border-radius:8px; object-fit:cover; flex-shrink:0; background:#f0ece4; }
