@@ -44,17 +44,8 @@ Todas van precedidas de `https://www.camisascolombia.com`.
 | 3 | /camisas-polo-santa-marta | Google ni la conoce pese a llevar 3 semanas en el sitemap |
 | 4 | /camisas-polo-villavicencio | Ídem, y es capital de departamento sin competencia local fuerte |
 
-**Día 2 — si las 4 anteriores entran al índice**
-
-| # | URL |
-|---|---|
-| 5 | /camisas-polo-itagui |
-| 6 | /camisas-polo-envigado |
-| 7 | /camisas-polo-valledupar |
-| 8 | /camisas-polo-monteria |
-
-**No pedir todavía**: neiva, pasto, armenia, popayán. Son los mercados más
-pequeños y gastan cuota de una señal que conviene concentrar.
+Y no hay día 2: las otras 8 ciudades quedaron en `noindex` (ver abajo). La
+cuota diaria de solicitudes se concentra entera en estas 4.
 
 ## La decisión de fondo
 
@@ -68,7 +59,32 @@ resultado. Las dos palancas que sí mueven la aguja:
 2. **Backlinks a la pilar y a Medellín.** Es el único frente donde la
    competencia gana por autoridad y no por producto.
 
-Opción a evaluar: poner en `noindex` las 8 ciudades de mercado pequeño que
-Google rechaza (neiva, pasto, armenia, popayán, valledupar, montería, itagüí,
-envigado) hasta que el dominio tenga más autoridad. Concentra la señal en las
-páginas que sí pueden rankear. Es reversible, pero es una decisión de negocio.
+## ✅ EJECUTADO 2026-08-14: noindex a las 8 ciudades de mercado pequeño
+
+`noindex_ciudades_pequenas.py` puso `<meta name="robots" content="noindex,
+follow">` y sacó del sitemap a: **neiva, pasto, armenia, popayán, valledupar,
+montería, itagüí, envigado**. Sitemap 84 → 76 URLs.
+
+Decisiones de la implementación:
+
+- **`follow`, no `noindex, nofollow`.** El link equity sigue fluyendo hacia las
+  páginas que sí queremos indexar.
+- **Los enlaces internos se mantienen** (47-56 páginas siguen enlazando cada
+  una). Son útiles para el usuario que busca su ciudad y para el rastreo; lo
+  que se retira es la petición de indexarlas.
+- **Fuera del sitemap.** Dejar una URL con `noindex` dentro del sitemap manda
+  dos señales opuestas. `verificar_cambios.py` ahora tiene un control que
+  falla si vuelven a desalinearse.
+
+Para revertir cuando el dominio tenga más autoridad:
+
+```
+python noindex_ciudades_pequenas.py --revertir
+```
+
+O para rescatar solo alguna: quitarla de la lista `FUERA` del script y correr
+`--revertir`.
+
+**Lo que esto NO arregla:** el problema de fondo sigue siendo autoridad. El
+noindex concentra la señal, pero quien mete a Medellín en el índice son los
+backlinks. Ese frente sigue pendiente.

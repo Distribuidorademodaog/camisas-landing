@@ -117,5 +117,26 @@ for k, v in list(dupt.items()) + list(dupd.items()):
 print("7. %d paginas: %d titles duplicados, %d descriptions duplicadas"
       % (len(todos), len(dupt), len(dupd)))
 
+# 8) coherencia noindex <-> sitemap: una pagina con noindex no debe estar en el
+#    sitemap (señales contradictorias), y una indexable si debe estarlo.
+sm = open("sitemap.xml", encoding="utf-8").read()
+incoh = 0
+for f in sorted(todos):
+    if f in ("404.html", "gracias.html"):
+        continue
+    s = open(f, encoding="utf-8").read()
+    m = re.search(r'<meta name="robots" content="([^"]*)"', s)
+    noindex = bool(m) and "noindex" in m.group(1)
+    slug = "/" if f == "index.html" else "/" + f[:-5].replace("/index", "")
+    en_sm = ("<loc>https://www.camisascolombia.com%s</loc>" % slug) in sm
+    if noindex and en_sm:
+        print("  INCOHERENTE: %s tiene noindex pero sigue en el sitemap" % f)
+        incoh += 1
+    elif not noindex and not en_sm:
+        print("  INCOHERENTE: %s es indexable pero no esta en el sitemap" % f)
+        incoh += 1
+print("8. coherencia noindex/sitemap: %d incoherencias" % incoh)
+err += incoh
+
 print("\n%s" % ("=== SIN ERRORES ===" if err == 0 else ">>> %d ERRORES <<<" % err))
 raise SystemExit(1 if err else 0)
