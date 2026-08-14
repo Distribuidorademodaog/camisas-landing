@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gracias por tu pedido | Camisas Colombia</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Outfit',sans-serif; background:#0e1828; color:#fff; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; }
+  .card { max-width:520px; width:100%; background:#141f33; border-radius:20px; padding:32px 24px; text-align:center; box-shadow:0 12px 40px rgba(0,0,0,0.4); border:1px solid rgba(196,163,90,0.2); }
+  .icon { font-size:72px; margin-bottom:12px; }
+  h1 { font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:700; color:#C4A35A; margin-bottom:8px; line-height:1.15; }
+  .msg { color:rgba(255,255,255,0.75); font-size:14.5px; line-height:1.6; margin-bottom:20px; }
+  .info { background:rgba(196,163,90,0.08); border-radius:12px; padding:14px 16px; margin:16px 0; text-align:left; font-size:13px; color:rgba(255,255,255,0.85); }
+  .info .row { display:flex; justify-content:space-between; margin-bottom:5px; }
+  .info .row strong { color:#C4A35A; }
+  .cta { display:inline-block; background:#C4A35A; color:#0e1828; padding:14px 28px; border-radius:10px; text-decoration:none; font-weight:700; font-size:14px; margin-top:16px; }
+  .cta:hover { background:#d4b878; }
+  .spinner { width:44px; height:44px; border:4px solid rgba(196,163,90,0.2); border-top-color:#C4A35A; border-radius:50%; animation:spin 0.9s linear infinite; margin:16px auto; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+  .status-pending { color:#f0c96d; }
+  .status-approved { color:#4fd88a; }
+  .status-declined { color:#f07f7f; }
+  .whatsapp { display:inline-flex; align-items:center; gap:6px; background:#25D366; color:white; padding:12px 20px; border-radius:8px; text-decoration:none; font-weight:600; font-size:13px; margin-top:12px; }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div id="content">
+    <div class="spinner"></div>
+    <h1>Procesando tu pago...</h1>
+    <p class="msg">Estamos confirmando tu transacción con Wompi. Esto toma unos segundos.</p>
+  </div>
+</div>
+
+<script>
+const params = new URLSearchParams(location.search);
+const ref = params.get('ref') || params.get('id') || '';
+const status = params.get('env') || params.get('status') || 'PENDING';
+
+// Wompi también manda "id" (transaction id) en el redirect. Usamos ref si lo tenemos.
+async function checkStatus() {
+  if (!ref) {
+    render('error');
+    return;
+  }
+  try {
+    const r = await fetch('https://pedidos.paquetecompleto.com.co/wompi/status/' + encodeURIComponent(ref));
+    const d = await r.json();
+    if (d.status === 'APPROVED') { render('approved', d); return; }
+    if (d.status === 'DECLINED' || d.status === 'VOIDED' || d.status === 'ERROR') { render('declined', d); return; }
+    // PENDING → recheck en 3 segundos
+    render('pending');
+    setTimeout(checkStatus, 3000);
+  } catch(e) { render('error'); }
+}
+
+function render(state, data) {
+  const c = document.getElementById('content');
+  const total = data?.wompi?.amount_in_cents ? '$' + (data.wompi.amount_in_cents / 100).toLocaleString('es-CO') : '';
+  const metodo = data?.wompi?.payment_method_type || '';
+
+  if (state === 'approved') {
+    c.innerHTML = `
+      <div class="icon">✅</div>
+      <h1>¡Pago confirmado!</h1>
+      <p class="msg">Gracias por tu compra. Recibirás un WhatsApp de confirmación en unos minutos.</p>
+      <div class="info">
+        <div class="row"><span>Referencia:</span><strong>${ref}</strong></div>
+        ${total ? `<div class="row"><span>Total pagado:</span><strong class="status-approved">${total}</strong></div>` : ''}
+        ${metodo ? `<div class="row"><span>Método:</span><strong>${metodo}</strong></div>` : ''}
+      </div>
+      <p class="msg">🚚 Tu pedido entra a cola de despacho. Te enviaremos el tracking pronto.</p>
+      <a class="whatsapp" href="https://wa.me/573001234567">💬 Chatéanos por WhatsApp</a>
+      <br><a class="cta" href="/">Volver al inicio</a>`;
+  } else if (state === 'declined') {
+    c.innerHTML = `
+      <div class="icon">❌</div>
+      <h1 class="status-declined">Pago no procesado</h1>
+      <p class="msg">Tu pago fue rechazado o cancelado. Puedes intentar de nuevo con otro método, o elegir <strong>pago contraentrega</strong>.</p>
+      <div class="info">
+        <div class="row"><span>Referencia:</span><strong>${ref}</strong></div>
+        ${data?.wompi?.status ? `<div class="row"><span>Estado:</span><strong class="status-declined">${data.wompi.status}</strong></div>` : ''}
+      </div>
+      <a class="cta" href="/">Intentar de nuevo</a>`;
+  } else if (state === 'pending') {
+    // Sigue con spinner + auto-refresh
+    return;
+  } else {
+    c.innerHTML = `
+      <div class="icon">⚠️</div>
+      <h1>Sin información de pago</h1>
+      <p class="msg">No pudimos encontrar tu transacción. Si crees que hubo un pago, escríbenos por WhatsApp con la referencia.</p>
+      <a class="whatsapp" href="https://wa.me/573001234567">💬 Contactar soporte</a>
+      <br><a class="cta" href="/">Volver al inicio</a>`;
+  }
+}
+
+checkStatus();
+</script>
+
+</body>
+</html>
