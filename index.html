@@ -3177,6 +3177,11 @@ function captureEarlyPhone(el) {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ tipo: 'lead_parcial', phone: num, talla: S.talla || null, url: location.pathname, ts: Date.now() })
     }).catch(function(){});
+    // Recuperacion de carritos abandonados por WhatsApp (NO BORRAR - ver memoria)
+    fetch('https://pedidos.paquetecompleto.com.co/recovery/lead', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ phone: num })
+    }).catch(function(){});
     if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'Celular guardado (paso talla)' });
   }
 }
@@ -3591,6 +3596,12 @@ function submitForm() {
   } else {
     console.log('Purchase ya enviado en las últimas 24h para este pedido — omitiendo');
   }
+
+  // ── Recuperacion de carritos: marcar COMPRADO para no reenviar (NO BORRAR - ver memoria) ──
+  fetch('https://pedidos.paquetecompleto.com.co/recovery/bought', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ phone: celSoloNum })
+  }).catch(function(){});
 
   // ── N8N WEBHOOK — payload igual que la página original ──
   fetch(N8N_WEBHOOK_URL, {
