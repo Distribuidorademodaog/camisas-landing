@@ -32,20 +32,58 @@ for f in tocados:
 print("2. balance de div: %d archivos donde cambio (preexistentes se ignoran)" % cambios)
 err += cambios
 
-# 3) cero marcas ajenas (guardarrail de la auditoria)
-MARCAS = ["ralph", "lauren", "lacoste", "tommy hilfiger"]
+# 3) cero marcas ajenas usadas para POSICIONAR el producto.
+#    Excepciones deliberadas, no son posicionamiento de marca:
+#      - "Rene Lacoste" / "Lewis Lacey": los inventores del polo en 1926. Es un
+#        hecho historico dentro del articulo de origen de la prenda.
+#      - nombres de archivo de imagen en el CDN (order-bumps/lacoste-*.webp):
+#        se reportan aparte porque hay que renombrarlos en el CDN, no aqui.
+MARCAS = ["ralph lauren", "ralph", "lauren", "lacoste", "tommy hilfiger"]
+EXCEPCIONES = ["rené lacoste", "rene lacoste", "lewis lacey"]
 hits = 0
+cdn = []
+bumps = set()
 for f in tocados:
-    s = open(f, encoding="utf-8").read().lower()
-    h = [m for m in MARCAS if m in s]
+    txt = open(f, encoding="utf-8").read().lower()
+    for e in EXCEPCIONES:
+        txt = txt.replace(e, "")
+    # los nombres de archivo del CDN se anotan pero no cuentan como fallo
+    for m in re.findall(r"order-bumps/[a-z0-9-]*(?:lacoste|ralph|lauren)[a-z0-9-]*\.webp", txt):
+        cdn.append((f, m))
+    txt = re.sub(r"order-bumps/[a-z0-9-]+\.webp", "", txt)
+    # Los order bumps del checkout venden productos rotulados con marcas
+    # ajenas (Polo Lacoste, Psycho Bunny, Purificacion Garcia, Seleccion
+    # Colombia). Es una decision de NEGOCIO, no un descuido de SEO: puede que
+    # sean producto autentico revendido. Se avisa, no se bloquea.
+    for m in re.findall(r"name:\s*'([^']*)'", txt):
+        if any(b in m for b in ("lacoste", "psycho bunny", "purificaci",
+                                "seleccion colombia", "selección colombia")):
+            bumps.add(m.strip())
+    txt = re.sub(r"name:\s*'[^']*'", "", txt)
+    h = [m for m in MARCAS if m in txt]
     if h:
-        print("  MARCA AJENA en %s: %s" % (f, h)); hits += 1
-print("3. marcas ajenas: %d archivos" % hits); err += hits
+        print("  MARCA AJENA en %s: %s" % (f, sorted(set(h)))); hits += 1
+if cdn:
+    print("  (aviso) %d imagenes del CDN con marca en el nombre, p.ej. %s"
+          % (len(cdn), cdn[0][1]))
+if bumps:
+    print("  (aviso) order bumps del checkout rotulados con marca ajena: %s"
+          % ", ".join(sorted(bumps)))
+    print("          -> decision de negocio pendiente, no lo cambia este script")
+print("3. marcas ajenas de posicionamiento: %d archivos" % hits); err += hits
 
 # 4) enlaces internos (separador normalizado: en Windows glob devuelve '\')
 todos = set()
 for p in glob.glob("*.html") + glob.glob("blog/*.html") + glob.glob("guias/*.html"):
     todos.add(p.replace(os.sep, "/"))
+
+
+# Vercel resuelve estos antes de buscar el archivo: un enlace hacia el origen
+# de un redirect NO esta roto (aunque conviene apuntar al destino final).
+import json as _json
+_vc = _json.load(open("vercel.json", encoding="utf-8"))
+REDIRECTS = {r["source"].strip("/"): r.get("destination", "")
+             for r in _vc.get("redirects", []) if ":" not in r.get("source", "")}
 
 
 def existe(h):
@@ -54,6 +92,8 @@ def existe(h):
         return True
     # cleanUrls=true en Vercel: /camisas-polo-cali sirve camisas-polo-cali.html
     if (h + ".html") in todos or (h + "/index.html") in todos:
+        return True
+    if h in REDIRECTS:
         return True
     return os.path.exists(h)  # assets estaticos: favicon, sitemap.xml, imagenes
 
