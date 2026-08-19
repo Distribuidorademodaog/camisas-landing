@@ -53,8 +53,9 @@ for f in tocados:
     txt = re.sub(r"order-bumps/[a-z0-9-]+\.webp", "", txt)
     # Los order bumps del checkout venden productos rotulados con marcas
     # ajenas (Polo Lacoste, Psycho Bunny, Purificacion Garcia, Seleccion
-    # Colombia). Es una decision de NEGOCIO, no un descuido de SEO: puede que
-    # sean producto autentico revendido. Se avisa, no se bloquea.
+    # Colombia). DECISION DEL NEGOCIO 2026-08-18: se quedan como estan. No es
+    # un descuido del de-branding ni algo que haya que "arreglar" — si una
+    # sesion futura los encuentra, NO los cambie sin volver a preguntar.
     for m in re.findall(r"name:\s*'([^']*)'", txt):
         if any(b in m for b in ("lacoste", "psycho bunny", "purificaci",
                                 "seleccion colombia", "selección colombia")):
@@ -67,9 +68,8 @@ if cdn:
     print("  (aviso) %d imagenes del CDN con marca en el nombre, p.ej. %s"
           % (len(cdn), cdn[0][1]))
 if bumps:
-    print("  (aviso) order bumps del checkout rotulados con marca ajena: %s"
-          % ", ".join(sorted(bumps)))
-    print("          -> decision de negocio pendiente, no lo cambia este script")
+    print("  (nota) %d order bumps con marca ajena en el nombre: decision "
+          "tomada el 2026-08-18, se quedan asi." % len(bumps))
 print("3. marcas ajenas de posicionamiento: %d archivos" % hits); err += hits
 
 # 4) enlaces internos (separador normalizado: en Windows glob devuelve '\')
