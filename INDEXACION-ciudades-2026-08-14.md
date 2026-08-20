@@ -88,3 +88,83 @@ O para rescatar solo alguna: quitarla de la lista `FUERA` del script y correr
 **Lo que esto NO arregla:** el problema de fondo sigue siendo autoridad. El
 noindex concentra la señal, pero quien mete a Medellín en el índice son los
 backlinks. Ese frente sigue pendiente.
+
+---
+
+# Medición de seguimiento — 20 ago 2026
+
+Inspección con la URL Inspection API sobre las 76 URLs del sitemap **más** las 8
+puestas en `noindex`, para confirmar ambos frentes.
+
+## El noindex y los títulos por clima funcionaron
+
+| Fecha | URLs evaluadas | Indexadas | % |
+|---|---|---|---|
+| 5 ago | 72 | 34 | 47% |
+| **20 ago** | **76** | **59** | **78%** |
+
+**Las 13 ciudades que siguen en el índice están indexadas al 100%**, incluidas
+las 4 que este documento marcaba como prioridad manual:
+
+| Ciudad | Estado | Último rastreo |
+|---|---|---|
+| Medellín | Enviada e indexada | 2026-08-14 |
+| Cartagena | Enviada e indexada | 2026-08-14 |
+| Santa Marta | Enviada e indexada | 2026-08-14 |
+| Villavicencio | Enviada e indexada | 2026-08-14 |
+
+Se indexaron el mismo día en que se desplegaron los títulos diferenciados por
+clima y geografía. **Ya no hay que pedirles indexación en GSC**: la lista de
+"Día 1" de arriba queda cumplida.
+
+Corrige también la hipótesis de este documento: no era solo saturación de
+índice. Medellín y Cartagena llevaban desde el 13 de mayo rastreadas y
+rechazadas; entraron cuando el contenido dejó de ser intercambiable. La
+diferenciación sí movió la aguja.
+
+## Las 8 en noindex: objetivo cumplido, sin residuo
+
+Ninguna está en el índice, así que no hay nada que des-indexar. Seis nunca
+fueron rastreadas y dos (Montería, Valledupar) quedaron en "rastreada, sin
+indexar" desde el 13 de mayo.
+
+## Lo que falta: 17 URLs
+
+| Estado | URLs | Lectura |
+|---|---|---|
+| Descubierta: actualmente sin indexar | 12 | Google la conoce y no ha gastado rastreo |
+| Google no reconoce esta URL | 5 | Ni siquiera la ha descubierto |
+
+**Ninguna ha sido rastreada nunca.** No hay rechazo de calidad: hay falta de
+presupuesto de rastreo. Las 17:
+
+`/camisas-formales-hombre` · `/camisas-para-grado-hombre` ·
+`/camisas-para-matrimonio-hombre` · `/camisas-polo-azul-marino-hombre` ·
+`/camisas-polo-celestes-hombre` · `/camisas-polo-grises-hombre` ·
+`/camisas-polo-vinotinto-hombre` · `/camisas-polo-para-senores-hombre` ·
+`/camisetas-polo-hombre` · `/polos-hombre-colombia` · `/guias` ·
+`/guias/guia-definitiva-camisas-polo-hombre-colombia` ·
+`/blog/cuantas-camisas-polo-debe-tener-un-hombre` ·
+`/blog/errores-comunes-al-usar-camisa-polo` ·
+`/blog/slim-fit-vs-regular-fit-camisa-polo` ·
+`/blog/camisas-polo-para-cada-tipo-de-cuerpo` · `/blog/ocasiones-camisa-polo`
+
+Ojo con dos: `/camisetas-polo-hombre` y `/polos-hombre-colombia` son sinónimos
+entre sí y de `/camisas-polo-premium-colombia`, que sí está indexada. Que Google
+ignore las dos primeras es coherente — probablemente sean candidatas a fusión
+antes que a insistir en indexarlas.
+
+## Ejecutado 2026-08-20
+
+1. **Corregida la lista de la Indexing API.** `~/indexing/sites/camisascolombia.txt`
+   en el Hostinger tenía 84 URLs, **incluidas las 8 en `noindex`** — se le estaba
+   pidiendo a Google indexar lo que se le pide no indexar. Ahora son las 76 del
+   sitemap. Regenerarla siempre desde el sitemap tras cambios de cobertura.
+2. **Enviadas las 76 a la Indexing API:** OK=76, fallos=0. Justificado porque el
+   contenido cambió de verdad (títulos, schema, marcado) desde el último rastreo.
+
+## El frente que sigue abierto
+
+Sin cambios respecto al diagnóstico original: **autoridad**. El sistema de
+backlinks tiene 64 oportunidades y el T1 (redes sociales) sigue sin ejecutar,
+que además es lo que desbloquea el `sameAs` vacío del schema.
