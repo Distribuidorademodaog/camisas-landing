@@ -3569,6 +3569,10 @@ function submitForm() {
   const trackKey = 'fb_purchase_' + celSoloNum + '_' + S.packPrice + '_' + S.packQty;
   const trackTs  = parseInt(localStorage.getItem(trackKey) || '0', 10);
   const TWENTY_FOUR_H = 24 * 60 * 60 * 1000;
+  // event_id determinista para deduplicar con el Conversions API del servidor (NO BORRAR - ver memoria)
+  // El servidor (capi-sender) calcula el MISMO id: 'pur_'+telefono+'_'+fechaBogota
+  const _capiDate = new Date(Date.now() - 5 * 3600 * 1000).toISOString().slice(0, 10).replace(/-/g, '');
+  const capiEventId = 'pur_' + celSoloNum + '_' + _capiDate;
   if (typeof fbq !== 'undefined' && (Date.now() - trackTs) > TWENTY_FOUR_H) {
     localStorage.setItem(trackKey, String(Date.now()));
     fbq('track', 'Purchase', {
@@ -3577,8 +3581,8 @@ function submitForm() {
       content_name: 'Pack Camisas',
       num_items:    S.packQty,
       external_id:  celSoloNum,
-    }, { eventID: pedidoId });
-    console.log('Evento Purchase enviado con ID:', pedidoId);
+    }, { eventID: capiEventId });
+    console.log('Evento Purchase enviado con ID:', capiEventId);
   } else {
     console.log('Purchase ya enviado en las últimas 24h para este pedido — omitiendo');
   }
