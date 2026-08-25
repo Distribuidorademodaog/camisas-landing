@@ -3290,7 +3290,7 @@ async function payWithWompi(clienteData) {
     'amount-in-cents': String(orderData.amount_in_cents),
     'reference': orderData.reference,
     'signature:integrity': orderData.signature,
-    'redirect-url': 'https://www.camisascolombia.com/gracias?ref=' + orderData.reference,
+    'redirect-url': 'https://www.camisascolombia.com/gracias?ref=' + orderData.reference + '&valor=' + total,
     'customer-data:email': clienteData.correo || '',
     'customer-data:full-name': clienteData.nombre || '',
     'customer-data:phone-number': clienteData.celular || '',

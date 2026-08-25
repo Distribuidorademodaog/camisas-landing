@@ -69,7 +69,7 @@
   (function(){
     var qs = new URLSearchParams(window.location.search);
     var value = parseFloat(qs.get('valor') || qs.get('value') || '') || 82500;
-    var orderId = qs.get('pedido') || qs.get('order') || qs.get('id') || '';
+    var orderId = qs.get('pedido') || qs.get('order') || qs.get('id') || qs.get('ref') || '';
     var items = qs.get('items') || 'camisa-polo-premium';
 
     if (window.fbq) {
