@@ -51,14 +51,20 @@ for f in tocados:
     for m in re.findall(r"order-bumps/[a-z0-9-]*(?:lacoste|ralph|lauren)[a-z0-9-]*\.webp", txt):
         cdn.append((f, m))
     txt = re.sub(r"order-bumps/[a-z0-9-]+\.webp", "", txt)
-    # Los order bumps del checkout venden productos rotulados con marcas
-    # ajenas (Polo Lacoste, Psycho Bunny, Purificacion Garcia, Seleccion
-    # Colombia). DECISION DEL NEGOCIO 2026-08-18: se quedan como estan. No es
-    # un descuido del de-branding ni algo que haya que "arreglar" — si una
-    # sesion futura los encuentra, NO los cambie sin volver a preguntar.
+    # Los order bumps del checkout estaban rotulados con marcas ajenas.
+    # DECISION DEL NEGOCIO 2026-08-25 (cambia la del 2026-08-18): se limpian,
+    # porque Google Ads aplica su politica de falsificaciones a la pagina de
+    # destino y sanciona la cuenta entera. Nombres aprobados por el negocio:
+    #   Polo Psycho Bunny            -> Polo Bun
+    #   Polo Lacoste                 -> Polo Coco
+    #   Polo Purificacion Garcia     -> Polo Purificacion
+    #   Camiseta Psycho Bunny        -> bump eliminado
+    #   Camiseta Seleccion Colombia  -> bump eliminado
+    # Se sigue vigilando el nombre COMPLETO de marca, no el abreviado.
     for m in re.findall(r"name:\s*'([^']*)'", txt):
-        if any(b in m for b in ("lacoste", "psycho bunny", "purificaci",
-                                "seleccion colombia", "selección colombia")):
+        if any(b in m.lower() for b in ("lacoste", "psycho bunny",
+                                        "purificacion garcia", "purificación garcía",
+                                        "seleccion colombia", "selección colombia")):
             bumps.add(m.strip())
     txt = re.sub(r"name:\s*'[^']*'", "", txt)
     h = [m for m in MARCAS if m in txt]
