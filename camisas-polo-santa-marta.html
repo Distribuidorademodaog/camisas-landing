@@ -133,6 +133,7 @@ src="https://www.facebook.com/tr?id=773251872839863&ev=PageView&noscript=1"
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-QZ03N4NWTW');
+  gtag('config', 'AW-10926343826');
 </script>
 <!-- FIN GA4 -->
 
@@ -3195,6 +3196,19 @@ function submitForm() {
       external_id:  celSoloNum,
     }, { eventID: pedidoId });
     console.log('Evento Purchase enviado con ID:', pedidoId);
+    // ── GOOGLE ADS conversion (google_ads_conversion) ──
+    // Va aqui y NO en /gracias: el contraentrega nunca pasa por
+    // /gracias. Comparte el guard de 24 h y el precio real.
+    if (typeof gtag !== 'undefined') {
+      var _gaTxn = 'cc_' + celSoloNum + '_' + new Date(Date.now() - 5 * 3600 * 1000).toISOString().slice(0, 10).replace(/-/g, '');
+      gtag('set', 'user_data', { phone_number: '+57' + celSoloNum });
+      gtag('event', 'conversion', {
+        send_to: 'AW-10926343826/cLceCJnw7eccEJKNi9oo',
+        value: S.packPrice,
+        currency: 'COP',
+        transaction_id: _gaTxn
+      });
+    }
   } else {
     console.log('Purchase ya enviado en las últimas 24h para este pedido — omitiendo');
   }

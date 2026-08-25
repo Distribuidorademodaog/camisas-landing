@@ -51,6 +51,7 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-QZ03N4NWTW');
+    gtag('config', 'AW-10926343826');
   </script>
   <!-- FIN GA4 -->
 
@@ -82,6 +83,13 @@
       }, orderId ? {eventID: orderId} : undefined);
     }
     if (window.gtag) {
+      // ── GOOGLE ADS conversion (google_ads_conversion) — ruta Wompi ──
+      gtag('event', 'conversion', {
+        send_to: 'AW-10926343826/cLceCJnw7eccEJKNi9oo',
+        value: value,
+        currency: 'COP',
+        transaction_id: orderId
+      });
       gtag('event', 'purchase', {
         transaction_id: orderId || ('cc-' + Date.now()),
         value: value,
