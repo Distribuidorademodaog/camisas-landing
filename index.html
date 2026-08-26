@@ -2904,10 +2904,20 @@ function toggleFaq(el) {
 
 <script>
 let CATALOG = []; // se carga dinámicamente desde el servidor
+let _catalogPromise = null;   // memoiza la carga: un solo fetch por sesión
+let CATALOG_ERROR = false;    // el servidor de inventario no respondió
 
-async function loadCatalog() {
+function loadCatalog() {
+  if (_catalogPromise) return _catalogPromise;
+  _catalogPromise = (async () => {
+  CATALOG_ERROR = false;
+  // Bucket de 5 min en vez de Date.now(): deja cachear entre clics
+  const _bucket = Math.floor(Date.now() / 300000);
+  const _ctl = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+  const _to  = _ctl ? setTimeout(function(){ _ctl.abort(); }, 8000) : null;
   try {
-    const res = await fetch('https://media.paquetecompleto.com.co/inventario_data.json?t=' + Date.now());
+    const res = await fetch('https://media.paquetecompleto.com.co/inventario_data.json?t=' + _bucket,
+                            _ctl ? { signal: _ctl.signal } : {});
     const data = await res.json();
     CATALOG = Object.entries(data)
       .filter(([file, item]) => !item.deleted && item.tallas && item.tallas.length > 0)
@@ -2917,9 +2927,45 @@ async function loadCatalog() {
         img:    'https://media.paquetecompleto.com.co/camisas/' + file,
         tallas: item.tallas
       }));
+    if (CATALOG.length === 0) CATALOG_ERROR = true;
   } catch(e) {
     console.error('Error cargando inventario:', e);
+    CATALOG_ERROR = true;
+    _catalogPromise = null;   // deja reintentar más adelante
+  } finally {
+    if (_to) clearTimeout(_to);
   }
+  })();
+  return _catalogPromise;
+}
+
+// ── Estados del catálogo (cargando / error) ──
+function coMsgHTML(html) {
+  return '<div style="grid-column:1/-1;text-align:center;padding:26px 16px;'
+       + 'font-family:Outfit,sans-serif;font-size:13px;color:#7a7060;line-height:1.6;">' + html + '</div>';
+}
+function coLoadingHTML() {
+  return coMsgHTML('<div class="co-spin"></div>Cargando los diseños disponibles…');
+}
+function coErrorHTML(which) {
+  return coMsgHTML(
+    '<strong style="color:#0e1828;">No pudimos cargar los diseños</strong><br>'
+  + 'Puede ser tu conexión. Intenta de nuevo o escríbenos y te atendemos al instante.'
+  + '<div style="margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">'
+  +   '<button type="button" onclick="retryCatalog(&quot;' + which + '&quot;)" '
+  +     'style="background:#C4A35A;color:#0e1828;border:none;border-radius:9px;padding:10px 18px;'
+  +     'font-family:Outfit,sans-serif;font-size:13px;font-weight:700;cursor:pointer;">Reintentar</button>'
+  +   '<a href="https://wa.me/573207544636?text=Hola,%20quiero%20hacer%20mi%20pedido%20de%20camisas" '
+  +     'target="_blank" rel="noopener" '
+  +     'style="background:#25D366;color:#fff;text-decoration:none;border-radius:9px;padding:10px 18px;'
+  +     'font-family:Outfit,sans-serif;font-size:13px;font-weight:700;">Pedir por WhatsApp</a>'
+  + '</div>'
+  );
+}
+function retryCatalog(which) {
+  _catalogPromise = null;
+  CATALOG_ERROR = false;
+  if (which === 'catalog') buildCatalog(); else buildPerShirtGrid();
 }
 
 // Normalize talla: our buttons use XXXL, inventory uses 3XL
@@ -2960,7 +3006,9 @@ function totalSteps() {
 }
 
 function openCheckout(packPreset) {
-  loadCatalog().then(() => _openCheckout(packPreset));
+  // El paso 1 (talla) no necesita catálogo: abrimos ya y cargamos en paralelo.
+  _openCheckout(packPreset);
+  loadCatalog();
 }
 function _openCheckout(packPreset) {
   S = { talla:null, pack:null, packQty:0, packPrice:0, shirtIdx:0, shirts:[], curShirtTalla:null, curShirtCamisa:null, bumpSelections:{} };
@@ -2981,7 +3029,9 @@ function _openCheckout(packPreset) {
 }
 
 function openCheckoutWithPack(qty, price) {
-  loadCatalog().then(() => _openCheckoutWithPack(qty, price));
+  // La pantalla de talla se arma sin catálogo: abrimos ya y cargamos en paralelo.
+  _openCheckoutWithPack(qty, price);
+  loadCatalog();
 }
 function _openCheckoutWithPack(qty, price) {
   // Pre-select pack and jump straight to per-shirt flow
@@ -3048,9 +3098,15 @@ function pickTallaGeneral(el, talla) {
 
 // ─── STEP 2: CATALOG ───
 function buildCatalog() {
-  if (CATALOG.length === 0) { loadCatalog().then(() => buildCatalog()); return; }
+  const gridEl = document.getElementById('catalogGrid');
+  if (CATALOG.length === 0) {
+    if (CATALOG_ERROR) { gridEl.innerHTML = coErrorHTML('catalog'); return; }
+    gridEl.innerHTML = coLoadingHTML();
+    loadCatalog().then(() => buildCatalog());
+    return;
+  }
   document.getElementById('pnl2talla').textContent = S.talla;
-  const grid = document.getElementById('catalogGrid');
+  const grid = gridEl;
   grid.innerHTML = '';
   const disponibles = CATALOG.filter(c => hasTalla(c, S.talla));
   if (disponibles.length === 0) {
@@ -3209,15 +3265,22 @@ function pickPerShirtTalla(el, talla) {
   S.curShirtCamisa = null;
   const count = CATALOG.filter(c => hasTalla(c, talla)).length;
   document.getElementById('shirtTallaTitle').textContent =
-    count > 0 ? count + ' diseños disponibles en talla ' + talla : 'Sin stock en talla ' + talla;
+    CATALOG.length === 0 ? 'Cargando diseños…'
+      : count > 0 ? count + ' diseños disponibles en talla ' + talla
+      : 'Sin stock en talla ' + talla;
   buildPerShirtGrid();
   document.getElementById('coNextBtn').disabled = true;
 }
 
 function buildPerShirtGrid() {
-  if (CATALOG.length === 0) { loadCatalog().then(() => buildPerShirtGrid()); return; }
   const grid = document.getElementById('perShirtGrid');
   grid.style.display = 'grid';
+  if (CATALOG.length === 0) {
+    if (CATALOG_ERROR) { grid.innerHTML = coErrorHTML('shirt'); return; }
+    grid.innerHTML = coLoadingHTML();
+    loadCatalog().then(() => buildPerShirtGrid());
+    return;
+  }
   grid.innerHTML = '';
   const disponibles = CATALOG.filter(c => hasTalla(c, S.curShirtTalla));
   if (disponibles.length === 0) {
@@ -4139,6 +4202,8 @@ document.addEventListener('DOMContentLoaded', function() {
 .wa-float { position:fixed; right:16px; bottom:88px; z-index:9998; width:54px; height:54px; border-radius:50%; background:#25D366; box-shadow:0 4px 14px rgba(0,0,0,0.28); display:flex; align-items:center; justify-content:center; }
 .wa-float svg { width:30px; height:30px; fill:#fff; }
 @media (min-width:768px){ .wa-float { bottom:24px; } }
+.co-spin { width:22px; height:22px; margin:0 auto 12px; border-radius:50%; border:2.5px solid #e2dccf; border-top-color:#C4A35A; animation:co-spin .7s linear infinite; }
+@keyframes co-spin { to { transform:rotate(360deg); } }
 .sticky-cta { position:fixed; left:0; right:0; bottom:0; z-index:9997; display:flex; align-items:center; gap:12px; padding:9px 14px calc(9px + env(safe-area-inset-bottom)); background:#0e1828; box-shadow:0 -4px 16px rgba(0,0,0,0.25); }
 .sticky-cta-price { display:flex; flex-direction:column; line-height:1.15; color:#fff; font-family:'Outfit',sans-serif; }
 .sticky-cta-price strong { font-size:15px; color:#C4A35A; }
