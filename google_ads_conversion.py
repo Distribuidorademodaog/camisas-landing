@@ -156,16 +156,56 @@ def aw(send_to, dry):
     return n_cfg, n_cod, n_gr
 
 
+# --------------------------------------------------------------- parte 3
+def cambiar_aw(nuevo, dry):
+    """Reemplaza el send_to y el AW- ya instalados por los de otra cuenta.
+
+    Sirve si hay que mudarse a una cuenta de Google Ads distinta: no reinserta
+    bloques (eso lo hace --aw), solo cambia los identificadores en su sitio.
+    """
+    nuevo_id = nuevo.split("/")[0]
+    viejos = set()
+    for _, ruta in paginas():
+        for m in re.finditer(r"AW-\d+/[A-Za-z0-9_-]+", leer(ruta)):
+            viejos.add(m.group(0))
+    viejos.discard(nuevo)
+    if not viejos:
+        print("No hay ninguna etiqueta AW- instalada que reemplazar.")
+        return 0
+    if len(viejos) > 1:
+        print("Hay mas de un send_to instalado, revisar a mano:", sorted(viejos))
+        return 0
+    viejo = viejos.pop()
+    viejo_id = viejo.split("/")[0]
+    n = 0
+    for _, ruta in paginas():
+        s = orig = leer(ruta)
+        s = s.replace(viejo, nuevo).replace(
+            f"gtag('config', '{viejo_id}')", f"gtag('config', '{nuevo_id}')")
+        if s != orig:
+            n += 1
+            if not dry:
+                escribir(ruta, s)
+    print(f"{'[dry] ' if dry else ''}{viejo} -> {nuevo}: {n} paginas")
+    return n
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--fix-valor", action="store_true")
     ap.add_argument("--aw", metavar="AW-XXXXXXXXX/etiqueta")
+    ap.add_argument("--cambiar-aw", metavar="AW-XXXXXXXXX/etiqueta",
+                    help="mudar la etiqueta ya instalada a otra cuenta")
     ap.add_argument("--dry", action="store_true")
     a = ap.parse_args()
-    if not a.fix_valor and not a.aw:
-        ap.error("elige --fix-valor o --aw")
+    if not a.fix_valor and not a.aw and not a.cambiar_aw:
+        ap.error("elige --fix-valor, --aw o --cambiar-aw")
     if a.fix_valor:
         fix_valor(a.dry)
+    if a.cambiar_aw:
+        if "/" not in a.cambiar_aw or not a.cambiar_aw.startswith("AW-"):
+            sys.exit("El --cambiar-aw debe ser 'AW-XXXXXXXXX/etiqueta'")
+        cambiar_aw(a.cambiar_aw, a.dry)
     if a.aw:
         if "/" not in a.aw or not a.aw.startswith("AW-"):
             sys.exit("El --aw debe ser 'AW-XXXXXXXXX/etiqueta' (send_to completo)")
