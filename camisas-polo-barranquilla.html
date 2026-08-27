@@ -3388,6 +3388,7 @@ function submitForm() {
         currency: 'COP',
         transaction_id: _gaTxn
       });
+      console.log('Conversion Google Ads enviada:', _gaTxn, S.packPrice);
     }
   } else {
     console.log('Purchase ya enviado en las últimas 24h para este pedido — omitiendo');
