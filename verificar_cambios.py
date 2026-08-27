@@ -2,8 +2,10 @@
 """Validacion de los cambios SEO de 2026-08-14 antes de desplegar."""
 import re, json, glob, os, subprocess
 
+# --name-only tambien lista los BORRADOS; si no se filtran, el open() revienta.
 tocados = [f for f in subprocess.run(["git", "diff", "--name-only"],
-           capture_output=True, text=True).stdout.split() if f.endswith(".html")]
+           capture_output=True, text=True).stdout.split()
+           if f.endswith(".html") and os.path.exists(f)]
 err = 0
 print("Validando %d archivos HTML modificados\n" % len(tocados))
 
