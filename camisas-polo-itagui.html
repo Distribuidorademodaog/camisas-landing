@@ -3174,6 +3174,31 @@ function submitForm() {
   const trackKey = 'fb_purchase_' + celSoloNum + '_' + S.packPrice + '_' + S.packQty;
   const trackTs  = parseInt(localStorage.getItem(trackKey) || '0', 10);
   const TWENTY_FOUR_H = 24 * 60 * 60 * 1000;
+
+  // ── CAPI_FBC_FBP_2026_08: atribucion del evento de respaldo del servidor ──
+  // El pixel de abajo ya manda _fbc/_fbp solo. Esto es para el Purchase que
+  // capi-sender manda desde el servidor: sin fbc/fbp Meta no puede amarrar la
+  // compra al clic del anuncio (subconteo medido del 17% en agosto 2026).
+  // La clave telefono+fecha es la MISMA del event_id, asi el servidor cruza.
+  const _capiDate = new Date(Date.now() - 5 * 3600 * 1000).toISOString().slice(0, 10).replace(/-/g, '');
+  const capiEventId = 'pur_' + celSoloNum + '_' + _capiDate;
+  try {
+    const _ck = n => (document.cookie.match('(^|;)\\s*' + n + '\\s*=\\s*([^;]+)') || [])[2] || '';
+    let _fbc = _ck('_fbc');
+    if (!_fbc) {
+      // Si el usuario acaba de llegar del anuncio, la cookie puede no existir
+      // todavia: se reconstruye con el formato oficial fb.1.<ts>.<fbclid>.
+      const _cid = new URLSearchParams(location.search).get('fbclid');
+      if (_cid) _fbc = 'fb.1.' + Date.now() + '.' + _cid;
+    }
+    const _fbp = _ck('_fbp');
+    if ((_fbc || _fbp) && navigator.sendBeacon) {
+      navigator.sendBeacon('https://pedidos.paquetecompleto.com.co/webhook/fb-attrib', new Blob([JSON.stringify({
+        telefono: celSoloNum, ymd: _capiDate, fbc: _fbc, fbp: _fbp
+      })], { type: 'text/plain' }));
+    }
+  } catch (e) { /* la atribucion nunca puede romper el checkout */ }
+
   if (typeof fbq !== 'undefined' && (Date.now() - trackTs) > TWENTY_FOUR_H) {
     localStorage.setItem(trackKey, String(Date.now()));
     fbq('track', 'Purchase', {
@@ -3182,8 +3207,8 @@ function submitForm() {
       content_name: 'Pack Camisas',
       num_items:    S.packQty,
       external_id:  celSoloNum,
-    }, { eventID: pedidoId });
-    console.log('Evento Purchase enviado con ID:', pedidoId);
+    }, { eventID: capiEventId });
+    console.log('Evento Purchase enviado con ID:', capiEventId);
     // ── GOOGLE ADS conversion (google_ads_conversion) ──
     // Va aqui y NO en /gracias: el contraentrega nunca pasa por
     // /gracias. Comparte el guard de 24 h y el precio real.

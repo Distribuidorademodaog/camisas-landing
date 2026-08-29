@@ -1167,7 +1167,7 @@ body {
       <p>Todas nuestras camisas pasan ese examen. Por eso puedes revisar la camisa antes de pagarla.</p>
 
       <h2>Los colores y estilos iconicos del look Premium</h2>
-      <p>El estilo clasico se construye sobre colores solidos y atemporales. Los infaltables del look son el <strong>blanco</strong>, el <strong>azul marino</strong>, el <strong>celeste</strong>, el <strong>negro</strong> y los tonos tierra como el beige y el vinotinto. El blanco es el mas versatil y elegante de todos —si es tu favorito, mira nuestra guia de <a href="/blog/mejores-camisas-polo-blancas-hombre-colombia">mejores camisas polo blancas para hombre</a>. Manejamos <strong>mas de 20 colores</strong>, todos en el mismo tallaje real y la misma tela premium. Y en estilos, cubrimos las cuatro variantes que definen el guardarropa polo:</p>
+      <p>El estilo clasico se construye sobre colores solidos y atemporales. Los infaltables del look son el <strong>blanco</strong>, el <strong>azul marino</strong>, el <strong>celeste</strong>, el <strong>negro</strong> y los tonos tierra como el beige y el vinotinto. El blanco es el mas versatil y elegante de todos —si es tu favorito, mira nuestra guia de <a href="/camisas-polo-blancas-hombre">mejores camisas polo blancas para hombre</a>. Manejamos <strong>mas de 20 colores</strong>, todos en el mismo tallaje real y la misma tela premium. Y en estilos, cubrimos las cuatro variantes que definen el guardarropa polo:</p>
       <ul>
         <li><strong>Polo Oxford:</strong> el mas clasico y formal, perfecto para oficina.</li>
         <li><strong>Tipo Lino:</strong> fresco y elegante, ideal para el calor colombiano.</li>
@@ -3084,6 +3084,31 @@ function submitForm() {
   const trackKey = 'fb_purchase_' + celSoloNum + '_' + S.packPrice + '_' + S.packQty;
   const trackTs  = parseInt(localStorage.getItem(trackKey) || '0', 10);
   const TWENTY_FOUR_H = 24 * 60 * 60 * 1000;
+
+  // ── CAPI_FBC_FBP_2026_08: atribucion del evento de respaldo del servidor ──
+  // El pixel de abajo ya manda _fbc/_fbp solo. Esto es para el Purchase que
+  // capi-sender manda desde el servidor: sin fbc/fbp Meta no puede amarrar la
+  // compra al clic del anuncio (subconteo medido del 17% en agosto 2026).
+  // La clave telefono+fecha es la MISMA del event_id, asi el servidor cruza.
+  const _capiDate = new Date(Date.now() - 5 * 3600 * 1000).toISOString().slice(0, 10).replace(/-/g, '');
+  const capiEventId = 'pur_' + celSoloNum + '_' + _capiDate;
+  try {
+    const _ck = n => (document.cookie.match('(^|;)\\s*' + n + '\\s*=\\s*([^;]+)') || [])[2] || '';
+    let _fbc = _ck('_fbc');
+    if (!_fbc) {
+      // Si el usuario acaba de llegar del anuncio, la cookie puede no existir
+      // todavia: se reconstruye con el formato oficial fb.1.<ts>.<fbclid>.
+      const _cid = new URLSearchParams(location.search).get('fbclid');
+      if (_cid) _fbc = 'fb.1.' + Date.now() + '.' + _cid;
+    }
+    const _fbp = _ck('_fbp');
+    if ((_fbc || _fbp) && navigator.sendBeacon) {
+      navigator.sendBeacon('https://pedidos.paquetecompleto.com.co/webhook/fb-attrib', new Blob([JSON.stringify({
+        telefono: celSoloNum, ymd: _capiDate, fbc: _fbc, fbp: _fbp
+      })], { type: 'text/plain' }));
+    }
+  } catch (e) { /* la atribucion nunca puede romper el checkout */ }
+
   if (typeof fbq !== 'undefined' && (Date.now() - trackTs) > TWENTY_FOUR_H) {
     localStorage.setItem(trackKey, String(Date.now()));
     fbq('track', 'Purchase', {
@@ -3092,8 +3117,8 @@ function submitForm() {
       content_name: 'Pack Camisas',
       num_items:    S.packQty,
       external_id:  celSoloNum,
-    }, { eventID: pedidoId });
-    console.log('Evento Purchase enviado con ID:', pedidoId);
+    }, { eventID: capiEventId });
+    console.log('Evento Purchase enviado con ID:', capiEventId);
     // ── GOOGLE ADS conversion (google_ads_conversion) ──
     // Va aqui y NO en /gracias: el contraentrega nunca pasa por
     // /gracias. Comparte el guard de 24 h y el precio real.
