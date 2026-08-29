@@ -2980,6 +2980,40 @@ function isMangaCorta(camisa) {
   return /^manga\s*corta/i.test(camisa.name.trim());
 }
 
+
+// ── AB_PACK3_2026_08: experimento de la preseleccion del Pack 3 ──
+// A = Pack 3 preseleccionado (actual) · B = sin preseleccion (previo al 3-jul).
+// Persistente por navegador para que un mismo usuario no vea las dos.
+var AB_PACK = (function () {
+  try {
+    var v = localStorage.getItem('ab_pack_v1');
+    if (v !== 'A' && v !== 'B') { v = Math.random() < 0.5 ? 'A' : 'B'; localStorage.setItem('ab_pack_v1', v); }
+    return v;
+  } catch (e) { return 'A'; }   // sin localStorage se queda en el control
+})();
+var AB_SID = (function () {
+  try {
+    var s = localStorage.getItem('ab_sid_v1');
+    if (!s) { s = Date.now().toString(36) + Math.random().toString(36).slice(2, 10); localStorage.setItem('ab_sid_v1', s); }
+    return s;
+  } catch (e) { return ''; }
+})();
+function abYmd() {
+  return new Date(Date.now() - 5 * 3600 * 1000).toISOString().slice(0, 10).replace(/-/g, '');
+}
+var _abExpoEnviada = false;
+function abRegistrarExposicion() {
+  if (_abExpoEnviada || !AB_SID) return;
+  _abExpoEnviada = true;
+  try {
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon('https://pedidos.paquetecompleto.com.co/webhook/fb-attrib', new Blob([JSON.stringify({
+        sid: AB_SID, variante: AB_PACK, ymd: abYmd()
+      })], { type: 'text/plain' }));
+    }
+  } catch (e) { /* la medicion nunca puede romper el checkout */ }
+}
+
 // ─── STATE ───
 let S = {
   talla: null,
@@ -3348,11 +3382,25 @@ function coNext() {
   } else if (currentStep === STEP_CAT) {
     currentStep = STEP_PACK;
     showPanel('pnl3');
-    if (!S.pack) preselectPack3();
+    abRegistrarExposicion();
+    if (!S.pack && AB_PACK === 'A') preselectPack3();
     document.getElementById('coNextBtn').disabled = !S.pack;
     document.getElementById('coNextBtn').textContent = 'Continuar →';
   } else if (currentStep === STEP_PACK) {
     if (!S.pack) return;
+    // AddToCart al CONFIRMAR el pack, no solo al elegirlo a mano: desde el
+    // 3-jul la preseleccion no disparaba el evento y la mitad del embudo
+    // quedo invisible. Comparte la clave de dedup con pickPack().
+    try {
+      var _k = 'fb_atc_' + S.packQty + '_' + S.packPrice;
+      if (typeof fbq !== 'undefined' && !sessionStorage.getItem(_k)) {
+        sessionStorage.setItem(_k, '1');
+        fbq('track', 'AddToCart', {
+          value: S.packPrice, currency: 'COP',
+          content_name: S.pack, num_items: S.packQty,
+        });
+      }
+    } catch (e) {}
     S.shirtIdx = 0;
     currentStep = STEP_SHIRT;
     buildShirtStep(0);
@@ -3655,7 +3703,8 @@ function submitForm() {
     const _fbp = _ck('_fbp');
     if ((_fbc || _fbp) && navigator.sendBeacon) {
       navigator.sendBeacon('https://pedidos.paquetecompleto.com.co/webhook/fb-attrib', new Blob([JSON.stringify({
-        telefono: celSoloNum, ymd: _capiDate, fbc: _fbc, fbp: _fbp
+        telefono: celSoloNum, ymd: _capiDate, fbc: _fbc, fbp: _fbp,
+        variante: (typeof AB_PACK !== 'undefined' ? AB_PACK : null)
       })], { type: 'text/plain' }));
     }
   } catch (e) { /* la atribucion nunca puede romper el checkout */ }
