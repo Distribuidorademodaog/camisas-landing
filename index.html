@@ -2787,6 +2787,10 @@ function toggleFaq(el) {
       </div>
     </div>
     <div class="talla-pills" id="perShirtTallas"></div>
+    <div id="earlyPhoneShirtWrap" style="padding:14px 24px 2px;">
+      <label for="earlyPhoneShirt" style="display:block;text-align:center;font-family:'Outfit',sans-serif;font-size:12px;color:#7a7060;margin-bottom:6px;">📱 Déjanos tu celular y te <strong style="color:#121C2E;">guardamos el descuento</strong> <span style="opacity:.6;">(opcional)</span></label>
+      <input id="earlyPhoneShirt" type="tel" inputmode="numeric" maxlength="10" autocomplete="tel" placeholder="Ej: 300 123 4567" oninput="captureEarlyPhone(this)" style="width:100%;max-width:280px;margin:0 auto;display:block;padding:11px 14px;border:1px solid #d8cfc0;border-radius:10px;font-family:'Outfit',sans-serif;font-size:15px;text-align:center;box-sizing:border-box;" />
+    </div>
     <div class="shirt-grid" id="perShirtGrid" style="display:none;"></div>
     <div style="height:16px;"></div>
   </div>
@@ -3279,6 +3283,13 @@ function buildShirtStep(idx) {
     btn.onclick = () => pickPerShirtTalla(btn, t);
     tallasDiv.appendChild(btn);
   });
+
+  // Captura de celular en el flujo de pack: solo si aun no lo dejo antes
+  const _epw = document.getElementById('earlyPhoneShirtWrap');
+  if (_epw) {
+    const _ep = String(window.__earlyPhone || localStorage.getItem('cc_early_phone') || '').replace(/\D/g, '');
+    _epw.style.display = _ep.length === 10 ? 'none' : '';
+  }
 
   // Hide shirt grid until talla selected
   document.getElementById('perShirtGrid').style.display = 'none';
