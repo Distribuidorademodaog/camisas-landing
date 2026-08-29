@@ -2801,17 +2801,9 @@ function toggleFaq(el) {
     <div class="form-wrap">
       <label class="f-label">Nombre completo *</label>
       <input class="f-input" id="f_nombre" type="text" placeholder="Tu nombre completo" />
-      <label class="f-label">Cédula *</label>
-      <input class="f-input" id="f_cedula" type="number" placeholder="Número de cédula" />
-      <div class="f-row">
-        <div><label class="f-label">Ciudad *</label><input class="f-input" id="f_ciudad" type="text" placeholder="Ciudad" /></div>
-        <div><label class="f-label">Barrio *</label><input class="f-input" id="f_barrio" type="text" placeholder="Barrio" /></div>
-      </div>
-      <label class="f-label">Dirección *</label>
-      <input class="f-input" id="f_direccion" type="text" placeholder="Calle, carrera, número..." />
-      <div class="f-row">
-        <div><label class="f-label">Celular *</label><input class="f-input" id="f_celular" type="tel" placeholder="3XX XXX XXXX" /></div>
-      </div>
+      <label class="f-label">Celular / WhatsApp *</label>
+      <input class="f-input" id="f_celular" type="tel" inputmode="numeric" maxlength="10" placeholder="3XX XXX XXXX" />
+      <div style="font-size:13px;color:#6b7280;margin-top:10px;line-height:1.4;">📲 Solo tu nombre y celular. Te escribimos por WhatsApp para coordinar la dirección y despachar tu pedido. <b>Pagas al recibir.</b></div>
     </div>
     <div class="order-box" id="orderBox">
       <div class="ob-title">Confirmación de Pedido</div>
@@ -3616,15 +3608,15 @@ function submitForm() {
   const nextBtn = document.getElementById('coNextBtn');
   const v = (id) => document.getElementById(id).value.trim();
   const nombre   = v('f_nombre'),
-        cedula   = v('f_cedula'),
-        ciudad   = v('f_ciudad'),
-        barrio   = v('f_barrio'),
-        dir      = v('f_direccion'),
+        cedula   = '',   // se pide por WhatsApp tras el pedido (checkout de 2 campos)
+        ciudad   = '',   // se pide por WhatsApp
+        barrio   = '',   // se pide por WhatsApp
+        dir      = '',   // se pide por WhatsApp
         cel      = v('f_celular'),
-        correo   = ''; // campo de correo removido del checkout (menos fricción)
+        correo   = '';
 
-  if (!nombre || !cedula || !ciudad || !barrio || !dir || !cel) {
-    alert('Por favor completa todos los campos obligatorios (*)');
+  if (!nombre || !cel) {
+    alert('Por favor ingresa tu nombre y tu celular');
     if (nextBtn) nextBtn.disabled = false;
     return;
   }
@@ -3740,6 +3732,12 @@ function submitForm() {
   fetch('https://pedidos.paquetecompleto.com.co/recovery/bought', {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ phone: celSoloNum })
+  }).catch(function(){});
+
+  // ── Checkout de 2 campos: WhatsApp automatico pidiendo direccion/barrio/ciudad/cedula (NO BORRAR) ──
+  fetch('https://pedidos.paquetecompleto.com.co/recovery/order-ask', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ phone: celSoloNum, nombre: nombre })
   }).catch(function(){});
 
   // ── N8N WEBHOOK — payload igual que la página original ──
