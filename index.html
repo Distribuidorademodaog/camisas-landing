@@ -2811,7 +2811,6 @@ function toggleFaq(el) {
       <input class="f-input" id="f_direccion" type="text" placeholder="Calle, carrera, número..." />
       <div class="f-row">
         <div><label class="f-label">Celular *</label><input class="f-input" id="f_celular" type="tel" placeholder="3XX XXX XXXX" /></div>
-        <div><label class="f-label">Correo</label><input class="f-input" id="f_correo" type="email" placeholder="tu@email.com" /></div>
       </div>
     </div>
     <div class="order-box" id="orderBox">
@@ -3622,7 +3621,7 @@ function submitForm() {
         barrio   = v('f_barrio'),
         dir      = v('f_direccion'),
         cel      = v('f_celular'),
-        correo   = v('f_correo');
+        correo   = ''; // campo de correo removido del checkout (menos fricción)
 
   if (!nombre || !cedula || !ciudad || !barrio || !dir || !cel) {
     alert('Por favor completa todos los campos obligatorios (*)');
