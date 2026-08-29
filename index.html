@@ -4212,5 +4212,18 @@ body.co-open .sticky-cta, body.co-open .wa-float { display:none !important; }
   vids.forEach(function(v){ io.observe(v); });
 })();
 </script>
+<!-- Contador de clics al boton de WhatsApp (beacon, no bloqueable) -->
+<script>
+(function(){
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp"]') : null;
+    if (!a) return;
+    try {
+      var label = (a.getAttribute('aria-label') || a.textContent || 'wa').replace(/\s+/g,' ').trim().slice(0,40);
+      navigator.sendBeacon('https://pedidos.paquetecompleto.com.co/recovery/wa-click', JSON.stringify({ btn: label, url: location.pathname }));
+    } catch(err){}
+  }, true);
+})();
+</script>
 </body>
 </html>
