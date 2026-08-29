@@ -2801,9 +2801,12 @@ function toggleFaq(el) {
     <div class="form-wrap">
       <label class="f-label">Nombre completo *</label>
       <input class="f-input" id="f_nombre" type="text" placeholder="Tu nombre completo" />
-      <label class="f-label">Celular / WhatsApp *</label>
-      <input class="f-input" id="f_celular" type="tel" inputmode="numeric" maxlength="10" placeholder="3XX XXX XXXX" />
-      <div style="font-size:13px;color:#6b7280;margin-top:10px;line-height:1.4;">📲 Solo tu nombre y celular. Te escribimos por WhatsApp para coordinar la dirección y despachar tu pedido. <b>Pagas al recibir.</b></div>
+      <div id="celWrap">
+        <label class="f-label">Celular / WhatsApp *</label>
+        <input class="f-input" id="f_celular" type="tel" inputmode="numeric" maxlength="10" placeholder="3XX XXX XXXX" />
+      </div>
+      <div id="celConfirm" style="display:none;font-size:14px;color:#16a34a;margin-top:4px;">📱 Celular registrado: <b id="celConfirmNum"></b> ✓</div>
+      <div style="font-size:13px;color:#6b7280;margin-top:10px;line-height:1.4;">📲 Te escribimos por WhatsApp para coordinar la dirección y despachar tu pedido. <b>Pagas al recibir.</b></div>
     </div>
     <div class="order-box" id="orderBox">
       <div class="ob-title">Confirmación de Pedido</div>
@@ -3468,7 +3471,19 @@ function buildOrderSummary() {
   try {
     const _f = document.getElementById('f_celular');
     const _p = window.__earlyPhone || localStorage.getItem('cc_early_phone');
-    if (_f && !_f.value && _p) _f.value = _p;
+    const _d = String(_p || '').replace(/\D/g, '');
+    const celWrap = document.getElementById('celWrap');
+    const celConfirm = document.getElementById('celConfirm');
+    if (_d.length === 10) {
+      // ya dejó el celular en el paso anterior: no volver a pedirlo
+      if (_f) _f.value = _d;
+      if (celWrap) celWrap.style.display = 'none';
+      if (celConfirm) { document.getElementById('celConfirmNum').textContent = _d; celConfirm.style.display = 'block'; }
+    } else {
+      // no lo dejó: pedir nombre + celular
+      if (celWrap) celWrap.style.display = '';
+      if (celConfirm) celConfirm.style.display = 'none';
+    }
   } catch(e){}
   const selLines = S.shirts.map((s,i) => `Camisa ${i+1}: ${s.camisa} (Talla ${s.talla})`).join(' · ');
   document.getElementById('obProd').textContent = S.pack;
