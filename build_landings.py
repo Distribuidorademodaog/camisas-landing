@@ -25,13 +25,13 @@ BASE = "https://www.camisascolombia.com"
 RL_SLUG = "camisas-polo-premium-colombia"
 
 # ---- strings EXACTAS del template RL que reemplazamos (assert si no aparecen) ----
-RL_TITLE = "Camisas Polo Estilo Premium en Colombia | Alternativa Premium"
-RL_OG_TITLE = "Camisas Polo Estilo Premium en Colombia | Alternativa Premium"
-RL_TW_TITLE = "Camisas Polo Hombre Estilo Premium en Colombia"
-RL_WEBPAGE_NAME = '"name":"Camisas Polo Estilo Premium en Colombia | Alternativa Premium"'
-RL_WEBPAGE_DESC = '"description":"Tienda online colombiana de camisas polo premium para hombre estilo premium. Pago contraentrega, envío gratis y +20 colores."'
-RL_BC1 = '"name":"Camisas Polo Estilo Premium","item"'          # breadcrumb compacto (head)
-RL_BC2 = '"name": "Camisas Polo Estilo Premium en Colombia",'  # breadcrumb espaciado (pre-footer)
+RL_TITLE = "Camisas Polo para Hombre en Colombia | Polos Estilo Premium"
+RL_OG_TITLE = "Camisas Polo para Hombre en Colombia | Polos Estilo Premium"
+RL_TW_TITLE = "Camisas Polo para Hombre en Colombia | Polos Premium"
+RL_WEBPAGE_NAME = '"name":"Camisas Polo para Hombre en Colombia | Polos Estilo Premium"'
+RL_WEBPAGE_DESC = '"description":"Tienda online colombiana de camisas polo para hombre: algodón piqué, tallas S a 5XL, +20 colores, pago contraentrega y envío gratis."'
+RL_BC1 = '"name":"Camisas Polo para Hombre","item"'          # breadcrumb compacto (head)
+RL_BC2 = '"name": "Camisas Polo para Hombre en Colombia",'  # breadcrumb espaciado (pre-footer)
 
 
 def strip_tags(html: str) -> str:
