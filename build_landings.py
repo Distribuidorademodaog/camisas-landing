@@ -28,10 +28,13 @@ RL_SLUG = "camisas-polo-premium-colombia"
 RL_TITLE = "Camisas Polo para Hombre en Colombia | Polos Estilo Premium"
 RL_OG_TITLE = "Camisas Polo para Hombre en Colombia | Polos Estilo Premium"
 RL_TW_TITLE = "Camisas Polo para Hombre en Colombia | Polos Premium"
-RL_WEBPAGE_NAME = '"name":"Camisas Polo para Hombre en Colombia | Polos Estilo Premium"'
-RL_WEBPAGE_DESC = '"description":"Tienda online colombiana de camisas polo para hombre: algodón piqué, tallas S a 5XL, +20 colores, pago contraentrega y envío gratis."'
-RL_BC1 = '"name":"Camisas Polo para Hombre","item"'          # breadcrumb compacto (head)
-RL_BC2 = '"name": "Camisas Polo para Hombre en Colombia",'  # breadcrumb espaciado (pre-footer)
+# 2026-09-04: el JSON-LD de la pilar se reformateo (espacio tras los dos puntos)
+# y la auditoria dejo UN solo BreadcrumbList, no dos. Las constantes compactas
+# y RL_BC1 ya no casaban: el build llevaba semanas abortando en [wp:name].
+RL_WEBPAGE_NAME = '"name": "Camisas Polo para Hombre en Colombia | Polos Estilo Premium"'
+RL_WEBPAGE_DESC = '"description": "Tienda online colombiana de camisas polo para hombre: algodón piqué, tallas S a 5XL, +20 colores, pago contraentrega y envío gratis."'
+RL_BC = '"name": "Camisas Polo para Hombre en Colombia", "item"'  # hoja del unico BreadcrumbList
+MODULO_REL = re.compile(r'\n<style>\n\.cc-relacionados\{.*?</nav>\n(?=</body>)', re.S)
 
 
 def strip_tags(html: str) -> str:
@@ -52,6 +55,33 @@ def replace_exact(old, new, s, label=""):
     return s.replace(old, new, 1)
 
 
+def fin_corchete(s, i):
+    """i apunta a '['; devuelve el indice del ']' que lo cierra (respeta strings)."""
+    prof = 0
+    en_str = False
+    esc = False
+    while i < len(s):
+        c = s[i]
+        if en_str:
+            if esc:
+                esc = False
+            elif c == "\\":
+                esc = True
+            elif c == '"':
+                en_str = False
+        else:
+            if c == '"':
+                en_str = True
+            elif c == "[":
+                prof += 1
+            elif c == "]":
+                prof -= 1
+                if prof == 0:
+                    return i
+        i += 1
+    raise RuntimeError("corchete sin cerrar en el bloque FAQPage")
+
+
 def build_faqpage(faqs):
     entities = []
     for f in faqs:
@@ -61,9 +91,9 @@ def build_faqpage(faqs):
             "name": f["q"],
             "acceptedAnswer": {"@type": "Answer", "text": text},
         })
-    body = json.dumps(entities, ensure_ascii=False, indent=1)
-    # indentar para que quede prolijo dentro del <script>
-    return body
+    # Mismo formato que el JSON-LD ya desplegado: una sola linea, ", " y ": ".
+    # Reproducirlo exacto es lo que permite comprobar el build con `git diff`.
+    return json.dumps(entities, ensure_ascii=False, separators=(", ", ": "))
 
 
 def build(slug, template):
@@ -116,21 +146,49 @@ def build(slug, template):
     out = sub1(r'<h1 class="hero-title">.*?</h1>', new_h1, out, flags=re.DOTALL, label="h1")
 
     # 9. WebPage schema name + description
-    out = replace_exact(RL_WEBPAGE_NAME, f'"name":"{meta["webpage_name"]}"', out, "wp:name")
-    out = replace_exact(RL_WEBPAGE_DESC, f'"description":"{meta["webpage_description"]}"', out, "wp:desc")
+    out = replace_exact(RL_WEBPAGE_NAME, f'"name": "{meta["webpage_name"]}"', out, "wp:name")
+    out = replace_exact(RL_WEBPAGE_DESC, f'"description": "{meta["webpage_description"]}"', out, "wp:desc")
 
-    # 10. Breadcrumbs (ambos bloques, leaf name)
-    out = replace_exact(RL_BC1, f'"name":"{meta["breadcrumb_name"]}","item"', out, "bc1")
-    out = replace_exact(RL_BC2, f'"name": "{meta["breadcrumb_name"]}",', out, "bc2")
+    # 10. Breadcrumb (leaf name del unico BreadcrumbList)
+    out = replace_exact(RL_BC, f'"name": "{meta["breadcrumb_name"]}", "item"', out, "bc")
 
-    # 11. FAQPage: regenerar mainEntity desde faqs (sub1 usa lambda -> repl literal, sin backref)
-    faq_json = build_faqpage(meta["faqs"])
-    faq_indented = "\n".join((" " + line) if line else line for line in faq_json.splitlines())
-    out = sub1(r'"@type": "FAQPage",\n "mainEntity": \[.*?\n \]',
-               '"@type": "FAQPage",\n "mainEntity": ' + faq_indented, out, flags=re.DOTALL, label="faqpage")
+    # 11. FAQPage: regenerar mainEntity desde faqs. El bloque va en UNA linea, y
+    #     un ']' dentro del texto de una respuesta romperia un regex perezoso,
+    #     asi que se localiza el cierre contando corchetes fuera de string.
+    ancla = '"@type": "FAQPage", "mainEntity": '
+    i = out.find(ancla)
+    if i < 0:
+        raise RuntimeError("[faqpage] ancla no encontrada")
+    ini = i + len(ancla)
+    out = out[:ini] + build_faqpage(meta["faqs"]) + out[fin_corchete(out, ini) + 1:]
+
+    # 11b. Modulo "cc-relacionados" (css + nav antes de </body>). No sale de la
+    #      plantilla: lo inyecta el enlazado interno por pagina y es distinto en
+    #      cada una (14 landings lo tienen, 12 no). Copiar el de la pilar a todas
+    #      era lo que borraba los enlaces internos en cada regeneracion.
+    propio = meta.get("related_module")
+    out = MODULO_REL.sub(lambda m: propio or "", out, count=1)
+
+    # 11c. Entradilla del hero: sale de la plantilla, pero seo_pilar_2026_08_27
+    #      le metio a 3 landings un enlace a la pilar DENTRO de ese parrafo.
+    #      Si esta guardada en el meta, manda la de la pagina.
+    if meta.get("hero_lead"):
+        out = sub1(r'<p class="sec-subtitle sec-subtitle-light" itemprop="description">.*?</p>',
+                   meta["hero_lead"], out, flags=re.DOTALL, label="hero_lead")
 
     # 12. slug global (canonical, OG url, WebPage @id/url, breadcrumb items, alternates)
+    #     OJO: es un replace ciego sobre TODO el HTML. Los enlaces internos que
+    #     apuntan a la pilar a proposito (12 paginas, ancla "camisas polo", ver
+    #     seo_pilar_2026_08_27.py y _2026_09_04.py) se convertian en autoenlaces
+    #     — la pagina se enlazaba a si misma y se perdia la señal que rompe la
+    #     canibalizacion. Se blindan antes del replace y se restauran despues.
+    #     Solo la forma RELATIVA es enlace de verdad: canonical, og:url y los
+    #     items del breadcrumb usan la absoluta y SI tienen que reescribirse.
+    CENTINELA = "\x00PILAR\x00"
+    enlace_pilar = f'href="/{RL_SLUG}"'
+    out = out.replace(enlace_pilar, CENTINELA)
     out = out.replace(RL_SLUG, slug)
+    out = out.replace(CENTINELA, enlace_pilar)
 
     # sanity checks
     assert f'<link rel="canonical" href="{canonical}">' in out, "canonical mal"
