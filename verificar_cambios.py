@@ -140,7 +140,10 @@ print("5. enlaces de color nuevos que resuelven: %d" % nuevos)
 CRITICOS = ["catalogGrid", "perShirtGrid", "pack-container", "carruselTrack"]
 faltan = 0
 for f in tocados:
-    if f.startswith("blog/"):
+    # blog/ y guias/ son paginas de contenido: nunca han llevado checkout.
+    # Sin excluir guias/, este control salta en falso la primera vez que se
+    # toca una guia (comprobado: en HEAD tampoco tenia esos elementos).
+    if f.startswith("blog/") or f.startswith("guias/"):
         continue
     s = open(f, encoding="utf-8").read()
     m = [c for c in CRITICOS if c not in s]
