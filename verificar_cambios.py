@@ -143,7 +143,8 @@ for f in tocados:
     # blog/ y guias/ son paginas de contenido: nunca han llevado checkout.
     # Sin excluir guias/, este control salta en falso la primera vez que se
     # toca una guia (comprobado: en HEAD tampoco tenia esos elementos).
-    if f.startswith("blog/") or f.startswith("guias/"):
+    # gracias.html es la pagina post-compra: tampoco lleva checkout.
+    if f.startswith("blog/") or f.startswith("guias/") or f == "gracias.html":
         continue
     s = open(f, encoding="utf-8").read()
     m = [c for c in CRITICOS if c not in s]
