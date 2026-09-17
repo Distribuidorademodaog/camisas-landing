@@ -27,6 +27,11 @@
       "source": "/camisetas-polo-hombre",
       "destination": "/camisas-polo-premium-colombia",
       "permanent": true
+    },
+    {
+      "source": "/polos-hombre-colombia",
+      "destination": "/camisas-polo-premium-colombia",
+      "permanent": true
     }
   ],
   "headers": [

@@ -1670,38 +1670,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.camisascolombia.com/polos-hombre-colombia</loc>
-    <lastmod>2026-09-01</lastmod>
-    <image:image>
-      <image:loc>https://media.paquetecompleto.com.co/landing/hero-camisa.webp</image:loc>
-      <image:title>Hombre con camisa polo blanca estilo premium en una oficina en Colombia</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://media.paquetecompleto.com.co/landing/carrusel-1.webp</image:loc>
-      <image:title>Camisas polo hombre colores claros estilo premium</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://media.paquetecompleto.com.co/landing/carrusel-2.webp</image:loc>
-      <image:title>Camisas polo hombre a cuadros, alternativa premium</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://media.paquetecompleto.com.co/landing/carrusel-3.webp</image:loc>
-      <image:title>Camisas polo hombre colores oscuros premium</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://media.paquetecompleto.com.co/landing/carrusel-4.webp</image:loc>
-      <image:title>Camisas polo Oxford hombre estilo clásico</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://media.paquetecompleto.com.co/landing/carrusel-5.webp</image:loc>
-      <image:title>Camisas polo premium estilo italiano</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://media.paquetecompleto.com.co/landing/carrusel-6.webp</image:loc>
-      <image:title>Camisas polo manga corta hombre Colombia</image:title>
-    </image:image>
-  </url>
-  <url>
     <loc>https://www.camisascolombia.com/blog/algodon-pique-vs-liso</loc>
     <lastmod>2026-09-01</lastmod>
     <image:image>
@@ -1996,6 +1964,54 @@
   <url>
     <loc>https://www.camisascolombia.com/camisas-polo-envigado</loc>
     <lastmod>2026-09-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.camisascolombia.com/camisas-polo-bello</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.camisascolombia.com/camisas-polo-palmira</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.camisascolombia.com/camisas-polo-floridablanca</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.camisascolombia.com/camisas-polo-sincelejo</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.camisascolombia.com/camisas-polo-buenaventura</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.camisascolombia.com/camisas-polo-tunja</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.camisascolombia.com/camisas-polo-dosquebradas</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.camisascolombia.com/camisas-polo-riohacha</loc>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
