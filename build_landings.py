@@ -25,13 +25,17 @@ BASE = "https://www.camisascolombia.com"
 RL_SLUG = "camisas-polo-premium-colombia"
 
 # ---- strings EXACTAS del template RL que reemplazamos (assert si no aparecen) ----
-RL_TITLE = "Camisas Polo para Hombre en Colombia | Polos Estilo Premium"
-RL_OG_TITLE = "Camisas Polo para Hombre en Colombia | Polos Estilo Premium"
-RL_TW_TITLE = "Camisas Polo para Hombre en Colombia | Polos Premium"
+RL_TITLE = "Catálogo de Camisas Polo: Color, Talla y Ocasión"
+RL_OG_TITLE = "Catálogo de Camisas Polo: Color, Talla y Ocasión"
+RL_TW_TITLE = "Catálogo de Camisas Polo: Color, Talla y Ocasión"
+# 2026-09-24: la pilar dejo de pelear con el home por el termino cabeza y paso
+# a ser hub de CATALOGO («Catalogo de Camisas Polo: Color, Talla y Ocasion»).
+# Como ES la plantilla de este build, sus strings exactos viven aqui: si se le
+# cambia el title y no se actualizan, el build aborta en [title].
 # 2026-09-04: el JSON-LD de la pilar se reformateo (espacio tras los dos puntos)
 # y la auditoria dejo UN solo BreadcrumbList, no dos. Las constantes compactas
 # y RL_BC1 ya no casaban: el build llevaba semanas abortando en [wp:name].
-RL_WEBPAGE_NAME = '"name": "Camisas Polo para Hombre en Colombia | Polos Estilo Premium"'
+RL_WEBPAGE_NAME = '"name": "Catálogo de Camisas Polo: Color, Talla y Ocasión"'
 RL_WEBPAGE_DESC = '"description": "Tienda online colombiana de camisas polo para hombre: algodón piqué, tallas S a 5XL, +20 colores, pago contraentrega y envío gratis."'
 RL_BC = '"name": "Camisas Polo para Hombre en Colombia", "item"'  # hoja del unico BreadcrumbList
 MODULO_REL = re.compile(r'\n<style>\n\.cc-relacionados\{.*?</nav>\n(?=</body>)', re.S)
