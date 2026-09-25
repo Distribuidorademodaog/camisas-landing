@@ -73,15 +73,11 @@
     var orderId = qs.get('pedido') || qs.get('order') || qs.get('id') || qs.get('ref') || '';
     var items = qs.get('items') || 'camisa-polo-premium';
 
-    if (window.fbq) {
-      fbq('track', 'Purchase', {
-        value: value,
-        currency: 'COP',
-        content_type: 'product',
-        content_ids: [items],
-        content_name: 'Camisa Polo Premium Hombre'
-      }, orderId ? {eventID: orderId} : undefined);
-    }
+    // 2026-09-24: Purchase retirado del pixel. Salia con eventID = orderId
+    // mientras el CAPI manda el mismo pedido con 'pur_<cel>_<fecha>': Meta no
+    // los emparejaba y contaba doble los pedidos pagados por Wompi. Ahora el
+    // Purchase sale solo por CAPI (server-side, 100% de los pedidos).
+    // OJO: la conversion de Google Ads de aqui abajo SI se queda.
     if (window.gtag) {
       // ── GOOGLE ADS conversion (google_ads_conversion) — ruta Wompi ──
       gtag('event', 'conversion', {
