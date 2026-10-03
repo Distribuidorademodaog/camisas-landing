@@ -8,3 +8,6 @@ output
 _cities
 _blog
 __pycache__/
+
+# backups de los scripts de parche
+*.bak-*
