@@ -2157,4 +2157,34 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://www.camisascolombia.com/blog/camibusos-vs-camisa-polo-diferencias</loc>
+    <lastmod>2026-10-04</lastmod>
+    <image:image>
+      <image:loc>https://media.paquetecompleto.com.co/landing/estilo-tipo-lino.jpg</image:loc>
+      <image:title>Camibuso vs camisa polo: 5 diferencias reales y cuándo usar cada uno</image:title>
+    </image:image>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.camisascolombia.com/blog/polo-manga-larga-oficina-cuando-usar</loc>
+    <lastmod>2026-10-04</lastmod>
+    <image:image>
+      <image:loc>https://media.paquetecompleto.com.co/landing/estilo-oxford.jpg</image:loc>
+      <image:title>Camisa polo manga larga para oficina: cuándo usarla y cuándo no</image:title>
+    </image:image>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.camisascolombia.com/blog/polo-sport-vs-polo-clasico-diferencias</loc>
+    <lastmod>2026-10-04</lastmod>
+    <image:image>
+      <image:loc>https://media.paquetecompleto.com.co/landing/estilo-oxford.jpg</image:loc>
+      <image:title>Polo sport vs polo clásico: diferencias reales y cuál elegir</image:title>
+    </image:image>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
