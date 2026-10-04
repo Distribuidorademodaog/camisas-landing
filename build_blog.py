@@ -32,6 +32,42 @@ CITY_NAMES = {
     "manizales": "Manizales", "cucuta": "Cúcuta", "ibague": "Ibagué"
 }
 
+# Scripts de tracking (Facebook Pixel, GA4, Clarity) compartidos por todas las paginas
+TRACKING_SCRIPTS = """
+<!-- Facebook Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '773251872839863');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=773251872839863&ev=PageView&noscript=1" /></noscript>
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QZ03N4NWTW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QZ03N4NWTW');
+</script>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wkvu8s5xzh");
+</script>
+"""
+
 # CSS compartido por todas las paginas del blog
 BLOG_CSS = """
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -319,6 +355,7 @@ def render_post(post: dict, all_posts: dict) -> str:
 {schema_html}
 
 <style>{BLOG_CSS}</style>
+{TRACKING_SCRIPTS}
 </head>
 <body>
 <nav class="blog-header">
@@ -427,6 +464,7 @@ def render_index(posts: list) -> str:
 <script type="application/ld+json">{json.dumps(breadcrumb_schema, ensure_ascii=False)}</script>
 
 <style>{BLOG_CSS}</style>
+{TRACKING_SCRIPTS}
 </head>
 <body>
 <nav class="blog-header">
@@ -565,6 +603,7 @@ def render_guias_hub(posts: list, pillars: list) -> str:
 <script type="application/ld+json">{json.dumps(breadcrumb_schema, ensure_ascii=False)}</script>
 
 <style>{BLOG_CSS}{extra_css}</style>
+{TRACKING_SCRIPTS}
 </head>
 <body>
 <nav class="blog-header">

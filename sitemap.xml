@@ -2057,4 +2057,54 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.camisascolombia.com/blog/polo-formal-o-casual</loc>
+    <lastmod>2026-10-04</lastmod>
+    <image:image>
+      <image:loc>https://media.paquetecompleto.com.co/landing/estilo-oxford.jpg</image:loc>
+      <image:title>Camisa polo: ¿es formal o casual? Cómo usarla bien en Colombia</image:title>
+    </image:image>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.camisascolombia.com/blog/cuanto-dura-camisa-polo-algodon</loc>
+    <lastmod>2026-10-04</lastmod>
+    <image:image>
+      <image:loc>https://media.paquetecompleto.com.co/landing/estilo-tipo-lino.jpg</image:loc>
+      <image:title>¿Cuánto dura una camisa polo de algodón? Vida útil real y cómo extenderla</image:title>
+    </image:image>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.camisascolombia.com/blog/outfits-camisa-polo-hombre-colombia-2026</loc>
+    <lastmod>2026-10-04</lastmod>
+    <image:image>
+      <image:loc>https://media.paquetecompleto.com.co/landing/variedad-hero.jpg</image:loc>
+      <image:title>10 outfits con camisa polo para hombre en Colombia 2026</image:title>
+    </image:image>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.camisascolombia.com/blog/polo-hombre-bajo-estatura</loc>
+    <lastmod>2026-10-04</lastmod>
+    <image:image>
+      <image:loc>https://media.paquetecompleto.com.co/landing/estilo-oxford.jpg</image:loc>
+      <image:title>Camisa polo para hombre de baja estatura: guía de corte, color y proporción</image:title>
+    </image:image>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.camisascolombia.com/blog/camisa-polo-para-clima-caliente-colombia</loc>
+    <lastmod>2026-10-04</lastmod>
+    <image:image>
+      <image:loc>https://media.paquetecompleto.com.co/landing/estilo-tipo-lino.jpg</image:loc>
+      <image:title>La mejor camisa polo para clima caliente en Colombia: guía por tela, color y calce</image:title>
+    </image:image>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
