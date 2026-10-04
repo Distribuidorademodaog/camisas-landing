@@ -2107,4 +2107,54 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://www.camisascolombia.com/blog/polo-dentro-o-fuera-del-pantalon</loc>
+    <lastmod>2026-10-04</lastmod>
+    <image:image>
+      <image:loc>https://media.paquetecompleto.com.co/landing/estilo-oxford.jpg</image:loc>
+      <image:title>Camisa polo: ¿dentro o fuera del pantalón? La regla definitiva</image:title>
+    </image:image>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.camisascolombia.com/blog/polo-importada-vs-nacional-colombia</loc>
+    <lastmod>2026-10-04</lastmod>
+    <image:image>
+      <image:loc>https://media.paquetecompleto.com.co/landing/estilo-tipo-lino.jpg</image:loc>
+      <image:title>Camisa polo importada vs nacional en Colombia: 7 diferencias que debes saber</image:title>
+    </image:image>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.camisascolombia.com/blog/como-usar-polo-formal-hombre</loc>
+    <lastmod>2026-10-04</lastmod>
+    <image:image>
+      <image:loc>https://media.paquetecompleto.com.co/landing/estilo-oxford.jpg</image:loc>
+      <image:title>Cómo usar la camisa polo en entornos formales: guía completa para hombre</image:title>
+    </image:image>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.camisascolombia.com/blog/polo-hombre-delgado-como-elegir</loc>
+    <lastmod>2026-10-04</lastmod>
+    <image:image>
+      <image:loc>https://media.paquetecompleto.com.co/landing/estilo-tipo-lino.jpg</image:loc>
+      <image:title>Camisa polo para hombre delgado: guía de talla, calce y proporción</image:title>
+    </image:image>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.camisascolombia.com/blog/polo-con-blazer-hombre-como-combinar</loc>
+    <lastmod>2026-10-04</lastmod>
+    <image:image>
+      <image:loc>https://media.paquetecompleto.com.co/landing/estilo-oxford.jpg</image:loc>
+      <image:title>Cómo combinar camisa polo con blazer: la guía definitiva para hombre</image:title>
+    </image:image>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
