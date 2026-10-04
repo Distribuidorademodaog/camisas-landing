@@ -376,7 +376,7 @@ def render_post(post: dict, all_posts: dict) -> str:
     </div>
     <p class="post-lead">{post["intro"]}</p>
 
-    <img class="post-cover" src="{post["cover_image"]}" alt="{post["title"]}" loading="lazy">
+    <img class="post-cover" src="{post["cover_image"]}" alt="{post["title"]}" width="1200" height="675" loading="lazy">
 
     <div class="post-body">
       {sections_html}
