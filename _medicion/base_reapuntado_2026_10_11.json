@@ -1,0 +1,99 @@
+{
+ "medido": "2026-10-11",
+ "ventana": [
+  "2026-09-10",
+  "2026-10-08"
+ ],
+ "tocadas": {
+  "/camisas-polo-cali": {
+   "i": 267,
+   "c": 6,
+   "pos": 8.1
+  },
+  "/camisas-polo-bucaramanga": {
+   "i": 308,
+   "c": 7,
+   "pos": 8.7
+  },
+  "/camisas-polo-cucuta": {
+   "i": 213,
+   "c": 6,
+   "pos": 7.6
+  },
+  "/camisas-polo-barranquilla": {
+   "i": 148,
+   "c": 2,
+   "pos": 9.1
+  },
+  "/camisas-oxford-100-algodon": {
+   "i": 68,
+   "c": 4,
+   "pos": 12.8
+  },
+  "/camisas-oxford-hombre-colombia": {
+   "i": 70,
+   "c": 1,
+   "pos": 22.8
+  },
+  "/camisas-tipo-lino-hombre": {
+   "i": 113,
+   "c": 3,
+   "pos": 31.6
+  },
+  "/camisas-manga-larga-contraentrega": {
+   "i": 270,
+   "c": 4,
+   "pos": 18.2
+  },
+  "/camisas-manga-corta-hombre": {
+   "i": 187,
+   "c": 1,
+   "pos": 26.9
+  },
+  "/camisas-hombre-colombia": {
+   "i": 262,
+   "c": 0,
+   "pos": 50.5
+  },
+  "/": {
+   "i": 161,
+   "c": 11,
+   "pos": 8.4
+  },
+  "_total": {
+   "i": 2067,
+   "c": 45
+  }
+ },
+ "control": {
+  "/camisas-polo-bogota": {
+   "i": 771,
+   "c": 7,
+   "pos": 13.5
+  },
+  "/camisas-polo-medellin": {
+   "i": 24,
+   "c": 1,
+   "pos": 11.6
+  },
+  "/camisas-polo-cartagena": {
+   "i": 69,
+   "c": 4,
+   "pos": 8.5
+  },
+  "/camisas-polo-pereira": {
+   "i": 100,
+   "c": 3,
+   "pos": 8.6
+  },
+  "/camisas-polo-manizales": {
+   "i": 59,
+   "c": 3,
+   "pos": 7.7
+  },
+  "_total": {
+   "i": 1023,
+   "c": 18
+  }
+ }
+}
