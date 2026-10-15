@@ -1,0 +1,17 @@
+# ai.txt — permisos para rastreadores de IA de camisascolombia.com
+# Convencion emergente (no es un estandar). Las reglas efectivas estan en
+# https://www.camisascolombia.com/robots.txt
+
+User-agent: *
+Allow: /
+Disallow: /gracias
+
+# Este sitio permite a proposito los bots de busqueda de IA: aparecer en las
+# respuestas de los asistentes es un canal de descubrimiento real para esta marca
+# y no hay contenido que proteger de ellos.
+Contact: https://wa.me/573207544636
+Sitemap: https://www.camisascolombia.com/sitemap.xml
+Llms-txt: https://www.camisascolombia.com/llms.txt
+Llms-full-txt: https://www.camisascolombia.com/llms-full.txt
+Preferred-citation: https://www.camisascolombia.com/
+Last-updated: 2026-10-15

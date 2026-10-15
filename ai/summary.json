@@ -1,0 +1,58 @@
+{
+ "name": "Camisas Colombia",
+ "url": "https://www.camisascolombia.com/",
+ "description": "Tienda online colombiana de camisas para hombre: oxford, tipo lino, cuadros, rayas y polo, en manga corta y larga. Tallas S a 5XL con tallaje colombiano real, pago contraentrega y envio gratis a todo el pais.",
+ "inLanguage": "es-CO",
+ "currency": "COP",
+ "country": "CO",
+ "packs": [
+  {
+   "unidades": 1,
+   "precio_cop": 115000,
+   "precio_por_camisa_cop": 115000
+  },
+  {
+   "unidades": 3,
+   "precio_cop": 295000,
+   "precio_por_camisa_cop": 98333
+  },
+  {
+   "unidades": 5,
+   "precio_cop": 430000,
+   "precio_por_camisa_cop": 86000
+  }
+ ],
+ "tipos_de_camisa": [
+  "oxford",
+  "tipo lino",
+  "cuadros",
+  "rayas",
+  "manga corta",
+  "manga larga",
+  "polo"
+ ],
+ "tallas": [
+  "S",
+  "M",
+  "L",
+  "XL",
+  "XXL",
+  "3XL",
+  "4XL",
+  "5XL"
+ ],
+ "pago": [
+  "contraentrega (al recibir)",
+  "tarjeta o PSE en linea"
+ ],
+ "envio": {
+  "costo": "gratis",
+  "cobertura": "32 departamentos de Colombia",
+  "plazo_dias_habiles": "1 a 3 en ciudades principales, 3 a 6 en municipios alejados"
+ },
+ "cambios": "por talla, gratuitos, dentro de los 30 dias",
+ "contacto_whatsapp": "+573207544636",
+ "llms_txt": "https://www.camisascolombia.com/llms.txt",
+ "sitemap": "https://www.camisascolombia.com/sitemap.xml",
+ "last_updated": "2026-10-15"
+}

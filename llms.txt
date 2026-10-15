@@ -75,6 +75,7 @@ La disponibilidad por talla y color cambia con el inventario; el checkout solo m
 
 - [Sitemap XML](https://www.camisascolombia.com/sitemap.xml)
 - [robots.txt](https://www.camisascolombia.com/robots.txt)
+- [Corpus completo de preguntas y respuestas](https://www.camisascolombia.com/llms-full.txt)
 - [Guía de tallas](https://www.camisascolombia.com/tallas-de-camisas-hombre-colombia)
 
 Última actualización: 2026-10-11.

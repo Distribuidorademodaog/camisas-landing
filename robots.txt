@@ -17,4 +17,17 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+# Bots de BUSQUEDA: son los que deciden si este sitio puede aparecer en una
+# respuesta de IA, y son distintos de los de entrenamiento de arriba.
+# (El `User-agent: *` del principio ya los permitia; se nombran para que no
+#  haya ambiguedad sobre cual bloque les aplica.)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
 Sitemap: https://www.camisascolombia.com/sitemap.xml
