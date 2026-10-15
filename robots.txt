@@ -5,29 +5,74 @@ Disallow: /*?fbclid=
 Disallow: /*?gclid=
 Disallow: /*?utm_
 
-# Bots de IA: se permiten a proposito. Aparecer en respuestas de
-# asistentes es un canal de descubrimiento y esta marca no tiene
-# contenido que proteger de ellos.
-User-agent: GPTBot
+# ───────── Rastreadores de IA ─────────
+# Se permiten TODOS a proposito: aparecer en las respuestas de los asistentes es
+# un canal de descubrimiento real para esta marca y no hay contenido que proteger.
+# Ya estaban permitidos por el `User-agent: *` de arriba; se nombran uno a uno
+# para que la politica quede explicita y sin ambiguedad sobre que bloque aplica.
+
+# ChatGPT-User — ChatGPT cuando un usuario pide abrir un enlace
+User-agent: ChatGPT-User
 Allow: /
 
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-# Bots de BUSQUEDA: son los que deciden si este sitio puede aparecer en una
-# respuesta de IA, y son distintos de los de entrenamiento de arriba.
-# (El `User-agent: *` del principio ya los permitia; se nombran para que no
-#  haya ambiguedad sobre cual bloque les aplica.)
+# OAI-SearchBot — indice de busqueda de ChatGPT
 User-agent: OAI-SearchBot
 Allow: /
 
+# GPTBot — entrenamiento de OpenAI
+User-agent: GPTBot
+Allow: /
+
+# Claude-SearchBot — indice de busqueda de Claude
 User-agent: Claude-SearchBot
 Allow: /
 
+# Claude-User — Claude cuando un usuario pide abrir un enlace
+User-agent: Claude-User
+Allow: /
+
+# ClaudeBot — entrenamiento de Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+# PerplexityBot — indice de Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Perplexity-User — Perplexity abriendo un enlace a peticion del usuario
+User-agent: Perplexity-User
+Allow: /
+
+# Googlebot — Google Search, que alimenta los AI Overviews
 User-agent: Googlebot
+Allow: /
+
+# Google-Extended — uso para entrenar y fundamentar Gemini
+User-agent: Google-Extended
+Allow: /
+
+# Google-CloudVertexBot — Vertex AI
+User-agent: Google-CloudVertexBot
+Allow: /
+
+# Bingbot — Bing, que es el indice del que recuperan ChatGPT y Copilot
+User-agent: Bingbot
+Allow: /
+
+# Applebot-Extended — Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# DuckAssistBot — DuckDuckGo AI
+User-agent: DuckAssistBot
+Allow: /
+
+# cohere-ai — Cohere
+User-agent: cohere-ai
+Allow: /
+
+# Bytespider — ByteDance
+User-agent: Bytespider
 Allow: /
 
 Sitemap: https://www.camisascolombia.com/sitemap.xml

@@ -1,0 +1,67 @@
+{
+ "name": "Camisas Colombia",
+ "url": "https://www.camisascolombia.com/",
+ "serviceType": "Venta online de camisas para hombre con pago contraentrega",
+ "provider": {
+  "name": "Camisas Colombia",
+  "url": "https://www.camisascolombia.com/",
+  "@id": "https://www.camisascolombia.com/#organization"
+ },
+ "areaServed": {
+  "country": "CO",
+  "detail": "los 32 departamentos de Colombia"
+ },
+ "availableLanguage": [
+  "es-CO"
+ ],
+ "capabilities": [
+  {
+   "name": "Comprar camisas por pack",
+   "description": "Packs de 1, 3 o 5 camisas; el precio por camisa baja al crecer el pack.",
+   "url": "https://www.camisascolombia.com/pack-camisas-polo-hombre"
+  },
+  {
+   "name": "Elegir tipo de camisa",
+   "description": "Oxford, tipo lino, cuadros, rayas y polo, en manga corta o larga.",
+   "url": "https://www.camisascolombia.com/camisas-hombre-colombia"
+  },
+  {
+   "name": "Consultar la tabla de tallas",
+   "description": "Medidas reales en centimetros de la S a la 5XL, espalda y pecho.",
+   "url": "https://www.camisascolombia.com/tallas-de-camisas-hombre-colombia"
+  },
+  {
+   "name": "Pagar contraentrega",
+   "description": "No se paga nada por adelantado: se paga al recibir, en efectivo, Nequi, Daviplata o transferencia."
+  },
+  {
+   "name": "Cambiar la talla",
+   "description": "Cambio por talla gratuito dentro de los 30 dias siguientes a la compra."
+  }
+ ],
+ "offers": {
+  "currency": "COP",
+  "packs": [
+   {
+    "unidades": 1,
+    "precio": 115000
+   },
+   {
+    "unidades": 3,
+    "precio": 295000
+   },
+   {
+    "unidades": 5,
+    "precio": 430000
+   }
+  ]
+ },
+ "shipping": {
+  "cost": "gratis",
+  "leadTimeBusinessDays": "1-3 ciudades principales, 3-6 municipios alejados"
+ },
+ "contact": {
+  "whatsapp": "+573207544636"
+ },
+ "last_updated": "2026-10-15"
+}
