@@ -36,7 +36,11 @@ RL_TW_TITLE = "Catálogo de Camisas Polo: Color, Talla y Ocasión"
 # y la auditoria dejo UN solo BreadcrumbList, no dos. Las constantes compactas
 # y RL_BC1 ya no casaban: el build llevaba semanas abortando en [wp:name].
 RL_WEBPAGE_NAME = '"name": "Catálogo de Camisas Polo: Color, Talla y Ocasión"'
-RL_WEBPAGE_DESC = '"description": "Tienda online colombiana de camisas polo para hombre: algodón piqué, tallas S a 5XL, +20 colores, pago contraentrega y envío gratis."'
+# 2026-10-15: la FASE C de geo_optimizer2 igualo la description del WebPage
+# del pilar a su meta description (el audit marcaba schema_desc_matches_meta:
+# false). Como el pilar ES esta plantilla, hay que actualizar la constante o el
+# build aborta en [wp:desc] — paso exactamente eso al desplegar.
+RL_WEBPAGE_DESC = '"description": "Todo el catálogo de camisas polo para hombre: elige por color (+20), por talla de la S a la 5XL o por ocasión. Pago contraentrega y envío gratis a Colombia."'
 RL_BC = '"name": "Camisas Polo para Hombre en Colombia", "item"'  # hoja del unico BreadcrumbList
 MODULO_REL = re.compile(r'\n<style>\n\.cc-relacionados\{.*?</nav>\n(?=</body>)', re.S)
 
