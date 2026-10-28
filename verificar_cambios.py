@@ -58,7 +58,7 @@ for f in tocados:
     # porque Google Ads aplica su politica de falsificaciones a la pagina de
     # destino y sanciona la cuenta entera. Nombres aprobados por el negocio:
     #   Polo Psycho Bunny            -> Polo Bun
-    #   Polo Lacoste                 -> Polo Coco
+    #   Polo Lacoste                 -> Polo Coco -> Polo Lac (iniciales, 2026-10-27)
     #   Polo Purificacion Garcia     -> Polo Purificacion
     #   Camiseta Psycho Bunny        -> bump eliminado
     #   Camiseta Seleccion Colombia  -> bump eliminado
