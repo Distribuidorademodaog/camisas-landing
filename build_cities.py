@@ -110,11 +110,6 @@ def build_city_section(city: dict) -> str:
 
 {estilo_html}
 {envios_html}
-    <div class="city-block">
-      <h3 class="city-block-title">Lo que dicen nuestros clientes en {name}</h3>
-      <div class="city-testimonials">
-{testi_html}      </div>
-    </div>
 
 {referentes_html}
     <div class="city-block">
